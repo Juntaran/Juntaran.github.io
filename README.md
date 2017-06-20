@@ -1,120 +1,182 @@
-StrayBirds
-==========
+hexo-theme-yilia
+================
 
-基于 GitHub Pages 搭建的极简博客，所有操作都可以直接通过浏览器完成。
+Yilia 是为 [hexo](https://github.com/tommy351/hexo) 2.4+制作的主题。
+崇尚简约优雅，以及极致的性能。 你可以点击 [我的博客](http://litten.me/) 查看效果。           
+ 
+如果想体验手机浏览效果，可以扫一下二维码：
 
-## 示例
+![litten-qrcode](https://cloud.githubusercontent.com/assets/2024949/6349328/51a067fe-bc64-11e4-881c-f68050c50c28.png)
 
-可以通过访问 [StrayBirds](http://minixalpha.github.io/StrayBirds/) 看到最终
-的效果，下面是截图:
+—————————————————————
 
-![ui-demo](/images/ui_demo.png)
+**关于主题：**
 
-## 教程
+1. 崇尚简约       
+2. 追求移动端体验     
+3. 希望把加载速度做到极致（努力中）    
+4. 让大家把注意力放到内容上。这是本主题设计初衷      
+5. 主题不支持IE6，7，8。以后也不会     
 
-### 使用方法
+**近期更新（2016.12.04）：**
 
-1. 注册 GitHub，得到用户名，例如 minixbeta
-2. 到 [StrayBirds](https://github.com/minixalpha/StrayBirds) 页面，单击右上
-角的 Fork
-3. 到你 Fork 后的项目中，将 `_config.yml` 中的 username 修改为你的用户名 minixbeta
-4. 访问你的博客 http://minixbeta.github.io/StrayBirds/
+1. 打赏
+2. 搜索
+3. “更好的”标签云
+4. “更好的”分享
+5. 一些动画
 
-![create_project](/images/create_project.gif)
+**计划中：**
 
-**注意如果你是第一次使用 GitHub Pages，可能不会马上生效，等一段时间即可**
+1. TOC
+2. 移动端优化
+             
+## 一、外观
 
-**按照配置中说的方法修改项目名称可能会加快这一进程**
+####**常规**
 
-### 配置
+![常规](https://cloud.githubusercontent.com/assets/2024949/19027861/92879edc-8967-11e6-8e60-7987b6507c8d.gif)
 
-* 修改主题
+####**手机**
 
-在 `_confg.yml` 下修改 theme 的值。
+![手机](https://cloud.githubusercontent.com/assets/2024949/19027020/1c5b756a-895f-11e6-99bf-ddff9687aee0.gif)   
 
-**注意修改主题后，并不会马上生效，GitHub 还要反应一段时间，所以请耐心等待**
+####**ipad横竖屏切换**
 
-**修改主题后, 按照配置中说的方法修改项目名称可能会加快这一进程**
+![ipad横竖屏切换](https://cloud.githubusercontent.com/assets/2024949/19026392/e74e1816-8957-11e6-8f08-eac9b3c8c036.gif)                    
 
-可选主题包括：
+## 二、开发者
 
-- hack
-	![hack-demo](/images/hack-demo.png)
-- leap-day
-	![leap-day-demo](/images/leap-day-demo.png)
-- merlot
-	![merlot-demo](/images/merlot-demo.png)
-- midnight
-	![midnight-demo](/images/midnight-demo.png)
-- minimal
-	![minimal-demo](/images/minimal-demo.png)
-- modernist
-	![modernist-demo](/images/modernist-demo.png)
-- slate
-	![slate-demo](/images/slate-demo.png)
-- time-machine
-	![time-machine-demo](/images/time-machine-demo.png) 
-- kunka
-	![kunka-demo](/images/kunka-demo.png)
+为了性能和开发工程化考虑，Yilia需要使用webpack进行构建生成。
 
-* 修改项目名
+如果您对主题有一些定制化的需求，请参考wiki[《Yilia源码目录结构及构建须知》](https://github.com/litten/hexo-theme-yilia/wiki/Yilia%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%8F%8A%E6%9E%84%E5%BB%BA%E9%A1%BB%E7%9F%A5)
 
-例如将 StrayBirds 修改为 blog，那么你需要做的是
+## 三、使用
 
-1. 在项目的 Setting 中将 Repository name 从 StrayBirds 修改为 blog
-2. 将 `_config.yml` 中的 baseurl 修改为 /blog
-3. 通过 http://minixbeta.github.io/blog/ 来访问你的新博客
+#### 安装
 
-![create_post](/images/change_project_name.gif)
-
-
-* 修改评论系统用户名
-
-我们的评论系统使用的是 [Disqus](https://disqus.com/)，如果你想在这份博客模板中使用，需要先去注册一下，然后得到一个用户名，例如 minixalpha。然后在 `_config.yml` 中将 disqusname 修改为 minixalpha。
-
-**千万注意: 如果你开启评论系统一定要修改这个值，不然就评论到我的评论系统中去了**
-
-### 添加文章
-
-在 `_post` 目录下添加形如 `2014-10-26-title.md` 的文章，用 markdown 格式
-撰写博客。
-
-例如：
-
-```
----
-layout: post
-title: Java 中的并发
-comments: true
-category: 技术
----
-
-
-## 如何创建一个线程
-
-按 Java 语言规范中的说法，创建线程只有一种方式，就是创建一个 Thread 对象。而从 HotSpot 虚拟机的角度看，创建一个虚拟机线程
-有两种方式，一种是创建 Thread 对象，另一种是创建 一个本地线程，加入到虚拟机线程中。
-
-...
-
+``` bash
+$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
 ```
 
-其中 `layout` 表示布局，不用改变，`title` 表示文章题目，`comments` 表示是否要开户评论。
+#### 配置
 
-![create_post](/images/create_post.gif)
+修改hexo根目录下的 `_config.yml` ： `theme: yilia`
 
-## 感谢
+#### 更新
 
-Thanks to authors of the themes:
+``` bash
+cd themes/yilia
+git pull
+```
 
-* [hack](https://github.com/sundaykofax/baby-legs), Licence: None
-* [leap-day](https://github.com/mattgraham/leapday), Licence: [Creative Commons Attribution](http://creativecommons.org/licenses/by/3.0/)
-* [merlot](https://github.com/cameronmcefee/headsmart/tree/gh-pages), Licence: None
-* [midnight](https://github.com/briandoll/change-inside-surroundings.vim/tree/gh-pages), Licence: None
-* [minimal](https://github.com/orderedlist/minimal), Licence: [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
-* [modernist](https://github.com/orderedlist/modernist), Licence: [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
-* [slate](https://github.com/jasoncostello/slate), Licence: MIT
-* [time-machine](https://github.com/jonrohan/time-machine-theme), Licence: None
-* [kunka](https://github.com/pizn/kunka), Licence: MIT, author: [zhanxin.info](http://www.zhanxin.info/)
+## 四、配置
 
-All the themes are intergrated in the blog template, with some modifies.
+主题配置文件在主目录下的`_config.yml`，请根据自己需要修改使用。
+完整配置例子，可以参考[我的博客备份](https://github.com/litten/BlogBackup)
+
+```
+# Header
+
+menu:
+  主页: /
+  随笔: /tags/随笔/
+
+# SubNav
+subnav:
+  github: "#"
+  weibo: "#"
+  rss: "#"
+  zhihu: "#"
+  #qq: "#"
+  #weixin: "#"
+  #jianshu: "#"
+  #douban: "#"
+  #segmentfault: "#"
+  #bilibili: "#"
+  #acfun: "#"
+  #mail: "mailto:litten225@qq.com"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+rss: /atom.xml
+
+# 是否需要修改 root 路径
+# 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
+# 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
+root: 
+
+# Content
+
+# 文章太长，截断按钮文字
+excerpt_link: more
+# 文章卡片右下角常驻链接，不需要请设置为false
+show_all_link: '展开全文'
+# 数学公式
+mathjax: false
+# 是否在新窗口打开链接
+open_in_new: false
+
+# 打赏
+# 请在需要打赏的文章的md文件头部，设置属性reward: true
+
+# 打赏基础设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+reward_type: 2
+# 打赏wording
+reward_wording: '谢谢你请我吃糖果'
+# 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+alipay: 
+# 微信二维码图片地址
+weixin: 
+
+# Miscellaneous
+baidu_analytics: ''
+google_analytics: ''
+favicon: /favicon.png
+
+#你的头像url
+avatar:
+
+#是否开启分享
+share_jia: true
+
+#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
+#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
+duoshuo: false
+
+# 样式定制 - 一般不需要修改，除非有很强的定制欲望…
+style:
+  # 头像上面的背景颜色
+  header: '#4d4d4d'
+  # 右滑板块背景
+  slider: 'linear-gradient(200deg,#a0cfe4,#e8c37e)'
+
+# slider的设置
+slider:
+  # 是否默认展开tags板块
+  showTags: false
+  
+# 智能菜单
+# 如不需要，将该对应项置为false
+# 比如
+#smart_menu:
+#  friends: false
+smart_menu:
+  innerArchive: '所有文章'
+  friends: '友链'
+  aboutme: '关于我'
+
+friends:
+  友情链接1: http://localhost:4000/
+  友情链接2: http://localhost:4000/
+  友情链接3: http://localhost:4000/
+  友情链接4: http://localhost:4000/
+  友情链接5: http://localhost:4000/
+  友情链接6: http://localhost:4000/
+
+aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+```
+
+

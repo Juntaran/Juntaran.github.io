@@ -1,129 +1,109 @@
+# Header
+
+menu:
+  主页: /
+  随笔: /tags/随笔/
+
+# SubNav
+subnav:
+  github: "https://github.com/Juntaran"
+  weibo: "http://weibo.com/juntaran"
+  rss: "#"
+  zhihu: "https://zhihu.com/people/Juntaran"
+  qq: "1093130996"
+  #weixin: "#"
+  #jianshu: "#"
+  #douban: "#"
+  #segmentfault: "#"
+  #bilibili: "#"
+  #acfun: "#"
+  mail: "mailto:Jacinthmail@gmail.com"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+rss: /atom.xml
+
+# 是否需要修改 root 路径
+# 如果您的网站存放在子目录中，例如 http://yoursite.com/blog，
+# 请将您的 url 设为 http://yoursite.com/blog 并把 root 设为 /blog/。
+root: 
+
+# Content
+
+# 文章太长，截断按钮文字
+excerpt_link: more
+# 文章卡片右下角常驻链接，不需要请设置为false
+show_all_link: '展开全文'
+# 数学公式
+mathjax: false
+# 是否在新窗口打开链接
+open_in_new: false
+
+# 打赏
+# 请在需要打赏的文章的md文件头部，设置属性reward: true
+
+# 打赏基础设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏
+reward_type: 2
+# 打赏wording
+reward_wording: '谢谢你包养我'
+# 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+alipay: /img/zhifubao.jpg 
+# 微信二维码图片地址
+weixin: /img/weixin.jpg
+
+# Miscellaneous
+baidu_analytics: ''
+google_analytics: ''
+favicon: /favicon.png
 
 
+#你的头像url
+avatar: /img/avatar.jpg
 
-######################### theme kunka condigure ##############################################
-# Where things are
-source:       .
-destination:  ./_site
-plugins:      ./_plugins
-layouts:      ./_layouts
-paginate:     8
+#是否开启分享
+share_jia: true
 
-# Handling Reading
-safe:         false
-include:      [".htaccess"]
-exclude:      []
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-textile_ext:  "textile"
+#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus 不需要使用某项，直接设置值为false，或注释掉
+#具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
 
-# Filtering Content
-show_drafts:  null
-limit_posts:  0
-future:       true
-unpublished:  false
+#1、多说
+duoshuo: false
 
-# Conversion
-markdown:     kramdown
-highlighter:  pygments
-lsi:          false
-excerpt_separator: "\n\n"
+#2、网易云跟帖
+wangyiyun: false
 
-# Serving
-detach:       false
-port:         4000
-host:         127.0.0.1
-baseurl:      "" # does not include hostname
+#3、畅言
+changyan_appid: false
+changyan_conf: false
 
-# Outputting
-permalink:     date
-paginate_path: /page:num
-timezone:      null
+#4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
+disqus: false
 
+# 样式定制 - 一般不需要修改，除非有很强的定制欲望…
+style:
+  # 头像上面的背景颜色
+  header: '#4d4d4d'
+  # 右滑板块背景
+  slider: 'linear-gradient(200deg,#a0cfe4,#e8c37e)'
 
-#Site config
-title: Jekyll Theme
-description: Just another Jekyll theme design and code by zhanxin.info.
-keywords: Jekyll Theme
-url: /StrayBirds
-feed: /atom.xml
-favicon: http://jekyllrb.com/favicon.png
+# slider的设置
+slider:
+  # 是否默认展开tags板块
+  showTags: false
 
-#Nav config
-nav:
-  - text: 首页
-    url: index.html
-  - text: 分类目录 
-    url: navigations/categories.html
-  - text: 文章归档
-    url: navigations/archives.html
-  - text: 联系我
-    url: navigations/contact.html
-  - text: 友情链接
-    url: navigations/links.html
+# 智能菜单
+# 如不需要，将该对应项置为false
+# 比如
+#smart_menu:
+#  friends: false
+smart_menu:
+  innerArchive: '所有文章'
+  friends: '友链'
+  aboutme: '关于我'
 
-#Author config
-author:
-    name: minixalpha
-    email: xkzbeta@outlook.comment
-    imageLink: https://avatars.githubusercontent.com/minixalpha
-    simpleIntro: 我是 minixalpha
-    detailIntro:
-      <p>Jekyll 是一个简洁的、特别针对博客平台的 静态网站 生成器。它使用一个模板目录作为网站布局的基础框架，并在其上运行 Textile 、 Markdown 或 Liquid 标记语言的转换器，最终生成一个完整的静态Web站点，可以被放置在Apache或者你喜欢的其他任何Web服务器上。它同时也是 GitHub Pages 、一个由 GitHub 提供的用于托管项目主页或博客的服务，在后台所运行的引擎。</p>
-      <p>很早之前，使用过 wordpress 来写博客。但是还要处理很多的底层问题。而使用 Jekyll 来写博客，可以很简单，写 Markdown 就好。然而，Jekyll 还很年轻，没有很多主题的支持。这里的主题，就是为 Jekyll 而写的。希望你能喜欢。</p>
+friends:
+  博客园: http://juntaran.cnblogs.com
 
-#Follow me, you can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
-follow:
-  - class: icon-rss
-    url: /atom.xml
-  - class: icon-weibo
-    url: http://weibo.com
-  - class: icon-renren
-    url: http://renren.com
-  - class: icon-github-alt
-    url: http://github.com
-  - class: icon-twitter
-    url: http://twitter.com
-  - class: icon-google-plus
-    url: http://google.com
-
-#Links
-customLinks:
-  - item:
-    - text: 掌心
-      url: http://www.zhanxin.info
-    - text: Jekyll
-      url: http://jekyllrb.com
-    - text: Jekyll Theme
-      url: http://www.zhanxin.info/themes.html
-    message: Friends
-  - item:
-    - text: Font Awesome
-      url: http://fortawesome.github.io/Font-Awesome/
-    - text: Google Font
-      url: http://www.google.com/fonts/
-    - text: jQuery
-      url: http://jquery.com/
-    message: 其他相关链接
-
-#comment config
-disqus:
-  config: false
-  id: minixalpha
-
-
-#################################### global configure #######################################
-
-username: Juntaran
-baseurl: /
-markdown: redcarpet
-safe: false
-highlighter: pygments
-title: 飞鸟集
-description: 天上风筝在天上飞，地上人儿在地上追
-theme: kunka
-disqusname: Juntaran
-
-# theme can be: hack, leap-day, merlot, midnight, minimal, modernist, slate, time-machine, kunka
-# those themes are all come from GitHub Pages Themes
+aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
