@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Juntaran</title>
+  <title>Go的并发机制 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="不要用共享内存的方式来通信，要以通信作为手段来共享内存推荐使用通道(channel)在多个goroutine之间传递数据，并且还能够保证整个过程的并发安全 goroutinego语句与goroutine一条go语句意味着一个函数或方法的并发执行 如果要向go语句中传值，应该为go函数添加一个参数声明 names := []string{&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;">
+<meta name="keywords" content="Go,并发编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go的并发机制">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/Go的并发机制/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="不要用共享内存的方式来通信，要以通信作为手段来共享内存推荐使用通道(channel)在多个goroutine之间传递数据，并且还能够保证整个过程的并发安全 goroutinego语句与goroutine一条go语句意味着一个函数或方法的并发执行 如果要向go语句中传值，应该为go函数添加一个参数声明 names := []string{&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;">
+<meta property="og:updated_time" content="2017-06-21T05:36:10.670Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="Go的并发机制">
+<meta name="twitter:description" content="不要用共享内存的方式来通信，要以通信作为手段来共享内存推荐使用通道(channel)在多个goroutine之间传递数据，并且还能够保证整个过程的并发安全 goroutinego语句与goroutine一条go语句意味着一个函数或方法的并发执行 如果要向go语句中传值，应该为go函数添加一个参数声明 names := []string{&amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,142 +158,139 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Go的并发机制" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/17/Go数据结构/" class="archive-article-date">
-  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
+    <h1 class="article-title" itemprop="name">
+      Go的并发机制
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
+        
+        <a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
   	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>不要用共享内存的方式来通信，要以通信作为手段来共享内存</strong><br>推荐使用通道(channel)在多个goroutine之间传递数据，并且还能够保证整个过程的并发安全</p>
+<h2 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h2><h3 id="go语句与goroutine"><a href="#go语句与goroutine" class="headerlink" title="go语句与goroutine"></a>go语句与goroutine</h3><p>一条go语句意味着一个函数或方法的<code>并发</code>执行</p>
+<p>如果要向go语句中传值，应该为go函数添加一个参数声明</p>
+<pre><code>names := []string{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;}
+for _, name := range names {
+    go func(who string) {
+        fmt.Printf(&quot;%s\n&quot;, who)
+    } (name)
+}
+</code></pre><p>不加参数是不正确的</p>
+<pre><code>names := []string{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;}
+for _, name := range names {
+    go func() {
+        fmt.Printf(&quot;%s\n&quot;, who)
+    } ()
+}
+</code></pre><p>go语句是在for循环执行完毕之后才执行的</p>
+<h2 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h2><p>channel提供了一种机制，<br>既可以同步两个并发执行的函数，也可以让这两个函数通过相互传递特定类型的值来通信  </p>
+<h3 id="channel的基本概念"><a href="#channel的基本概念" class="headerlink" title="channel的基本概念"></a>channel的基本概念</h3><p>channel既指<code>通道类型</code>，也指可以传递某种类型的值的<code>通道</code>  </p>
+<h4 id="类型表示法"><a href="#类型表示法" class="headerlink" title="类型表示法"></a>类型表示法</h4><p>与切片类型和字典类型相同，通道类型也属于引用类型</p>
+<pre><code>chan T
+</code></pre><p><code>chan</code>代表了通道类型的关键字，<code>T</code>代表了通道类型的元素类型</p>
+<pre><code>type IntChan chan int
+</code></pre><p>别名类型<code>IntChan</code>代表了元素类型为<code>int</code>的<code>通道类型</code></p>
+<pre><code>var intChan chan int
+</code></pre><p>初始化后，<code>intChan变量</code>可以用来传递<code>int</code>类型的元素值了  </p>
+<p>上面这种声明方式意味着该通道类型是<code>双向</code>的，<br>既可以向这个通道发送元素值，也可以从它接收元素值  </p>
+<p><code>单向通道</code>需要<code>接收操作符&lt;-</code>  </p>
+<pre><code>chan&lt;- T
+</code></pre><p>这是<code>只能用于发送值</code>的通道类型的泛化表示，<code>&lt;-</code>表示元素值的流向  </p>
+<pre><code>&lt;-chan T
+</code></pre><p>这是<code>只能用于接收值</code>的通道类型</p>
+<h4 id="值表示法"><a href="#值表示法" class="headerlink" title="值表示法"></a>值表示法</h4><p>一个通道类型的变量在被初始化之前，其值一定是<code>nil</code></p>
+<h4 id="操作特性"><a href="#操作特性" class="headerlink" title="操作特性"></a>操作特性</h4><p>在同一时刻，仅有一个goroutine能向一个通道发送一个元素值，<br>同时也仅有一个goroutine能从它那里接收值<br>通道相当于一个<code>FIFO</code>的消息队列<br>每个元素值都是严格按照发送到此的先后顺序排列的<br>通道中的元素值具有<code>原子性</code>，不可分割，每一个元素值只能被某一个goroutine接收，<br>已接收的元素值会立刻从通道中删除  </p>
+<h4 id="初始化通道"><a href="#初始化通道" class="headerlink" title="初始化通道"></a>初始化通道</h4><p>引用类型的值都需要使用内建函数<code>make</code>来初始化  </p>
+<pre><code>make(chan int, 10)
+</code></pre><p>这是一个最大缓冲为10的、传递元素类型为int的双向通道<br>同样，也可以设置无缓冲通道，那么发送给它的元素值应该被立即取走，<br>否则发送方的goroutine会阻塞，直到有接收方来接收</p>
+<h4 id="接收元素值"><a href="#接收元素值" class="headerlink" title="接收元素值"></a>接收元素值</h4><p>接收操作符&lt;-不但可以作为通道类型声明的一部分，也可以用于通道操作</p>
+<pre><code>strChan := make(chan string, 3)
+</code></pre><p>此时，strChan是一个双向传递string类型的通道，容量为3  </p>
+<pre><code>elem := &lt;-strChan
+</code></pre><p>把strChan的一个元素赋给变量elem</p>
+<pre><code>elem, ok := &lt;-strChan
+</code></pre><p>这种也可以，ok为布尔类型，判断接收操作是否因通道关闭而失败  </p>
+<p><strong>试图从一个未初始化的通道接收元素，会造成当前goroutine永久阻塞</strong></p>
+<h4 id="Happens-before-缓冲通道的规则"><a href="#Happens-before-缓冲通道的规则" class="headerlink" title="Happens before 缓冲通道的规则"></a>Happens before 缓冲通道的规则</h4><ul>
+<li>如果通道缓冲已满，发送goroutine会阻塞</li>
+<li>如果通道缓冲为空，接收goroutine会阻塞</li>
+<li>对于同一个元素值来说，把它发送给某个通道的操作，一定会在从该通道接收它的操作完成之前完成</li>
+</ul>
+<h4 id="发送元素值"><a href="#发送元素值" class="headerlink" title="发送元素值"></a>发送元素值</h4><pre><code>strChan &lt;- &quot;a&quot;
+</code></pre><h4 id="通道的安全性"><a href="#通道的安全性" class="headerlink" title="通道的安全性"></a>通道的安全性</h4><p>向一个已经关闭的通道发送数据会panic<br>一个关闭的通道仍然可以使用接收表达式取出数据</p>
+<ul>
+<li>在发送端关闭通道</li>
+<li>一个通道只能关闭一次</li>
+</ul>
+<p><code>len</code>和<code>cap</code>可以用于channel，通道的容量不可改变</p>
+<h3 id="单向通道"><a href="#单向通道" class="headerlink" title="单向通道"></a>单向通道</h3><p>一个<code>只进不出</code>的通道和一个<code>只出不进</code>的通道是没有任何意义的<br>因此，单向通道不应该出现在变量的声明中  </p>
+<p>单向通道是由双向通道转化而来</p>
+<pre><code>func Notify(c chan&lt;- os.Signal, sig ...os.Signal)
+</code></pre><p>该函数的第一个参数类型为发送通道类型，<br>在调用这个函数的时候，应该传入一个<code>双向通道</code>，Go会根据参数的声明自动转换为单向通道<br>单向通道由双向通道转化而来，但是单项通道不能够转换回双向通道  </p>
+<h3 id="select语句"><a href="#select语句" class="headerlink" title="select语句"></a>select语句</h3><p>select语句是一种仅能用于通道发送和接收操作的专用语句，表现形式与switch语句类似，但是分支选择方法不同</p>
+<p>在执行select语句时，系统自上而下判断每个case的发送或接收操作是否可以立即进行<br>这里的<code>立即进行</code>是指当前goroutine不会因此操作而被阻塞<br>当一个case被选中，会执行该case语句<br>如果同时有多个case满足条件，系统会通过一个伪随机算法选中一个case<br>default可以放在任何位置，不会影响分支选择</p>
+<h3 id="非缓冲channel"><a href="#非缓冲channel" class="headerlink" title="非缓冲channel"></a>非缓冲channel</h3><h4 id="Happens-before"><a href="#Happens-before" class="headerlink" title="Happens before"></a>Happens before</h4><p>与缓冲通道相比，非缓冲通道的happen before原则有两个特别之处</p>
+<ul>
+<li>向此类通道发送元素会被阻塞，直到有至少一个针对该通道的接收操作进行。接收操作会先得到元素值副本，然后唤醒发送方所在goroutine后返回。这种情况下，接收操作在发送操作完成之前完成</li>
+<li>从此类通道接收元素会被阻塞，直到有至少一个针对该通道的发送操作进行。发送操作会直接把元素值复制给接收方，然后唤醒接收方所在goroutine后返回。这种情况下，发送操作在接收操作完成之前完成</li>
+</ul>
+<h4 id="同步的特性"><a href="#同步的特性" class="headerlink" title="同步的特性"></a>同步的特性</h4><p>非缓冲channel的收发元素值速度与慢的一方持平</p>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1950" target="_blank" rel="external">Go并发编程实战</a></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -307,7 +306,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -320,70 +319,96 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/10/Go的并发机制/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
-  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/10/爬虫学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          爬虫学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/01/Go并发编程基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Go并发编程基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -406,8 +431,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

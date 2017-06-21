@@ -8,12 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="我想养只猪">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Juntaran">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Juntaran">
+<meta property="og:description" content="我想养只猪">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Juntaran">
+<meta name="twitter:description" content="我想养只猪">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -48,13 +51,15 @@
 		  <h1 class="header-author"><a href="/">Juntaran</a></h1>
 		</hgroup>
 		
+		<p class="header-subtitle">無趣而又無知</p>
+		
 
 		<nav class="header-menu">
 			<ul>
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/categories">目录</a></li>
 	        
 			</ul>
 		</nav>
@@ -106,6 +111,8 @@
 			  <h1 class="header-author js-header-author">Juntaran</h1>
 			</hgroup>
 			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>無趣而又無知<i class="icon icon-quo-right"></i></p>
+			
 			
 			
 				
@@ -134,7 +141,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/categories">目录</a></li>
 		        
 				</ul>
 			</nav>
@@ -151,27 +158,104 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-testCate-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/21/testCate-md/">testCate.md</a>
+      <a class="article-title" href="/2017/06/20/ping/">nmap</a>
     </h1>
   
 
         
-        <a href="/2017/06/21/testCate-md/" class="archive-article-date">
-  	<time datetime="2017-06-21T05:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
+        <a href="/2017/06/20/ping/" class="archive-article-date">
+  	<time datetime="2017-06-20T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><em>2017.6.20</em></p>
+<pre><code>ping  [-aAbBdDfhLnOqrRUvV46] [-c count] [-F flowlabel] [-i interval] [-I interface] [-l preload] [-m mark] [-M pmtudisc_option] [-N nodeinfo_option] [-w deadline] [-W timeout] [-p pattern] [-Q tos] [-s packetsize] [-S sndbuf] [-t ttl] [-T timestamp option] [hop ...] destination
+</code></pre><p>重点参数列表：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-4</td>
+<td>使用IPv4</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>使用IPv6</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>ping一个广播地址</td>
+</tr>
+<tr>
+<td>-c count</td>
+<td>指定 ping 的次数为<code>count</code></td>
+</tr>
+<tr>
+<td>-D</td>
+<td>打印时间戳</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>flood ping，必须有 root 权限</td>
+</tr>
+<tr>
+<td>-i interval</td>
+<td>每隔<code>interval</code>秒 ping 一次</td>
+</tr>
+<tr>
+<td>-I interface</td>
+<td>使用指定的<code>interface</code>网卡 ping</td>
+</tr>
+<tr>
+<td>-l preload</td>
+<td>在发送前<code>preload</code>个数据包的时候不等待 reply，preload &gt; 3 需要 root权限</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>使用数字输出，不尝试转换为 host</td>
+</tr>
+<tr>
+<td>-p pattern</td>
+<td>指定用16个“填充”字节<code>pattern</code>填充发送的包，<code>-p ff</code> 则为全部用1填充</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>不显示任何传送封包的信息，只显示最后的结果</td>
+</tr>
+<tr>
+<td>-s packetsize</td>
+<td>指定 ping 的数据包大小，默认64字节</td>
+</tr>
+<tr>
+<td>-t ttl</td>
+<td>指定 ping 的 TTL 为<code>ttl</code>，路由器转发数据包时，TTL 值会减一，为0则该数据包生命终止</td>
+</tr>
+<tr>
+<td>-w deadline</td>
+<td>设定终止时间为<code>deadline</code>，应与<code>-c count</code>配合使用</td>
+</tr>
+<tr>
+<td>-W timeout</td>
+<td>设定等待回应的时间为<code>timeout</code></td>
+</tr>
+</tbody>
+</table>
+
       
 
       
@@ -184,11 +268,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分类</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -200,7 +284,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/测试/" class="article-tag-list-link color3">测试</a>
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -209,7 +293,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/21/testCate-md/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/20/ping/">展开全文 >></a>
         </p>
       
 
@@ -224,132 +308,485 @@
 
 
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-tcpdump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/test/">test</a>
+      <a class="article-title" href="/2017/06/18/tcpdump/">tcpdump</a>
     </h1>
   
 
         
-        <a href="/2017/06/20/test/" class="archive-article-date">
-  	<time datetime="2017-06-20T13:20:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
+        <a href="/2017/06/18/tcpdump/" class="archive-article-date">
+  	<time datetime="2017-06-18T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This is a test~</p>
-<p>汪汪汪</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/20/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/20/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-20T12:43:30.163Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/20/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-test3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/21/test3/">test3</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/21/test3/" class="archive-article-date">
-  	<time datetime="2017-05-21T01:02:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Rua!!!</p>
+        <p><em>2017.6.18</em></p>
+<h2 id="1-tcpdump-选项与参数"><a href="#1-tcpdump-选项与参数" class="headerlink" title="1. tcpdump 选项与参数"></a>1. tcpdump 选项与参数</h2><pre><code>tcpdump [选项] [-c 数量]  [-F 表达式文件名] [-i 网卡名] [-r 读入文件名] [-s 抓包大小] [-T 解释类型] [-w 写入文件名 [-C 文件大小 [-W 文件数量]] [-U]] [表达式]
+</code></pre><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>参数</th>
+<th>说明</th>
+<th>重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-A</strong></td>
+<td></td>
+<td>以 <code>ASCII 码</code>方式显示每一个数据包（不会显示数据包中链路层头部信息），在抓取包含网页数据的数据包时, 可方便查看数据</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-c</strong></td>
+<td>count</td>
+<td>在接受到<code>count</code>个数据包后退出</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-C</strong></td>
+<td>file-size</td>
+<td>该选项使得 tcpdump 在把原始数据包直接保存到文件中之前, 检查此文件大小是否超过<code>file-size</code>。如果超过了，将关闭当前文件，开启一个文件继续用于原始数据包的记录。file-size 的单位是百万字节（这里指1,000,000个字节，并非1024 ＊ 1024个字节）</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-d</td>
+<td></td>
+<td>以容易阅读的形式打印，打印后退出</td>
+<td></td>
+</tr>
+<tr>
+<td>-dd</td>
+<td></td>
+<td>以C语言的形式打印出包匹配码，打印后退出</td>
+<td></td>
+</tr>
+<tr>
+<td>-ddd</td>
+<td></td>
+<td>以十进制数的形式打印出包匹配码，打印后退出</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-D</strong></td>
+<td></td>
+<td>打印出系统中所有可以用 tcpdump 截包的网络接口，网络接口名字和数字编号可以用在 tcpdump 的<code>-i flag</code></td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-e</strong></td>
+<td></td>
+<td>在输出行打印出<code>数据链路层</code>的头部信息</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>spi@ipaddr algo:secret,…</td>
+<td>解密IPsec ESP包</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-f</strong></td>
+<td></td>
+<td>显示外部的 IPv4 地址时，采用数字方式而不是名字</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>file</td>
+<td>使用<code>file</code>文件作为过滤条件表达式的输入，此时命令行上的输入将被忽略</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-i</strong></td>
+<td>interface</td>
+<td>指定<code>interface</code>为 tcpdump 需要监听的网络接口</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-l</td>
+<td></td>
+<td>对标准输出进行行缓冲，遇到一个换行符就马上把这行的内容打印出来</td>
+<td></td>
+</tr>
+<tr>
+<td>-L</td>
+<td></td>
+<td>列出指定网络接口所支持的数据链路层的类型后退出</td>
+<td></td>
+</tr>
+<tr>
+<td>-m</td>
+<td>module</td>
+<td>通过<code>module</code>指定的 file 装载 SMI、MIB 模块，用于 SNMP 协议数据包抓取</td>
+<td></td>
+</tr>
+<tr>
+<td>-M</td>
+<td>secret</td>
+<td>如果 TCP 数据包(TCP segments)有TCP-MD5选项，为其摘要的验证指定一个公共的密钥<code>secret</code>，RFC 2385</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-n</strong></td>
+<td></td>
+<td>不把网络地址转换成名字</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-nn</strong></td>
+<td></td>
+<td>不进行端口名称的转换</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-N</td>
+<td></td>
+<td>不打印出 host 的域名部分，<code>nic</code>而不是 <code>nic.ddn.mil</code></td>
+<td></td>
+</tr>
+<tr>
+<td>-O</td>
+<td></td>
+<td>不启用进行包匹配时所用的优化代码</td>
+<td></td>
+</tr>
+<tr>
+<td>-p</td>
+<td></td>
+<td>一般情况下，把网络接口设置为<code>非混杂</code>模式.</td>
+<td></td>
+</tr>
+<tr>
+<td>-q</td>
+<td></td>
+<td>静默输出，信息很少</td>
+<td></td>
+</tr>
+<tr>
+<td>-R</td>
+<td></td>
+<td>对 ESP/AH 数据包的解析按照 RFC1825 而不是 RFC1829</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-r</strong></td>
+<td>file</td>
+<td>从文件<code>file</code>中读取包数据，如果<code>file</code>字段为<code>-</code>符号, 则 tcpdump 会从标准输入中读取包数据</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-S</td>
+<td></td>
+<td>打印 TCP 数据包的顺序号时，使用绝对的顺序号，而不是相对的顺序号</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-s</strong></td>
+<td>snaplen</td>
+<td>设置 tcpdump 的数据包抓取长度为<code>snaplen</code>，默认为68字节，加上<code>-s 0</code>后可以抓到完整的数据包</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>type</td>
+<td>强制 tcpdump 按<code>type</code>指定的协议所描述的包结构来分析收到的数据包（包括aodv、cnfp、rtcp、tftp）</td>
+<td></td>
+</tr>
+<tr>
+<td>-t</td>
+<td></td>
+<td>不打印时间戳</td>
+<td></td>
+</tr>
+<tr>
+<td>-tt</td>
+<td></td>
+<td>不对每行输出的时间进行格式处理</td>
+<td></td>
+</tr>
+<tr>
+<td>-ttt</td>
+<td></td>
+<td>tcpdump 输出时，每两行打印之间会延迟一个段时间（以毫秒为单位）</td>
+<td></td>
+</tr>
+<tr>
+<td>-tttt</td>
+<td></td>
+<td>在每行打印的时间戳之前添加日期的打印</td>
+<td></td>
+</tr>
+<tr>
+<td>-u</td>
+<td></td>
+<td>打印出未加密的 NFS</td>
+<td></td>
+</tr>
+<tr>
+<td>-U</td>
+<td></td>
+<td>使得当 tcpdump 在使用<code>-w</code>选项时，其文件写入与包的保存同步</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-v</strong></td>
+<td></td>
+<td>当分析和打印的时候，产生详细的输出。 比如，包的生存时间，标识，总长度以及 IP 包的一些选项。这也会打开一些附加的包完整性检测，比如对IP或ICMP包头部的校验和</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-vv</td>
+<td></td>
+<td>产生比<code>-v</code>更详细的输出。比如，NFS 回应包中的附加域将会被打印，SMB 数据包也会被完全解码</td>
+<td></td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td></td>
+<td>产生比<code>-vv</code>更详细的输出。比如，telent 时所使用的 SB，SE 选项将会被打印</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-w</strong></td>
+<td>file</td>
+<td>把包数据直接写入<code>file</code>文件而不进行分析和打印输出，可以配合<code>-r</code></td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-W</strong></td>
+<td>filecount</td>
+<td>与<code>-C</code>选项配合使用，这将限制可打开的文件数目，并且当文件数据超过<code>filecount</code>的限制时，依次<code>循环替代之前的文件</code></td>
+<td>√</td>
+</tr>
+<tr>
+<td>-x</td>
+<td></td>
+<td>当分析和打印时，tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据（但不包括连接层的头部）</td>
+<td></td>
+</tr>
+<tr>
+<td>-xx</td>
+<td></td>
+<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据，其中包括数据链路层的头部</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-X</strong></td>
+<td></td>
+<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据（但不包括连接层的头部）</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-XX</strong></td>
+<td></td>
+<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据，其中包括数据链路层的头部</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>datalinktype</td>
+<td>设置 tcpdump 只捕获数据<code>链路层协议</code>类型是<code>datalinktype</code>的数据包</td>
+<td></td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>user</td>
+<td>使 tcpdump 放弃自己的超级权限，并把当前tcpdump的用户ID设置为<code>user</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-tcpdump-表达式"><a href="#2-tcpdump-表达式" class="headerlink" title="2. tcpdump 表达式"></a>2. tcpdump 表达式</h2><h3 id="2-1-类型"><a href="#2-1-类型" class="headerlink" title="2.1 类型"></a>2.1 类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>主机</td>
+</tr>
+<tr>
+<td>net</td>
+<td>网络</td>
+</tr>
+<tr>
+<td>port</td>
+<td>端口号</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-传输方向"><a href="#2-2-传输方向" class="headerlink" title="2.2 传输方向"></a>2.2 传输方向</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td>源</td>
+</tr>
+<tr>
+<td>dst</td>
+<td>目的</td>
+</tr>
+<tr>
+<td>默认</td>
+<td>双向</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-3-协议"><a href="#2-3-协议" class="headerlink" title="2.3 协议"></a>2.3 协议</h3><table>
+<thead>
+<tr>
+<th>协议</th>
+<th>层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ether</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>fddi</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>wlan</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>ppp</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>slip</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>link</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>ip6</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>arp</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>rarp</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>icmp</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>tcp</td>
+<td>传输层</td>
+</tr>
+<tr>
+<td>udp</td>
+<td>传输层</td>
+</tr>
+</tbody>
+</table>
+<p>常用 <code>tcp</code>、<code>udp</code>、<code>ip</code>、<code>ip6</code>、<code>arp</code>、<code>icmp</code></p>
+<h3 id="2-4-运算符"><a href="#2-4-运算符" class="headerlink" title="2.4 运算符"></a>2.4 运算符</h3><h4 id="2-4-1-逻辑运算符"><a href="#2-4-1-逻辑运算符" class="headerlink" title="2.4.1 逻辑运算符"></a>2.4.1 逻辑运算符</h4><table>
+<thead>
+<tr>
+<th>逻辑</th>
+<th>符号</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>否</td>
+<td><code>!</code> 或 <code>not</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>与</td>
+<td><code>&amp;&amp;</code> 或 <code>and</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>或</td>
+<td>`\</td>
+<td>\</td>
+<td><code>或</code>or`</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>结合顺序<code>自左向右</code></p>
+<h4 id="2-4-2-比较运算符"><a href="#2-4-2-比较运算符" class="headerlink" title="2.4.2 比较运算符"></a>2.4.2 比较运算符</h4><p>共有6个： <code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>=</code>、<code>!=</code></p>
+<h3 id="2-5-关键字"><a href="#2-5-关键字" class="headerlink" title="2.5 关键字"></a>2.5 关键字</h3><p>gateway、broadcast、less、greater</p>
+<h2 id="3-使用技巧"><a href="#3-使用技巧" class="headerlink" title="3. 使用技巧"></a>3. 使用技巧</h2><ol>
+<li><p>截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信</p>
+<pre><code>tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)
+</code></pre></li>
+<li><p>截获主机192.168.126.131发送的所有数据包</p>
+<pre><code>tcpdump -i ens33 src host 192.168.126.131
+</code></pre></li>
+<li><p>截获 TCP 会话的开始和结束的数据包</p>
+<pre><code>tcpdump &apos;tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet&apos;
+</code></pre></li>
+<li><p>打印所有通过网关snup的ftp数据包，并且数据包的源或目的不是本地网络上的主机 （localnet，实际使用时要真正替换成本地网络的名字）</p>
+<pre><code>tcpdump &apos;gateway snup and (port ftp or ftp-data)&apos;
+</code></pre></li>
+<li><p>打印所有源或目的端口是80，网络层协议为IPv4，并且含有数据，而不是SYN、FIN以及ACK-only等不含数据的数据包</p>
+<pre><code>tcpdump &apos;tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)&apos;
+</code></pre></li>
+<li><p>打印长度超过576字节，并且网关地址是 snup 的IP数据包</p>
+<pre><code>tcpdump &apos;gateway snup and ip[2:2] &gt; 576&apos;
+</code></pre></li>
+<li><p>打印所有IP层广播或多播的数据包，但不是物理以太网层的广播或多播数据报</p>
+<pre><code>tcpdump &apos;ether[0] &amp; 1 = 0 and ip[16] &gt;= 224&apos;
+</code></pre></li>
+<li><p>打印所有非 ping 程序产生的数据包即打印除’echo request’或者’echo reply’类型以外的ICMP数据包</p>
+<pre><code>tcpdump &apos;icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply&apos;
+</code></pre></li>
+<li><p>打印使用 ftp 端口和 ftp 数据端口的数据包</p>
+<pre><code>tcpdump &apos;port ftp or ftp-data&apos;
+</code></pre></li>
+<li><p>截取HTTP数据包</p>
+<p>0x4745-&gt;”GE”<br>0x4854-&gt;”HT”  </p>
+<pre><code>tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854
+</code></pre></li>
+</ol>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://www.360doc.com/content/17/0618/16/14454117_664203330.shtml" target="_blank" rel="external">tcpdump抓包命令详解</a></li>
+<li><a href="http://blog.csdn.net/kofandlizi/article/details/8106841" target="_blank" rel="external">kofandlizi: tcpdump抓取HTTP包</a></li>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump命令详解</a></li>
+<li><a href="http://www.broadview.com.cn/book/122" target="_blank" rel="external">Linux大棚</a></li>
+</ul>
 
       
 
@@ -363,17 +800,32 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/21/test3/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/06/18/tcpdump/">展开全文 >></a>
         </p>
       
 
@@ -388,6 +840,1006 @@
 
 
   
+    <article id="post-ssh免密登陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/ssh免密登陆/">ssh免密登陆</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/18/ssh免密登陆/" class="archive-article-date">
+  	<time datetime="2017-06-18T07:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.18</em></p>
+<p>从 A 机器的 a 账号 建立到 B 机器的 b 账号的 ssh 免密登陆<br>以 ubuntu 虚拟机<code>juntaran</code>账号连接自己的 VPN 服务器<code>root</code>账号为例</p>
+<pre><code>ssh root@138.128.206.71 -p 27226
+</code></pre><p>此时需要输入密码</p>
+<p>免密制作流程：</p>
+<ol>
+<li><p>为<code>juntaran</code>账号建立自己的公钥私钥，会在<code>/home/a/.ssh</code>中多出<code>id_rsa</code>和<code>id_rsa.pub</code>，分别是<code>私钥</code>和<code>公钥</code></p>
+<pre><code>ssh-keygen -t rsa
+</code></pre><p> 全部回车跳过</p>
+</li>
+<li><p>建立信任关系，默认端口号为22，如果需要修改端口则需要加上<code>-p</code></p>
+<pre><code>ssh-copy-id root@138.128.206.71 -p 27226
+</code></pre><p> 旧版本可能不支持<code>-p</code>选项，可以采取以下措施</p>
+<pre><code>ssh-copy-id &quot;-p 27226 root@138.128.206.71&quot;
+</code></pre><p> 之后流程就很简单</p>
+<pre><code>Are you sure you want to continue connecting (yes/no)? yes
+</code></pre><p> 再输入密码即可</p>
+</li>
+<li><p>直接免密登陆</p>
+<pre><code>ssh root@138.128.206.71 -p 27226
+</code></pre></li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/18/ssh免密登陆/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-nmap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/nmap/">nmap</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/nmap/" class="archive-article-date">
+  	<time datetime="2017-06-16T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<p>一个较为常用的命令</p>
+<pre><code>nmap -v -p 1-65535 -sV -O -sS -T4 192.168.1.1
+</code></pre><p>同样也可以使用<code>python-nmap</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/nmap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iptables" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/iptables/">iptables</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/iptables/" class="archive-article-date">
+  	<time datetime="2017-06-16T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<h2 id="1-四表五链"><a href="#1-四表五链" class="headerlink" title="1.四表五链"></a>1.四表五链</h2><p>iptables有<code>四表五链</code>一说，即  </p>
+<h3 id="1-1-四表："><a href="#1-1-四表：" class="headerlink" title="1.1 四表："></a>1.1 四表：</h3><blockquote>
+<p><strong>filter</strong>： 默认表，包含防火墙过滤的规则，内置规则链为INPUT、OUTPUT、FORWARD，内核模块对应 iptables_filter<br><strong>nat</strong>： 用于 nat 功能（端口映射、地址映射等），包含源和目的地址及端口转发的规则，内置规则链为 PREROUTING、OUTPUT 和 POSTROUTING，内核模块对应 iptables_nat<br><strong>mangle</strong>：用于对特定的数据包修改，设置特殊的数据包路由标志的规则，这些标志随后被 Filter 表中的规则检查，内置规则链为 PREROUTING、INPUT、FORWARD、POSTROUTING 和 OUTPUT，内核模块对应  iptable_mangle<br><strong>raw</strong>： 优先级最高，设置 Raw 时一般是为了不再让 iptables 做数据包的链接跟踪处理，提高性能，内置规则链为 OUTPUT 和  PREROUTING，内核模块对应 iptable_raw  </p>
+</blockquote>
+<h3 id="1-2-五链："><a href="#1-2-五链：" class="headerlink" title="1.2 五链："></a>1.2 五链：</h3><blockquote>
+<p><strong>INPUT</strong>： 当一个数据包由内核的路由计算确定为本地的 Linux 系统后，它会通过 INPUT 链的检查——进来的数据包应用此规则链中的策略<br><strong>OUTPUT</strong>： 保留给系统自身生成数据包——外出的数据包应用此规则链中的策略<br><strong>FORWARD</strong>： 经过 Linux 系统路由的数据包——转发数据包时应用此规则链中的策略<br><strong>PREROUTING</strong>： 用于修改目标地址（DNAT），数据包在进入系统之前——对数据包作路由选择前应用此链中的规则（所有的数据包进来的时侯都先由这个链处理）<br><strong>POSTROUTING</strong>： 用于修改源地址（SNAT），发送到网卡接口之前——对数据包作路由选择后应用此链中的规则（所有的数据包出来的时侯都先由这个链处理）  </p>
+</blockquote>
+<h3 id="1-3-规则表之间的优先级顺序"><a href="#1-3-规则表之间的优先级顺序" class="headerlink" title="1.3 规则表之间的优先级顺序"></a>1.3 规则表之间的优先级顺序</h3><p>raw &gt; mangle &gt; nat &gt; filter</p>
+<h2 id="2-数据包的流向"><a href="#2-数据包的流向" class="headerlink" title="2. 数据包的流向"></a>2. 数据包的流向</h2><h3 id="2-1-常见的两种流向"><a href="#2-1-常见的两种流向" class="headerlink" title="2.1 常见的两种流向"></a>2.1 常见的两种流向</h3><pre><code>PREROUTING -&gt; FORWARD -&gt; POSTROUTING
+
+PREROUTING -&gt; INPUT -&gt; 本机 OUTPUT -&gt; POSTROUTING
+</code></pre><p>这两种流向分别对应了<code>iptables</code>的两种工作模式：<code>NAT 路由器</code>和<code>主机防火墙</code></p>
+<h3 id="2-2-流向三种情况"><a href="#2-2-流向三种情况" class="headerlink" title="2.2 流向三种情况"></a>2.2 流向三种情况</h3><h4 id="第一种情况：入站数据流向"><a href="#第一种情况：入站数据流向" class="headerlink" title="第一种情况：入站数据流向"></a>第一种情况：入站数据流向</h4><p>从外界到达防火墙的数据包，先被<code>PREROUTING规则链</code>处理（是否修改数据包地址等），之后会进行路由选择（判断该数据包应该发往何处），如果数据包的目标主机是防火墙本机（比如说 Internet 用户访问防火墙主机中的 web 服务器的数据包），那么内核将其传给<code>INPUT链</code>进行处理（决定是否允许通过等），通过以后再交给系统上层的应用程序（比如 Apache 服务器）进行响应。</p>
+<h4 id="第二种情况：转发数据流向"><a href="#第二种情况：转发数据流向" class="headerlink" title="第二种情况：转发数据流向"></a>第二种情况：转发数据流向</h4><p>来自外界的数据包到达防火墙后，首先被<code>PREROUTING规则链</code>处理，之后会进行路由选择，如果数据包的目标地址是其它外部地址（比如局域网用户通过网关访问 QQ 站点的数据包），则内核将其传递给<code>FORWARD链</code>进行处理（是否转发或拦截），然后再交给<code>POSTROUTING规则链</code>（是否修改数据包的地址等）进行处理。</p>
+<h4 id="第三种情况：出站数据流向"><a href="#第三种情况：出站数据流向" class="headerlink" title="第三种情况：出站数据流向"></a>第三种情况：出站数据流向</h4><p> 防火墙本机向外部地址发送的数据包（比如在防火墙主机中测试公网 DNS 服务器时），首先被<code>OUTPUT规则链</code>处理，之后进行路由选择，然后传递给<code>POSTROUTING规则链</code>（是否修改数据包的地址等）进行处理。</p>
+<h2 id="3-iptables-规则设置"><a href="#3-iptables-规则设置" class="headerlink" title="3. iptables 规则设置"></a>3. iptables 规则设置</h2><p> 整体语法：</p>
+<pre><code>iptables [-t 表名] &lt;-A | I | D | R &gt; 链名 [规则编号] [-i | o 网卡名称] [-p 协议类型] [-s 源IP地址 | 源子网] [--sport 源端口号] [-d 目的IP地址 | 目标子网] [--dport 目的端口号] &lt;-j 动作&gt;
+</code></pre><h3 id="3-1-定义默认策略"><a href="#3-1-定义默认策略" class="headerlink" title="3.1 定义默认策略"></a>3.1 定义默认策略</h3><pre><code>iptables [-t 表名] &lt;-P&gt; &lt;链名&gt; &lt;动作&gt;
+</code></pre><h3 id="3-2-查看-iptables-规则"><a href="#3-2-查看-iptables-规则" class="headerlink" title="3.2 查看 iptables 规则"></a>3.2 查看 iptables 规则</h3><pre><code>iptables [-t 表名] -(nv)L [链名] (--line-number)
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-L</td>
+<td>查看当前表的所有规则，默认查看的是filter表，如果要查看NAT表，可以加上-t NAT参数</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>不对ip地址进行反查，加上这个参数显示速度会快很多</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>输出详细信息，包含通过该规则的数据包数量，总字节数及相应的网络接口</td>
+</tr>
+<tr>
+<td>–line-number</td>
+<td>显示规则的序列号，这个参数在删除或修改规则时会用到</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-3-增、删、改、替换-iptables-规则"><a href="#3-3-增、删、改、替换-iptables-规则" class="headerlink" title="3.3 增、删、改、替换 iptables 规则"></a>3.3 增、删、改、替换 iptables 规则</h3><pre><code>iptables [-t 表名] &lt;-A | I | D | R &gt; 链名 [规则编号] [-i | o 网卡名称] [-p 协议类型] [-s 源IP地址 | 源子网] [--sport 源端口号] [-d 目的IP地址 | 目标子网] [--dport 目的端口号] &lt;-j 动作&gt;
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-t</td>
+<td>指定表，默认 filter</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>ADD 增加一条规则，增加到最后一行，该参数<strong>不能指定</strong>规则编号</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>INSERT 插入一条规则，如果没有指定规则编号，则插入成为第一条</td>
+</tr>
+<tr>
+<td>–D</td>
+<td>DELETE 删除一条规则，可以直接指定规则号，也可以输入完整规则</td>
+</tr>
+<tr>
+<td>–R</td>
+<td>REPLACE 替换一条规则，<strong>必须指定</strong>被替换的规则号</td>
+</tr>
+<tr>
+<td>–i</td>
+<td>指定数据包从哪个网卡流入</td>
+</tr>
+<tr>
+<td>–o</td>
+<td>指定数据包从哪个网卡流出</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCEPT</td>
+<td>接收数据包</td>
+</tr>
+<tr>
+<td>DROP</td>
+<td>丢弃数据包</td>
+</tr>
+<tr>
+<td>REDIRECT</td>
+<td>重定向数据包到本机或另外某台机器的某个端口，通常用来实现透明代理或对外开放内网的服务</td>
+</tr>
+<tr>
+<td>REJECT</td>
+<td>拦截该数据包，并发送封包通知对方</td>
+</tr>
+<tr>
+<td>SNAT</td>
+<td>改变数据包的源地址，在 NAT 表的 POSTROUTING 链上进行该动作</td>
+</tr>
+<tr>
+<td>DNAT</td>
+<td>改变数据包的目的地址，在 NAT 表的 PREROUTING 链上进行该动作</td>
+</tr>
+<tr>
+<td>MASQUERADE</td>
+<td>IP 伪装，即 NAT 技术，MASQUERADE 只能用于 ADSL 等拨号上网的 IP 伪装，也就是主机 IP 必须为 ISP 动态分配，静态分配需要使用 SNAT</td>
+</tr>
+<tr>
+<td>LOG</td>
+<td>日志功能，将符合规则的数据包相关信息记录在日志里</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-4-清楚规则和计数器"><a href="#3-4-清楚规则和计数器" class="headerlink" title="3.4 清楚规则和计数器"></a>3.4 清楚规则和计数器</h3><pre><code>iptables [-t 表名] &lt;-F | X | Z&gt;
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-t</td>
+<td>指定表，默认 filter</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>删除指定表里所有规则</td>
+</tr>
+<tr>
+<td>-X</td>
+<td>删除用户自定义的空链</td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>将指定表的数据包计数器和流量计数器清零</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-iptables-的状态"><a href="#4-iptables-的状态" class="headerlink" title="4. iptables 的状态"></a>4. iptables 的状态</h2><h3 id="4-1-iptables-数据包的四种状态"><a href="#4-1-iptables-数据包的四种状态" class="headerlink" title="4.1 iptables 数据包的四种状态"></a>4.1 iptables 数据包的四种状态</h3><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEW</td>
+<td>主机向远程主机发送一个连接请求，该数据包状态为 NEW</td>
+</tr>
+<tr>
+<td>ESTABLISHED</td>
+<td>三次握手后，主机和远程主机通信数据的状态为 ESTABLISH</td>
+</tr>
+<tr>
+<td>RELATED</td>
+<td>如果出现了 RELATED 状态，那么一定已经有一个 ESTABLISH 与其相关，例如 FTP 服务：21端口传输命令，20端口传输数据，21端口状态为 ESTABLISH，20端口则为 RELATED</td>
+</tr>
+<tr>
+<td>INVALID</td>
+<td>无效的数据包，不能识别属于哪个连接或没有任何状态，通常这种数据包会被丢弃</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-针对状态的命令"><a href="#4-2-针对状态的命令" class="headerlink" title="4.2 针对状态的命令"></a>4.2 针对状态的命令</h3><pre><code>iptables -m state --state [NEW | ESTABLISHED | RELATED | INVALID]
+</code></pre><p>可以将 -m 之后的内容与 <code>3.3</code> 的规则结合</p>
+<h2 id="5-iptables-的记录"><a href="#5-iptables-的记录" class="headerlink" title="5. iptables 的记录"></a>5. iptables 的记录</h2><h3 id="5-1-Conntrack-记录"><a href="#5-1-Conntrack-记录" class="headerlink" title="5.1 Conntrack 记录"></a>5.1 Conntrack 记录</h3><p>不建议在生产服务器开启<code>conntrack</code>功能，及消耗内存<br>可以通过<code>/proc/sys/net/ipv4/ip_conntrack_max</code>里进行查看和设置<br>查看<code>conntrack</code>记录</p>
+<pre><code>cat /proc/net/ip_conntrack
+</code></pre><h3 id="5-2-iptables-默认规则"><a href="#5-2-iptables-默认规则" class="headerlink" title="5.2 iptables 默认规则"></a>5.2 iptables 默认规则</h3><pre><code>cat /etc/sysconfig/iptables
+</code></pre><h2 id="6-iptables-规则的保存与恢复"><a href="#6-iptables-规则的保存与恢复" class="headerlink" title="6. iptables 规则的保存与恢复"></a>6. iptables 规则的保存与恢复</h2><pre><code>// 将规则保存在 /etc/sysconfig/iptables 文件里
+service iptables save
+
+// 重启iptables服务
+service iptables restart
+</code></pre><p>iptables 防火墙的配置文件存放于<code>/etc/sysconfig/iptables</code></p>
+<h2 id="7-其他"><a href="#7-其他" class="headerlink" title="7. 其他"></a>7. 其他</h2><h3 id="7-1-SYN-Flood"><a href="#7-1-SYN-Flood" class="headerlink" title="7.1 SYN Flood"></a>7.1 SYN Flood</h3><p>快速检测和防御<code>SYN Flood</code>攻击</p>
+<pre><code>echo &quot;1&quot; &gt; /proc/sys/net/ipv4/tcp_syncookies
+</code></pre><h3 id="7-2-iptables-IP-转发"><a href="#7-2-iptables-IP-转发" class="headerlink" title="7.2 iptables IP 转发"></a>7.2 iptables IP 转发</h3><p>iptables 作为 NAT 路由器时，存在多网卡现象，需要开启<code>IP 转发功能</code>，用于多个网卡之间数据流通</p>
+<pre><code>echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre><h3 id="7-3-iptables-扩展模块"><a href="#7-3-iptables-扩展模块" class="headerlink" title="7.3 iptables 扩展模块"></a>7.3 iptables 扩展模块</h3><p>-m multiport：表示启用多端口扩展，之后我们就可以启用比如 –dports 21,23,80</p>
+<pre><code>iptables -A INPUT -p tcp -m multiport --dports 22,80 -j ACCEPT
+</code></pre><h3 id="7-4-常用脚本"><a href="#7-4-常用脚本" class="headerlink" title="7.4 常用脚本"></a>7.4 常用脚本</h3><p><a href="https://github.com/Juntaran/Note/tree/master/Script/Shell/iptables" target="_blank" rel="external">iptables常用脚本</a></p>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://www.linuxeye.com/security/1035.html" target="_blank" rel="external">Linuxeye: iptables里的四表五链</a></li>
+<li><a href="http://www.linuxidc.com/Linux/2013-08/88536.htm" target="_blank" rel="external">Linux公社: SNAT、DNAT——iptables防火墙基础策略汇总</a></li>
+<li><a href="http://blog.csdn.net/ashlingr/article/details/8947444" target="_blank" rel="external">AshlingR: 通过iptables实现数据包转发</a></li>
+<li><a href="http://www.hzbook.com/Books/8030.html" target="_blank" rel="external">构建高可用Linux服务器</a></li>
+<li><a href="http://blog.chinaunix.net/uid-26495963-id-3279216.html" target="_blank" rel="external">iptables详解</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/iptables/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Vim配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/Vim配置/">Vim配置</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/Vim配置/" class="archive-article-date">
+  	<time datetime="2017-06-15T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<h2 id="1-导入"><a href="#1-导入" class="headerlink" title="1. 导入"></a>1. 导入</h2><pre><code>wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
+</code></pre><h2 id="2-覆盖-vimrc"><a href="#2-覆盖-vimrc" class="headerlink" title="2. 覆盖 ~/.vimrc"></a>2. 覆盖 ~/.vimrc</h2><pre><code>wget -O vim.tar.gz https://raw.githubusercontent.com/Juntaran/Note/master/Linux/vim.tar.gz
+tar -zxvf vim.tar.gz
+mv ~/.vimrc ~/.vimrc_bak
+mv vimrc ~/.vimrc
+rm -rf vimrc vim.tar.gz
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/Vim配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/07/Linux常用命令/">Linux常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/07/Linux常用命令/" class="archive-article-date">
+  	<time datetime="2017-06-06T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.7</em></p>
+<hr>
+<h2 id="系统版本信息"><a href="#系统版本信息" class="headerlink" title="系统版本信息"></a>系统版本信息</h2><p>命令： uname -a<br>作用： 查看系统内核版本号及系统名称，<br><code>Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code>   </p>
+<p>命令： uname -s<br>作用： 显示内核名称，<code>Linux</code>  </p>
+<p>命令： uname -n<br>作用： 显示主机名称，<code>ubuntu</code>  </p>
+<p>命令： uname -r<br>作用： 显示内核发行版号，<code>4.10.0-22-generic</code>  </p>
+<p>命令： uname -v<br>作用： 显示操作系统具体版本，<code>#24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： uname -m<br>作用： 显示机器硬件名称，<code>x86_64</code>  </p>
+<p>命令： uname -p<br>作用： 显示处理器类型，<code>x86_64</code>  </p>
+<p>命令： uname -i<br>作用： 显示硬件平台名称，<code>x86_64</code>  </p>
+<p>命令： uname -o<br>作用： 操作系统名称，<code>GNU/Linux</code>  </p>
+<p>命令： cat /proc/version<br>作用： 查看目录”/proc”下version的信息，也可以得到当前系统的内核版本号及系统名称，<br><code>Linux version 4.10.0-22-generic (buildd@lcy01-08) (gcc version 6.3.0 20170406 (Ubuntu 6.3.0-12ubuntu2) ) #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： lsb_release -c<br>作用： 查看系统代号，比如ubuntu 12.04为precise， 14.04为trusty，15.04为vivid，15.10为wily，17.04为zesty。<code>Codename:    zesty</code>  </p>
+<p>命令： lsb_release -a<br>作用： 显示系统信息以及代号<br><code>No LSB modules are available.</code><br><code>Distributor ID:    Ubuntu</code><br><code>Description:    Ubuntu 17.04</code><br><code>Release:    17.04</code><br><code>Codename:    zesty</code>  </p>
+<p>命令： lisb_release -d<br>作用： 显示系统号，<code>Description:    Ubuntu 17.04</code>  </p>
+<p>命令： cat /etc/issue<br>作用： 显示系统号，<code>Ubuntu 17.04 \n \l</code></p>
+<hr>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>命令： shutdown -h now<br>作用： 立即关机  </p>
+<p>命令： shutdown -r now<br>作用： 立即重启  </p>
+<p>命令： shutdown -h 23:30<br>作用： 在23:30分准时关机  </p>
+<p>命令： shutdown -h +15<br>作用： 15分钟后关机  </p>
+<p>命令： shutdown -k now “Server would shutdown in 15minutes!”<br>作用： 给出关机警告，不关机  </p>
+<p>命令： halt -p<br>作用： 关机并关闭电源  </p>
+<p>命令： halt -d<br>作用： 关机，不会在日志里留下记录  </p>
+<p>命令： halt -w<br>作用： 不会关机，会把关机事件写入<code>/var/log/wtmp</code>  </p>
+<p>命令： reboot<br>作用： 重启系统  </p>
+<p>命令： poweroff<br>作用： 关机并且切断电源  </p>
+<p>命令： init 6<br>作用： 重启  </p>
+<p>命令： init 0<br>作用： 关机  </p>
+<hr>
+<h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2><p>命令： dmidecode<br>作用： 列出所有硬件信息  </p>
+<p>命令： dmidecode -t<br>作用： 列出硬件类型  </p>
+<p>命令： dmidecode -t 硬件类型<br>作用： 根据硬件类型展示相应的硬件信息  </p>
+<hr>
+<h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><p>命令： whoami<br>作用： 显示当前操作用户的用户名<br><code>juntaran</code>  </p>
+<p>命令： who am i<br>作用： 显示登入系统用户的用户名，以及登录时间（只要有2个参数即可，无所谓是不是 am 和 i）<br><code>juntaran pts/0        2017-06-20 14:47 (192.168.126.1)</code>  </p>
+<p>命令： who (-H)<br>作用： 显示所有登入系统的用户的用户名，以及登录时间。-H 会加上列名  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>LINE</th>
+<th>TIME</th>
+<th>COMMENT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>2017-06-20 14:47</td>
+<td>(192.168.126.1)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>2017-06-16 20:12</td>
+<td>(:0)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>2017-06-20 14:52</td>
+<td>(192.168.126.1)</td>
+</tr>
+</tbody>
+</table>
+<p>命令： who -b<br>作用： 显示系统上一次启动时间<br><code>system boot  2017-06-16 20:10</code>  </p>
+<p>命令： w<br>作用： <code>who</code>显示的是<code>show who is logged on</code>，<code>w</code>显示的是<code>show who is logged on and what they are doing</code>  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>TTY</th>
+<th>FROM</th>
+<th>LOGIN@</th>
+<th>IDLE</th>
+<th>JCPU</th>
+<th>PCPU</th>
+<th>WHAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>192.168.126.1</td>
+<td>14:47</td>
+<td>0.00s</td>
+<td>0.17s</td>
+<td>0.00s</td>
+<td>w</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>:0</td>
+<td>Fri20</td>
+<td>3days</td>
+<td>57.27s</td>
+<td>0.04s</td>
+<td>/bin/sh /usr/lib/gnome-session/run-systemd-session</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>192.168.126.1</td>
+<td>14:52</td>
+<td>44:28</td>
+<td>0.03s</td>
+<td>0.03s</td>
+<td>top</td>
+</tr>
+</tbody>
+</table>
+<p>在运行<code>w</code>命令时，<code>pts/0</code>终端的<code>WHAT</code>显示了正在执行<code>w</code>，而另一个终端正在执行的<code>top</code>命令也被记录了<br>另外，<code>JCPU</code>指的是与该tty终端连接的所由进程占用的时间，不包括过去的后台作业时间<br><code>PCPU</code>指的是当前进程（即w项中显示的）所占用的时间  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/07/Linux常用命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Python修复setup" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/Python修复setup/">MySQL安装问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/04/Python修复setup/" class="archive-article-date">
+  	<time datetime="2017-06-03T20:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.4</em></p>
+<h1 id="Python修复setup"><a href="#Python修复setup" class="headerlink" title="Python修复setup"></a>Python修复setup</h1><pre><code>sudo apt-get install openssl python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/04/Python修复setup/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-MySQL安装问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/01/MySQL安装问题/">MySQL安装问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/01/MySQL安装问题/" class="archive-article-date">
+  	<time datetime="2017-06-01T07:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.1</em></p>
+<h2 id="Ubuntu下MySQL重新安装"><a href="#Ubuntu下MySQL重新安装" class="headerlink" title="Ubuntu下MySQL重新安装"></a>Ubuntu下MySQL重新安装</h2><pre><code>sudo rm /var/lib/mysql/ -R
+sudo rm /etc/mysql/ -R
+sudo apt-get autoremove mysql* --purge
+sudo apt-get remove apparmor
+sudo apt-get install mysql-server mysql-common 
+</code></pre><h2 id="CentOS下MySQL重新安装"><a href="#CentOS下MySQL重新安装" class="headerlink" title="CentOS下MySQL重新安装"></a>CentOS下MySQL重新安装</h2><pre><code>rpm -e mysql
+rpm -e --nodeps mysql
+yum install -y mysql-server mysql mysql-devel
+</code></pre><h2 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h2><pre><code>sudo service mysql start            // Ubuntu
+service mysqld start                // CentOS
+</code></pre><h2 id="CentOS开机启动"><a href="#CentOS开机启动" class="headerlink" title="CentOS开机启动"></a>CentOS开机启动</h2><pre><code>chkconfig --list | grep mysqld 
+chkconfig mysqld on
+</code></pre><h2 id="登陆MySQL"><a href="#登陆MySQL" class="headerlink" title="登陆MySQL"></a>登陆MySQL</h2><pre><code>mysqladmin -u root password &apos;root&apos;
+mysql -u root -p
+</code></pre><h2 id="测试MySQL"><a href="#测试MySQL" class="headerlink" title="测试MySQL"></a>测试MySQL</h2><pre><code>mysql&gt;
+create database test;
+show databases;
+status;                            // 查看MySQL版本
+select version();                    // 查看MySQL版本
+show global variables like &apos;port&apos;;            // 查看MySQL端口号
+</code></pre><h2 id="远程登陆MySQL"><a href="#远程登陆MySQL" class="headerlink" title="远程登陆MySQL"></a>远程登陆MySQL</h2><pre><code>sudo vim/etc/mysql/my.cnf
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre><p>找到 <code>bind-address = 127.0.0.1</code> 这一行，注释掉，或改为<code>0.0.0.0</code></p>
+<pre><code>mysql&gt;
+grant all privileges on *.*  to  &apos;root&apos;@&apos;%&apos;  identified by &apos;YourPassword&apos;  with grant option;
+flush privileges;
+</code></pre><p>退出MySQL命令</p>
+<pre><code>sudo service mysql(d) restart
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/01/MySQL安装问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Go数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/17/Go数据结构/" class="archive-article-date">
+  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.5.17</em></p>
+<ol>
+<li><p><code>数组</code>是<code>slice</code>和<code>map</code>的底层结构</p>
+</li>
+<li><p><code>slice</code>是Go里面惯用的集合数据的方法，<code>map</code>则是用来存储键值对</p>
+</li>
+<li><p>内建函数<code>make</code>用来创建<code>slice</code>和<code>map</code>，并且为它们指定长度和容量等等。<code>slice和</code>map`字面值也可以做同样的事</p>
+</li>
+<li><p><code>slice</code>有<code>容量</code>的<code>约束</code>，不过可以通过内建函数<code>append</code>来增加元素</p>
+</li>
+<li><p><code>map</code>没有<code>容量</code>一说，所以也没有任何增长限制</p>
+</li>
+<li><p>内建函数<code>len</code>可以用来获得<code>slice</code>和<code>map</code>的长度</p>
+</li>
+<li><p>内建函数<code>cap</code>只能作用在<code>slice</code>上</p>
+</li>
+<li><p>可以通过组合方式来创建多维数组和<code>slice</code>。<code>map</code>的值可以是<code>slice</code>或者另一个<code>map</code>。<code>slice</code>不能作为<code>map</code>的键</p>
+</li>
+<li><p>在函数之间传递<code>slice</code>和<code>map</code>是相当廉价的，因为他们不会传递底层数组的拷贝</p>
+</li>
+</ol>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="http://studygolang.com/articles/2335" target="_blank" rel="external">studyGolang.com</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/17/Go数据结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -480,15 +1932,47 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">分类</a>
+                <a href="javascript:void(0)" class="js-tag color3">Network</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">Go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">并发编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
             
             <div class="clearfix"></div>

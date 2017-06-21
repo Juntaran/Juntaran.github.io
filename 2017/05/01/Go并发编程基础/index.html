@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Juntaran</title>
+  <title>Go并发编程基础 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="2017.5.1 并发编程基础串行程序与并行程序串行程序是指只能被顺序执行的指令列表并行程序是指可以被并发执行的两个及以上的串行程序的综合体并发程序与并行程序  并发程序是指可以被同时发起执行的程序，并发程序代表了所有可以实现并发行为的程序   并行程序是指可以在并行的硬件上执行的并发程序 并发程序内部的交互并发程序内部可以分为多个部分，每个部分都可以看作是一个串行程序多个串行程序可能会对共享的资">
+<meta name="keywords" content="Go,并发编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go并发编程基础">
+<meta property="og:url" content="http://yoursite.com/2017/05/01/Go并发编程基础/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="2017.5.1 并发编程基础串行程序与并行程序串行程序是指只能被顺序执行的指令列表并行程序是指可以被并发执行的两个及以上的串行程序的综合体并发程序与并行程序  并发程序是指可以被同时发起执行的程序，并发程序代表了所有可以实现并发行为的程序   并行程序是指可以在并行的硬件上执行的并发程序 并发程序内部的交互并发程序内部可以分为多个部分，每个部分都可以看作是一个串行程序多个串行程序可能会对共享的资">
+<meta property="og:image" content="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socket.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socketConn.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/Linux内核线程状态转换.jpg">
+<meta property="og:updated_time" content="2017-06-21T05:36:16.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="Go并发编程基础">
+<meta name="twitter:description" content="2017.5.1 并发编程基础串行程序与并行程序串行程序是指只能被顺序执行的指令列表并行程序是指可以被并发执行的两个及以上的串行程序的综合体并发程序与并行程序  并发程序是指可以被同时发起执行的程序，并发程序代表了所有可以实现并发行为的程序   并行程序是指可以在并行的硬件上执行的并发程序 并发程序内部的交互并发程序内部可以分为多个部分，每个部分都可以看作是一个串行程序多个串行程序可能会对共享的资">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socket.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,195 +162,330 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Go并发编程基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/17/Go数据结构/" class="archive-article-date">
-  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
+    <h1 class="article-title" itemprop="name">
+      Go并发编程基础
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
-  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
+        
+        <a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
   	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.5.1</em></p>
+<h2 id="并发编程基础"><a href="#并发编程基础" class="headerlink" title="并发编程基础"></a>并发编程基础</h2><h3 id="串行程序与并行程序"><a href="#串行程序与并行程序" class="headerlink" title="串行程序与并行程序"></a>串行程序与并行程序</h3><p>串行程序是指只能被<code>顺序执行</code>的指令列表<br>并行程序是指可以被<code>并发执行</code>的两个及以上的串行程序的综合体<br><strong>并发程序与并行程序</strong></p>
+<blockquote>
+<p>并发程序是指可以被同时发起执行的程序，并发程序代表了所有可以实现并发行为的程序  </p>
+<h2 id="并行程序是指可以在并行的硬件上执行的并发程序"><a href="#并行程序是指可以在并行的硬件上执行的并发程序" class="headerlink" title="并行程序是指可以在并行的硬件上执行的并发程序"></a>并行程序是指可以在并行的硬件上执行的并发程序</h2></blockquote>
+<h3 id="并发程序内部的交互"><a href="#并发程序内部的交互" class="headerlink" title="并发程序内部的交互"></a>并发程序内部的交互</h3><p>并发程序内部可以分为多个部分，每个部分都可以看作是一个串行程序<br>多个串行程序可能会对共享的资源进行访问，也可能它们之间需要传递一些数据<br>在这种情况下，我们需要协调它们的执行，这就涉及到了<code>同步</code><br>同步的作用是避免在并发访问共享资源时可能发生的冲突，以确保有条不紊地传递数据  </p>
+<blockquote>
+<p>在同一时刻，某个资源应该只被一个程序占用<br>传递数据是并发程序内部的另一种交互方式，也成为并发程序内部的<code>通信</code><br>实际上，内部通信的方式不仅仅有<code>同步</code>，也有<code>异步</code>方式对通信进行处理<br>异步能够让数据不加延迟地发送给数据接收方，即使数据接收方没有做好准备，也不会造成发送方的等待<br>数据会被临时存放在通信缓存中，通信缓存是一种数据结构，是一种可以同时被多个程序使用的特殊共享资源  </p>
+</blockquote>
+<h2 id="多进程编程"><a href="#多进程编程" class="headerlink" title="多进程编程"></a>多进程编程</h2><p>进程间通信的方式被称为IPC(Inter-Process Communication)<br>在Linux中，IPC可以分为三类：</p>
+<ol>
+<li>基于通信的IPC方法<br>1.1 数据传送：<code>管道pipe</code>传送字节流，<code>消息队列message queue</code>传送结构化的消息对象<br>1.2 共享内存：<code>共享内存shared memory</code>最快  </li>
+<li>基于信号的IPC方法<br><code>信号signal</code>，唯一的一种异步IPC方法</li>
+<li>基于同步的IPC方法<br><code>信号量semaphore</code></li>
+</ol>
+<p><strong>Go支持管道、信号、socket</strong></p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程process维护了应用程序运行时的内存地址空间、文件和设备的句柄以及线程<br>进程也是操作系统进行资源分配的一个基本单位</p>
+<pre><code>pid := os.Getpid()            // 获取进程ID
+ppid := os.Getppid()         // 获取父进程ID
+</code></pre><p>多个进程同时对一个资源进行访问，很可能相互干扰，这种干扰称为<code>竞态条件race condition</code><br>Go的并发变成模型更加成熟先进，目标在于大幅减少程序产生竞态条件的可能<br>执行过程中不能中断的操作称为<code>原子操作atomic operation</code>，所有的系统调用都属于原子操作<br>只能被串行化访问或执行的某个资源或某段代码称为<code>临界区critical section</code><br>保证只有一个进程或线程在临界区之内的做法称为<code>互斥mutex</code><br>实现互斥的方法必须确保排他原则，<code>sync包</code>包含了对互斥的支持  </p>
+<hr>
+<p><em>2017.5.4</em></p>
+<h4 id="socket通信"><a href="#socket通信" class="headerlink" title="socket通信"></a>socket通信</h4><p>socket既可以提供网络中不同计算机多个应用程序之间的通信支持，也可以成为单计算机上多个应用程序之间的通信手段，但是使用socket接口的绝大多数情况都是为了在网络中通信<br>socket通信是基于TCP/IP协议栈的  </p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socket.jpg" alt="socket"></p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socketConn.jpg" alt="socket通信"></p>
+<p>每个socket都存在与一个通信域中，通信域决定了该socket的地址格式和通信范围</p>
+<table>
+<thead>
+<tr>
+<th>通信域</th>
+<th>含义</th>
+<th>地址格式</th>
+<th>通信范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AF_INET</td>
+<td>IPv4域</td>
+<td>IPv4地址(4字节)，端口号(2字节)</td>
+<td>基于IPv4协议的任意两台计算机上的两个应用程序</td>
+</tr>
+<tr>
+<td>AF_INET6</td>
+<td>IPv6域</td>
+<td>IPv6地址(16字节)，端口号(2字节)</td>
+<td>基于IPv6协议的任意两台计算机上的两个应用程序</td>
+</tr>
+<tr>
+<td>AF_UNIX</td>
+<td>Unix域</td>
+<td>路径名称</td>
+<td>同一台计算机上的两个应用程序</td>
+</tr>
+</tbody>
+</table>
+<p>AF是address family的缩写，意为地址域</p>
+<p>socket有5种类型</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>SOCK_DGRAM</th>
+<th>SOCK_RAW</th>
+<th>SOCK_SEQPACKET</th>
+<th>SOCK_STREAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据形式</td>
+<td>数据报</td>
+<td>数据报</td>
+<td>字节流</td>
+<td>字节流</td>
+</tr>
+<tr>
+<td>数据边界</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>逻辑连接</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>数据有序性</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>传输可靠性</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>以<code>数据报</code>为数据形式意味着<code>接收方</code>的socket接口程序可以意识到数据的边界并会切分，<br>这样省去了接收方的应用程序寻找数据边界和切分数据的工作量</p>
+<p>以<code>字节流</code>为数据形式的传输实际上传输的是一个字节接着一个字节的串，类似于一个很长的字节数组<br>一般情况下字节流不能体现那些字节属于哪个数据包，因此socket接口程序无法分离独立的数据包<br>这一工作只能交给应用程序去完成<br>但是<code>SOCK_SEQPACKET</code>类型的socket接口程序例外，<br>发送方的socket接口程序会记录数据边界，边界信息也会随着字节流发送给接收方<br>接收方的socket接口程序会根据边界切分字节流，还原成字节流片段并根据顺序传递给应用程序</p>
+</blockquote>
+<p>在Go提供了socket的API，需要使用标准库中的net包</p>
+<p>在服务端首先会用到这个函数</p>
+<pre><code>func Listen(net, laddr string) (Listener, error)
+</code></pre><p>函数net.Listen用于获取监听器，它接受两个string类型的参数<br>第一个是参数的含义是以何种监听协议给定的地址，该参数必须为<code>面向流</code>的协议</p>
+<table>
+<thead>
+<tr>
+<th>字面量</th>
+<th>socket协议</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tcp</td>
+<td>TCP</td>
+<td>无</td>
+</tr>
+<tr>
+<td>tcp4</td>
+<td>TCP</td>
+<td>网际互联协议只支持IPv4</td>
+</tr>
+<tr>
+<td>tcp6</td>
+<td>TCP</td>
+<td>网际互联协议只支持IPv6</td>
+</tr>
+<tr>
+<td>udp</td>
+<td>UDP</td>
+<td>无</td>
+</tr>
+<tr>
+<td>udp4</td>
+<td>UDP</td>
+<td>网际互联协议只支持IPv4</td>
+</tr>
+<tr>
+<td>udp6</td>
+<td>UDP</td>
+<td>网际互联协议只支持IPv6</td>
+</tr>
+<tr>
+<td>unix</td>
+<td>有效</td>
+<td>可看作通信域为AF_UNIX切类型为SOCK_STREAM时内核采用的默认协议</td>
+</tr>
+<tr>
+<td>unixgram</td>
+<td>有效</td>
+<td>可看作通信域为AF_UNIX切类型为SOCK_DGRAM时内核采用的默认协议</td>
+</tr>
+<tr>
+<td>unixpacket</td>
+<td>有效</td>
+<td>可看作通信域为AF_UNIX切类型为SOCK_SEQPACKET时内核采用的默认协议</td>
+</tr>
+</tbody>
+</table>
+<p>如上表所示，第一个参数必须是<code>tcp</code>、<code>tcp4</code>、<code>tcp6</code>、<code>unix</code>和<code>unixpacket</code>中的一个</p>
+<p>第二个ladder表示当前程序在网络中的标识<br><code>laddr</code>是Local Address的缩写，格式为<code>host:port</code><br><code>host</code>处内容必须是当前计算机对应的IP地址或主机名<br><code>port</code>则代表当前程序欲监听的端口号  </p>
+<pre><code>listener, err := net.Listen(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;)
+</code></pre><p>监听函数Listen调用之后，当err为nil时，即可等待客户端的连接请求</p>
+<pre><code>conn, err := listener.Accept()
+</code></pre><p>调用监听器的Accept方法时，会进入阻塞状态，直到有客户端程序发起TCP连接</p>
+<p>客户端使用net包的Dial函数用于向制定的网络地址发送连接建立请求</p>
+<pre><code>func Dial(network, address string) (Conn, error)
+</code></pre><p>Dial函数同样接收两个参数<br>第一个参数<code>network</code>与net.Listen函数的第一个参数<code>net</code>类似，但是有更多的选项<br>除了net.Listen的第一个可选参数外，还可以使用<code>udp</code>、<code>udp4</code>、<code>udp6</code>、<code>ip</code>、<code>ip4</code>和<code>ip6</code><br>这是因为在发送数据前不一定要先建立连接，UDP协议和IP协议都是<code>面向无连接</code>的协议  </p>
+<p>第二个参数<code>address</code>和net.Listen函数的第二个参数<code>laddr</code>完全一致<br>它指定的是服务端的地址</p>
+<pre><code>conn, err := net.Dial(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;)
+</code></pre><p>如果需要手动设置超时时间，可以使用DialTimeout函数（Dial函数默认timeout=75秒）</p>
+<pre><code>func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
+</code></pre><p>DialTimeout函数的最后一个参数的单位是纳秒， 如果想设置2秒</p>
+<pre><code>conn, err := net.DialTimeout(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;, 2*time.Second)
+</code></pre><p>服务端创建监听器并开始等待连接请求之后，一旦收到客户端的连接请求，服务端就和和客户端进行<code>三次握手</code><br>当成功建立连接后，无论服务端程序还是客户端程序都会获得一个<code>net.Conn</code>类型的值<br>之后，两端便可以用该值交换数据了<br>Go的socket编程API程序在底层获取的是一个<code>非阻塞式</code>的socket实例，<br>这意味着在该实例之上的数据读取操作也都是非阻塞式的<br>应用程序试图通过系统调用<code>read</code>从socket接收缓冲区中读取数据的时候，即使接收缓冲区没有任何数据，<br>操作系统也不会使系统调用<code>read</code>进入<code>阻塞状态</code>，而是直接返回一个错误码为<code>EAGAIN</code>的错误<br>应用程序不应该视此为一个真正的错误，应该<code>忽略</code>它，并稍等片刻再次读取  </p>
+<p>同样，当socket发送缓冲区已满时，如果应用程序仍向发送缓冲区写入一段数据时，<br>系统调用<code>write</code>也<code>不会阻塞</code>，而是直接返回一个错误码为<code>EAGAIN</code>的错误<br>应用程序应该<code>忽略</code>该错误，并稍等片刻再次尝试写入数据<br>如果发送缓冲区有少许剩余空间但不足以放入这段数据<br>系统调用<code>wirte</code>会尽可能写入一部分数据，然后返回已经写入的字节的数据量<br>这一特性成为<code>部分写(partial wirte)</code>，应用程序应该每次调用<code>write</code>之后都去检查该结果值  </p>
+<p>除了<code>read</code>和<code>write</code>外，系统调用<code>accept</code>也会显现出一致的<code>非阻塞</code>风格<br>它不会阻塞以等待新的连接到来，而会直接返回错误码为<code>EAGAIN</code>的错误<br>但是Go的socket编程API在一定程度上帮助我们屏蔽了相关系统调用的EAGAIN错误，<br>这使得有些socket编程API调用起来<code>像是阻塞式</code>的<br>另外，Go的socket编程API同样<code>屏蔽</code>了非阻塞式socket接口的部分<code>写特性</code><br>相关API会直接把所有数据全部写入到socket发送缓冲区之后才返回，除非在写入的过程中发生了某种错误<br>但是，它却<code>保留</code>了非阻塞式socket接口的部分<code>读特性</code><br>这样做是合理的，因为在TCP协议之上传输的数据是字节流形式的，<br>数据接收方无法感知数据的边界（消息边界），因此API无法判断函数调用返回的时机<br>把<code>数据切分</code>和<code>分批返回</code>的任务交给调用方程序即可，因此<code>部分读</code>需要我们在程序中做一些额外的处理  </p>
+<ul>
+<li><strong>Read方法</strong></li>
+</ul>
+<p>Read方法用于从socket的接收缓冲区中读取数据</p>
+<pre><code>Read(b []byte) (n int, err error)
+</code></pre><p>该方法接收一个<code>[]byte</code>类型的参数，相当于一个用来存放从连接上接收到的数据的容器<br>Read方法会把它当作空的容器并试图填满，相应位置上的原元素会被替换<br>为了避免混乱，尽量让这个容器在填充之前保持绝对干净<br>也就是说，传递个Read方法的参数值应该是一个<code>不包含任何非零值元素的切片值</code>  </p>
+<pre><code>b := make([]byte, 10)
+n, err := conn.Read(b)
+content := string(b[:n])
+</code></pre><p>通过依据结果n对参数b做切片操作可以抽取出接收到的数据<br>如果socket编程API在从socket的接收缓冲区中读取数据时发现TCP连接已经被另一端关闭了<br>就会立刻返回一个error类型值，即<code>io.EOF</code><br>意味着此TCP连接之上在没有可以读取的数据</p>
+<pre><code>var dataBuffer bytes.Buffer
+b := make([]byte, 10)
+for {
+    n, err := conn.Read(b)
+    if err != nil {
+        if err == io.EOF {
+            fmt.Println(&quot;The connection is closed.&quot;)
+            conn.Close()
+        } else {
+            fmt.Printf(&quot;Read Error: %s\n&quot;, err)
+        }
+        break
+    }
+    dataBuffer.Write(b[:n])
+}
+</code></pre><p>上述的例子是一种最简单的情况，我们一般不会<code>在连接关闭之前无休止地</code>从连接上读取数据<br>作为一个处在TCP/IP协议栈应用层的程序，负责切分数据并生成有实际意义的消息<br>即使在最简单的情况下，应用层程序也知道怎样在接收到的字节流上进行切分<br>此外，还有一个更简便的方法：<br>利用标准库代码包<code>bufio</code>中的API实现一些较为复杂的数据切分操作<br>bufio是Buffered I/O的缩写，它提供了与带缓存的I/O操作有关的支持<br>比如通过包装不带缓存的I/O类型值的方式增强它们的功能<br><code>bufio.NewReader</code>接收一个<code>io.Reader</code>类型的参数值<br>net.Conn类型实现了io.Reader接口中唯一的方法Read，所以它是该接口的一个实现类型<br>因此，可以使用bufio.NewReader函数包装变量conn  </p>
+<pre><code>reader := bufio.NewReader(conn)
+</code></pre><p>ReadBytes方法接收一个byte类型的参数值，该参数值是通信两端协商一致的消息边界  </p>
+<pre><code>line, err := reader.ReadBytes(&apos;\n&apos;)
+</code></pre><p>另外还有<code>bufio.NewScanner函数</code>、<code>bufio.Scanner类型及其方法</code>等</p>
+<ul>
+<li><strong>Write方法</strong>  </li>
+</ul>
+<p>Write方法用于向socket的发送缓冲区写入数据  </p>
+<pre><code>Write(b []byte) (n int, err error)
+</code></pre><p>net.Conn类型是一个io.Writer接口的实现类型，所以net.Conn类型的值可以作为bufio.NewWriter函数的参数值  </p>
+<pre><code>writer := bufio.NewWriter(conn)
+</code></pre><p>与reader类似，writer的值可以看作是针对变量conn代表的TCP连接的缓冲写入器<br>可以通过调用其上的以<code>Writer为名称前缀</code>的方法来分批次地向其中的缓冲区写入数据<br>也可以通过调用它</p>
+<ul>
+<li><p><strong>Close方法</strong><br>Close放方法会关闭连接，调用Close方法时，Read方法或Write方法正在被调用且还未执行结束，<br>它们会立即执行结束并返回非nil的error值，即使它们处于阻塞状态  </p>
+</li>
+<li><p><strong>LocalAddr和RemoteAddr方法</strong><br>顾名思义是获取当前通信的某一端在网络中的地址，返回一个net.Addr类型的结果<br>方法集合中有两个方法：<code>Network</code>和<code>String</code><br>Network返回当前连接所使用的协议的名称<code>conn.LocalAddr().Network()</code>，得到<code>tcp</code><br>String方法根据通信域返回相应格式的地址<code>conn.RemoteAddr().String()</code>  </p>
+</li>
+<li><p><strong>SetDeadline SetReadDeadline SetWriteDeadline方法</strong><br>它们只接收一个time.Time类型值作为参数，返回一个error类型值作为结果<br>SetDeadline方法会设定在当前连接上的<code>I/O操作的超时时间</code><br>SetReadDeadline和SetWriteDeadline方法分别针对读和写的超时控制  </p>
+</li>
+</ul>
+<hr>
+<p><em>2017.5.9</em></p>
+<h2 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h2><p>多线程编程是一种比多进程编程更加灵活、高效的并发编程方式  </p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程可以视为·进程中的控制流，一个进程至少包含一个线程<br>一个进程的第一个线程会随着这个进程的启动而创建，也就是主线程<br>和进程一样，每个线程都有属于自己的ID——TID<br>与进程不同，线程ID在系统范围内可以不唯一，只在其所属进程的范围里唯一<br>但是Linux系统的线程实现确保了每个线程ID系统范围内的唯一性，线程不复存在后其线程ID会被复用  </p>
+<h4 id="线程的控制"><a href="#线程的控制" class="headerlink" title="线程的控制"></a>线程的控制</h4><ul>
+<li>创建线程： pthread_create</li>
+<li>终止线程： pthread_cancle，取消给定的线程ID的线程。默认情况下目标线程只有在执行到某个取消点才会响应该请求</li>
+<li>连接已终止的线程： pthread_join，该函数一直等待由线程ID指定的线程终止，如果目标线程已经处于终止状态，函数立即返回。当目标线程交出控制权后，调用线程会接过流程控制权并继续执行pthread_join函数调用之后的代码，相当于<code>“连接”</code>。事实上，如果一个线程可以被连接，那么在它终止之前必须被连接，否则就会变成一个<code>僵尸线程</code>，僵尸线程会导致系统资源浪费也会无意义减少所在进程可创建线程的数量。</li>
+<li>分离线程：pthread_detach，将一个线程分离意味着它不再是一个可连接的线程，分离操作的另一个作用是让操作系统内核在目标线程终止时自动进行清理和销毁工作。分离操作是<code>不可逆</code>的，无法使一个<code>不可连接</code>的线程变回到<code>可连接</code>的状态。对于一个已经处于分离状态的线程，执行终止操作仍然有效。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/Linux内核线程状态转换.jpg" alt="Linux内核线程状态转换"></p>
+<h4 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a>线程的同步</h4><ol>
+<li><p>互斥量：在同一时刻只允许一个线程处于临界区之内的约束称为<code>互斥mutex</code>，<br>每个线程在进入临界区之前，都必须先锁定某个对象，<br>成功锁定对象的线程才会允许进入临界区，否则会阻塞，<br>这个对象成为互斥对象或互斥量。<br>互斥量有两种可能的状态：<code>已锁定状态</code>和<code>未锁定状态</code>。互斥量不允许<code>二次加锁</code></p>
+</li>
+<li><p>条件变量：与互斥量不同，条件变量的作用并不是保证同一时刻仅有一个线程访问某一个共享数据，<br>而是在对应的共享数据的状态发生变化时，通知其他因此被阻塞的线程<br>条件变量的操作有三种：<br>2.1 等待通知(wait)：阻塞当前线程，直到收到该条件变量发来的通知<br>2.2 单发通知(signal)：让条件变量向<code>至少一个</code>正在等待它通知的线程发送通知，以表示某个共享数据的状态已经变化，这里的signal与进程间通信的信号signal不同<br>2.3 广播通知(broadcast)：让条件变量给正在等待它通知的<code>所有线程</code>发送通知，以表示某个共享数据的状态已经改变</p>
+</li>
+</ol>
+<h4 id="线程安全性"><a href="#线程安全性" class="headerlink" title="线程安全性"></a>线程安全性</h4><p>如果有一个代码块，可以被多个线程并发执行，且总能产生预期的结果，那么该代码块就是<code>线程安全</code>的<br>让函数具有线程安全性的最有效方式就是使其<code>可重入(reentrant)</code><br>如果某个进程中的所有线程都可以并发地对一个函数进行调用，并且无论它们调用该函数的实际执行情况怎样，<br>该函数都可以产生预期的结果，那么这个函数是<code>可重入</code>的<br>如果多个线程并发地调用该函数，与它们以任意顺序依次调用它所产生的效果总是<code>相同</code>的，<br>那么该函数就是一个<code>可重入</code>函数</p>
+<hr>
+<h2 id="并发编程的建议"><a href="#并发编程的建议" class="headerlink" title="并发编程的建议"></a>并发编程的建议</h2><ul>
+<li>控制临界区的纯度：临界区应仅包含操作共享数据的代码  </li>
+<li>控制临界区的粒度：如果没有长耗时的无关代码，就把它们合并在一起；反之，放弃合并  </li>
+<li>减少临界区中代码的执行耗时：注意死锁</li>
+<li>避免长时间持有互斥量：减少临界区中代码执行耗时、使用条件变量</li>
+<li>优先使用原子操作而不是互斥量：如果数据结构<code>非常简单</code>（比如数值类型），建议使用原子操作；对于结构稍微复杂一些的共享数据，原子操作则无能为力</li>
+</ul>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1950" target="_blank" rel="external">Go并发编程实战</a></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -360,7 +501,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -373,17 +514,96 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/01/Go并发编程基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/10/Go的并发机制/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Go的并发机制
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/01/31/凝思系统忘记密码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">凝思系统忘记密码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -406,8 +626,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

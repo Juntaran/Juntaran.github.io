@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Juntaran</title>
+  <title>循序渐进Linux 4：Linux服务器网络配置 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看 lspci  查看系统是否包含对应型号网卡驱动 ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/    查看网卡驱动是否加载 lsmod  如果后面是unused，则表示该模块当前没有使用如">
+<meta name="keywords" content="Network,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循序渐进Linux 4：Linux服务器网络配置">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/循序渐进Linux4：Linux服务器网络配置/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看 lspci  查看系统是否包含对应型号网卡驱动 ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/    查看网卡驱动是否加载 lsmod  如果后面是unused，则表示该模块当前没有使用如">
+<meta property="og:updated_time" content="2017-06-21T05:56:34.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="循序渐进Linux 4：Linux服务器网络配置">
+<meta name="twitter:description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看 lspci  查看系统是否包含对应型号网卡驱动 ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/    查看网卡驱动是否加载 lsmod  如果后面是unused，则表示该模块当前没有使用如">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,89 +158,247 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-循序渐进Linux4：Linux服务器网络配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/17/Go数据结构/" class="archive-article-date">
-  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
+    <h1 class="article-title" itemprop="name">
+      循序渐进Linux 4：Linux服务器网络配置
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+        
+        <a href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" class="archive-article-date">
+  	<time datetime="2016-11-08T03:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2016.11.9</em></p>
+<h2 id="一、网卡驱动的安装"><a href="#一、网卡驱动的安装" class="headerlink" title="一、网卡驱动的安装"></a>一、网卡驱动的安装</h2><h3 id="1-网卡驱动安装的一般思路"><a href="#1-网卡驱动安装的一般思路" class="headerlink" title="1. 网卡驱动安装的一般思路"></a>1. 网卡驱动安装的一般思路</h3><ol>
+<li>首先从硬件下手，检查网卡本身故障</li>
+<li><p>检查网卡芯片型号，可以打开机箱查看，也可利用命令查看</p>
+<pre><code>lspci
+</code></pre></li>
+<li><p>查看系统是否包含对应型号网卡驱动</p>
+<pre><code>ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/
+</code></pre></li>
+</ol>
+<ol>
+<li><p>查看网卡驱动是否加载</p>
+<pre><code>lsmod
+</code></pre><blockquote>
+<p>如果后面是unused，则表示该模块当前没有使用<br>如果后面是autoclean，则该模块可以使用rmmod -a自动卸载</p>
+</blockquote>
+</li>
+<li><p>modprobe、insmod/rmmod、depmod<br>modprobe其实调用了insmod/rmmod与depmod</p>
+<pre><code>modprobe [选项] 模块文件
+</code></pre></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-r 或 –remove</td>
+<td>指定模块则卸载该模块，否则自动清除</td>
+</tr>
+<tr>
+<td>-l 或 –list</td>
+<td>显示所有可用模块</td>
+</tr>
+<tr>
+<td>-c 或 –show-conf</td>
+<td>显示所有模块设置信息</td>
+</tr>
+<tr>
+<td>-K 或 –autoclean</td>
+<td>把模块设为自动清除模式</td>
+</tr>
+<tr>
+<td>-a 或 -all</td>
+<td>加载一组匹配的模块</td>
+</tr>
+<tr>
+<td>-n 或 –show</td>
+<td>仅显示要执行的操作</td>
+</tr>
+<tr>
+<td>-v 或 –verbose</td>
+<td>执行时显示详细信息</td>
+</tr>
+<tr>
+<td>-q 或 –quiet</td>
+<td>不显示错误信息</td>
+</tr>
+</tbody>
+</table>
+<p>如果A模块依赖B模块，modprobe会同时加载A和B，而insmod只会载入指定模块</p>
+<pre><code>insmod [选项] 模块名称或模块文件
+rmmod [选项] 模块名称或模块文件
+</code></pre><p>depmod分析载入模块的相关性</p>
+<pre><code>depmod [选项] 模块名称
+</code></pre><h3 id="2-安装网卡"><a href="#2-安装网卡" class="headerlink" title="2. 安装网卡"></a>2. 安装网卡</h3><ol>
+<li>rpm -ivh 网卡.rpm</li>
+<li>rpm文件默认安装到 <code>/root/rpmbuild/RPMS</code>下，把生成的模块文件复制到  <code>/lib/modules/3.10.0...x86_64/kernel/drivers/net/</code></li>
+<li><p>加载驱动</p>
+<pre><code>insmod /lib/modules/3.10.0...x86_64/kernel/drivers/net/bnx2.ko
+或
+modprobe bnx2
+</code></pre></li>
+<li><p>查看是否加载</p>
+<pre><code>lsmod | grep bnx2
+</code></pre></li>
+<li><p>激活网卡</p>
+<pre><code>ifconfig eth0 up
+ifconfig -a
+</code></pre></li>
+</ol>
+<h2 id="二、-配置Linux网络"><a href="#二、-配置Linux网络" class="headerlink" title="二、 配置Linux网络"></a>二、 配置Linux网络</h2><h3 id="1-不同Linux发行版网络配置文件"><a href="#1-不同Linux发行版网络配置文件" class="headerlink" title="1. 不同Linux发行版网络配置文件"></a>1. 不同Linux发行版网络配置文件</h3><ul>
+<li><p>RHEL/CentOS:</p>
+<pre><code>/etc/sysconfig/network-scripts/ifcfg-eth0  # 网卡配置文件
+/etc/sysconfig/network-scripts/ifcfg-lo    # 网卡回环地址
+/etc/sysconfig/network                     # 主机名和网关配置文件
+/etc/resolv.conf                           # DNS配置文件
+/etc/hosts                                 # 设置主机和IP绑定信息
+</code></pre></li>
+</ul>
+<ul>
+<li><p>Debian/Ubuntu:</p>
+<pre><code>/etc/network/interfaces                    # 网卡配置文件
+/etc/hostname                              # 主机名和网关配置文件
+/etc/resolv.conf                           # DNS配置文件
+/etc/hosts                                 # 设置主机和IP绑定信息
+</code></pre></li>
+</ul>
+<h3 id="2-网络配置文件"><a href="#2-网络配置文件" class="headerlink" title="2. 网络配置文件"></a>2. 网络配置文件</h3><ul>
+<li><p>CentOS/RHEL:<br>修改完网卡配置文件后</p>
+<pre><code>service network restart
+ifconfig eth0 down-&gt;up
+</code></pre></li>
+</ul>
+<ul>
+<li><p>Ubuntu/Debian:<br>修改完网卡配置文件后</p>
+<pre><code>sudo /etc/init.d/networking restart
+</code></pre></li>
+</ul>
+<h2 id="三、Linux网络应用"><a href="#三、Linux网络应用" class="headerlink" title="三、Linux网络应用"></a>三、Linux网络应用</h2><h3 id="1-Linux下IP别名功能，一块网卡绑定多个IP"><a href="#1-Linux下IP别名功能，一块网卡绑定多个IP" class="headerlink" title="1. Linux下IP别名功能，一块网卡绑定多个IP"></a>1. Linux下IP别名功能，一块网卡绑定多个IP</h3><ul>
+<li><p>CentOS/RHEL:<br>在<code>/etc/sysconfig/network-scripts</code>目录创建一个<code>ifcfg-eth0:0</code>文件并配置相应IP信息即可</p>
+<pre><code>ifconfig [device] [IP] netmask [netmask ip] [up|down]
+ifconfig eth0:1 192.168.66.131 netmask 255.255.255.0 up
+</code></pre></li>
+<li><p>Ubuntu/Debian:<br>网卡配置信息存放在同一个文件 /etc/network/interfaces</p>
+</li>
+</ul>
+<h3 id="2-开启Linux代理转发功能"><a href="#2-开启Linux代理转发功能" class="headerlink" title="2. 开启Linux代理转发功能"></a>2. 开启Linux代理转发功能</h3><ul>
+<li><p>临时开启，重启失效</p>
+<pre><code>cat /proc/sys/net/ipv4/ip_forward    # 0是禁止转发，1是开启转发
+echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward
+</code></pre></li>
+<li><p>永久开启</p>
+<pre><code>sudo vim /etc/sysctl.conf
+net.ipv4.ip_forward = 0    # 改成1
+sudo sysctl -p
+</code></pre></li>
+</ul>
+<h3 id="3-路由的概念与配置"><a href="#3-路由的概念与配置" class="headerlink" title="3. 路由的概念与配置"></a>3. 路由的概念与配置</h3><p>Linux配置的路由都属于静态路由，即手动输入的方式加入的路由规则<br>动态路由无需输入，路由软件自控</p>
+<pre><code>route [-n|-ee]
+route add [-net|-host] [网络或主机] netmask [mask] [gw|dev]
+route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]
+</code></pre><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>不使用通讯协议或主机名，直接使用IP地址</td>
+</tr>
+<tr>
+<td>-ee</td>
+<td>显示更详细的路由信息</td>
+</tr>
+<tr>
+<td>add</td>
+<td>添加路由</td>
+</tr>
+<tr>
+<td>del</td>
+<td>删除路由</td>
+</tr>
+<tr>
+<td>-net</td>
+<td>添加一个网络，后面跟网络号地址</td>
+</tr>
+<tr>
+<td>-host</td>
+<td>后面接的是连接到单独主机路由</td>
+</tr>
+<tr>
+<td>netmask</td>
+<td>后面接子网掩码</td>
+</tr>
+<tr>
+<td>gw</td>
+<td>网关IP</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>指定由哪个网络设备连出去，后面接网络设备名，eth0</td>
+</tr>
+</tbody>
+</table>
+<p>使用route添加路由的时候，设定的路由必须与自己系统的网络接口或IP可以直接互通</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -248,142 +408,115 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
-  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
-  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2016/11/22/Docker/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Docker
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">循序渐进Linux 3：Linux下软件安装与管理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -406,8 +539,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

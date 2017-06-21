@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Juntaran</title>
+  <title>Linux常用命令 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="2017.6.7  系统版本信息命令： uname -a作用： 查看系统内核版本号及系统名称，Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux    命令： uname -s作用： 显示内核名称，Linux   命令： uname -n作">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令">
+<meta property="og:url" content="http://yoursite.com/2017/06/07/Linux常用命令/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="2017.6.7  系统版本信息命令： uname -a作用： 查看系统内核版本号及系统名称，Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux    命令： uname -s作用： 显示内核名称，Linux   命令： uname -n作">
+<meta property="og:updated_time" content="2017-06-21T05:41:04.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="Linux常用命令">
+<meta name="twitter:description" content="2017.6.7  系统版本信息命令： uname -a作用： 查看系统内核版本号及系统名称，Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux    命令： uname -s作用： 显示内核名称，Linux   命令： uname -n作">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,234 +158,295 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux常用命令
+    </h1>
+  
+
+        
+        <a href="/2017/06/07/Linux常用命令/" class="archive-article-date">
+  	<time datetime="2017-06-06T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.7</em></p>
+<hr>
+<h2 id="系统版本信息"><a href="#系统版本信息" class="headerlink" title="系统版本信息"></a>系统版本信息</h2><p>命令： uname -a<br>作用： 查看系统内核版本号及系统名称，<br><code>Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code>   </p>
+<p>命令： uname -s<br>作用： 显示内核名称，<code>Linux</code>  </p>
+<p>命令： uname -n<br>作用： 显示主机名称，<code>ubuntu</code>  </p>
+<p>命令： uname -r<br>作用： 显示内核发行版号，<code>4.10.0-22-generic</code>  </p>
+<p>命令： uname -v<br>作用： 显示操作系统具体版本，<code>#24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： uname -m<br>作用： 显示机器硬件名称，<code>x86_64</code>  </p>
+<p>命令： uname -p<br>作用： 显示处理器类型，<code>x86_64</code>  </p>
+<p>命令： uname -i<br>作用： 显示硬件平台名称，<code>x86_64</code>  </p>
+<p>命令： uname -o<br>作用： 操作系统名称，<code>GNU/Linux</code>  </p>
+<p>命令： cat /proc/version<br>作用： 查看目录”/proc”下version的信息，也可以得到当前系统的内核版本号及系统名称，<br><code>Linux version 4.10.0-22-generic (buildd@lcy01-08) (gcc version 6.3.0 20170406 (Ubuntu 6.3.0-12ubuntu2) ) #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： lsb_release -c<br>作用： 查看系统代号，比如ubuntu 12.04为precise， 14.04为trusty，15.04为vivid，15.10为wily，17.04为zesty。<code>Codename:    zesty</code>  </p>
+<p>命令： lsb_release -a<br>作用： 显示系统信息以及代号<br><code>No LSB modules are available.</code><br><code>Distributor ID:    Ubuntu</code><br><code>Description:    Ubuntu 17.04</code><br><code>Release:    17.04</code><br><code>Codename:    zesty</code>  </p>
+<p>命令： lisb_release -d<br>作用： 显示系统号，<code>Description:    Ubuntu 17.04</code>  </p>
+<p>命令： cat /etc/issue<br>作用： 显示系统号，<code>Ubuntu 17.04 \n \l</code></p>
+<hr>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>命令： shutdown -h now<br>作用： 立即关机  </p>
+<p>命令： shutdown -r now<br>作用： 立即重启  </p>
+<p>命令： shutdown -h 23:30<br>作用： 在23:30分准时关机  </p>
+<p>命令： shutdown -h +15<br>作用： 15分钟后关机  </p>
+<p>命令： shutdown -k now “Server would shutdown in 15minutes!”<br>作用： 给出关机警告，不关机  </p>
+<p>命令： halt -p<br>作用： 关机并关闭电源  </p>
+<p>命令： halt -d<br>作用： 关机，不会在日志里留下记录  </p>
+<p>命令： halt -w<br>作用： 不会关机，会把关机事件写入<code>/var/log/wtmp</code>  </p>
+<p>命令： reboot<br>作用： 重启系统  </p>
+<p>命令： poweroff<br>作用： 关机并且切断电源  </p>
+<p>命令： init 6<br>作用： 重启  </p>
+<p>命令： init 0<br>作用： 关机  </p>
+<hr>
+<h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2><p>命令： dmidecode<br>作用： 列出所有硬件信息  </p>
+<p>命令： dmidecode -t<br>作用： 列出硬件类型  </p>
+<p>命令： dmidecode -t 硬件类型<br>作用： 根据硬件类型展示相应的硬件信息  </p>
+<hr>
+<h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><p>命令： whoami<br>作用： 显示当前操作用户的用户名<br><code>juntaran</code>  </p>
+<p>命令： who am i<br>作用： 显示登入系统用户的用户名，以及登录时间（只要有2个参数即可，无所谓是不是 am 和 i）<br><code>juntaran pts/0        2017-06-20 14:47 (192.168.126.1)</code>  </p>
+<p>命令： who (-H)<br>作用： 显示所有登入系统的用户的用户名，以及登录时间。-H 会加上列名  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>LINE</th>
+<th>TIME</th>
+<th>COMMENT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>2017-06-20 14:47</td>
+<td>(192.168.126.1)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>2017-06-16 20:12</td>
+<td>(:0)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>2017-06-20 14:52</td>
+<td>(192.168.126.1)</td>
+</tr>
+</tbody>
+</table>
+<p>命令： who -b<br>作用： 显示系统上一次启动时间<br><code>system boot  2017-06-16 20:10</code>  </p>
+<p>命令： w<br>作用： <code>who</code>显示的是<code>show who is logged on</code>，<code>w</code>显示的是<code>show who is logged on and what they are doing</code>  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>TTY</th>
+<th>FROM</th>
+<th>LOGIN@</th>
+<th>IDLE</th>
+<th>JCPU</th>
+<th>PCPU</th>
+<th>WHAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>192.168.126.1</td>
+<td>14:47</td>
+<td>0.00s</td>
+<td>0.17s</td>
+<td>0.00s</td>
+<td>w</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>:0</td>
+<td>Fri20</td>
+<td>3days</td>
+<td>57.27s</td>
+<td>0.04s</td>
+<td>/bin/sh /usr/lib/gnome-session/run-systemd-session</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>192.168.126.1</td>
+<td>14:52</td>
+<td>44:28</td>
+<td>0.03s</td>
+<td>0.03s</td>
+<td>top</td>
+</tr>
+</tbody>
+</table>
+<p>在运行<code>w</code>命令时，<code>pts/0</code>终端的<code>WHAT</code>显示了正在执行<code>w</code>，而另一个终端正在执行的<code>top</code>命令也被记录了<br>另外，<code>JCPU</code>指的是与该tty终端连接的所由进程占用的时间，不包括过去的后台作业时间<br><code>PCPU</code>指的是当前进程（即w项中显示的）所占用的时间  </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/17/Go数据结构/" class="archive-article-date">
-  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/07/Linux常用命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
-  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
-  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2017/06/16/Vim配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vim配置
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/04/Python修复setup/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL安装问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -406,8 +469,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

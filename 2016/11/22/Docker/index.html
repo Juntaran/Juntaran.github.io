@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Juntaran</title>
+  <title>Docker | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="2016.11.22 Docker特点特性：  资源独立，隔离   与宿主机其他应用互不影响   环境一致性 无论build的Docker image创建的container在哪里都能够保证环境变量、运行环境相同   轻量化 与虚拟化相比快速开/关机CPU/内存的低消耗速度快   Build Once,Run Everywhere 只需要迁移符合标准规范    总结就是容器技术的高生产力符合当前高">
+<meta name="keywords" content="虚拟化,Network">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="http://yoursite.com/2016/11/22/Docker/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="2016.11.22 Docker特点特性：  资源独立，隔离   与宿主机其他应用互不影响   环境一致性 无论build的Docker image创建的container在哪里都能够保证环境变量、运行环境相同   轻量化 与虚拟化相比快速开/关机CPU/内存的低消耗速度快   Build Once,Run Everywhere 只需要迁移符合标准规范    总结就是容器技术的高生产力符合当前高">
+<meta property="og:image" content="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/VMvsDocker.jpg">
+<meta property="og:updated_time" content="2017-06-21T05:52:11.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="Docker">
+<meta name="twitter:description" content="2016.11.22 Docker特点特性：  资源独立，隔离   与宿主机其他应用互不影响   环境一致性 无论build的Docker image创建的container在哪里都能够保证环境变量、运行环境相同   轻量化 与虚拟化相比快速开/关机CPU/内存的低消耗速度快   Build Once,Run Everywhere 只需要迁移符合标准规范    总结就是容器技术的高生产力符合当前高">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/VMvsDocker.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,234 +160,247 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Docker" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/17/Go数据结构/" class="archive-article-date">
-  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
+    <h1 class="article-title" itemprop="name">
+      Docker
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/11/22/Docker/" class="archive-article-date">
+  	<time datetime="2016-11-22T09:45:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2016.11.22</em></p>
+<h1 id="Docker特点"><a href="#Docker特点" class="headerlink" title="Docker特点"></a>Docker特点</h1><p>特性：</p>
+<ol>
+<li>资源独立，隔离</li>
+</ol>
+<blockquote>
+<p>与宿主机其他应用互不影响</p>
+</blockquote>
+<ol>
+<li>环境一致性<blockquote>
+<p>无论build的Docker image创建的container在哪里都能够保证环境变量、运行环境相同</p>
+</blockquote>
+</li>
+<li>轻量化<blockquote>
+<p>与虚拟化相比快速开/关机<br>CPU/内存的低消耗<br>速度快</p>
+</blockquote>
+</li>
+<li>Build Once,Run Everywhere<blockquote>
+<p>只需要迁移符合标准规范</p>
+</blockquote>
+</li>
+</ol>
+<p>总结就是容器技术的<code>高生产力</code>符合当前高产能的需求</p>
+<hr>
+<h2 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h2><p>Docker是一种<code>容器</code>技术，把应用和环境打包，形成一个独立的，类似与APP形式的应用。与虚拟化技术类似，极大的方便了应用服务的部署，却又与虚拟化技术不同，它以一种更<code>轻量</code>的方式实现了应用服务的打包。使用Docker可以让每个应用彼此相互隔离，在同一台机器上同时运行多个应用。可以在更细的粒度上进行资源的管理，比虚拟化技术更节约资源。</p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/VMvsDocker.jpg" alt="VM vs Docker"></p>
+<p>上图是Docker与虚拟机的实现框架，可以很明显看出虚拟机的Guset OS层（虚拟机安装的操作系统）和Hypervisor层（硬件虚拟化平台，比如KVM）在Docker中被Docker Engine所替代。 虚拟机实现资源隔离的方法是独立OS+虚拟化CPU、内存、IO设备。 Docker实现资源隔离的方法是利用Linux内核本身支持的容器方式实现资源和环境隔离。 Docker有着更少的抽象层，不需要Hypervisor实现硬件虚拟化，运行在Docker容器上的程序直接使用的都是世纪物理机的硬件资源。因此在CPU、内存利用率上Docker效率更高。 此外，Docker利用宿主机内核无需Guest OS，当新建一个容器时无需加载操作系统内核，资源开销相比虚拟机极小，启动/关闭时间也远高于虚拟机。</p>
+<hr>
+<h2 id="Docker的基本概念"><a href="#Docker的基本概念" class="headerlink" title="Docker的基本概念"></a>Docker的基本概念</h2><ul>
+<li>镜像——Image</li>
+<li>容器——Container</li>
+<li>仓库——Repository</li>
+</ul>
+<p><strong>镜像：</strong><br>    镜像是一个只读的模版，一个镜像可以包含一个完整的Ubuntu操作系统环境，里面仅安装了Apache或用户需要的其它应用程序，镜像可以用来创建Docker容器<br><strong>容器：</strong><br>    Docker利用容器来运行应用。<br>    容器是从镜像创建的运行实例，可以被启动、开始、停止、删除，每个容器都是相互隔离的，可以把容器看作一个简易版的Linux环境</p>
+<blockquote>
+<p> 镜像是只读的，容器在启动的时候创建一层可写层作为最上层</p>
+</blockquote>
+<p><strong>仓库：</strong><br>    仓库是集中存放镜像文件的场所，仓库注册服务器（Registry）中往往存放多个仓库，每个仓库又包含了多个镜像，每个镜像有不同的标签（tag）<br>    仓库分为公开库与私有库。<br>    最大的公开仓库是Docker Hub，国内有Docker Pool等。<br>    用户也可以在本地网络创建一个私有仓库。<br>    用户创建了自己的镜像后可以使用<code>push</code>上传到仓库，在使用另外一台机器的时候可以从仓库<code>pull</code>下来。</p>
+<hr>
+<h2 id="Docker的使用"><a href="#Docker的使用" class="headerlink" title="Docker的使用"></a>Docker的使用</h2><blockquote>
+<p>Ubuntu使用提示：<br>一定要用<code>sudo</code></p>
+</blockquote>
+<p>安装Docker</p>
+<pre><code>yum install docker
+</code></pre><p>启动守护进程</p>
+<pre><code>service docker start
+</code></pre><p>在系统启动时运行</p>
+<pre><code>chkconfig docker on
+</code></pre><p>获取远程镜像</p>
+<pre><code>docker pull ubuntu
+</code></pre><p>创建一个容器</p>
+<pre><code>docker create
+</code></pre><p>运行一个新容器</p>
+<pre><code>docker run
+</code></pre><p>启动一个新容器，并把Ubuntu的shell作为入口</p>
+<pre><code>docker run -it ubuntu:latest sh -c &apos;/bin/bash&apos;
+</code></pre><p><code>-i</code>代表这是一个交互容器，把当前标准输入重定向到容器的标准输入，而不是终止程序运行<br><code>-t</code>代表为这个容器分配一个中断<br><code>Ctrl+D</code>可以退出这个容器</p>
+<pre><code>docker ps -a
+</code></pre><p><code>docker ps</code>命令可以看到当前正在运行的容器<br><code>-a</code>参数可以看到所有创建的容器</p>
+<p>退出容器后要重新启动这个容器</p>
+<pre><code>docker start
+</code></pre><p><strong>注意：<br>每次执行<code>docker run</code>命令都会创建新的容器，最好一次创建后使用<code>docker start/stop</code>来启动/停用容器</strong></p>
+<hr>
+<p><strong>参考/引用来源：</strong><br><a href="http://docs.daocloud.io/" target="_blank" rel="external">DaoCloud</a><br><a href="http://blog.csdn.net/cbl709/article/details/43955687" target="_blank" rel="external">cbl709</a><br><a href="http://wiki.jikexueyuan.com/project/docker-technology-and-combat/" target="_blank" rel="external">极客学院</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟化</a>
         		</li>
       		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/22/Docker/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
-  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
-  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2017/01/31/凝思系统忘记密码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          凝思系统忘记密码
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">循序渐进Linux 4：Linux服务器网络配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -406,8 +423,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

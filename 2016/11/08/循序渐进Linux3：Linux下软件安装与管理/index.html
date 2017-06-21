@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Juntaran</title>
+  <title>循序渐进Linux 3：Linux下软件安装与管理 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="2016.11.8 一、源码安装./configure make make install 二、RPM包1. 安装软件包rpm -i [辅助选项] file1.rpm file2.rpm 主选项 -i：　　install，安装辅助选项：    辅助选项 说明     -v 显示附加信息   -h 安装时输出标记 #   –test 测试，不实际安装   –nodeps 不检查依赖关系   –for">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循序渐进Linux 3：Linux下软件安装与管理">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="2016.11.8 一、源码安装./configure make make install 二、RPM包1. 安装软件包rpm -i [辅助选项] file1.rpm file2.rpm 主选项 -i：　　install，安装辅助选项：    辅助选项 说明     -v 显示附加信息   -h 安装时输出标记 #   –test 测试，不实际安装   –nodeps 不检查依赖关系   –for">
+<meta property="og:updated_time" content="2017-06-21T05:46:52.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="循序渐进Linux 3：Linux下软件安装与管理">
+<meta name="twitter:description" content="2016.11.8 一、源码安装./configure make make install 二、RPM包1. 安装软件包rpm -i [辅助选项] file1.rpm file2.rpm 主选项 -i：　　install，安装辅助选项：    辅助选项 说明     -v 显示附加信息   -h 安装时输出标记 #   –test 测试，不实际安装   –nodeps 不检查依赖关系   –for">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,234 +158,320 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-循序渐进Linux3：Linux下软件安装与管理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      循序渐进Linux 3：Linux下软件安装与管理
+    </h1>
+  
+
+        
+        <a href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/" class="archive-article-date">
+  	<time datetime="2016-11-08T02:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2016.11.8</em></p>
+<h2 id="一、源码安装"><a href="#一、源码安装" class="headerlink" title="一、源码安装"></a>一、源码安装</h2><pre><code>./configure
+make
+make install
+</code></pre><h2 id="二、RPM包"><a href="#二、RPM包" class="headerlink" title="二、RPM包"></a>二、RPM包</h2><h3 id="1-安装软件包"><a href="#1-安装软件包" class="headerlink" title="1. 安装软件包"></a>1. 安装软件包</h3><pre><code>rpm -i [辅助选项] file1.rpm file2.rpm
+</code></pre><p>主选项 -i：　　install，安装<br>辅助选项：</p>
+<table>
+<thead>
+<tr>
+<th>辅助选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>显示附加信息</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>安装时输出标记 #</td>
+</tr>
+<tr>
+<td>–test</td>
+<td>测试，不实际安装</td>
+</tr>
+<tr>
+<td>–nodeps</td>
+<td>不检查依赖关系</td>
+</tr>
+<tr>
+<td>–force</td>
+<td>忽略软件包以及软件冲突</td>
+</tr>
+<tr>
+<td>–replacepkgs</td>
+<td>强制重新安装</td>
+</tr>
+<tr>
+<td>–prefix</td>
+<td>把软件包安装到prefix选项指定的路径</td>
+</tr>
+<tr>
+<td>–percent</td>
+<td>以百分比形式输出安装进度</td>
+</tr>
+<tr>
+<td>–excludedocs</td>
+<td>不安装软件包中说明文件</td>
+</tr>
+<tr>
+<td>–includedocs</td>
+<td>安装软件包包含说明文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-查询软件包"><a href="#2-查询软件包" class="headerlink" title="2. 查询软件包"></a>2. 查询软件包</h3><pre><code>rpm -q [辅助选项] package1...packageN
+</code></pre><table>
+<thead>
+<tr>
+<th>辅助选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>查询操作系统某个文件属于哪个对应的rpm包</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>查询以 .rpm 为后缀的软件包安装后对应的包名称</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示软件包中所有文件列表</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示软件包概要信息</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>查询系统有哪些软件包属于指定类别</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示软件包的说明文件列表</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>在 -l 的基础上显示每个文件的状态</td>
+</tr>
+<tr>
+<td>-R 或 –requries</td>
+<td>显示软件包所需的功能</td>
+</tr>
+<tr>
+<td>–provides</td>
+<td>显示软件包提供的功能</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-验证软件包"><a href="#3-验证软件包" class="headerlink" title="3. 验证软件包"></a>3. 验证软件包</h3><pre><code>rpm -V [辅助选项] package1...packageN
+</code></pre><h3 id="4-更新软件包"><a href="#4-更新软件包" class="headerlink" title="4. 更新软件包"></a>4. 更新软件包</h3><pre><code>rpm -U [辅助选项] file1.rpm ... fileN.rpm
+</code></pre><h3 id="5-删除软件包"><a href="#5-删除软件包" class="headerlink" title="5. 删除软件包"></a>5. 删除软件包</h3><pre><code>rpm -e [辅助选项] package1 ... packageN
+</code></pre><table>
+<thead>
+<tr>
+<th>辅助选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–test</td>
+<td>只执行删除测试</td>
+</tr>
+<tr>
+<td>–nodeps</td>
+<td>不检查依赖性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三、yum安装方式"><a href="#三、yum安装方式" class="headerlink" title="三、yum安装方式"></a>三、yum安装方式</h2><pre><code>rpm -qa|grep yum                 # 检查yum是否安装
+
+rpm -ivh yum-*.noarch.rpm        # 安装yum
+
+yum install xxx                  # 安装
+yum remove xxx                   # 删除
+yum check-update                 # 检查更新
+yum update                       # 更新所有rpm包
+yum update kernel kernel-source  # 更新内核
+yum upgrade                      # 升级版本
+yum info                         # 查询RPM包信息
+</code></pre><h2 id="四、二进制软件安装"><a href="#四、二进制软件安装" class="headerlink" title="四、二进制软件安装"></a>四、二进制软件安装</h2><p>这种格式的软件的安装其实就是解压</p>
+<pre><code># *.tar.gz格式
+tar -zxvf xxx.tar.gz
+
+# *.bz2格式
+tar -jxvf xxx.tar.bz2
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/17/Go数据结构/" class="archive-article-date">
-  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
-  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
-  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          循序渐进Linux 4：Linux服务器网络配置
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/11/07/循序渐进Linux2：Linux的常用命令及使用技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">循序渐进Linux 2：Linux的常用命令以及使用技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -406,8 +494,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
