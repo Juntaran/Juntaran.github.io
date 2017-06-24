@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>爬虫学习笔记 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2017.5.10 评估网页数量可以利用百度或者Google site:www.cnblogs.com  Google可以搜索子目录  不重复爬取 原理就是标记URL，之后爬取新的页面对比URL   MD5处理URL后存储 利用Bit-Map方法建立BitSet，对URL进行哈希映射 布隆过滤器，pybloomfilter网站地图爬虫爬取网站之前首先访问网站根目录下的Robots.txt根据Rob">
+  <meta name="description" content="2017.5.10 评估网页数量可以利用百度或者Google site:www.cnblogs.com  Google可以搜索子目录  不重复爬取原理就是标记URL，之后爬取新的页面对比URL   MD5处理URL后存储 利用Bit-Map方法建立BitSet，对URL进行哈希映射 布隆过滤器，pybloomfilter   网站地图爬虫爬取网站之前首先访问网站根目录下的Robots.txt根据R">
 <meta name="keywords" content="Network,网络爬虫">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫学习笔记">
 <meta property="og:url" content="http://yoursite.com/2017/05/10/爬虫学习笔记/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="2017.5.10 评估网页数量可以利用百度或者Google site:www.cnblogs.com  Google可以搜索子目录  不重复爬取 原理就是标记URL，之后爬取新的页面对比URL   MD5处理URL后存储 利用Bit-Map方法建立BitSet，对URL进行哈希映射 布隆过滤器，pybloomfilter网站地图爬虫爬取网站之前首先访问网站根目录下的Robots.txt根据Rob">
-<meta property="og:updated_time" content="2017-06-21T05:56:12.667Z">
+<meta property="og:description" content="2017.5.10 评估网页数量可以利用百度或者Google site:www.cnblogs.com  Google可以搜索子目录  不重复爬取原理就是标记URL，之后爬取新的页面对比URL   MD5处理URL后存储 利用Bit-Map方法建立BitSet，对URL进行哈希映射 布隆过滤器，pybloomfilter   网站地图爬虫爬取网站之前首先访问网站根目录下的Robots.txt根据R">
+<meta property="og:updated_time" content="2017-06-24T13:52:55.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫学习笔记">
-<meta name="twitter:description" content="2017.5.10 评估网页数量可以利用百度或者Google site:www.cnblogs.com  Google可以搜索子目录  不重复爬取 原理就是标记URL，之后爬取新的页面对比URL   MD5处理URL后存储 利用Bit-Map方法建立BitSet，对URL进行哈希映射 布隆过滤器，pybloomfilter网站地图爬虫爬取网站之前首先访问网站根目录下的Robots.txt根据Rob">
+<meta name="twitter:description" content="2017.5.10 评估网页数量可以利用百度或者Google site:www.cnblogs.com  Google可以搜索子目录  不重复爬取原理就是标记URL，之后爬取新的页面对比URL   MD5处理URL后存储 利用Bit-Map方法建立BitSet，对URL进行哈希映射 布隆过滤器，pybloomfilter   网站地图爬虫爬取网站之前首先访问网站根目录下的Robots.txt根据R">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -184,15 +184,16 @@
 </code></pre><blockquote>
 <p>Google可以搜索子目录</p>
 </blockquote>
-<h2 id="不重复爬取"><a href="#不重复爬取" class="headerlink" title="不重复爬取"></a>不重复爬取</h2><p> 原理就是标记URL，之后爬取新的页面对比URL</p>
+<h2 id="不重复爬取"><a href="#不重复爬取" class="headerlink" title="不重复爬取"></a>不重复爬取</h2><p>原理就是标记URL，之后爬取新的页面对比URL</p>
 <blockquote>
 <ol>
 <li>MD5处理URL后存储</li>
 <li>利用Bit-Map方法建立BitSet，对URL进行哈希映射</li>
-<li>布隆过滤器，pybloomfilter<h2 id="网站地图"><a href="#网站地图" class="headerlink" title="网站地图"></a>网站地图</h2>爬虫爬取网站之前首先访问网站根目录下的Robots.txt<br>根据<code>Robots.txt</code>判断可以爬取哪些内容<br>利用<code>sitemap.xml</code>分析网站规模<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2></li>
+<li>布隆过滤器，pybloomfilter</li>
 </ol>
 </blockquote>
-<pre><code>import re
+<h2 id="网站地图"><a href="#网站地图" class="headerlink" title="网站地图"></a>网站地图</h2><p>爬虫爬取网站之前首先访问网站根目录下的Robots.txt<br>根据<code>Robots.txt</code>判断可以爬取哪些内容<br>利用<code>sitemap.xml</code>分析网站规模  </p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>import re
 findall(pattern, string, flags=0)
 </code></pre><h2 id="使用Chrome"><a href="#使用Chrome" class="headerlink" title="使用Chrome"></a>使用Chrome</h2><p>在Chrome中<code>检查</code>网页，<br>可以在<code>Console</code>里执行命令查看节点<br>例如：</p>
 <pre><code>document.childNodes
