@@ -158,6 +158,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Go数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/17/Go数据结构/">Go数据结构</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/17/Go数据结构/" class="archive-article-date">
+  	<time datetime="2017-05-16T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.5.17</em></p>
+<ol>
+<li><p><code>数组</code>是<code>slice</code>和<code>map</code>的底层结构</p>
+</li>
+<li><p><code>slice</code>是Go里面惯用的集合数据的方法，<code>map</code>则是用来存储键值对</p>
+</li>
+<li><p>内建函数<code>make</code>用来创建<code>slice</code>和<code>map</code>，并且为它们指定长度和容量等等。<code>slice和</code>map`字面值也可以做同样的事</p>
+</li>
+<li><p><code>slice</code>有<code>容量</code>的<code>约束</code>，不过可以通过内建函数<code>append</code>来增加元素</p>
+</li>
+<li><p><code>map</code>没有<code>容量</code>一说，所以也没有任何增长限制</p>
+</li>
+<li><p>内建函数<code>len</code>可以用来获得<code>slice</code>和<code>map</code>的长度</p>
+</li>
+<li><p>内建函数<code>cap</code>只能作用在<code>slice</code>上</p>
+</li>
+<li><p>可以通过组合方式来创建多维数组和<code>slice</code>。<code>map</code>的值可以是<code>slice</code>或者另一个<code>map</code>。<code>slice</code>不能作为<code>map</code>的键</p>
+</li>
+<li><p>在函数之间传递<code>slice</code>和<code>map</code>是相当廉价的，因为他们不会传递底层数组的拷贝</p>
+</li>
+</ol>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="http://studygolang.com/articles/2335" target="_blank" rel="external">studyGolang.com</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/17/Go数据结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-爬虫学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2977,107 +3076,9 @@ systemctl disable http.service        // 禁止服务
 
 
   
-    <article id="post-CDN与SDN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/26/CDN与SDN/">CDN与SDN</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/26/CDN与SDN/" class="archive-article-date">
-  	<time datetime="2016-09-25T16:28:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.9.26</em></p>
-<h1 id="CDN与SDN"><a href="#CDN与SDN" class="headerlink" title="CDN与SDN"></a>CDN与SDN</h1><p>这两个完全不是一个东西<br>只是名字相近而已 </p>
-<h2 id="CDN：Content-Delivery-Network-内容分发网络"><a href="#CDN：Content-Delivery-Network-内容分发网络" class="headerlink" title="CDN：Content Delivery Network 内容分发网络"></a>CDN：Content Delivery Network 内容分发网络</h2><h3 id="CDN的基本思路："><a href="#CDN的基本思路：" class="headerlink" title="CDN的基本思路："></a>CDN的基本思路：</h3><p>尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，<br>使内容传输的更快、更稳定。<br>它是通过网络各处放置节点服务器所构成的现有互联网基础之上的一层智能虚拟网<br>CDN实时根据网络流量以及各节点的连接、负载状况以及到用户的距离和响应时间等综合信息<br>重新导向用户的请求到最近的服务节点上  </p>
-<h3 id="CDN解决的问题："><a href="#CDN解决的问题：" class="headerlink" title="CDN解决的问题："></a>CDN解决的问题：</h3><ol>
-<li>解决高流量、大并发  </li>
-<li>解决南北互联问题  </li>
-<li>访问加速（CDN有缓存技术）  </li>
-<li>降低运营成本（源站放在BGP机房，缓存服务器放在费用较低的地方）  </li>
-<li>提高网站的可用性  </li>
-<li>防DDoS（因为攻击被分配到了不同的物理服务器）  </li>
-</ol>
-<h3 id="CDN的组成："><a href="#CDN的组成：" class="headerlink" title="CDN的组成："></a>CDN的组成：</h3><ul>
-<li>源站  </li>
-<li>缓存服务器（核心缓存服务器+边缘缓存服务器）  </li>
-<li>智能DNS（核心）：根据用户的来源，重新导向到较近/合适的缓存服务器</li>
-<li>客户端</li>
-</ul>
-<h2 id="SDN：-Software-Defined-Network-软件定义网络"><a href="#SDN：-Software-Defined-Network-软件定义网络" class="headerlink" title="SDN： Software Defined Network 软件定义网络"></a>SDN： Software Defined Network 软件定义网络</h2><h3 id="SDN的基本思路"><a href="#SDN的基本思路" class="headerlink" title="SDN的基本思路"></a>SDN的基本思路</h3><p>网络设备和数据面<code>分离</code>开来，能够灵活控制网络流量<br>把网络设备视为<code>被管理的资源</code>，抽象出一个网络操作系统<br>一方面<code>抽象</code>底层网络设备具体细节，同时为上层应用提供了统一的管理视图和编程接口<br>屏蔽底层网络设备物理细节差异，通过软件定义网络拓扑、资源分配、处理机制  </p>
-<h3 id="SDN的组成"><a href="#SDN的组成" class="headerlink" title="SDN的组成"></a>SDN的组成</h3><p>SDN架构分为三层：<code>上层应用</code>、<code>SDN控制层</code>、<code>基础设施层</code> </p>
-<ul>
-<li>应用层：不同业务和应用 应用层与控制层有API接口连接  </li>
-<li>控制层：处理数据平面资源编排、维护网络拓扑、状态信息  控制层与底层由OpenFlow连接  </li>
-<li>基础设施层：网络设备，数据处理、转发、状态收集  </li>
-</ul>
-<h3 id="SDN特点："><a href="#SDN特点：" class="headerlink" title="SDN特点："></a>SDN特点：</h3><ol>
-<li>硬件设备归一化，硬件只关注转发和存储能力，与业务解耦  </li>
-<li>网络的智能型由软件实现，网络设备的种类及功能由软件配置而定，对网络的操作控制和运行由服务器作为网络操作系统Network OS来完成  </li>
-<li>对业务响应相对更快，可以定制各种网络参数，如路由、安全、策略、QoS、流量工程等，实时配置到网络，开通具体业务的时间将缩短  </li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/26/CDN与SDN/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -3212,6 +3213,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
