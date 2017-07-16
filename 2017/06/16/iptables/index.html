@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://juntaran.github.io/2017/06/16/iptables/index.html">
 <meta property="og:site_name" content="Juntaran">
 <meta property="og:description" content="2017.6.16 1.四表五链iptables有四表五链一说，即   1.1 四表： filter： 默认表，包含防火墙过滤的规则，内置规则链为INPUT、OUTPUT、FORWARD，内核模块对应 iptables_filternat： 用于 nat 功能（端口映射、地址映射等），包含源和目的地址及端口转发的规则，内置规则链为 PREROUTING、OUTPUT 和 POSTROUTING，内">
-<meta property="og:updated_time" content="2017-06-21T05:43:45.094Z">
+<meta property="og:updated_time" content="2017-07-16T16:16:29.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iptables">
 <meta name="twitter:description" content="2017.6.16 1.四表五链iptables有四表五链一说，即   1.1 四表： filter： 默认表，包含防火墙过滤的规则，内置规则链为INPUT、OUTPUT、FORWARD，内核模块对应 iptables_filternat： 用于 nat 功能（端口映射、地址映射等），包含源和目的地址及端口转发的规则，内置规则链为 PREROUTING、OUTPUT 和 POSTROUTING，内">
@@ -305,7 +305,7 @@ PREROUTING -&gt; INPUT -&gt; 本机 OUTPUT -&gt; POSTROUTING
 </tr>
 </tbody>
 </table>
-<h3 id="3-4-清楚规则和计数器"><a href="#3-4-清楚规则和计数器" class="headerlink" title="3.4 清楚规则和计数器"></a>3.4 清楚规则和计数器</h3><pre><code>iptables [-t 表名] &lt;-F | X | Z&gt;
+<h3 id="3-4-清除规则和计数器"><a href="#3-4-清除规则和计数器" class="headerlink" title="3.4 清除规则和计数器"></a>3.4 清除规则和计数器</h3><pre><code>iptables [-t 表名] &lt;-F | X | Z&gt;
 </code></pre><table>
 <thead>
 <tr>
