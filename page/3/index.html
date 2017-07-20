@@ -158,6 +158,455 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-循序渐进Linux4：Linux服务器网络配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/">循序渐进Linux 4：Linux服务器网络配置</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" class="archive-article-date">
+  	<time datetime="2016-11-08T03:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2016.11.9</em></p>
+<h2 id="一、网卡驱动的安装"><a href="#一、网卡驱动的安装" class="headerlink" title="一、网卡驱动的安装"></a>一、网卡驱动的安装</h2><h3 id="1-网卡驱动安装的一般思路"><a href="#1-网卡驱动安装的一般思路" class="headerlink" title="1. 网卡驱动安装的一般思路"></a>1. 网卡驱动安装的一般思路</h3><ol>
+<li>首先从硬件下手，检查网卡本身故障</li>
+<li>检查网卡芯片型号，可以打开机箱查看，也可利用命令查看</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lspci</div></pre></td></tr></table></figure>
+<ol>
+<li>查看系统是否包含对应型号网卡驱动</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/</div></pre></td></tr></table></figure>
+<ol>
+<li>查看网卡驱动是否加载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsmod</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果后面是unused，则表示该模块当前没有使用<br>如果后面是autoclean，则该模块可以使用rmmod -a自动卸载</p>
+</blockquote>
+<ol>
+<li>modprobe、insmod/rmmod、depmod<br>modprobe其实调用了insmod/rmmod与depmod</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">modprobe [选项] 模块文件</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-r 或 –remove</td>
+<td>指定模块则卸载该模块，否则自动清除</td>
+</tr>
+<tr>
+<td>-l 或 –list</td>
+<td>显示所有可用模块</td>
+</tr>
+<tr>
+<td>-c 或 –show-conf</td>
+<td>显示所有模块设置信息</td>
+</tr>
+<tr>
+<td>-K 或 –autoclean</td>
+<td>把模块设为自动清除模式</td>
+</tr>
+<tr>
+<td>-a 或 -all</td>
+<td>加载一组匹配的模块</td>
+</tr>
+<tr>
+<td>-n 或 –show</td>
+<td>仅显示要执行的操作</td>
+</tr>
+<tr>
+<td>-v 或 –verbose</td>
+<td>执行时显示详细信息</td>
+</tr>
+<tr>
+<td>-q 或 –quiet</td>
+<td>不显示错误信息</td>
+</tr>
+</tbody>
+</table>
+<p>如果A模块依赖B模块，modprobe会同时加载A和B，而insmod只会载入指定模块</p>
+<pre><code>insmod [选项] 模块名称或模块文件
+rmmod [选项] 模块名称或模块文件
+</code></pre><p>depmod分析载入模块的相关性</p>
+<pre><code>depmod [选项] 模块名称
+</code></pre><h3 id="2-安装网卡"><a href="#2-安装网卡" class="headerlink" title="2. 安装网卡"></a>2. 安装网卡</h3><ol>
+<li><p>安装网卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh 网卡.rpm</div></pre></td></tr></table></figure>
+</li>
+<li><p>rpm文件默认安装到 <code>/root/rpmbuild/RPMS</code>下，把生成的模块文件复制到  <code>/lib/modules/3.10.0...x86_64/kernel/drivers/net/</code></p>
+</li>
+<li><p>加载驱动</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">insmod /lib/modules/3.10.0...x86_64/kernel/drivers/net/bnx2.ko</div><div class="line">或</div><div class="line">modprobe bnx2</div></pre></td></tr></table></figure>
+<ol>
+<li>查看是否加载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsmod | grep bnx2</div></pre></td></tr></table></figure>
+<ol>
+<li>激活网卡</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig eth0 up</div><div class="line">ifconfig -a</div></pre></td></tr></table></figure>
+<h2 id="二、-配置Linux网络"><a href="#二、-配置Linux网络" class="headerlink" title="二、 配置Linux网络"></a>二、 配置Linux网络</h2><h3 id="1-不同Linux发行版网络配置文件"><a href="#1-不同Linux发行版网络配置文件" class="headerlink" title="1. 不同Linux发行版网络配置文件"></a>1. 不同Linux发行版网络配置文件</h3><ul>
+<li>RHEL/CentOS:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0  <span class="comment"># 网卡配置文件</span></div><div class="line">/etc/sysconfig/network-scripts/ifcfg-lo    <span class="comment"># 网卡回环地址</span></div><div class="line">/etc/sysconfig/network                     <span class="comment"># 主机名和网关配置文件</span></div><div class="line">/etc/resolv.conf                           <span class="comment"># DNS配置文件</span></div><div class="line">/etc/hosts                                 <span class="comment"># 设置主机和IP绑定信息</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Debian/Ubuntu:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/etc/network/interfaces                    <span class="comment"># 网卡配置文件</span></div><div class="line">/etc/hostname                              <span class="comment"># 主机名和网关配置文件</span></div><div class="line">/etc/resolv.conf                           <span class="comment"># DNS配置文件</span></div><div class="line">/etc/hosts                                 <span class="comment"># 设置主机和IP绑定信息</span></div></pre></td></tr></table></figure>
+<h3 id="2-网络配置文件"><a href="#2-网络配置文件" class="headerlink" title="2. 网络配置文件"></a>2. 网络配置文件</h3><ul>
+<li>CentOS/RHEL:<br>修改完网卡配置文件后</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service network restart</div><div class="line">ifconfig eth0 down-&gt;up</div></pre></td></tr></table></figure>
+<ul>
+<li>Ubuntu/Debian:<br>修改完网卡配置文件后</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/networking restart</div></pre></td></tr></table></figure>
+<h2 id="三、Linux网络应用"><a href="#三、Linux网络应用" class="headerlink" title="三、Linux网络应用"></a>三、Linux网络应用</h2><h3 id="1-Linux下IP别名功能，一块网卡绑定多个IP"><a href="#1-Linux下IP别名功能，一块网卡绑定多个IP" class="headerlink" title="1. Linux下IP别名功能，一块网卡绑定多个IP"></a>1. Linux下IP别名功能，一块网卡绑定多个IP</h3><ul>
+<li>CentOS/RHEL:<br>在<code>/etc/sysconfig/network-scripts</code>目录创建一个<code>ifcfg-eth0:0</code>文件并配置相应IP信息即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig [device] [IP] netmask [netmask ip] [up|down]</div><div class="line">ifconfig eth0:1 192.168.66.131 netmask 255.255.255.0 up</div></pre></td></tr></table></figure>
+<ul>
+<li>Ubuntu/Debian:<br>网卡配置信息存放在同一个文件 /etc/network/interfaces</li>
+</ul>
+<h3 id="2-开启Linux代理转发功能"><a href="#2-开启Linux代理转发功能" class="headerlink" title="2. 开启Linux代理转发功能"></a>2. 开启Linux代理转发功能</h3><ul>
+<li>临时开启，重启失效</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /proc/sys/net/ipv4/ip_forward    <span class="comment"># 0是禁止转发，1是开启转发</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt;/proc/sys/net/ipv4/ip_forward</div></pre></td></tr></table></figure>
+<ul>
+<li>永久开启</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/sysctl.conf</div><div class="line">net.ipv4.ip_forward = 0    <span class="comment"># 改成1</span></div><div class="line">sudo sysctl -p</div></pre></td></tr></table></figure>
+<h3 id="3-路由的概念与配置"><a href="#3-路由的概念与配置" class="headerlink" title="3. 路由的概念与配置"></a>3. 路由的概念与配置</h3><p>Linux配置的路由都属于静态路由，即手动输入的方式加入的路由规则<br>动态路由无需输入，路由软件自控</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">route [-n|-ee]</div><div class="line">route add [-net|-host] [网络或主机] netmask [mask] [gw|dev]</div><div class="line">route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>不使用通讯协议或主机名，直接使用IP地址</td>
+</tr>
+<tr>
+<td>-ee</td>
+<td>显示更详细的路由信息</td>
+</tr>
+<tr>
+<td>add</td>
+<td>添加路由</td>
+</tr>
+<tr>
+<td>del</td>
+<td>删除路由</td>
+</tr>
+<tr>
+<td>-net</td>
+<td>添加一个网络，后面跟网络号地址</td>
+</tr>
+<tr>
+<td>-host</td>
+<td>后面接的是连接到单独主机路由</td>
+</tr>
+<tr>
+<td>netmask</td>
+<td>后面接子网掩码</td>
+</tr>
+<tr>
+<td>gw</td>
+<td>网关IP</td>
+</tr>
+<tr>
+<td>dev</td>
+<td>指定由哪个网络设备连出去，后面接网络设备名，eth0</td>
+</tr>
+</tbody>
+</table>
+<p>使用 route 添加路由的时候，设定的路由必须与自己系统的网络接口或IP可以直接互通</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-循序渐进Linux3：Linux下软件安装与管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/">循序渐进Linux 3：Linux下软件安装与管理</a>
+    </h1>
+  
+
+        
+        <a href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/" class="archive-article-date">
+  	<time datetime="2016-11-08T02:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2016.11.8</em></p>
+<h2 id="一、源码安装"><a href="#一、源码安装" class="headerlink" title="一、源码安装"></a>一、源码安装</h2><pre><code>./configure
+make
+make install
+</code></pre><h2 id="二、RPM包"><a href="#二、RPM包" class="headerlink" title="二、RPM包"></a>二、RPM包</h2><h3 id="1-安装软件包"><a href="#1-安装软件包" class="headerlink" title="1. 安装软件包"></a>1. 安装软件包</h3><pre><code>rpm -i [辅助选项] file1.rpm file2.rpm
+</code></pre><p>主选项 -i：　　install，安装<br>辅助选项：</p>
+<table>
+<thead>
+<tr>
+<th>辅助选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>显示附加信息</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>安装时输出标记 #</td>
+</tr>
+<tr>
+<td>–test</td>
+<td>测试，不实际安装</td>
+</tr>
+<tr>
+<td>–nodeps</td>
+<td>不检查依赖关系</td>
+</tr>
+<tr>
+<td>–force</td>
+<td>忽略软件包以及软件冲突</td>
+</tr>
+<tr>
+<td>–replacepkgs</td>
+<td>强制重新安装</td>
+</tr>
+<tr>
+<td>–prefix</td>
+<td>把软件包安装到prefix选项指定的路径</td>
+</tr>
+<tr>
+<td>–percent</td>
+<td>以百分比形式输出安装进度</td>
+</tr>
+<tr>
+<td>–excludedocs</td>
+<td>不安装软件包中说明文件</td>
+</tr>
+<tr>
+<td>–includedocs</td>
+<td>安装软件包包含说明文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-查询软件包"><a href="#2-查询软件包" class="headerlink" title="2. 查询软件包"></a>2. 查询软件包</h3><pre><code>rpm -q [辅助选项] package1...packageN
+</code></pre><table>
+<thead>
+<tr>
+<th>辅助选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>查询操作系统某个文件属于哪个对应的rpm包</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>查询以 .rpm 为后缀的软件包安装后对应的包名称</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示软件包中所有文件列表</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示软件包概要信息</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>查询系统有哪些软件包属于指定类别</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示软件包的说明文件列表</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>在 -l 的基础上显示每个文件的状态</td>
+</tr>
+<tr>
+<td>-R 或 –requries</td>
+<td>显示软件包所需的功能</td>
+</tr>
+<tr>
+<td>–provides</td>
+<td>显示软件包提供的功能</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-验证软件包"><a href="#3-验证软件包" class="headerlink" title="3. 验证软件包"></a>3. 验证软件包</h3><pre><code>rpm -V [辅助选项] package1...packageN
+</code></pre><h3 id="4-更新软件包"><a href="#4-更新软件包" class="headerlink" title="4. 更新软件包"></a>4. 更新软件包</h3><pre><code>rpm -U [辅助选项] file1.rpm ... fileN.rpm
+</code></pre><h3 id="5-删除软件包"><a href="#5-删除软件包" class="headerlink" title="5. 删除软件包"></a>5. 删除软件包</h3><pre><code>rpm -e [辅助选项] package1 ... packageN
+</code></pre><table>
+<thead>
+<tr>
+<th>辅助选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–test</td>
+<td>只执行删除测试</td>
+</tr>
+<tr>
+<td>–nodeps</td>
+<td>不检查依赖性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三、yum安装方式"><a href="#三、yum安装方式" class="headerlink" title="三、yum安装方式"></a>三、yum安装方式</h2><pre><code>rpm -qa|grep yum                 # 检查yum是否安装
+
+rpm -ivh yum-*.noarch.rpm        # 安装yum
+
+yum install xxx                  # 安装
+yum remove xxx                   # 删除
+yum check-update                 # 检查更新
+yum update                       # 更新所有rpm包
+yum update kernel kernel-source  # 更新内核
+yum upgrade                      # 升级版本
+yum info                         # 查询RPM包信息
+</code></pre><h2 id="四、二进制软件安装"><a href="#四、二进制软件安装" class="headerlink" title="四、二进制软件安装"></a>四、二进制软件安装</h2><p>这种格式的软件的安装其实就是解压</p>
+<pre><code># *.tar.gz格式
+tar -zxvf xxx.tar.gz
+
+# *.bz2格式
+tar -jxvf xxx.tar.bz2
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-循序渐进Linux2：Linux的常用命令及使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1771,6 +2220,10 @@ systemctl disable http.service        // 禁止服务
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1947,6 +2400,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -2000,7 +2457,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">天上风筝在天上飞</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">茕茕白兔，东走西顾&lt;br&gt;&lt;br&gt;衣不如新，人不如故</div>
   	  	
     	</section>
     

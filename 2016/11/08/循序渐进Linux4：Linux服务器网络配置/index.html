@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://juntaran.github.io">
   <title>循序渐进Linux 4：Linux服务器网络配置 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看 lspci  查看系统是否包含对应型号网卡驱动 ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/    查看网卡驱动是否加载 lsmod  如果后面是unused，则表示该模块当前没有使用如">
+  <meta name="description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看  1lspci  查看系统是否包含对应型号网卡驱动  1ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/  查看网卡驱动是否加载  1lsmod  如果后面是unused，则表示该模块当前没">
 <meta name="keywords" content="Network,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="循序渐进Linux 4：Linux服务器网络配置">
 <meta property="og:url" content="https://juntaran.github.io/2016/11/08/循序渐进Linux4：Linux服务器网络配置/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看 lspci  查看系统是否包含对应型号网卡驱动 ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/    查看网卡驱动是否加载 lsmod  如果后面是unused，则表示该模块当前没有使用如">
-<meta property="og:updated_time" content="2017-06-21T05:56:34.288Z">
+<meta property="og:description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看  1lspci  查看系统是否包含对应型号网卡驱动  1ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/  查看网卡驱动是否加载  1lsmod  如果后面是unused，则表示该模块当前没">
+<meta property="og:updated_time" content="2017-07-20T17:28:36.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="循序渐进Linux 4：Linux服务器网络配置">
-<meta name="twitter:description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看 lspci  查看系统是否包含对应型号网卡驱动 ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/    查看网卡驱动是否加载 lsmod  如果后面是unused，则表示该模块当前没有使用如">
+<meta name="twitter:description" content="2016.11.9 一、网卡驱动的安装1. 网卡驱动安装的一般思路 首先从硬件下手，检查网卡本身故障 检查网卡芯片型号，可以打开机箱查看，也可利用命令查看  1lspci  查看系统是否包含对应型号网卡驱动  1ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/  查看网卡驱动是否加载  1lsmod  如果后面是unused，则表示该模块当前没">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -181,24 +181,24 @@
         <p><em>2016.11.9</em></p>
 <h2 id="一、网卡驱动的安装"><a href="#一、网卡驱动的安装" class="headerlink" title="一、网卡驱动的安装"></a>一、网卡驱动的安装</h2><h3 id="1-网卡驱动安装的一般思路"><a href="#1-网卡驱动安装的一般思路" class="headerlink" title="1. 网卡驱动安装的一般思路"></a>1. 网卡驱动安装的一般思路</h3><ol>
 <li>首先从硬件下手，检查网卡本身故障</li>
-<li><p>检查网卡芯片型号，可以打开机箱查看，也可利用命令查看</p>
-<pre><code>lspci
-</code></pre></li>
-<li><p>查看系统是否包含对应型号网卡驱动</p>
-<pre><code>ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/
-</code></pre></li>
+<li>检查网卡芯片型号，可以打开机箱查看，也可利用命令查看</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lspci</div></pre></td></tr></table></figure>
 <ol>
-<li><p>查看网卡驱动是否加载</p>
-<pre><code>lsmod
-</code></pre><blockquote>
+<li>查看系统是否包含对应型号网卡驱动</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/</div></pre></td></tr></table></figure>
+<ol>
+<li>查看网卡驱动是否加载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsmod</div></pre></td></tr></table></figure>
+<blockquote>
 <p>如果后面是unused，则表示该模块当前没有使用<br>如果后面是autoclean，则该模块可以使用rmmod -a自动卸载</p>
 </blockquote>
-</li>
-<li><p>modprobe、insmod/rmmod、depmod<br>modprobe其实调用了insmod/rmmod与depmod</p>
-<pre><code>modprobe [选项] 模块文件
-</code></pre></li>
+<ol>
+<li>modprobe、insmod/rmmod、depmod<br>modprobe其实调用了insmod/rmmod与depmod</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">modprobe [选项] 模块文件</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -247,73 +247,57 @@ rmmod [选项] 模块名称或模块文件
 </code></pre><p>depmod分析载入模块的相关性</p>
 <pre><code>depmod [选项] 模块名称
 </code></pre><h3 id="2-安装网卡"><a href="#2-安装网卡" class="headerlink" title="2. 安装网卡"></a>2. 安装网卡</h3><ol>
-<li>rpm -ivh 网卡.rpm</li>
-<li>rpm文件默认安装到 <code>/root/rpmbuild/RPMS</code>下，把生成的模块文件复制到  <code>/lib/modules/3.10.0...x86_64/kernel/drivers/net/</code></li>
-<li><p>加载驱动</p>
-<pre><code>insmod /lib/modules/3.10.0...x86_64/kernel/drivers/net/bnx2.ko
-或
-modprobe bnx2
-</code></pre></li>
-<li><p>查看是否加载</p>
-<pre><code>lsmod | grep bnx2
-</code></pre></li>
-<li><p>激活网卡</p>
-<pre><code>ifconfig eth0 up
-ifconfig -a
-</code></pre></li>
-</ol>
-<h2 id="二、-配置Linux网络"><a href="#二、-配置Linux网络" class="headerlink" title="二、 配置Linux网络"></a>二、 配置Linux网络</h2><h3 id="1-不同Linux发行版网络配置文件"><a href="#1-不同Linux发行版网络配置文件" class="headerlink" title="1. 不同Linux发行版网络配置文件"></a>1. 不同Linux发行版网络配置文件</h3><ul>
-<li><p>RHEL/CentOS:</p>
-<pre><code>/etc/sysconfig/network-scripts/ifcfg-eth0  # 网卡配置文件
-/etc/sysconfig/network-scripts/ifcfg-lo    # 网卡回环地址
-/etc/sysconfig/network                     # 主机名和网关配置文件
-/etc/resolv.conf                           # DNS配置文件
-/etc/hosts                                 # 设置主机和IP绑定信息
-</code></pre></li>
-</ul>
-<ul>
-<li><p>Debian/Ubuntu:</p>
-<pre><code>/etc/network/interfaces                    # 网卡配置文件
-/etc/hostname                              # 主机名和网关配置文件
-/etc/resolv.conf                           # DNS配置文件
-/etc/hosts                                 # 设置主机和IP绑定信息
-</code></pre></li>
-</ul>
-<h3 id="2-网络配置文件"><a href="#2-网络配置文件" class="headerlink" title="2. 网络配置文件"></a>2. 网络配置文件</h3><ul>
-<li><p>CentOS/RHEL:<br>修改完网卡配置文件后</p>
-<pre><code>service network restart
-ifconfig eth0 down-&gt;up
-</code></pre></li>
-</ul>
-<ul>
-<li><p>Ubuntu/Debian:<br>修改完网卡配置文件后</p>
-<pre><code>sudo /etc/init.d/networking restart
-</code></pre></li>
-</ul>
-<h2 id="三、Linux网络应用"><a href="#三、Linux网络应用" class="headerlink" title="三、Linux网络应用"></a>三、Linux网络应用</h2><h3 id="1-Linux下IP别名功能，一块网卡绑定多个IP"><a href="#1-Linux下IP别名功能，一块网卡绑定多个IP" class="headerlink" title="1. Linux下IP别名功能，一块网卡绑定多个IP"></a>1. Linux下IP别名功能，一块网卡绑定多个IP</h3><ul>
-<li><p>CentOS/RHEL:<br>在<code>/etc/sysconfig/network-scripts</code>目录创建一个<code>ifcfg-eth0:0</code>文件并配置相应IP信息即可</p>
-<pre><code>ifconfig [device] [IP] netmask [netmask ip] [up|down]
-ifconfig eth0:1 192.168.66.131 netmask 255.255.255.0 up
-</code></pre></li>
-<li><p>Ubuntu/Debian:<br>网卡配置信息存放在同一个文件 /etc/network/interfaces</p>
+<li><p>安装网卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh 网卡.rpm</div></pre></td></tr></table></figure>
 </li>
+<li><p>rpm文件默认安装到 <code>/root/rpmbuild/RPMS</code>下，把生成的模块文件复制到  <code>/lib/modules/3.10.0...x86_64/kernel/drivers/net/</code></p>
+</li>
+<li><p>加载驱动</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">insmod /lib/modules/3.10.0...x86_64/kernel/drivers/net/bnx2.ko</div><div class="line">或</div><div class="line">modprobe bnx2</div></pre></td></tr></table></figure>
+<ol>
+<li>查看是否加载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsmod | grep bnx2</div></pre></td></tr></table></figure>
+<ol>
+<li>激活网卡</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig eth0 up</div><div class="line">ifconfig -a</div></pre></td></tr></table></figure>
+<h2 id="二、-配置Linux网络"><a href="#二、-配置Linux网络" class="headerlink" title="二、 配置Linux网络"></a>二、 配置Linux网络</h2><h3 id="1-不同Linux发行版网络配置文件"><a href="#1-不同Linux发行版网络配置文件" class="headerlink" title="1. 不同Linux发行版网络配置文件"></a>1. 不同Linux发行版网络配置文件</h3><ul>
+<li>RHEL/CentOS:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0  <span class="comment"># 网卡配置文件</span></div><div class="line">/etc/sysconfig/network-scripts/ifcfg-lo    <span class="comment"># 网卡回环地址</span></div><div class="line">/etc/sysconfig/network                     <span class="comment"># 主机名和网关配置文件</span></div><div class="line">/etc/resolv.conf                           <span class="comment"># DNS配置文件</span></div><div class="line">/etc/hosts                                 <span class="comment"># 设置主机和IP绑定信息</span></div></pre></td></tr></table></figure>
+<ul>
+<li>Debian/Ubuntu:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/etc/network/interfaces                    <span class="comment"># 网卡配置文件</span></div><div class="line">/etc/hostname                              <span class="comment"># 主机名和网关配置文件</span></div><div class="line">/etc/resolv.conf                           <span class="comment"># DNS配置文件</span></div><div class="line">/etc/hosts                                 <span class="comment"># 设置主机和IP绑定信息</span></div></pre></td></tr></table></figure>
+<h3 id="2-网络配置文件"><a href="#2-网络配置文件" class="headerlink" title="2. 网络配置文件"></a>2. 网络配置文件</h3><ul>
+<li>CentOS/RHEL:<br>修改完网卡配置文件后</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service network restart</div><div class="line">ifconfig eth0 down-&gt;up</div></pre></td></tr></table></figure>
+<ul>
+<li>Ubuntu/Debian:<br>修改完网卡配置文件后</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/networking restart</div></pre></td></tr></table></figure>
+<h2 id="三、Linux网络应用"><a href="#三、Linux网络应用" class="headerlink" title="三、Linux网络应用"></a>三、Linux网络应用</h2><h3 id="1-Linux下IP别名功能，一块网卡绑定多个IP"><a href="#1-Linux下IP别名功能，一块网卡绑定多个IP" class="headerlink" title="1. Linux下IP别名功能，一块网卡绑定多个IP"></a>1. Linux下IP别名功能，一块网卡绑定多个IP</h3><ul>
+<li>CentOS/RHEL:<br>在<code>/etc/sysconfig/network-scripts</code>目录创建一个<code>ifcfg-eth0:0</code>文件并配置相应IP信息即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig [device] [IP] netmask [netmask ip] [up|down]</div><div class="line">ifconfig eth0:1 192.168.66.131 netmask 255.255.255.0 up</div></pre></td></tr></table></figure>
+<ul>
+<li>Ubuntu/Debian:<br>网卡配置信息存放在同一个文件 /etc/network/interfaces</li>
 </ul>
 <h3 id="2-开启Linux代理转发功能"><a href="#2-开启Linux代理转发功能" class="headerlink" title="2. 开启Linux代理转发功能"></a>2. 开启Linux代理转发功能</h3><ul>
-<li><p>临时开启，重启失效</p>
-<pre><code>cat /proc/sys/net/ipv4/ip_forward    # 0是禁止转发，1是开启转发
-echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward
-</code></pre></li>
-<li><p>永久开启</p>
-<pre><code>sudo vim /etc/sysctl.conf
-net.ipv4.ip_forward = 0    # 改成1
-sudo sysctl -p
-</code></pre></li>
+<li>临时开启，重启失效</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /proc/sys/net/ipv4/ip_forward    <span class="comment"># 0是禁止转发，1是开启转发</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt;/proc/sys/net/ipv4/ip_forward</div></pre></td></tr></table></figure>
+<ul>
+<li>永久开启</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/sysctl.conf</div><div class="line">net.ipv4.ip_forward = 0    <span class="comment"># 改成1</span></div><div class="line">sudo sysctl -p</div></pre></td></tr></table></figure>
 <h3 id="3-路由的概念与配置"><a href="#3-路由的概念与配置" class="headerlink" title="3. 路由的概念与配置"></a>3. 路由的概念与配置</h3><p>Linux配置的路由都属于静态路由，即手动输入的方式加入的路由规则<br>动态路由无需输入，路由软件自控</p>
-<pre><code>route [-n|-ee]
-route add [-net|-host] [网络或主机] netmask [mask] [gw|dev]
-route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]
-</code></pre><table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">route [-n|-ee]</div><div class="line">route add [-net|-host] [网络或主机] netmask [mask] [gw|dev]</div><div class="line">route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]</div></pre></td></tr></table></figure>
+<table>
 <thead>
 <tr>
 <th>选项</th>
@@ -359,7 +343,7 @@ route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]
 </tr>
 </tbody>
 </table>
-<p>使用route添加路由的时候，设定的路由必须与自己系统的网络接口或IP可以直接互通</p>
+<p>使用 route 添加路由的时候，设定的路由必须与自己系统的网络接口或IP可以直接互通</p>
 
       
 
@@ -654,6 +638,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -707,7 +695,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">天上风筝在天上飞</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">茕茕白兔，东走西顾&lt;br&gt;&lt;br&gt;衣不如新，人不如故</div>
   	  	
     	</section>
     

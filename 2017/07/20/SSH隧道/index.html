@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://juntaran.github.io">
-  <title>博文目录 | Juntaran</title>
+  <title>SSH隧道 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术 Go Linux 爬虫 运维   生活     随笔     NoteGolang Go Book Go语言圣经 Go语言教程 Go入门指南 实效Go编程 深入解析Go   Go练习代码 Go算法与数据结构 Go pkg手册 Go官方文档 Go标准库 awesome-go Go-JSON GoPsutil Go Request库 Go二进制转换工具 反向代理 Open-Falcon net">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博文目录">
-<meta property="og:url" content="https://juntaran.github.io/categories/index.html">
+  <meta name="description" content="2017.7.20  SSH 隧道就是利用 SSH 进行端口转发，从而实现流往某端口的数据被加密后传向另一机器,这个过程形似构造了一条通道，因此也称之为 SSH 隧道(SSH Tunnel)  SSH 隧道的类型 动态端口转发(socks 代理) 本地端口转发 远程端口转发   动态端口转发 条件:   host1 —ssh—&amp;gt; host2   目的：   让 host1 某端口的数据发往">
+<meta name="keywords" content="Network,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH隧道">
+<meta property="og:url" content="https://juntaran.github.io/2017/07/20/SSH隧道/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="技术 Go Linux 爬虫 运维   生活     随笔     NoteGolang Go Book Go语言圣经 Go语言教程 Go入门指南 实效Go编程 深入解析Go   Go练习代码 Go算法与数据结构 Go pkg手册 Go官方文档 Go标准库 awesome-go Go-JSON GoPsutil Go Request库 Go二进制转换工具 反向代理 Open-Falcon net">
-<meta property="og:updated_time" content="2017-07-02T08:08:18.436Z">
+<meta property="og:description" content="2017.7.20  SSH 隧道就是利用 SSH 进行端口转发，从而实现流往某端口的数据被加密后传向另一机器,这个过程形似构造了一条通道，因此也称之为 SSH 隧道(SSH Tunnel)  SSH 隧道的类型 动态端口转发(socks 代理) 本地端口转发 远程端口转发   动态端口转发 条件:   host1 —ssh—&amp;gt; host2   目的：   让 host1 某端口的数据发往">
+<meta property="og:updated_time" content="2017-07-20T17:51:00.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博文目录">
-<meta name="twitter:description" content="技术 Go Linux 爬虫 运维   生活     随笔     NoteGolang Go Book Go语言圣经 Go语言教程 Go入门指南 实效Go编程 深入解析Go   Go练习代码 Go算法与数据结构 Go pkg手册 Go官方文档 Go标准库 awesome-go Go-JSON GoPsutil Go Request库 Go二进制转换工具 反向代理 Open-Falcon net">
+<meta name="twitter:title" content="SSH隧道">
+<meta name="twitter:description" content="2017.7.20  SSH 隧道就是利用 SSH 进行端口转发，从而实现流往某端口的数据被加密后传向另一机器,这个过程形似构造了一条通道，因此也称之为 SSH 隧道(SSH Tunnel)  SSH 隧道的类型 动态端口转发(socks 代理) 本地端口转发 远程端口转发   动态端口转发 条件:   host1 —ssh—&amp;gt; host2   目的：   让 host1 某端口的数据发往">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -157,94 +158,139 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-SSH隧道" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      博文目录
+      SSH隧道
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2017-07-02T08:08:18.439Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-02</time>
+        <a href="/2017/07/20/SSH隧道/" class="archive-article-date">
+  	<time datetime="2017-07-20T09:23:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>技术<ul>
-<li><a href="/categories/Go">Go</a></li>
-<li><a href="/categories/Linux">Linux</a></li>
-<li><a href="/categories/网络爬虫">爬虫</a></li>
-<li><a href="/categories/Operations">运维</a></li>
-</ul>
-</li>
-<li>生活    <ul>
-<li><a href="/categories/随笔">随笔</a></li>
-</ul>
-</li>
-</ul>
+        <p><em>2017.7.20</em></p>
+<blockquote>
+<p>SSH 隧道就是利用 SSH 进行端口转发，从而实现流往某端口的数据被加密后传向另一机器,<br>这个过程形似构造了一条通道，因此也称之为 SSH 隧道(SSH Tunnel)</p>
+</blockquote>
+<h2 id="SSH-隧道的类型"><a href="#SSH-隧道的类型" class="headerlink" title="SSH 隧道的类型"></a>SSH 隧道的类型</h2><ol>
+<li>动态端口转发(socks 代理)</li>
+<li>本地端口转发</li>
+<li>远程端口转发</li>
+</ol>
 <hr>
-<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a><a href="https://github.com/Juntaran/Note" target="_blank" rel="external">Note</a></h1><h2 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h2><ul>
-<li><a href="https://github.com/juntaran/note" target="_blank" rel="external">Go Book</a><ul>
-<li><a href="https://www.2goo.info/media/html/gopl-zh-gh-pages/" target="_blank" rel="external">Go语言圣经</a></li>
-<li><a href="http://www.yiibai.com/go/" target="_blank" rel="external">Go语言教程</a></li>
-<li><a href="https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md" target="_blank" rel="external">Go入门指南</a></li>
-<li><a href="http://docscn.studygolang.com/doc/effective_go.html#Web服务器" target="_blank" rel="external">实效Go编程</a></li>
-<li><a href="https://tiancaiamao.gitbooks.io/go-internals/zh/" target="_blank" rel="external">深入解析Go</a></li>
+<h2 id="动态端口转发"><a href="#动态端口转发" class="headerlink" title="动态端口转发"></a>动态端口转发</h2><ul>
+<li>条件:</li>
 </ul>
-</li>
-<li><a href="https://github.com/Juntaran/Go_In_Action" target="_blank" rel="external">Go练习代码</a></li>
-<li><a href="https://github.com/Juntaran/Golang_Algorithm" target="_blank" rel="external">Go算法与数据结构</a></li>
-<li><a href="https://github.com/Juntaran/gopkg" target="_blank" rel="external">Go pkg手册</a></li>
-<li><a href="https://godoc.org/" target="_blank" rel="external">Go官方文档</a></li>
-<li><a href="http://studygolang.com/pkgdoc" target="_blank" rel="external">Go标准库</a></li>
-<li><a href="https://github.com/avelino/awesome-go" target="_blank" rel="external">awesome-go</a></li>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Script" target="_blank" rel="external">Go-JSON</a></li>
-<li><a href="https://github.com/Juntaran/gopsutil" target="_blank" rel="external">GoPsutil</a></li>
-<li><a href="https://github.com/Juntaran/req" target="_blank" rel="external">Go Request库</a></li>
-<li><a href="https://github.com/Juntaran/biu" target="_blank" rel="external">Go二进制转换工具</a></li>
-<li><a href="https://github.com/Juntaran/golocproxy" target="_blank" rel="external">反向代理</a></li>
-<li><a href="https://github.com/Juntaran/falcon-plus" target="_blank" rel="external">Open-Falcon</a></li>
-<li><a href="https://github.com/ga0/netgraph" target="_blank" rel="external">netgraph: B/S架构的HTTP抓包工具</a></li>
-<li><a href="https://github.com/valyala/fasthttp" target="_blank" rel="external">FastHTTP: Go 的快速 HTTP 实现</a> </li>
-<li><a href="https://github.com/codeskyblue/gohttp" target="_blank" rel="external">goHTTP: 一个http的文件服务器</a></li>
-<li><a href="https://github.com/Juntaran/dht" target="_blank" rel="external">DHT协议</a></li>
+<blockquote>
+<p>host1 —ssh—&gt; host2</p>
+</blockquote>
+<ul>
+<li>目的：</li>
 </ul>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ul>
-<li><a href="https://github.com/Juntaran/LCBot" target="_blank" rel="external">微信机器人</a></li>
-<li><a href="https://github.com/Juntaran/Passer-zhihu" target="_blank" rel="external">知乎爬虫</a></li>
+<blockquote>
+<p>让 host1 某端口的数据发往 host2，host2 根据其应用程序协议发出到指定地址，就好像是从 host2 直接发出的数据</p>
+</blockquote>
+<ul>
+<li>操作：</li>
 </ul>
-<h2 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h2><ul>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Script" target="_blank" rel="external">脚本</a><ul>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Script/Python" target="_blank" rel="external">Python脚本</a></li>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Script/Shell" target="_blank" rel="external">Shell脚本</a></li>
+<p>1.在 host1 上执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -D 127.0.0.1:7070 user@host2</div></pre></td></tr></table></figure>
+<p>2.设置代理  </p>
+<ul>
+<li>验证：</li>
 </ul>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --socks5 localhost:7070 download-link</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="本地端口转发"><a href="#本地端口转发" class="headerlink" title="本地端口转发"></a>本地端口转发</h2><ul>
+<li>条件:</li>
 </ul>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><ul>
-<li><a href="http://www.linuxprobe.com/chapter-00.html" target="_blank" rel="external">Linux教程</a></li>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Linux" target="_blank" rel="external">Linux笔记</a><ul>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Linux/Basic" target="_blank" rel="external">Basic</a></li>
-<li><a href="https://github.com/Juntaran/Note/tree/master/Linux/Network" target="_blank" rel="external">Network</a></li>
-<li><a href="https://github.com/Juntaran/Note/blob/master/Linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md" target="_blank" rel="external">常用命令总结</a></li>
+<blockquote>
+<p>host1 &lt;—&gt; host2<br>host3 &lt;—&gt; host2<br>host1 &lt;-x-&gt; host3  </p>
+</blockquote>
+<ul>
+<li>目的：</li>
 </ul>
-</li>
+<p>借助 host2 实现 host1 和 host3 的通信</p>
+<ul>
+<li>操作：</li>
 </ul>
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><ul>
-<li><a href="https://github.com/yeasy/docker_practice/blob/master/SUMMARY.md" target="_blank" rel="external">Docker技术入门与实战</a></li>
+<p>1.在 host1 上执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ssh -L 8080:host3:80 user@host2</div><div class="line"></div><div class="line"><span class="comment"># 执行完成，在 host1 浏览器中 输入 localhost:8080 即可看到 host3 的 Web 页面 </span></div><div class="line"><span class="comment"># 如果使用 xshell 等工具访问 host1, 那么可以使用 curl localhost:8080 来查看 Web 内容</span></div></pre></td></tr></table></figure>
+<p>2.在 host1 使用 ssh 登录 host3</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -L 2030:host3:22 user@host2</div><div class="line"><span class="comment"># 现在可以在另开一个 host1 终端输入 : ssh -p 2030 user@host3 去登录 host3</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="远程端口转发"><a href="#远程端口转发" class="headerlink" title="远程端口转发"></a>远程端口转发</h2><ul>
+<li>条件：</li>
 </ul>
-<h2 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h2><ul>
-<li><a href="https://github.com/Juntaran/wstools" target="_blank" rel="external">运维工具</a></li>
-<li><a href="https://github.com/czxichen" target="_blank" rel="external">czxichen</a></li>
-<li><a href="http://blog.csdn.net/fyxichen?viewmode=contents" target="_blank" rel="external">czxichen的博客</a></li>
-<li><a href="http://blog.csdn.net/xcltapestry/article/category/1728845" target="_blank" rel="external">拙_言</a></li>
+<blockquote>
+<p>host1 &lt;-x-&gt; host3<br>host2 &lt;—&gt; host3<br>host2 &lt;-ssh-&gt; host1<br>host1 –x–&gt; host2<br>在这种条件下， host1 就不可以 ssh 连接 host2 了，所以不能使用<code>本地转发端口</code>了</p>
+</blockquote>
+<ul>
+<li>目的：</li>
+</ul>
+<p>host2 可以 ssh 连接 host1, 那么 host1 就可以借助这条连接与 host3 进行通信</p>
+<ul>
+<li>操作：</li>
+</ul>
+<p>1.在 host2 上执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通过访问 host1 本地 8080 端口来访问 host3 的 80 端口</span></div><div class="line">ssh -R 8080:host3:80 user@host1</div><div class="line"></div><div class="line"><span class="comment"># 执行完成，在 host1 浏览器中 输入 localhost:8080 即可看到 host3 的 Web 页面</span></div></pre></td></tr></table></figure>
+<p>2.在 host2 上执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -R 2030:host3:22 user@host1</div></pre></td></tr></table></figure>
+<p>3.host1 使用 ssh 登录 host3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -p 2030 user@host3</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="SSH-一些辅助参数"><a href="#SSH-一些辅助参数" class="headerlink" title="SSH 一些辅助参数"></a>SSH 一些辅助参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-q</td>
+<td>安静模式. 抑制警告和诊断信息</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>不分配伪终端，只是使用隧道</td>
+</tr>
+<tr>
+<td>-N</td>
+<td>不运行远程命令(仅对端口转发有用)</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>后台运行，配合 <code>-N</code> 一起使用，或者在命令结尾添加 <code>sleep 30</code></td>
+</tr>
+<tr>
+<td>-n</td>
+<td>重定向标准输入到 /dev/null(阻止从标准输入读)</td>
+</tr>
+<tr>
+<td>-o ServerAliveInterval=60</td>
+<td>让 SSH 每隔一段时间发送一些消息，避免隧道关闭</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>打印调试信息</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -qTfnN -D 7070 xxx@yyy.com	<span class="comment"># ssh 后台动态端口转发</span></div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://www.ifmicro.com/ssh-port-forwarding/" target="_blank" rel="external">倘若微小</a></li>
 </ul>
 
       
@@ -285,7 +331,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -335,7 +407,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://juntaran.github.io/categories/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://juntaran.github.io/2017/07/20/SSH隧道/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,6 +419,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/18/Nginx/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -380,7 +462,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

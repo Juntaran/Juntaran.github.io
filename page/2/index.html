@@ -158,6 +158,642 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vim配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/Vim配置/">Vim配置</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/Vim配置/" class="archive-article-date">
+  	<time datetime="2017-06-15T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<h2 id="1-导入"><a href="#1-导入" class="headerlink" title="1. 导入"></a>1. 导入</h2><pre><code>wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
+</code></pre><h2 id="2-覆盖-vimrc"><a href="#2-覆盖-vimrc" class="headerlink" title="2. 覆盖 ~/.vimrc"></a>2. 覆盖 ~/.vimrc</h2><pre><code>wget -O vim.tar.gz https://raw.githubusercontent.com/Juntaran/Note/master/Linux/vim.tar.gz
+tar -zxvf vim.tar.gz
+mv ~/.vimrc ~/.vimrc_bak
+mv vimrc ~/.vimrc
+rm -rf vimrc vim.tar.gz
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/Vim配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/07/Linux常用命令/">Linux常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/07/Linux常用命令/" class="archive-article-date">
+  	<time datetime="2017-06-06T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="系统版本信息"><a href="#系统版本信息" class="headerlink" title="系统版本信息"></a>系统版本信息</h2><p>命令： uname -a<br>作用： 查看系统内核版本号及系统名称，<br><code>Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code>   </p>
+<p>命令： uname -s<br>作用： 显示内核名称，<code>Linux</code>  </p>
+<p>命令： uname -n<br>作用： 显示主机名称，<code>ubuntu</code>  </p>
+<p>命令： uname -r<br>作用： 显示内核发行版号，<code>4.10.0-22-generic</code>  </p>
+<p>命令： uname -v<br>作用： 显示操作系统具体版本，<code>#24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： uname -m<br>作用： 显示机器硬件名称，<code>x86_64</code>  </p>
+<p>命令： uname -p<br>作用： 显示处理器类型，<code>x86_64</code>  </p>
+<p>命令： uname -i<br>作用： 显示硬件平台名称，<code>x86_64</code>  </p>
+<p>命令： uname -o<br>作用： 操作系统名称，<code>GNU/Linux</code>  </p>
+<p>命令： cat /proc/version<br>作用： 查看目录”/proc”下version的信息，也可以得到当前系统的内核版本号及系统名称，<br><code>Linux version 4.10.0-22-generic (buildd@lcy01-08) (gcc version 6.3.0 20170406 (Ubuntu 6.3.0-12ubuntu2) ) #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： lsb_release -c<br>作用： 查看系统代号，比如ubuntu 12.04为precise， 14.04为trusty，15.04为vivid，15.10为wily，17.04为zesty。<code>Codename:    zesty</code>  </p>
+<p>命令： lsb_release -a<br>作用： 显示系统信息以及代号<br><code>No LSB modules are available.</code><br><code>Distributor ID:    Ubuntu</code><br><code>Description:    Ubuntu 17.04</code><br><code>Release:    17.04</code><br><code>Codename:    zesty</code>  </p>
+<p>命令： lisb_release -d<br>作用： 显示系统号，<code>Description:    Ubuntu 17.04</code>  </p>
+<p>命令： cat /etc/issue<br>作用： 显示系统号，<code>Ubuntu 17.04 \n \l</code>  </p>
+<p>命令： hostname<br>作用： 输出计算机名  </p>
+<hr>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>命令： shutdown -h now<br>作用： 立即关机  </p>
+<p>命令： shutdown -r now<br>作用： 立即重启  </p>
+<p>命令： shutdown -h 23:30<br>作用： 在23:30分准时关机  </p>
+<p>命令： shutdown -h +15<br>作用： 15分钟后关机  </p>
+<p>命令： shutdown -k now “Server would shutdown in 15minutes!”<br>作用： 给出关机警告，不关机  </p>
+<p>命令： halt -p<br>作用： 关机并关闭电源  </p>
+<p>命令： halt -d<br>作用： 关机，不会在日志里留下记录  </p>
+<p>命令： halt -w<br>作用： 不会关机，会把关机事件写入<code>/var/log/wtmp</code>  </p>
+<p>命令： reboot<br>作用： 重启系统  </p>
+<p>命令： poweroff<br>作用： 关机并且切断电源  </p>
+<p>命令： init 6<br>作用： 重启  </p>
+<p>命令： init 0<br>作用： 关机  </p>
+<hr>
+<h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2><p>命令： dmidecode<br>作用： 列出所有硬件信息  </p>
+<p>命令： dmidecode -t<br>作用： 列出硬件类型  </p>
+<p>命令： dmidecode -t 硬件类型<br>作用： 根据硬件类型展示相应的硬件信息  </p>
+<hr>
+<h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><p>命令： whoami<br>作用： 显示当前操作用户的用户名<br><code>juntaran</code>  </p>
+<p>命令： who am i<br>作用： 显示登入系统用户的用户名，以及登录时间（只要有2个参数即可，无所谓是不是 am 和 i）<br><code>juntaran pts/0        2017-06-20 14:47 (192.168.126.1)</code>  </p>
+<p>命令： who (-H)<br>作用： 显示所有登入系统的用户的用户名，以及登录时间。-H 会加上列名  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>LINE</th>
+<th>TIME</th>
+<th>COMMENT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>2017-06-20 14:47</td>
+<td>(192.168.126.1)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>2017-06-16 20:12</td>
+<td>(:0)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>2017-06-20 14:52</td>
+<td>(192.168.126.1)</td>
+</tr>
+</tbody>
+</table>
+<p>命令： who -b<br>作用： 显示系统上一次启动时间<br><code>system boot  2017-06-16 20:10</code>  </p>
+<p>命令： w<br>作用： <code>who</code>显示的是<code>show who is logged on</code>，<code>w</code>显示的是<code>show who is logged on and what they are doing</code>  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>TTY</th>
+<th>FROM</th>
+<th>LOGIN@</th>
+<th>IDLE</th>
+<th>JCPU</th>
+<th>PCPU</th>
+<th>WHAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>192.168.126.1</td>
+<td>14:47</td>
+<td>0.00s</td>
+<td>0.17s</td>
+<td>0.00s</td>
+<td>w</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>:0</td>
+<td>Fri20</td>
+<td>3days</td>
+<td>57.27s</td>
+<td>0.04s</td>
+<td>/bin/sh /usr/lib/gnome-session/run-systemd-session</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>192.168.126.1</td>
+<td>14:52</td>
+<td>44:28</td>
+<td>0.03s</td>
+<td>0.03s</td>
+<td>top</td>
+</tr>
+</tbody>
+</table>
+<p>在运行<code>w</code>命令时，<code>pts/0</code>终端的<code>WHAT</code>显示了正在执行<code>w</code>，而另一个终端正在执行的<code>top</code>命令也被记录了<br>另外，<code>JCPU</code>指的是与该tty终端连接的所由进程占用的时间，不包括过去的后台作业时间<br><code>PCPU</code>指的是当前进程（即w项中显示的）所占用的时间  </p>
+<hr>
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><p>命令： route -n<br>作用： 显示路由表  </p>
+<p>命令： route add default gw 192.168.1.2<br>作用： 增加一条默认路由  </p>
+<p>命令： route del gw 192.168.1.2<br>作用： 删除一条默认路由  </p>
+<hr>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>命令： ln -s a.txt b.txt<br>作用： 建立软链接（符号链接），同步更新，类似快捷方式  </p>
+<p>命令： ln a.txt b.txt<br>作用： 建立硬链接，不占用空间，不能给目录建立。可以认为一个文件拥有两个文件名  </p>
+<hr>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><pre><code>find path -option [ -print ] [ -exec/-ok command ] {} \
+</code></pre><p>path: find 命令所查找的目录路径。<code>.</code>来表示当前目录，用<code>/</code>来表示系统根目录<br><code>-print</code>： find 命令将匹配的文件输出到标准输出<br><code>-exec</code>： find 命令对匹配的文件执行该参数所给出的shell命令。将查到的文件执行command操作，<code>{}</code>和<code>\;</code>之间有空格<br><code>-ok</code>： 和<code>-exec</code>的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-name filename</td>
+<td>查找名为<code>filename</code>的文件</td>
+</tr>
+<tr>
+<td>-perm</td>
+<td>按执行权限来查找</td>
+</tr>
+<tr>
+<td>-user username</td>
+<td>按文件属主来查找</td>
+</tr>
+<tr>
+<td>-group groupname</td>
+<td>按组来查找</td>
+</tr>
+<tr>
+<td>-mtime -n/+n</td>
+<td>按文件更改时间来查找文件，<code>-n</code>指n天以内，<code>+n</code>指n天以前</td>
+</tr>
+<tr>
+<td>-atime -n/+n</td>
+<td>按文件访问时间来查，<code>-n</code>指n天以内，<code>+n</code>指n天以前</td>
+</tr>
+<tr>
+<td>-ctime -n/+n</td>
+<td>按文件创建时间来查找文件，<code>-n</code>指n天以内，<code>+n</code>指n天以前</td>
+</tr>
+<tr>
+<td>-amin</td>
+<td>对应以上，天改为分钟</td>
+</tr>
+<tr>
+<td>-type b/d/c/p/l/f</td>
+<td>查是块设备、目录、字符设备、管道、符号链接、普通文件</td>
+</tr>
+<tr>
+<td>-size n[c]</td>
+<td>查长度为n块[或n字节]的文件</td>
+</tr>
+<tr>
+<td>-depth</td>
+<td>设定搜索深度</td>
+</tr>
+</tbody>
+</table>
+<p>命令： find . -name   “[A-Z]*“   -print<br>作用： 当前目录下查找以大写字母开头的文件   </p>
+<p>命令： find . -perm -007 -exec ls -l {} \;<br>作用： 查所有用户都可读写执行的文件，并执行<code>ls -l</code>命令  </p>
+<p>命令： grep -rl ‘juntaran’<br>作用： 递归搜索包含<code>juntaran</code>的文件<br><code>-r</code>表示递归，<code>-l</code>表示只输出文件名  </p>
+<p>命令： grep -o ‘juntaran’ hexo/npm-debug.log  | wc -l<br>作用： 搜索<code>hexo/npm-debug.log</code>文件内<code>juntaran</code>出现的次数  </p>
+<p>命令： grep -o ‘test|juntaran’ hexo/npm-debug.log  | wc -l<br>作用： 搜索<code>hexo/npm-debug.log</code>文件内<code>juntaran</code>和<code>test</code>出现的总次数  </p>
+<p>命令： find . -name “*.c” | xargs grep -i ‘juntaran’<br>作用： 搜索当前目录下所有的包含<code>juntaran</code>的<code>.c</code>文件  </p>
+<hr>
+<h2 id="文件分割合并"><a href="#文件分割合并" class="headerlink" title="文件分割合并"></a>文件分割合并</h2><p>命令： splite -l 1000 a.txt<br>作用： 把 a.txt 按照每1000行进行拆分，拆分后为 xaa xab…  </p>
+<p>命令： splite -b/-C 100m a.txt<br>作用： 把 a.txt 按照每100m进行切分，默认单位为字节，支持 k 和 m，-C 与 -b 类似，但是会尽量维持每行的完整性  </p>
+<p>命令： splite -l 1000 a.txt -d -a 3 split_file<br>作用： 把 a.txt 按照每1000行进行拆分，拆分后文件为 split_file000 split_file002 …，<code>-d</code> 代表拆分后的文件使用数字后缀而不使用字母后缀，<code>-a 3</code>代表数字后缀的长度为3位，<code>split_file</code>只是自定义的拆分后文件名前缀  </p>
+<p>命令： cat file1 file2 &gt; file.txt<br>作用： 合并 file1 file2 为 file.txt 文件  </p>
+<hr>
+<h2 id="系统性能"><a href="#系统性能" class="headerlink" title="系统性能"></a>系统性能</h2><h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><p>如果有大量的<code>读操作</code>时，选择<code>RAID5</code><br>如果有大量的<code>写操作</code>时，选择<code>RAID0</code><br>如果对<code>数据安全</code>要求很高，同时也对<code>读写</code>有要求，可以考虑<code>RAID10</code>  </p>
+<p>RAID0: 无备份，硬盘性能和吞吐量高，串联硬盘<br>RAID1: 有备份，硬盘空间可用率为50%，同时写入数据到两块盘<br>RAID5: 不备份原数据，通过奇偶校验来恢复损坏的数据，改善了性能和成本<br>RAID10: RAID1 + RAID0，对两个<code>RAID1</code>硬盘实施<code>RAID0</code>技术，<code>读写速度</code>和<code>数据安全</code>都超过RAID5  </p>
+<p>命令： du -sh [目录/文件]<br>作用： 显示指定的目录/文件大小，不填写则为当前目录  </p>
+<p>命令： ls | xargs du -sh<br>作用： 显示当前目录下所有文件大小  </p>
+<p>命令： fdisk -l<br>作用： 查看磁盘分区信息  </p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><h4 id="top"><a href="#top" class="headerlink" title="top"></a>top</h4><p>命令： top<br>技巧： <code>f</code>进入选择显示列和列的排序，也可以指定根据哪列进行排序展示 <code>R</code>根据当前排序逆序  <code>shift &lt;&gt;</code> 调整排序列  <code>P</code> 根据 CPU 进行排序  <code>M</code> 根据内存进行排序  <code>W</code>记录当前配置  <code>1</code>可以切换不同的核心   </p>
+<h4 id="mpstat"><a href="#mpstat" class="headerlink" title="mpstat"></a>mpstat</h4><p>命令： mpstat  -P ALL 1<br>作用： 每隔<code>1秒</code>展示每一个 CPU 的运行状态，把<code>ALL</code>改成<code>0</code>就是显示第一个 CPU 的运行状态，<code>1</code>如果不写则只显示一次  </p>
+<p>命令： mpstat -I ALL/CPU/SUM 1<br>作用： 每隔<code>1秒</code>展示 整体/每一个CPU/ALL+CPU 的中断信息  </p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>命令： free -m<br>作用： 以<code>mb</code>为单位显示内存信息  </p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>命令： ps -ef 与 ps aux<br>作用： 显示进程信息  </p>
+<p>命令： ps -ef | grep mysql<br>作用： 显示 mysql 进程的信息，pid 为 10673  </p>
+<p>命令： ps -L 10673<br>作用： 显示 mysql 的线程信息  </p>
+<p>命令： ps axjf 与 ps -ejH<br>作用： 树形结构显示进程信息，展示子进程和父进程关系  </p>
+<p>命令： pidof 进程名<br>作用： 找到对应进程的进程号  </p>
+<p>命令： pidof -x test.sh<br>作用： 找到对应脚本的进程号  </p>
+<hr>
+<h2 id="网络性能"><a href="#网络性能" class="headerlink" title="网络性能"></a>网络性能</h2><h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示所有选项，默认不显示LISTEN相关</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>显示tcp相关选项</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>显示udp相关选项</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>拒绝显示别名，能显示数字的全部转化成数字</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>仅列出有处于 Listen 的服务状态</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示建立相关链接的程序名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>显示路由信息，路由表</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示网络接口的详细信息</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>显示扩展信息，例如uid等</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>按各个协议进行统计</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>每隔一个固定时间，执行该netstat命令。</td>
+</tr>
+</tbody>
+</table>
+<p><code>LISTEN</code>和<code>LISTENING</code>的状态只有用<code>-a</code>或者<code>-l</code>才能看到</p>
+<hr>
+<h3 id="性能分析常用工具"><a href="#性能分析常用工具" class="headerlink" title="性能分析常用工具"></a>性能分析常用工具</h3><h4 id="vmstat"><a href="#vmstat" class="headerlink" title="vmstat"></a>vmstat</h4><p>命令： vmstat 1 4<br>作用： 每隔1秒显示一次系统状态信息（进程个数与睡眠进程个数+内存+swap+块设备io+系统中断与上下文切换次数+CPU时间占比），共4次，其中第一次为开机以来的平均值  </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>显示开机以来的 fork 数</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示内存 slabinfo</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>显示内存指标以及系统事件信息</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示磁盘统计信息</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>vmstat -p /dev/sda1 显示某一分区的 I/O 信息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h4><p>命令： iostat<br>作用： 显示系统信息 + CPU信息 + 磁盘信息  </p>
+<p>命令： iostat -d -k -x -y 1 3<br>作用： 每隔<code>1秒</code>显示磁盘信息以<code>KB</code>为单位，显示3次，去除第一次不准确信息。其中<code>-d</code>代表显示磁盘信息，<code>-k</code>代表以<code>KB</code>为单位，<code>-x</code>代表更详细输出，<code>-y</code>代表去除第一次不准确的信息  </p>
+<p>命令： iostat -c -x -y 1 3<br>作用：  每隔<code>1秒</code>显示 CPU 信息，显示3次，去除第一次不准确信息。其中<code>-c</code>代表显示 CPU 信息  </p>
+<h4 id="lsof-与-fuser"><a href="#lsof-与-fuser" class="headerlink" title="lsof 与 fuser"></a>lsof 与 fuser</h4><p>需要 root 权限  </p>
+<p>命令： lsof 文件名<br>作用： 根据文件名查找占用该文件的进程  </p>
+<p>命令： fuser -v 文件名<br>作用： 根据文件名查找占用该文件的进程  </p>
+<p>命令： lsof -p PID<br>作用： 根据进程号查找该进程打开的所有文件  </p>
+<p>命令： ls -u username<br>作用： 根据用户名查找该用户打开的所有文件  </p>
+<p>命令： ls -i:端口号<br>作用： 根据端口号查找占用该端口的进程  </p>
+<p>命令： fuser -vn tcp 22<br>作用： 根据端口号查找占用该端口的进程  </p>
+<hr>
+<h2 id="作业控制"><a href="#作业控制" class="headerlink" title="作业控制"></a>作业控制</h2><p>在命令后添加<code>&amp;</code>则会让作业在后台运行</p>
+<pre><code>sleep 2000 &amp;  
+</code></pre><p><code>Ctrl + Z</code>会让一个前台作业切换到后台，但是它会暂停</p>
+<p>命令： jobs<br>作用： 列出后台所有的作业，包括作业号、进程ID、占用的 CPU、当前状态和命令  </p>
+<p>命令： bg %作业号<br>作用： 让一个后台暂停的命令运行  </p>
+<p>命令： fg %作业号<br>作用： 把一个后台作业推到前台  </p>
+<p>命令： kill %作业号<br>作用： 杀掉指定的作业  </p>
+<p>添加<code>&amp;</code>虽然会让命令在后台运行，但是当终端断开或是用户注销等情况发生时，命令会自动终止，这时应该使用<code>nohup</code>  </p>
+<p>命令： nohup 要执行的命令 &gt; test.txt &amp;<br>作业： 后台执行命令，jobs 查询不到，会输出信息到<code>test.txt</code>，如果不设置输出会自动输出到<code>nohup.out</code>。该命令即使断开终端也会继续执行，可以通过<code>kill进程</code>的方式关闭该命令  </p>
+<p>命令： sudo -b ./test.sh<br>作用： 后台运行脚本，jobs 命令查询不到，终端断开也可以继续执行  </p>
+<hr>
+<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><p>crontab</p>
+<pre><code>crontab [ -u user ] file
+crontab [ -u user ] [ -i ] { -e | -l | -r }
+也可以直接编辑 /etc/crontab
+</code></pre><p>命令： crontab -u juntaran -l<br>作用： 查看用户 juntaran 的定时任务  </p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>允许的值</th>
+<th>允许的特殊字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>秒</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>分</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>小时</td>
+<td>0-23</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>日</td>
+<td>1-31</td>
+<td>, - * ? / L W C</td>
+</tr>
+<tr>
+<td>月</td>
+<td>1-12 or JAN-DEC</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>周几</td>
+<td>1-7 or SUN-SAT</td>
+<td>, - * ? / L C #</td>
+</tr>
+<tr>
+<td>年(可选字段)</td>
+<td>empty</td>
+<td>1970-2099 , - * /</td>
+</tr>
+</tbody>
+</table>
+<p>字符含义：</p>
+<blockquote>
+<p>* ：代表所有可能的值。因此，<code>*</code>在Month中表示每个月，在 Day-of-Month 中表示每天，在 Hours 表示每小时  </p>
+<p>- ：表示指定范围  </p>
+<p>, ：表示列出枚举值。例如：在 Minutes 子表达式中，<code>5,20</code>表示在5分钟和20分钟触发  </p>
+<p>/ ：被用于指定增量。例如：在 Minutes 子表达式中，<code>0/15</code>表示从0分钟开始，每15分钟执行一次。<code>3/20</code>表示从第三分钟开始，每20分钟执行一次。和<code>3,23,43</code> 表示第3，23，43分钟触发的含义一样  </p>
+<p>? ：用在 Day-of-Month 和 Day-of-Week 中，指<code>没有具体的值</code>。当两个子表达式其中一个被指定了值以后，为了避免冲突，需要将另外一个的值设为<code>?</code>。例如：想在每月20日触发调度，不管20号是星期几，只能用如下写法：<code>0 0 0 20 * ?</code>，其中最后以为只能用<code>?</code>，而不能用<code>*</code> </p>
+<p>L ：用在 day-of-month 和 day-of-week 字串中。它是单词<code>last</code>的缩写。它在两个子表达式中的含义是不同的。<br>在 day-of-month 中，<code>L</code>表示一个月的最后一天，一月31号，3月30号。<br>在 day-of-week 中，<code>L</code>表示一个星期的最后一天，也就是“7”或者“SAT”<br>如果<code>L</code>前有具体内容，它就有其他的含义了。例如：<code>6L</code>表示这个月的<code>倒数第六天</code>。<code>FRIL</code>表示这个月的<code>最后一个星期五</code>。<br>注意：在使用<code>L</code>参数时，不要指定列表或者范围，这样会出现问题  </p>
+<p>W ：<code>Weekday</code>的缩写。只能用在 day-of-month 字段。用来描叙<code>最接近指定天的工作日（周一到周五）</code>。例如：在 day-of-month 字段用<code>15W</code>指“最接近这个月第15天的工作日”，即如果这个月第15天是周六，那么触发器将会在这个月第14天即周五触发；如果这个月第15天是周日，那么触发器将会在这个月第16天即周一触发；如果这个月第15天是周二，那么就在触发器这天触发。注意一点：这个用法只会在当前月计算值，不会越过当前月。<code>W</code>字符仅能在 day-of-month指明一天，不能是一个范围或列表。也可以用<code>LW</code>来指定<code>这个月的最后一个工作日</code>，即最后一个星期五只能用在 day-of-week 字段。用来指定这个月的第几个周几。例：在 day-of-week 字段用<code>6#3</code> or <code>FRI#3</code>指这个月<code>第3个周五（6指周五，3指第3个）</code>。如果指定的日期不存在，触发器就不会触发  </p>
+</blockquote>
+<p>表达式例子：  </p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*/1 * * * * ?</td>
+<td>每秒触发一次</td>
+</tr>
+<tr>
+<td>*/5 * * * * ?</td>
+<td>每隔5秒执行一次</td>
+</tr>
+<tr>
+<td>0 */1 * * * ?</td>
+<td>每隔1分钟执行一次</td>
+</tr>
+<tr>
+<td>0 0/3 * * * ?</td>
+<td>每三分钟触发一次</td>
+</tr>
+<tr>
+<td>0 0 * * * ?</td>
+<td>每1小时触发一次</td>
+</tr>
+<tr>
+<td>0 0 10 * * ?</td>
+<td>每天10点触发一次</td>
+</tr>
+<tr>
+<td>0 0 5-15 * * ?</td>
+<td>每天5-15点整点触发</td>
+</tr>
+<tr>
+<td>0 * 14 * * ?</td>
+<td>在每天下午2点到下午2:59期间的每1分钟触发</td>
+</tr>
+<tr>
+<td>0 0-5 14 * * ?</td>
+<td>在每天下午2点到下午2:05期间的每1分钟触发</td>
+</tr>
+<tr>
+<td>0 0/5 14 * * ?</td>
+<td>在每天下午2点到下午2:55期间的每5分钟触发</td>
+</tr>
+<tr>
+<td>0 0/30 9-17 * * ?</td>
+<td>朝九晚五工作时间内每半小时</td>
+</tr>
+<tr>
+<td>0 0 10,14,16 * * ?</td>
+<td>每天上午10点，下午2点，4点触发</td>
+</tr>
+<tr>
+<td>0 30 9 1 * ?</td>
+<td>每月1号上午9点半</td>
+</tr>
+<tr>
+<td>0 15 10 15 * ?</td>
+<td>每月15日上午10:15触发</td>
+</tr>
+<tr>
+<td>0 0 12 ? * WED</td>
+<td>每个星期三中午12点</td>
+</tr>
+<tr>
+<td>0 0 17 ? * TUES,THUR,SAT</td>
+<td>每周二、四、六下午五点</td>
+</tr>
+<tr>
+<td>0 10,44 14 ? 3 WED</td>
+<td>每年三月的星期三的下午2:10和2:44触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * MON-FRI</td>
+<td>周一至周五的上午10:15触发</td>
+</tr>
+<tr>
+<td>0 0 23 L * ?</td>
+<td>每月最后一天23点执行一次</td>
+</tr>
+<tr>
+<td>0 15 10 L * ?</td>
+<td>每月最后一日的上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * 6L</td>
+<td>每月的最后一个星期五上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 * * ? 2005</td>
+<td>2005年的每天上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * 6L 2002-2005</td>
+<td>2002年至2005年的每月的最后一个星期五上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * 6#3</td>
+<td>每月的第三个星期五上午10:15触发</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://cron.qqe2.com/" target="_blank" rel="external">cron表达式生成与解析器</a></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/07/Linux常用命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Python修复setup" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -194,6 +830,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -1064,6 +1704,10 @@ for {
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -1235,471 +1879,6 @@ for {
 
 
   
-    <article id="post-循序渐进Linux4：Linux服务器网络配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/">循序渐进Linux 4：Linux服务器网络配置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" class="archive-article-date">
-  	<time datetime="2016-11-08T03:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.9</em></p>
-<h2 id="一、网卡驱动的安装"><a href="#一、网卡驱动的安装" class="headerlink" title="一、网卡驱动的安装"></a>一、网卡驱动的安装</h2><h3 id="1-网卡驱动安装的一般思路"><a href="#1-网卡驱动安装的一般思路" class="headerlink" title="1. 网卡驱动安装的一般思路"></a>1. 网卡驱动安装的一般思路</h3><ol>
-<li>首先从硬件下手，检查网卡本身故障</li>
-<li><p>检查网卡芯片型号，可以打开机箱查看，也可利用命令查看</p>
-<pre><code>lspci
-</code></pre></li>
-<li><p>查看系统是否包含对应型号网卡驱动</p>
-<pre><code>ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/
-</code></pre></li>
-</ol>
-<ol>
-<li><p>查看网卡驱动是否加载</p>
-<pre><code>lsmod
-</code></pre><blockquote>
-<p>如果后面是unused，则表示该模块当前没有使用<br>如果后面是autoclean，则该模块可以使用rmmod -a自动卸载</p>
-</blockquote>
-</li>
-<li><p>modprobe、insmod/rmmod、depmod<br>modprobe其实调用了insmod/rmmod与depmod</p>
-<pre><code>modprobe [选项] 模块文件
-</code></pre></li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-r 或 –remove</td>
-<td>指定模块则卸载该模块，否则自动清除</td>
-</tr>
-<tr>
-<td>-l 或 –list</td>
-<td>显示所有可用模块</td>
-</tr>
-<tr>
-<td>-c 或 –show-conf</td>
-<td>显示所有模块设置信息</td>
-</tr>
-<tr>
-<td>-K 或 –autoclean</td>
-<td>把模块设为自动清除模式</td>
-</tr>
-<tr>
-<td>-a 或 -all</td>
-<td>加载一组匹配的模块</td>
-</tr>
-<tr>
-<td>-n 或 –show</td>
-<td>仅显示要执行的操作</td>
-</tr>
-<tr>
-<td>-v 或 –verbose</td>
-<td>执行时显示详细信息</td>
-</tr>
-<tr>
-<td>-q 或 –quiet</td>
-<td>不显示错误信息</td>
-</tr>
-</tbody>
-</table>
-<p>如果A模块依赖B模块，modprobe会同时加载A和B，而insmod只会载入指定模块</p>
-<pre><code>insmod [选项] 模块名称或模块文件
-rmmod [选项] 模块名称或模块文件
-</code></pre><p>depmod分析载入模块的相关性</p>
-<pre><code>depmod [选项] 模块名称
-</code></pre><h3 id="2-安装网卡"><a href="#2-安装网卡" class="headerlink" title="2. 安装网卡"></a>2. 安装网卡</h3><ol>
-<li>rpm -ivh 网卡.rpm</li>
-<li>rpm文件默认安装到 <code>/root/rpmbuild/RPMS</code>下，把生成的模块文件复制到  <code>/lib/modules/3.10.0...x86_64/kernel/drivers/net/</code></li>
-<li><p>加载驱动</p>
-<pre><code>insmod /lib/modules/3.10.0...x86_64/kernel/drivers/net/bnx2.ko
-或
-modprobe bnx2
-</code></pre></li>
-<li><p>查看是否加载</p>
-<pre><code>lsmod | grep bnx2
-</code></pre></li>
-<li><p>激活网卡</p>
-<pre><code>ifconfig eth0 up
-ifconfig -a
-</code></pre></li>
-</ol>
-<h2 id="二、-配置Linux网络"><a href="#二、-配置Linux网络" class="headerlink" title="二、 配置Linux网络"></a>二、 配置Linux网络</h2><h3 id="1-不同Linux发行版网络配置文件"><a href="#1-不同Linux发行版网络配置文件" class="headerlink" title="1. 不同Linux发行版网络配置文件"></a>1. 不同Linux发行版网络配置文件</h3><ul>
-<li><p>RHEL/CentOS:</p>
-<pre><code>/etc/sysconfig/network-scripts/ifcfg-eth0  # 网卡配置文件
-/etc/sysconfig/network-scripts/ifcfg-lo    # 网卡回环地址
-/etc/sysconfig/network                     # 主机名和网关配置文件
-/etc/resolv.conf                           # DNS配置文件
-/etc/hosts                                 # 设置主机和IP绑定信息
-</code></pre></li>
-</ul>
-<ul>
-<li><p>Debian/Ubuntu:</p>
-<pre><code>/etc/network/interfaces                    # 网卡配置文件
-/etc/hostname                              # 主机名和网关配置文件
-/etc/resolv.conf                           # DNS配置文件
-/etc/hosts                                 # 设置主机和IP绑定信息
-</code></pre></li>
-</ul>
-<h3 id="2-网络配置文件"><a href="#2-网络配置文件" class="headerlink" title="2. 网络配置文件"></a>2. 网络配置文件</h3><ul>
-<li><p>CentOS/RHEL:<br>修改完网卡配置文件后</p>
-<pre><code>service network restart
-ifconfig eth0 down-&gt;up
-</code></pre></li>
-</ul>
-<ul>
-<li><p>Ubuntu/Debian:<br>修改完网卡配置文件后</p>
-<pre><code>sudo /etc/init.d/networking restart
-</code></pre></li>
-</ul>
-<h2 id="三、Linux网络应用"><a href="#三、Linux网络应用" class="headerlink" title="三、Linux网络应用"></a>三、Linux网络应用</h2><h3 id="1-Linux下IP别名功能，一块网卡绑定多个IP"><a href="#1-Linux下IP别名功能，一块网卡绑定多个IP" class="headerlink" title="1. Linux下IP别名功能，一块网卡绑定多个IP"></a>1. Linux下IP别名功能，一块网卡绑定多个IP</h3><ul>
-<li><p>CentOS/RHEL:<br>在<code>/etc/sysconfig/network-scripts</code>目录创建一个<code>ifcfg-eth0:0</code>文件并配置相应IP信息即可</p>
-<pre><code>ifconfig [device] [IP] netmask [netmask ip] [up|down]
-ifconfig eth0:1 192.168.66.131 netmask 255.255.255.0 up
-</code></pre></li>
-<li><p>Ubuntu/Debian:<br>网卡配置信息存放在同一个文件 /etc/network/interfaces</p>
-</li>
-</ul>
-<h3 id="2-开启Linux代理转发功能"><a href="#2-开启Linux代理转发功能" class="headerlink" title="2. 开启Linux代理转发功能"></a>2. 开启Linux代理转发功能</h3><ul>
-<li><p>临时开启，重启失效</p>
-<pre><code>cat /proc/sys/net/ipv4/ip_forward    # 0是禁止转发，1是开启转发
-echo &quot;1&quot; &gt;/proc/sys/net/ipv4/ip_forward
-</code></pre></li>
-<li><p>永久开启</p>
-<pre><code>sudo vim /etc/sysctl.conf
-net.ipv4.ip_forward = 0    # 改成1
-sudo sysctl -p
-</code></pre></li>
-</ul>
-<h3 id="3-路由的概念与配置"><a href="#3-路由的概念与配置" class="headerlink" title="3. 路由的概念与配置"></a>3. 路由的概念与配置</h3><p>Linux配置的路由都属于静态路由，即手动输入的方式加入的路由规则<br>动态路由无需输入，路由软件自控</p>
-<pre><code>route [-n|-ee]
-route add [-net|-host] [网络或主机] netmask [mask] [gw|dev]
-route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-n</td>
-<td>不使用通讯协议或主机名，直接使用IP地址</td>
-</tr>
-<tr>
-<td>-ee</td>
-<td>显示更详细的路由信息</td>
-</tr>
-<tr>
-<td>add</td>
-<td>添加路由</td>
-</tr>
-<tr>
-<td>del</td>
-<td>删除路由</td>
-</tr>
-<tr>
-<td>-net</td>
-<td>添加一个网络，后面跟网络号地址</td>
-</tr>
-<tr>
-<td>-host</td>
-<td>后面接的是连接到单独主机路由</td>
-</tr>
-<tr>
-<td>netmask</td>
-<td>后面接子网掩码</td>
-</tr>
-<tr>
-<td>gw</td>
-<td>网关IP</td>
-</tr>
-<tr>
-<td>dev</td>
-<td>指定由哪个网络设备连出去，后面接网络设备名，eth0</td>
-</tr>
-</tbody>
-</table>
-<p>使用route添加路由的时候，设定的路由必须与自己系统的网络接口或IP可以直接互通</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-循序渐进Linux3：Linux下软件安装与管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/">循序渐进Linux 3：Linux下软件安装与管理</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/" class="archive-article-date">
-  	<time datetime="2016-11-08T02:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.8</em></p>
-<h2 id="一、源码安装"><a href="#一、源码安装" class="headerlink" title="一、源码安装"></a>一、源码安装</h2><pre><code>./configure
-make
-make install
-</code></pre><h2 id="二、RPM包"><a href="#二、RPM包" class="headerlink" title="二、RPM包"></a>二、RPM包</h2><h3 id="1-安装软件包"><a href="#1-安装软件包" class="headerlink" title="1. 安装软件包"></a>1. 安装软件包</h3><pre><code>rpm -i [辅助选项] file1.rpm file2.rpm
-</code></pre><p>主选项 -i：　　install，安装<br>辅助选项：</p>
-<table>
-<thead>
-<tr>
-<th>辅助选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-v</td>
-<td>显示附加信息</td>
-</tr>
-<tr>
-<td>-h</td>
-<td>安装时输出标记 #</td>
-</tr>
-<tr>
-<td>–test</td>
-<td>测试，不实际安装</td>
-</tr>
-<tr>
-<td>–nodeps</td>
-<td>不检查依赖关系</td>
-</tr>
-<tr>
-<td>–force</td>
-<td>忽略软件包以及软件冲突</td>
-</tr>
-<tr>
-<td>–replacepkgs</td>
-<td>强制重新安装</td>
-</tr>
-<tr>
-<td>–prefix</td>
-<td>把软件包安装到prefix选项指定的路径</td>
-</tr>
-<tr>
-<td>–percent</td>
-<td>以百分比形式输出安装进度</td>
-</tr>
-<tr>
-<td>–excludedocs</td>
-<td>不安装软件包中说明文件</td>
-</tr>
-<tr>
-<td>–includedocs</td>
-<td>安装软件包包含说明文件</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-查询软件包"><a href="#2-查询软件包" class="headerlink" title="2. 查询软件包"></a>2. 查询软件包</h3><pre><code>rpm -q [辅助选项] package1...packageN
-</code></pre><table>
-<thead>
-<tr>
-<th>辅助选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-f</td>
-<td>查询操作系统某个文件属于哪个对应的rpm包</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>查询以 .rpm 为后缀的软件包安装后对应的包名称</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>显示软件包中所有文件列表</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>显示软件包概要信息</td>
-</tr>
-<tr>
-<td>-g</td>
-<td>查询系统有哪些软件包属于指定类别</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>显示软件包的说明文件列表</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>在 -l 的基础上显示每个文件的状态</td>
-</tr>
-<tr>
-<td>-R 或 –requries</td>
-<td>显示软件包所需的功能</td>
-</tr>
-<tr>
-<td>–provides</td>
-<td>显示软件包提供的功能</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-验证软件包"><a href="#3-验证软件包" class="headerlink" title="3. 验证软件包"></a>3. 验证软件包</h3><pre><code>rpm -V [辅助选项] package1...packageN
-</code></pre><h3 id="4-更新软件包"><a href="#4-更新软件包" class="headerlink" title="4. 更新软件包"></a>4. 更新软件包</h3><pre><code>rpm -U [辅助选项] file1.rpm ... fileN.rpm
-</code></pre><h3 id="5-删除软件包"><a href="#5-删除软件包" class="headerlink" title="5. 删除软件包"></a>5. 删除软件包</h3><pre><code>rpm -e [辅助选项] package1 ... packageN
-</code></pre><table>
-<thead>
-<tr>
-<th>辅助选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>–test</td>
-<td>只执行删除测试</td>
-</tr>
-<tr>
-<td>–nodeps</td>
-<td>不检查依赖性</td>
-</tr>
-</tbody>
-</table>
-<h2 id="三、yum安装方式"><a href="#三、yum安装方式" class="headerlink" title="三、yum安装方式"></a>三、yum安装方式</h2><pre><code>rpm -qa|grep yum                 # 检查yum是否安装
-
-rpm -ivh yum-*.noarch.rpm        # 安装yum
-
-yum install xxx                  # 安装
-yum remove xxx                   # 删除
-yum check-update                 # 检查更新
-yum update                       # 更新所有rpm包
-yum update kernel kernel-source  # 更新内核
-yum upgrade                      # 升级版本
-yum info                         # 查询RPM包信息
-</code></pre><h2 id="四、二进制软件安装"><a href="#四、二进制软件安装" class="headerlink" title="四、二进制软件安装"></a>四、二进制软件安装</h2><p>这种格式的软件的安装其实就是解压</p>
-<pre><code># *.tar.gz格式
-tar -zxvf xxx.tar.gz
-
-# *.bz2格式
-tar -jxvf xxx.tar.bz2
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1842,6 +2021,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1895,7 +2078,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">天上风筝在天上飞</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">茕茕白兔，东走西顾&lt;br&gt;&lt;br&gt;衣不如新，人不如故</div>
   	  	
     	</section>
     

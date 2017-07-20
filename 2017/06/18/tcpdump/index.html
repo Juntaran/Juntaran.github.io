@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://juntaran.github.io/2017/06/18/tcpdump/index.html">
 <meta property="og:site_name" content="Juntaran">
 <meta property="og:description" content="2017.6.18 1. tcpdump 选项与参数tcpdump [选项] [-c 数量]  [-F 表达式文件名] [-i 网卡名] [-r 读入文件名] [-s 抓包大小] [-T 解释类型] [-w 写入文件名 [-C 文件大小 [-W 文件数量]] [-U]] [表达式]    选项 参数 说明 重要     -A  以 ASCII 码方式显示每一个数据包（不会显示数据包中链路层头部信息">
-<meta property="og:updated_time" content="2017-06-23T12:52:49.696Z">
+<meta property="og:updated_time" content="2017-07-20T17:25:39.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tcpdump">
 <meta name="twitter:description" content="2017.6.18 1. tcpdump 选项与参数tcpdump [选项] [-c 数量]  [-F 表达式文件名] [-i 网卡名] [-r 读入文件名] [-s 抓包大小] [-T 解释类型] [-w 写入文件名 [-C 文件大小 [-W 文件数量]] [-U]] [表达式]    选项 参数 说明 重要     -A  以 ASCII 码方式显示每一个数据包（不会显示数据包中链路层头部信息">
@@ -596,38 +596,47 @@
 <h4 id="2-4-2-比较运算符"><a href="#2-4-2-比较运算符" class="headerlink" title="2.4.2 比较运算符"></a>2.4.2 比较运算符</h4><p>共有6个： <code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>=</code>、<code>!=</code></p>
 <h3 id="2-5-关键字"><a href="#2-5-关键字" class="headerlink" title="2.5 关键字"></a>2.5 关键字</h3><p>gateway、broadcast、less、greater</p>
 <h2 id="3-使用技巧"><a href="#3-使用技巧" class="headerlink" title="3. 使用技巧"></a>3. 使用技巧</h2><ol>
-<li><p>截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信</p>
-<pre><code>tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)
-</code></pre></li>
-<li><p>截获主机192.168.126.131发送的所有数据包</p>
-<pre><code>tcpdump -i ens33 src host 192.168.126.131
-</code></pre></li>
-<li><p>截获 TCP 会话的开始和结束的数据包</p>
-<pre><code>tcpdump &apos;tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet&apos;
-</code></pre></li>
-<li><p>打印所有通过网关snup的ftp数据包，并且数据包的源或目的不是本地网络上的主机 （localnet，实际使用时要真正替换成本地网络的名字）</p>
-<pre><code>tcpdump &apos;gateway snup and (port ftp or ftp-data)&apos;
-</code></pre></li>
-<li><p>打印所有源或目的端口是80，网络层协议为IPv4，并且含有数据，而不是SYN、FIN以及ACK-only等不含数据的数据包</p>
-<pre><code>tcpdump &apos;tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)&apos;
-</code></pre></li>
-<li><p>打印长度超过576字节，并且网关地址是 snup 的IP数据包</p>
-<pre><code>tcpdump &apos;gateway snup and ip[2:2] &gt; 576&apos;
-</code></pre></li>
-<li><p>打印所有IP层广播或多播的数据包，但不是物理以太网层的广播或多播数据报</p>
-<pre><code>tcpdump &apos;ether[0] &amp; 1 = 0 and ip[16] &gt;= 224&apos;
-</code></pre></li>
-<li><p>打印所有非 ping 程序产生的数据包即打印除’echo request’或者’echo reply’类型以外的ICMP数据包</p>
-<pre><code>tcpdump &apos;icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply&apos;
-</code></pre></li>
-<li><p>打印使用 ftp 端口和 ftp 数据端口的数据包</p>
-<pre><code>tcpdump &apos;port ftp or ftp-data&apos;
-</code></pre></li>
+<li>截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</div></pre></td></tr></table></figure>
+<ol>
+<li>截获主机192.168.126.131发送的所有数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump -i ens33 src host 192.168.126.131</div></pre></td></tr></table></figure>
+<ol>
+<li>截获 TCP 会话的开始和结束的数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有通过网关snup的ftp数据包，并且数据包的源或目的不是本地网络上的主机 （localnet，实际使用时要真正替换成本地网络的名字）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and (port ftp or ftp-data)'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有源或目的端口是80，网络层协议为IPv4，并且含有数据，而不是SYN、FIN以及ACK-only等不含数据的数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印长度超过576字节，并且网关地址是 snup 的IP数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and ip[2:2] &gt; 576'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有IP层广播或多播的数据包，但不是物理以太网层的广播或多播数据报</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'ether[0] &amp; 1 = 0 and ip[16] &gt;= 224'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有非 ping 程序产生的数据包即打印除’echo request’或者’echo reply’类型以外的ICMP数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印使用 ftp 端口和 ftp 数据端口的数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'port ftp or ftp-data'</span></div></pre></td></tr></table></figure>
+<ol>
 <li><p>截取HTTP数据包</p>
 <p>0x4745-&gt;”GE”<br>0x4854-&gt;”HT”  </p>
-<pre><code>tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854
-</code></pre></li>
+</li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854</div></pre></td></tr></table></figure>
 <hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
 <li><a href="http://www.360doc.com/content/17/0618/16/14454117_664203330.shtml" target="_blank" rel="external">tcpdump抓包命令详解</a></li>
@@ -929,6 +938,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">运维</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -982,7 +995,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">天上风筝在天上飞</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">茕茕白兔，东走西顾&lt;br&gt;&lt;br&gt;衣不如新，人不如故</div>
   	  	
     	</section>
     
