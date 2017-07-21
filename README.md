@@ -17,7 +17,8 @@
     <!-- GoStats Simple HTML Based Code -->
         <a target="_blank" title="Juntaran.me's hit"
             href="http://Juntaran.me"><img alt="web site traffic statistics"
-            src="//www.gostats.org/0.png?a=100493712&ct=4&ci=82" style="border-width:0" /></a>
+            src="//www.gostats.org/0.png?a=100493712&ct=4&ci=82" style="border-width:0" />
+        </a>
     <!-- End GoStats Simple HTML Based Code -->
 </div>
 ```
@@ -58,3 +59,5 @@ unzip Juntaran.me.zip
 mv Juntaran.github.io-master/ public/
 
 ```
+
+* [Juntaran.me](http://Juntaran.me)
