@@ -32,7 +32,8 @@
 
 该脚本下载 Github 最新源码并解压覆盖源文件  
 
-脚本代码：
+
+综合以上脚本代码：
 
 ```bash
 #!/bin/bash
@@ -59,5 +60,6 @@ unzip Juntaran.me.zip
 mv Juntaran.github.io-master/ public/
 
 ```
+
 
 * [Juntaran.me](http://Juntaran.me)

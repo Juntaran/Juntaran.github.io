@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://juntaran.github.io/2017/07/20/SSH隧道/index.html">
 <meta property="og:site_name" content="Juntaran">
 <meta property="og:description" content="2017.7.20  SSH 隧道就是利用 SSH 进行端口转发，从而实现流往某端口的数据被加密后传向另一机器,这个过程形似构造了一条通道，因此也称之为 SSH 隧道(SSH Tunnel)  SSH 隧道的类型 动态端口转发(socks 代理) 本地端口转发 远程端口转发   动态端口转发 条件:   host1 —ssh—&amp;gt; host2   目的：   让 host1 某端口的数据发往">
-<meta property="og:updated_time" content="2017-07-20T17:51:00.453Z">
+<meta property="og:updated_time" content="2017-07-21T14:36:28.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH隧道">
 <meta name="twitter:description" content="2017.7.20  SSH 隧道就是利用 SSH 进行端口转发，从而实现流往某端口的数据被加密后传向另一机器,这个过程形似构造了一条通道，因此也称之为 SSH 隧道(SSH Tunnel)  SSH 隧道的类型 动态端口转发(socks 代理) 本地端口转发 远程端口转发   动态端口转发 条件:   host1 —ssh—&amp;gt; host2   目的：   让 host1 某端口的数据发往">
@@ -220,7 +220,9 @@
 <ul>
 <li>目的：</li>
 </ul>
+<blockquote>
 <p>借助 host2 实现 host1 和 host3 的通信</p>
+</blockquote>
 <ul>
 <li>操作：</li>
 </ul>
@@ -238,7 +240,9 @@
 <ul>
 <li>目的：</li>
 </ul>
+<blockquote>
 <p>host2 可以 ssh 连接 host1, 那么 host1 就可以借助这条连接与 host3 进行通信</p>
+</blockquote>
 <ul>
 <li>操作：</li>
 </ul>
