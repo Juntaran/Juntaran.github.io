@@ -10,7 +10,7 @@
 
 使用 hexo 生成博客后，需要修改 index.html  
 
-在 95 行添加以下代码，该代码为 gostats 的访问计数器  
+在 92 行 `</div>` 后添加以下代码，该代码为 gostats 的访问计数器  
 
 ```html
 <div class="social">
