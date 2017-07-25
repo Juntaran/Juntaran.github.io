@@ -167,6 +167,151 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux大文件生成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/24/Linux大文件生成/">Linux大文件生成</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/24/Linux大文件生成/" class="archive-article-date">
+  	<time datetime="2017-07-24T10:05:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.7.24</em></p>
+<p>首先问题来了，为什么要生成大文件呢  </p>
+<p>生成大文件可以做一些测试，比如系统性能啦~<br>还能应付系统组对我们机器使用不达标（哈哈哈~  </p>
+<p>好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G<br>那么我们还需要生成 3G 的文件~  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=1M count=3000</div></pre></td></tr></table></figure>
+<p>系统组的同学可以用以下方法来检测到~</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find -<span class="built_in">type</span> f -size +500M    <span class="comment"># 查找大于500M的文件</span></div></pre></td></tr></table></figure>
+<p>这里文件大小的单位可以使用 <code>b</code>，<code>k</code>，<code>M</code>，<code>G</code>  </p>
+<p>于是乎我们可以反其道而行之，生成 3000 个 1M 的文件~  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 3000 | xargs -i dd <span class="keyword">if</span>=/dev/zero of=&#123;&#125;.dat bs=1024000 count=1</div></pre></td></tr></table></figure>
+<p>如果系统组的同学机智，其实他们还是可以发现的  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du --max-depth=1 | sort -rn    <span class="comment"># 按从大到小的顺序对目录进行排序</span></div></pre></td></tr></table></figure>
+<hr>
+<p>网上还有一个丧心病狂的命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=1M count=0 seek=100000</div></pre></td></tr></table></figure>
+<p>创建的文件在文件系统中的显示大小为 100000MB ，但是并不实际占用 block ，因此创建速度与内存速度相当，seek 的作用是跳过输出文件中指定大小的部分，这就达到了创建大文件，但是并不实际写入的目的。当然，因为不实际写入硬盘，所以你在容量只有 10G 的硬盘上创建 100G 的此类文件都是可以的</p>
+<hr>
+<h2 id="dd-命令"><a href="#dd-命令" class="headerlink" title="dd 命令"></a>dd 命令</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>if=filename</td>
+<td>输入文件名，缺省为标准输入</td>
+</tr>
+<tr>
+<td>of=filename</td>
+<td>输出文件名，缺省为标准输出</td>
+</tr>
+<tr>
+<td>ibs=bytes</td>
+<td>一次读入 bytes 个字节(即一个块大小为 bytes 个字节)</td>
+</tr>
+<tr>
+<td>obs=bytes</td>
+<td>一次写 bytes 个字节(即一个块大小为 bytes 个字节)</td>
+</tr>
+<tr>
+<td>bs=bytes</td>
+<td>同时设置读写块的大小为 bytes ，可代替 ibs 和 obs</td>
+</tr>
+<tr>
+<td>cbs=bytes</td>
+<td>一次转换 bytes 个字节，即转换缓冲区大小</td>
+</tr>
+<tr>
+<td>skip=blocks</td>
+<td>从输入文件开头跳过 blocks 个块后再开始复制</td>
+</tr>
+<tr>
+<td>seek=blocks</td>
+<td>从输出文件开头跳过 blocks 个块后再开始复制(通常只有当输出文件是磁盘或磁带时才有效)</td>
+</tr>
+<tr>
+<td>count=blocks</td>
+<td>仅拷贝 blocks 个块，块大小等于 ibs 指定的字节数</td>
+</tr>
+<tr>
+<td>conv=conversion</td>
+<td>指定的参数转换文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://blog.csdn.net/cywosp/article/details/9674757" target="_blank" rel="external">Cynric</a></li>
+<li><a href="http://www.cnblogs.com/qq78292959/archive/2012/02/23/2364760.html" target="_blank" rel="external">dd命令使用详解</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/24/Linux大文件生成/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Ubuntu dpkg问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -314,7 +459,7 @@
 <li>操作：</li>
 </ul>
 <p>1.在 host1 上执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ssh -L 8080:host3:80 user@host2</div><div class="line"></div><div class="line"><span class="comment"># 执行完成，在 host1 浏览器中 输入 localhost:8080 即可看到 host3 的 Web 页面 </span></div><div class="line"><span class="comment"># 如果使用 xshell 等工具访问 host1, 那么可以使用 curl localhost:8080 来查看 Web 内容</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh -L 8080:host3:80 user@host2</div><div class="line"><span class="comment"># 执行完成，在 host1 浏览器中 输入 localhost:8080 即可看到 host3 的 Web 页面 </span></div><div class="line"><span class="comment"># 如果使用 xshell 等工具访问 host1, 那么可以使用 curl localhost:8080 来查看 Web 内容</span></div></pre></td></tr></table></figure>
 <p>2.在 host1 使用 ssh 登录 host3</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh -L 2030:host3:22 user@host2</div><div class="line"><span class="comment"># 现在可以在另开一个 host1 终端输入 : ssh -p 2030 user@host3 去登录 host3</span></div></pre></td></tr></table></figure>
 <hr>
@@ -322,7 +467,7 @@
 <li>条件：</li>
 </ul>
 <blockquote>
-<p>host1 &lt;-x-&gt; host3<br>host2 &lt;—&gt; host3<br>host2 &lt;-ssh-&gt; host1<br>host1 –x–&gt; host2<br>在这种条件下， host1 就不可以 ssh 连接 host2 了，所以不能使用<code>本地转发端口</code>了</p>
+<p>host1 &lt;-x-&gt; host3<br>host2 &lt;—&gt; host3<br>host2 -ssh-&gt; host1<br>host1 –x–&gt; host2<br>在这种条件下， host1 就不可以 ssh 连接 host2 了，所以不能使用<code>本地转发端口</code>了</p>
 </blockquote>
 <ul>
 <li>目的：</li>
@@ -334,7 +479,7 @@
 <li>操作：</li>
 </ul>
 <p>1.在 host2 上执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通过访问 host1 本地 8080 端口来访问 host3 的 80 端口</span></div><div class="line">ssh -R 8080:host3:80 user@host1</div><div class="line"></div><div class="line"><span class="comment"># 执行完成，在 host1 浏览器中 输入 localhost:8080 即可看到 host3 的 Web 页面</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通过访问 host1 本地 8080 端口来访问 host3 的 80 端口</span></div><div class="line">ssh -R 8080:host3:80 user@host1</div><div class="line"><span class="comment"># 执行完成，在 host1 浏览器中 输入 localhost:8080 即可看到 host3 的 Web 页面</span></div></pre></td></tr></table></figure>
 <p>2.在 host2 上执行以下命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -R 2030:host3:22 user@host1</div></pre></td></tr></table></figure>
 <p>3.host1 使用 ssh 登录 host3</p>
@@ -380,8 +525,20 @@
 </table>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -qTfnN -D 7070 xxx@yyy.com	<span class="comment"># ssh 后台动态端口转发</span></div></pre></td></tr></table></figure>
 <hr>
+<h2 id="列出-SSH-隧道脚本"><a href="#列出-SSH-隧道脚本" class="headerlink" title="列出 SSH 隧道脚本"></a>列出 SSH 隧道脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ps -ef | grep ssh | awk <span class="string">'$3 == 1'</span> | awk <span class="string">'&#123;for (i=8;i&lt;=NF;i++) printf $i""FS;print""&#125;'</span></div><div class="line"><span class="comment"># 结果</span></div><div class="line">ssh -f -N -p 2222 -R 1111:10.123.123.123:3333 10.234.234.234</div><div class="line">ssh -f -N -p 2222 -R 8080:10.123.123.123:8080 10.234.234.234</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="保持长时间连接"><a href="#保持长时间连接" class="headerlink" title="保持长时间连接"></a>保持长时间连接</h2><p>有些路由器会把长时间没有通信的连接断开。SSH 客户端的 <code>TCPKeepAlive</code> 选项可以避免这个问题的发生，默认情况下它是被开启的<br>如果它被关闭了，可以在 ssh 的命令上加上 <code>-o TCPKeepAlive=yes</code> 来开启<br>另外可以添加 <code>-o ServerAliveInterval=15</code> </p>
+<p>TCPKeepAlive 和 ServerAliveInterval 的区别在于</p>
+<blockquote>
+<p>ServerAliveInterval 是被加密过的，TCPKeepAlive 无法证实它是否是假冒的  </p>
+</blockquote>
+<p>另一种方法是，去掉 <code>-N</code> 参数，加入一个定期能产生输出的命令<br>例如: top 或者 vmstat<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -f -p 2222 -R 1111:10.123.123.123:3333 10.234.234.234 vmstat 30</div></pre></td></tr></table></figure></p>
+<hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
-<li><a href="http://www.ifmicro.com/ssh-port-forwarding/" target="_blank" rel="external">倘若微小</a></li>
+<li><a href="http://www.ifmicro.com/%E8%AE%B0%E5%BD%95/2015/09/25/ssh-port-forwarding/" target="_blank" rel="external">倘若微小</a></li>
+<li><a href="https://serverfault.com/questions/538897/serveralivecountmax-in-ssh/538919#538919" target="_blank" rel="external">serverfault</a></li>
+<li><a href="http://chembo.iteye.com/blog/1926312" target="_blank" rel="external">SSH隧道自动检测脚本</a></li>
+<li><a href="http://blog.creke.net/722.html" target="_blank" rel="external">SSH隧道与端口转发及内网穿透</a></li>
 </ul>
 
       
@@ -1615,87 +1772,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/18/SSH免密登陆/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-nmap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/16/nmap/">nmap</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/16/nmap/" class="archive-article-date">
-  	<time datetime="2017-06-16T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.6.16</em></p>
-<p>一个较为常用的命令</p>
-<pre><code>nmap -v -p 1-65535 -sV -O -sS -T4 192.168.1.1
-</code></pre><p>同样也可以使用<code>python-nmap</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/16/nmap/">展开全文 >></a>
         </p>
       
 

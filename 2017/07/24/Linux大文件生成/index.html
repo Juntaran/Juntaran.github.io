@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://juntaran.github.io">
-  <title>Tag: 运维 | Juntaran</title>
+  <title>Linux大文件生成 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我想养只猪">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Juntaran">
-<meta property="og:url" content="https://juntaran.github.io/tags/运维/index.html">
+  <meta name="description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~还能应付系统组对我们机器使用不达标（哈哈哈~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1f">
+<meta name="keywords" content="运维,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux大文件生成">
+<meta property="og:url" content="https://juntaran.github.io/2017/07/24/Linux大文件生成/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="我想养只猪">
+<meta property="og:description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~还能应付系统组对我们机器使用不达标（哈哈哈~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1f">
+<meta property="og:updated_time" content="2017-07-25T15:57:23.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Juntaran">
-<meta name="twitter:description" content="我想养只猪">
+<meta name="twitter:title" content="Linux大文件生成">
+<meta name="twitter:description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~还能应付系统组对我们机器使用不达标（哈哈哈~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1f">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -156,327 +158,153 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Linux大文件生成" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Linux大文件生成
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/24/Linux大文件生成/" class="archive-article-date">
+
+        
+        <a href="/2017/07/24/Linux大文件生成/" class="archive-article-date">
   	<time datetime="2017-07-24T10:05:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/24/Linux大文件生成/">Linux大文件生成</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/23/Ubuntu dpkg问题/" class="archive-article-date">
-  	<time datetime="2017-07-22T18:10:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/23/Ubuntu dpkg问题/">Ubuntu dpkg问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/18/Nginx/" class="archive-article-date">
-  	<time datetime="2017-07-18T09:32:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/18/Nginx/">Nginx</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/04/Python修复setup/" class="archive-article-date">
-  	<time datetime="2017-06-03T20:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/04/Python修复setup/">Python修复setup</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/31/凝思系统忘记密码/" class="archive-article-date">
-  	<time datetime="2017-01-31T15:59:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/31/凝思系统忘记密码/">凝思系统忘记密码</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <p><em>2017.7.24</em></p>
+<p>首先问题来了，为什么要生成大文件呢  </p>
+<p>生成大文件可以做一些测试，比如系统性能啦~<br>还能应付系统组对我们机器使用不达标（哈哈哈~  </p>
+<p>好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G<br>那么我们还需要生成 3G 的文件~  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=1M count=3000</div></pre></td></tr></table></figure>
+<p>系统组的同学可以用以下方法来检测到~</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find -<span class="built_in">type</span> f -size +500M    <span class="comment"># 查找大于500M的文件</span></div></pre></td></tr></table></figure>
+<p>这里文件大小的单位可以使用 <code>b</code>，<code>k</code>，<code>M</code>，<code>G</code>  </p>
+<p>于是乎我们可以反其道而行之，生成 3000 个 1M 的文件~  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 3000 | xargs -i dd <span class="keyword">if</span>=/dev/zero of=&#123;&#125;.dat bs=1024000 count=1</div></pre></td></tr></table></figure>
+<p>如果系统组的同学机智，其实他们还是可以发现的  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du --max-depth=1 | sort -rn    <span class="comment"># 按从大到小的顺序对目录进行排序</span></div></pre></td></tr></table></figure>
+<hr>
+<p>网上还有一个丧心病狂的命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=1M count=0 seek=100000</div></pre></td></tr></table></figure>
+<p>创建的文件在文件系统中的显示大小为 100000MB ，但是并不实际占用 block ，因此创建速度与内存速度相当，seek 的作用是跳过输出文件中指定大小的部分，这就达到了创建大文件，但是并不实际写入的目的。当然，因为不实际写入硬盘，所以你在容量只有 10G 的硬盘上创建 100G 的此类文件都是可以的</p>
+<hr>
+<h2 id="dd-命令"><a href="#dd-命令" class="headerlink" title="dd 命令"></a>dd 命令</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>if=filename</td>
+<td>输入文件名，缺省为标准输入</td>
+</tr>
+<tr>
+<td>of=filename</td>
+<td>输出文件名，缺省为标准输出</td>
+</tr>
+<tr>
+<td>ibs=bytes</td>
+<td>一次读入 bytes 个字节(即一个块大小为 bytes 个字节)</td>
+</tr>
+<tr>
+<td>obs=bytes</td>
+<td>一次写 bytes 个字节(即一个块大小为 bytes 个字节)</td>
+</tr>
+<tr>
+<td>bs=bytes</td>
+<td>同时设置读写块的大小为 bytes ，可代替 ibs 和 obs</td>
+</tr>
+<tr>
+<td>cbs=bytes</td>
+<td>一次转换 bytes 个字节，即转换缓冲区大小</td>
+</tr>
+<tr>
+<td>skip=blocks</td>
+<td>从输入文件开头跳过 blocks 个块后再开始复制</td>
+</tr>
+<tr>
+<td>seek=blocks</td>
+<td>从输出文件开头跳过 blocks 个块后再开始复制(通常只有当输出文件是磁盘或磁带时才有效)</td>
+</tr>
+<tr>
+<td>count=blocks</td>
+<td>仅拷贝 blocks 个块，块大小等于 ibs 指定的字节数</td>
+</tr>
+<tr>
+<td>conv=conversion</td>
+<td>指定的参数转换文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://blog.csdn.net/cywosp/article/details/9674757" target="_blank" rel="external">Cynric</a></li>
+<li><a href="http://www.cnblogs.com/qq78292959/archive/2012/02/23/2364760.html" target="_blank" rel="external">dd命令使用详解</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/26/CDN与SDN/" class="archive-article-date">
-  	<time datetime="2016-09-25T16:28:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/26/CDN与SDN/">CDN与SDN</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -489,17 +317,87 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://juntaran.github.io/2017/07/24/Linux大文件生成/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/07/23/Ubuntu dpkg问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu dpkg问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -522,9 +420,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
