@@ -166,6 +166,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-StackStorm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/05/StackStorm/">StackStorm</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/05/StackStorm/" class="archive-article-date">
+  	<time datetime="2017-08-05T11:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.8.5</em></p>
+<h2 id="CentOS7-安装-StackStorm"><a href="#CentOS7-安装-StackStorm" class="headerlink" title="CentOS7 安装 StackStorm"></a>CentOS7 安装 StackStorm</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo yum install curl nss</div><div class="line">curl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=<span class="string">'yourpassword'</span></div></pre></td></tr></table></figure>
+<p>此时登录 <code>https://yourhost</code> ，输入设定的用户名和密码即可登录  </p>
+<h2 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ST2_AUTH_TOKEN=`st2 auth -t -p <span class="string">'root'</span> yourpassword`</div><div class="line"><span class="built_in">echo</span> <span class="variable">$ST2_AUTH_TOKEN</span></div></pre></td></tr></table></figure>
+<p>记下这个 token  </p>
+<h2 id="使用-st2-执行命令"><a href="#使用-st2-执行命令" class="headerlink" title="使用 st2 执行命令"></a>使用 st2 执行命令</h2><h3 id="st2-使用-ssh-远程登录执行命令"><a href="#st2-使用-ssh-远程登录执行命令" class="headerlink" title="st2 使用 ssh 远程登录执行命令"></a>st2 使用 ssh 远程登录执行命令</h3><p>本部分已本地搭建的 stackstorm 环境连接租用的美国服务器 138.128.206.71 为例   </p>
+<p>st2 使用 ssh 远程连接到另一个 <code>ip/hostname</code> 可以指定<code>端口、用户名、密码</code>  默认会进入 <code>/tmp</code> 目录  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run core.remote hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> -- ls -l</div></pre></td></tr></table></figure>
+<p>如果想进入另一个目录执行命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run core.remote hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> -- <span class="built_in">cd</span> /root;ls -ltr</div></pre></td></tr></table></figure>
+<p>上一种方法在 web 界面只会看到执行了 <code>cd /root</code> 可以采用以下命令解决该问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run core.remote hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> cmd=<span class="string">"cd /root; ls -ltr"</span></div></pre></td></tr></table></figure>
+<h3 id="st2-本地执行命令"><a href="#st2-本地执行命令" class="headerlink" title="st2 本地执行命令"></a>st2 本地执行命令</h3><p>本地执行命令和远程执行命令类似，有两种方法  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">st2 run core.local cmd=<span class="string">"ls -al"</span></div><div class="line">st2 run core.local -- ls -al</div></pre></td></tr></table></figure>
+<p>列出执行的任务  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 execution list</div></pre></td></tr></table></figure>
+<p>根据任务 ID 获取结果  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 execution get &lt;execution_id&gt;</div></pre></td></tr></table></figure>
+<p>获取最近的5个任务  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 execution list -n 5</div></pre></td></tr></table></figure>
+<h2 id="检查-st2-的-trigger"><a href="#检查-st2-的-trigger" class="headerlink" title="检查 st2 的 trigger"></a>检查 st2 的 trigger</h2><p>列出所有可用的触发器  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 trigger list</div></pre></td></tr></table></figure>
+<p>检查间隔时间定时器触发细节</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 trigger get core.st2.IntervalTimer</div></pre></td></tr></table></figure>
+<p>检查 web 端的触发器细节</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 trigger get core.st2.webhook</div></pre></td></tr></table></figure>
+<h2 id="st2-的-rule-处理"><a href="#st2-的-rule-处理" class="headerlink" title="st2 的 rule 处理"></a>st2 的 rule 处理</h2><p>创建一个 rule  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule create /usr/share/doc/st2/examples/rules/sample_rule_with_webhook.yaml</div></pre></td></tr></table></figure>
+<p>列出所有 rule  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule list</div></pre></td></tr></table></figure>
+<p>列出 example 包的所有 rule  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule list --pack=examples</div></pre></td></tr></table></figure>
+<p>获取 examples.sample_rule_with_webhook 的 rule  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule get examples.sample_rule_with_webhook</div></pre></td></tr></table></figure>
+<h2 id="官网示例"><a href="#官网示例" class="headerlink" title="官网示例"></a>官网示例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Post to the webhook</span></div><div class="line">curl -k https://localhost/api/v1/webhooks/sample -d <span class="string">'&#123;"foo": "bar", "name": "st2"&#125;'</span> -H <span class="string">'Content-Type: application/json'</span> -H <span class="string">'X-Auth-Token: yourToken'</span></div><div class="line"></div><div class="line"><span class="comment"># Check if the action got executed (this shows last action)</span></div><div class="line">st2 execution list -n 1</div><div class="line"></div><div class="line"><span class="comment"># Check that the rule worked. By default, st2 runs as the stanley user.</span></div><div class="line">sudo tail /home/stanley/st2.webhook_sample.out</div><div class="line"></div><div class="line"><span class="comment"># And for fun, same post with st2</span></div><div class="line">st2 run core.http method=POST body=<span class="string">'&#123;"you": "too", "name": "st2"&#125;'</span> url=https://localhost/api/v1/webhooks/sample headers=<span class="string">'x-auth-token=yourToken,content-type=application/json'</span> verify_ssl_cert=False</div><div class="line"></div><div class="line"><span class="comment"># And for even more fun, using basic authentication over https</span></div><div class="line">st2 run core.http url=https://httpbin.org/basic-auth/st2/<span class="built_in">pwd</span> username=st2 password=<span class="built_in">pwd</span></div><div class="line"></div><div class="line"><span class="comment"># Check that the rule worked. By default, st2 runs as the stanley user.</span></div><div class="line">sudo tail /home/stanley/st2.webhook_sample.out</div></pre></td></tr></table></figure>
+<p>复制 doc 的例子去运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 复制 demo 到 packs</span></div><div class="line">sudo cp -r /usr/share/doc/st2/examples/ /opt/stackstorm/packs/</div><div class="line"></div><div class="line"><span class="comment"># 执行 setup</span></div><div class="line">st2 run packs.setup_virtualenv packs=examples</div><div class="line"></div><div class="line"><span class="comment"># 重新加载 stackstorm</span></div><div class="line">st2ctl reload --register-all</div></pre></td></tr></table></figure>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="https://docs.stackstorm.com/install/index.html" target="_blank" rel="external">stackstorm</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/05/StackStorm/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-七月的最后" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1232,545 +1347,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/06/20/ping/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-tcpdump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/18/tcpdump/">tcpdump</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/18/tcpdump/" class="archive-article-date">
-  	<time datetime="2017-06-18T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.6.18</em></p>
-<h2 id="1-tcpdump-选项与参数"><a href="#1-tcpdump-选项与参数" class="headerlink" title="1. tcpdump 选项与参数"></a>1. tcpdump 选项与参数</h2><pre><code>tcpdump [选项] [-c 数量]  [-F 表达式文件名] [-i 网卡名] [-r 读入文件名] [-s 抓包大小] [-T 解释类型] [-w 写入文件名 [-C 文件大小 [-W 文件数量]] [-U]] [表达式]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>参数</th>
-<th>说明</th>
-<th>重要</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>-A</strong></td>
-<td></td>
-<td>以 <code>ASCII 码</code>方式显示每一个数据包（不会显示数据包中链路层头部信息），在抓取包含网页数据的数据包时, 可方便查看数据</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-c</strong></td>
-<td>count</td>
-<td>在接受到<code>count</code>个数据包后退出</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-C</strong></td>
-<td>file-size</td>
-<td>该选项使得 tcpdump 在把原始数据包直接保存到文件中之前, 检查此文件大小是否超过<code>file-size</code>。如果超过了，将关闭当前文件，开启一个文件继续用于原始数据包的记录。file-size 的单位是百万字节（这里指1,000,000个字节，并非1024 ＊ 1024个字节）</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-d</td>
-<td></td>
-<td>以容易阅读的形式打印，打印后退出</td>
-<td></td>
-</tr>
-<tr>
-<td>-dd</td>
-<td></td>
-<td>以C语言的形式打印出包匹配码，打印后退出</td>
-<td></td>
-</tr>
-<tr>
-<td>-ddd</td>
-<td></td>
-<td>以十进制数的形式打印出包匹配码，打印后退出</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-D</strong></td>
-<td></td>
-<td>打印出系统中所有可以用 tcpdump 截包的网络接口，网络接口名字和数字编号可以用在 tcpdump 的<code>-i flag</code></td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-e</strong></td>
-<td></td>
-<td>在输出行打印出<code>数据链路层</code>的头部信息</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-E</td>
-<td>spi@ipaddr algo:secret,…</td>
-<td>解密IPsec ESP包</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-f</strong></td>
-<td></td>
-<td>显示外部的 IPv4 地址时，采用数字方式而不是名字</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>file</td>
-<td>使用<code>file</code>文件作为过滤条件表达式的输入，此时命令行上的输入将被忽略</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-i</strong></td>
-<td>interface</td>
-<td>指定<code>interface</code>为 tcpdump 需要监听的网络接口</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-l</td>
-<td></td>
-<td>对标准输出进行行缓冲，遇到一个换行符就马上把这行的内容打印出来</td>
-<td></td>
-</tr>
-<tr>
-<td>-L</td>
-<td></td>
-<td>列出指定网络接口所支持的数据链路层的类型后退出</td>
-<td></td>
-</tr>
-<tr>
-<td>-m</td>
-<td>module</td>
-<td>通过<code>module</code>指定的 file 装载 SMI、MIB 模块，用于 SNMP 协议数据包抓取</td>
-<td></td>
-</tr>
-<tr>
-<td>-M</td>
-<td>secret</td>
-<td>如果 TCP 数据包(TCP segments)有TCP-MD5选项，为其摘要的验证指定一个公共的密钥<code>secret</code>，RFC 2385</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-n</strong></td>
-<td></td>
-<td>不把网络地址转换成名字</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-nn</strong></td>
-<td></td>
-<td>不进行端口名称的转换</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-N</td>
-<td></td>
-<td>不打印出 host 的域名部分，<code>nic</code>而不是 <code>nic.ddn.mil</code></td>
-<td></td>
-</tr>
-<tr>
-<td>-O</td>
-<td></td>
-<td>不启用进行包匹配时所用的优化代码</td>
-<td></td>
-</tr>
-<tr>
-<td>-p</td>
-<td></td>
-<td>一般情况下，把网络接口设置为<code>非混杂</code>模式.</td>
-<td></td>
-</tr>
-<tr>
-<td>-q</td>
-<td></td>
-<td>静默输出，信息很少</td>
-<td></td>
-</tr>
-<tr>
-<td>-R</td>
-<td></td>
-<td>对 ESP/AH 数据包的解析按照 RFC1825 而不是 RFC1829</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-r</strong></td>
-<td>file</td>
-<td>从文件<code>file</code>中读取包数据，如果<code>file</code>字段为<code>-</code>符号, 则 tcpdump 会从标准输入中读取包数据</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-S</td>
-<td></td>
-<td>打印 TCP 数据包的顺序号时，使用绝对的顺序号，而不是相对的顺序号</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-s</strong></td>
-<td>snaplen</td>
-<td>设置 tcpdump 的数据包抓取长度为<code>snaplen</code>，默认为68字节，加上<code>-s 0</code>后可以抓到完整的数据包</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-T</td>
-<td>type</td>
-<td>强制 tcpdump 按<code>type</code>指定的协议所描述的包结构来分析收到的数据包（包括aodv、cnfp、rtcp、tftp）</td>
-<td></td>
-</tr>
-<tr>
-<td>-t</td>
-<td></td>
-<td>不打印时间戳</td>
-<td></td>
-</tr>
-<tr>
-<td>-tt</td>
-<td></td>
-<td>不对每行输出的时间进行格式处理</td>
-<td></td>
-</tr>
-<tr>
-<td>-ttt</td>
-<td></td>
-<td>tcpdump 输出时，每两行打印之间会延迟一个段时间（以毫秒为单位）</td>
-<td></td>
-</tr>
-<tr>
-<td>-tttt</td>
-<td></td>
-<td>在每行打印的时间戳之前添加日期的打印</td>
-<td></td>
-</tr>
-<tr>
-<td>-u</td>
-<td></td>
-<td>打印出未加密的 NFS</td>
-<td></td>
-</tr>
-<tr>
-<td>-U</td>
-<td></td>
-<td>使得当 tcpdump 在使用<code>-w</code>选项时，其文件写入与包的保存同步</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-v</strong></td>
-<td></td>
-<td>当分析和打印的时候，产生详细的输出。 比如，包的生存时间，标识，总长度以及 IP 包的一些选项。这也会打开一些附加的包完整性检测，比如对IP或ICMP包头部的校验和</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-vv</td>
-<td></td>
-<td>产生比<code>-v</code>更详细的输出。比如，NFS 回应包中的附加域将会被打印，SMB 数据包也会被完全解码</td>
-<td></td>
-</tr>
-<tr>
-<td>-vvv</td>
-<td></td>
-<td>产生比<code>-vv</code>更详细的输出。比如，telent 时所使用的 SB，SE 选项将会被打印</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-w</strong></td>
-<td>file</td>
-<td>把包数据直接写入<code>file</code>文件而不进行分析和打印输出，可以配合<code>-r</code></td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-W</strong></td>
-<td>filecount</td>
-<td>与<code>-C</code>选项配合使用，这将限制可打开的文件数目，并且当文件数据超过<code>filecount</code>的限制时，依次<code>循环替代之前的文件</code></td>
-<td>√</td>
-</tr>
-<tr>
-<td>-x</td>
-<td></td>
-<td>当分析和打印时，tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据（但不包括连接层的头部）</td>
-<td></td>
-</tr>
-<tr>
-<td>-xx</td>
-<td></td>
-<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据，其中包括数据链路层的头部</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-X</strong></td>
-<td></td>
-<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据（但不包括连接层的头部）</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-XX</strong></td>
-<td></td>
-<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据，其中包括数据链路层的头部</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-y</td>
-<td>datalinktype</td>
-<td>设置 tcpdump 只捕获数据<code>链路层协议</code>类型是<code>datalinktype</code>的数据包</td>
-<td></td>
-</tr>
-<tr>
-<td>-Z</td>
-<td>user</td>
-<td>使 tcpdump 放弃自己的超级权限，并把当前tcpdump的用户ID设置为<code>user</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-tcpdump-表达式"><a href="#2-tcpdump-表达式" class="headerlink" title="2. tcpdump 表达式"></a>2. tcpdump 表达式</h2><h3 id="2-1-类型"><a href="#2-1-类型" class="headerlink" title="2.1 类型"></a>2.1 类型</h3><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>主机</td>
-</tr>
-<tr>
-<td>net</td>
-<td>网络</td>
-</tr>
-<tr>
-<td>port</td>
-<td>端口号</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-2-传输方向"><a href="#2-2-传输方向" class="headerlink" title="2.2 传输方向"></a>2.2 传输方向</h3><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>src</td>
-<td>源</td>
-</tr>
-<tr>
-<td>dst</td>
-<td>目的</td>
-</tr>
-<tr>
-<td>默认</td>
-<td>双向</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-3-协议"><a href="#2-3-协议" class="headerlink" title="2.3 协议"></a>2.3 协议</h3><table>
-<thead>
-<tr>
-<th>协议</th>
-<th>层</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ether</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>fddi</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>tr</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>wlan</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>ppp</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>slip</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>link</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>ip</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>ip6</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>arp</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>rarp</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>icmp</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>tcp</td>
-<td>传输层</td>
-</tr>
-<tr>
-<td>udp</td>
-<td>传输层</td>
-</tr>
-</tbody>
-</table>
-<p>常用 <code>tcp</code>、<code>udp</code>、<code>ip</code>、<code>ip6</code>、<code>arp</code>、<code>icmp</code></p>
-<h3 id="2-4-运算符"><a href="#2-4-运算符" class="headerlink" title="2.4 运算符"></a>2.4 运算符</h3><h4 id="2-4-1-逻辑运算符"><a href="#2-4-1-逻辑运算符" class="headerlink" title="2.4.1 逻辑运算符"></a>2.4.1 逻辑运算符</h4><table>
-<thead>
-<tr>
-<th>逻辑</th>
-<th>符号</th>
-<th>优先级</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>否</td>
-<td><code>!</code> 或 <code>not</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td>与</td>
-<td><code>&amp;&amp;</code> 或 <code>and</code></td>
-<td>2</td>
-</tr>
-<tr>
-<td>或</td>
-<td><code>//</code> 或 <code>or</code></td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<p>结合顺序<code>自左向右</code></p>
-<h4 id="2-4-2-比较运算符"><a href="#2-4-2-比较运算符" class="headerlink" title="2.4.2 比较运算符"></a>2.4.2 比较运算符</h4><p>共有6个： <code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>=</code>、<code>!=</code></p>
-<h3 id="2-5-关键字"><a href="#2-5-关键字" class="headerlink" title="2.5 关键字"></a>2.5 关键字</h3><p>gateway、broadcast、less、greater</p>
-<h2 id="3-使用技巧"><a href="#3-使用技巧" class="headerlink" title="3. 使用技巧"></a>3. 使用技巧</h2><ol>
-<li>截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</div></pre></td></tr></table></figure>
-<ol>
-<li>截获主机192.168.126.131发送的所有数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump -i ens33 src host 192.168.126.131</div></pre></td></tr></table></figure>
-<ol>
-<li>截获 TCP 会话的开始和结束的数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有通过网关snup的ftp数据包，并且数据包的源或目的不是本地网络上的主机 （localnet，实际使用时要真正替换成本地网络的名字）</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and (port ftp or ftp-data)'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有源或目的端口是80，网络层协议为IPv4，并且含有数据，而不是SYN、FIN以及ACK-only等不含数据的数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印长度超过576字节，并且网关地址是 snup 的IP数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and ip[2:2] &gt; 576'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有IP层广播或多播的数据包，但不是物理以太网层的广播或多播数据报</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'ether[0] &amp; 1 = 0 and ip[16] &gt;= 224'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有非 ping 程序产生的数据包即打印除’echo request’或者’echo reply’类型以外的ICMP数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印使用 ftp 端口和 ftp 数据端口的数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'port ftp or ftp-data'</span></div></pre></td></tr></table></figure>
-<ol>
-<li><p>截取HTTP数据包</p>
-<p>0x4745-&gt;”GE”<br>0x4854-&gt;”HT”  </p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
-<li><a href="http://www.360doc.com/content/17/0618/16/14454117_664203330.shtml" target="_blank" rel="external">tcpdump抓包命令详解</a></li>
-<li><a href="http://blog.csdn.net/kofandlizi/article/details/8106841" target="_blank" rel="external">kofandlizi: tcpdump抓取HTTP包</a></li>
-<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump命令详解</a></li>
-<li><a href="http://www.broadview.com.cn/book/122" target="_blank" rel="external">Linux大棚</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/18/tcpdump/">展开全文 >></a>
         </p>
       
 
