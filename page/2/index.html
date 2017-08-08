@@ -158,6 +158,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/ping/">ping</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/20/ping/" class="archive-article-date">
+  	<time datetime="2017-06-20T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.20</em></p>
+<pre><code>ping  [-aAbBdDfhLnOqrRUvV46] [-c count] [-F flowlabel] [-i interval] [-I interface] [-l preload] [-m mark] [-M pmtudisc_option] [-N nodeinfo_option] [-w deadline] [-W timeout] [-p pattern] [-Q tos] [-s packetsize] [-S sndbuf] [-t ttl] [-T timestamp option] [hop ...] destination
+</code></pre><p>重点参数列表：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-4</td>
+<td>使用IPv4</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>使用IPv6</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>ping一个广播地址</td>
+</tr>
+<tr>
+<td>-c count</td>
+<td>指定 ping 的次数为<code>count</code></td>
+</tr>
+<tr>
+<td>-D</td>
+<td>打印时间戳</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>flood ping，必须有 root 权限</td>
+</tr>
+<tr>
+<td>-i interval</td>
+<td>每隔<code>interval</code>秒 ping 一次</td>
+</tr>
+<tr>
+<td>-I interface</td>
+<td>使用指定的<code>interface</code>网卡 ping</td>
+</tr>
+<tr>
+<td>-l preload</td>
+<td>在发送前<code>preload</code>个数据包的时候不等待 reply，preload &gt; 3 需要 root权限</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>使用数字输出，不尝试转换为 host</td>
+</tr>
+<tr>
+<td>-p pattern</td>
+<td>指定用16个“填充”字节<code>pattern</code>填充发送的包，<code>-p ff</code> 则为全部用1填充</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>不显示任何传送封包的信息，只显示最后的结果</td>
+</tr>
+<tr>
+<td>-s packetsize</td>
+<td>指定 ping 的数据包大小，默认64字节</td>
+</tr>
+<tr>
+<td>-t ttl</td>
+<td>指定 ping 的 TTL 为<code>ttl</code>，路由器转发数据包时，TTL 值会减一，为0则该数据包生命终止</td>
+</tr>
+<tr>
+<td>-w deadline</td>
+<td>设定终止时间为<code>deadline</code>，应与<code>-c count</code>配合使用</td>
+</tr>
+<tr>
+<td>-W timeout</td>
+<td>设定等待回应的时间为<code>timeout</code></td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/20/ping/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-tcpdump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2048,112 +2198,6 @@ flush privileges;
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/05/17/Go数据结构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-爬虫学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.5.10</em></p>
-<h2 id="评估网页数量"><a href="#评估网页数量" class="headerlink" title="评估网页数量"></a>评估网页数量</h2><p>可以利用百度或者Google</p>
-<pre><code>site:www.cnblogs.com
-</code></pre><blockquote>
-<p>Google可以搜索子目录</p>
-</blockquote>
-<h2 id="不重复爬取"><a href="#不重复爬取" class="headerlink" title="不重复爬取"></a>不重复爬取</h2><p>原理就是标记URL，之后爬取新的页面对比URL</p>
-<blockquote>
-<ol>
-<li>MD5处理URL后存储</li>
-<li>利用Bit-Map方法建立BitSet，对URL进行哈希映射</li>
-<li>布隆过滤器，pybloomfilter</li>
-</ol>
-</blockquote>
-<h2 id="网站地图"><a href="#网站地图" class="headerlink" title="网站地图"></a>网站地图</h2><p>爬虫爬取网站之前首先访问网站根目录下的Robots.txt<br>根据<code>Robots.txt</code>判断可以爬取哪些内容<br>利用<code>sitemap.xml</code>分析网站规模  </p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>import re
-findall(pattern, string, flags=0)
-</code></pre><h2 id="使用Chrome"><a href="#使用Chrome" class="headerlink" title="使用Chrome"></a>使用Chrome</h2><p>在Chrome中<code>检查</code>网页，<br>可以在<code>Console</code>里执行命令查看节点<br>例如：</p>
-<pre><code>document.childNodes
-document.getRootNode()
-document.getRootNode().childNodes
-document.getRootNode().childNodes[1]
-document.getRootNode().childNodes[1].childNodes[1]
-document.getElementsByClassName(&apos;J-p-990687&apos;)[0]    # 京东价格元素
-document.getElementsByClassName(&apos;price J-p-3418627&apos;)[0].innerHTML    # 获取价格 
-</code></pre><p>来一直遍历HTML文档结构</p>
-<h2 id="网页的关键内容"><a href="#网页的关键内容" class="headerlink" title="网页的关键内容"></a>网页的关键内容</h2><ul>
-<li>Title 网页的标题</li>
-<li>Content Title 正文标题</li>
-<li>Content 正文部分</li>
-<li>Anchor 内部锚点（百度百科跳段）</li>
-<li>Link 外部链接</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/10/爬虫学习笔记/">展开全文 >></a>
         </p>
       
 

@@ -89,15 +89,7 @@
 		        
 					<a class="mail" target="_blank" href="mailto:jacinthmail@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
-      </div>
-      <div class="social">
-      <!-- GoStats Simple HTML Based Code -->
-          <a target="_blank" title="Juntaran.me's hit"
-              href="http://Juntaran.me"><img alt="web site traffic statistics"
-              src="//www.gostats.org/0.png?a=100493712&ct=4&ci=82" style="border-width:0" />
-          </a>
-      <!-- End GoStats Simple HTML Based Code -->
-      </div>
+			</div>
 		</nav>
 	</header>		
 </div>
@@ -165,6 +157,95 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-scp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/08/scp/">scp</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/08/scp/" class="archive-article-date">
+  	<time datetime="2017-08-08T15:57:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.8.8</em></p>
+<p>公司神奇的网络设置，允许 <code>rz</code> ，不允许 <code>sz</code> ，不允许 <code>sftp</code><br>有 root 权限，还能连外网，真是无力吐槽  </p>
+<p>公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。  </p>
+<p>这种情况下有两种解决方案：  </p>
+<ol>
+<li>使用 <code>nc</code> 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 <code>nc</code> 苦不堪言  </li>
+<li>使用 <code>scp</code> 传到海外 VPN 服务器，再从海外服务器 down 回来  </li>
+</ol>
+<p>不用我说，看标题就知道选方案二了。。。  </p>
+<p>从本地复制文件/文件夹到远程服务器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 传输文件</span></div><div class="line">scp (-P remote_port) local_file (remote_username@)remote_ip:remote_folder/file </div><div class="line"></div><div class="line"><span class="comment"># 传输文件夹</span></div><div class="line">scp (-P remote_port) -r local_folder (remote_username@)remote_ip:remote_folder</div></pre></td></tr></table></figure></p>
+<p>默认 scp 使用 <code>22</code> 端口，如果远程服务器修改了 ssh 端口，则需要加 <code>-P</code> 参数<br>另外 <code>-P</code> 一定要紧跟 <code>scp</code> 后面  </p>
+<p>不要忘记把海外服务器的文件删掉哦~~  </p>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">scp命令</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/08/scp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-StackStorm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1348,156 +1429,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/07/02/作死感言/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-ping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/ping/">ping</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/20/ping/" class="archive-article-date">
-  	<time datetime="2017-06-20T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.6.20</em></p>
-<pre><code>ping  [-aAbBdDfhLnOqrRUvV46] [-c count] [-F flowlabel] [-i interval] [-I interface] [-l preload] [-m mark] [-M pmtudisc_option] [-N nodeinfo_option] [-w deadline] [-W timeout] [-p pattern] [-Q tos] [-s packetsize] [-S sndbuf] [-t ttl] [-T timestamp option] [hop ...] destination
-</code></pre><p>重点参数列表：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-4</td>
-<td>使用IPv4</td>
-</tr>
-<tr>
-<td>-6</td>
-<td>使用IPv6</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>ping一个广播地址</td>
-</tr>
-<tr>
-<td>-c count</td>
-<td>指定 ping 的次数为<code>count</code></td>
-</tr>
-<tr>
-<td>-D</td>
-<td>打印时间戳</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>flood ping，必须有 root 权限</td>
-</tr>
-<tr>
-<td>-i interval</td>
-<td>每隔<code>interval</code>秒 ping 一次</td>
-</tr>
-<tr>
-<td>-I interface</td>
-<td>使用指定的<code>interface</code>网卡 ping</td>
-</tr>
-<tr>
-<td>-l preload</td>
-<td>在发送前<code>preload</code>个数据包的时候不等待 reply，preload &gt; 3 需要 root权限</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>使用数字输出，不尝试转换为 host</td>
-</tr>
-<tr>
-<td>-p pattern</td>
-<td>指定用16个“填充”字节<code>pattern</code>填充发送的包，<code>-p ff</code> 则为全部用1填充</td>
-</tr>
-<tr>
-<td>-q</td>
-<td>不显示任何传送封包的信息，只显示最后的结果</td>
-</tr>
-<tr>
-<td>-s packetsize</td>
-<td>指定 ping 的数据包大小，默认64字节</td>
-</tr>
-<tr>
-<td>-t ttl</td>
-<td>指定 ping 的 TTL 为<code>ttl</code>，路由器转发数据包时，TTL 值会减一，为0则该数据包生命终止</td>
-</tr>
-<tr>
-<td>-w deadline</td>
-<td>设定终止时间为<code>deadline</code>，应与<code>-c count</code>配合使用</td>
-</tr>
-<tr>
-<td>-W timeout</td>
-<td>设定等待回应的时间为<code>timeout</code></td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/20/ping/">展开全文 >></a>
         </p>
       
 
