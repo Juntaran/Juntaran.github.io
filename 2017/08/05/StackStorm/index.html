@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://juntaran.github.io">
   <title>StackStorm | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 此时登录 http">
+  <meta name="description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 设置防火墙规则">
 <meta name="keywords" content="运维,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="StackStorm">
 <meta property="og:url" content="https://juntaran.github.io/2017/08/05/StackStorm/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 此时登录 http">
-<meta property="og:updated_time" content="2017-08-06T16:47:51.965Z">
+<meta property="og:description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 设置防火墙规则">
+<meta property="og:updated_time" content="2017-08-24T16:13:24.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="StackStorm">
-<meta name="twitter:description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 此时登录 http">
+<meta name="twitter:description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 设置防火墙规则">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -180,6 +180,8 @@
       
         <p><em>2017.8.5</em></p>
 <h2 id="1-StackStorm-初步安装与测试"><a href="#1-StackStorm-初步安装与测试" class="headerlink" title="1. StackStorm 初步安装与测试"></a>1. StackStorm 初步安装与测试</h2><h3 id="1-1-CentOS-7-安装-StackStorm"><a href="#1-1-CentOS-7-安装-StackStorm" class="headerlink" title="1.1 CentOS 7 安装 StackStorm"></a>1.1 CentOS 7 安装 StackStorm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo yum install curl nss</div><div class="line">curl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=<span class="string">'yourpassword'</span></div></pre></td></tr></table></figure>
+<p>设置防火墙规则  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-service=http --add-service=https</div><div class="line">firewall-cmd --zone=public --permanent --add-service=http --add-service=https</div></pre></td></tr></table></figure>
 <p>此时登录 <code>https://yourhost</code> ，输入设定的用户名和密码即可登录  </p>
 <h3 id="1-2-生成-token"><a href="#1-2-生成-token" class="headerlink" title="1.2 生成 token"></a>1.2 生成 token</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ST2_AUTH_TOKEN=`st2 auth -t -p <span class="string">'yourpassword'</span> st2admin`</div><div class="line"><span class="built_in">echo</span> <span class="variable">$ST2_AUTH_TOKEN</span></div></pre></td></tr></table></figure>
 <p>记下这个 token  </p>
@@ -367,6 +369,15 @@
 <li>一些命令不识别的问题，例如 <code>fdisk</code>、<code>ss</code>、<code>mpstat</code>、<code>ifconfig</code> 等会返回 <code>bash: fdisk: command not found</code> 的错误，而 <code>free</code>、<code>tree</code>、<code>netstat</code> 等就可以执行，这里的处理就需要写脚本文件了  </li>
 </ol>
 </blockquote>
+<h2 id="4-StackStorm-在小米的应用"><a href="#4-StackStorm-在小米的应用" class="headerlink" title="4. StackStorm 在小米的应用"></a>4. StackStorm 在小米的应用</h2><p>小米具有批量部署系统的方案，通过批量部署系统，安装 client  </p>
+<p>stackstorm 是通过 ssh 来执行脚本和命令的，因此如果使用自带的 remote 方案，有一定局限性  </p>
+<blockquote>
+<ol>
+<li>每次执行脚本或命令输入密码  </li>
+<li>如果不想输入密码必须建立 ssh 免密登录，但是如果 ssh 更新 key，就得重新执行  </li>
+</ol>
+</blockquote>
+<p>而 client 的功能是监听一个端口，小米在 stackstorm 加入了一个子服务端<br>子服务端向该端口发送命令，从而无需密码即可执行  </p>
 <hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
 <li><a href="https://docs.stackstorm.com" target="_blank" rel="external">stackstorm</a></li>
