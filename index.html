@@ -90,7 +90,6 @@
 					<a class="mail" target="_blank" href="mailto:jacinthmail@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
       </div>
-        
       <div class="social">
       <!-- GoStats Simple HTML Based Code -->
           <a target="_blank" title="Juntaran.me's hit"
@@ -166,6 +165,170 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Nginx+https+iOS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/05/Nginx+https+iOS/">Nginx+https+iOS</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/05/Nginx+https+iOS/" class="archive-article-date">
+  	<time datetime="2017-09-05T11:12:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.9.5</em></p>
+<p>最近在公司遇到了一个神奇的问题：<br>nginx 配置的 https 域名，windows 和 android 可以正常登陆<br>iOS 无论是 mac 还是 iphone ，不管是 safrai 、 chrome 还是 UC<br>都不能访问  </p>
+<hr>
+<h2 id="抓包分析："><a href="#抓包分析：" class="headerlink" title="抓包分析："></a>抓包分析：</h2><p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/nginx%2Bhttps%2Bios.jpg" alt="Problem"></p>
+<p>可以看到从第240行，开始 TLS 握手<br>第256行，手机向服务器发送了一个 <code>Application Data</code><br>第257行，服务器返回了一个 ACK  </p>
+<p>第258行，神奇的事情发生了，手机再次向服务器发送了一个 <code>Application Data</code><br>可以看到这个数据包和第256行一模一样，被 wireshark 标记为了 <code>TCP Spurious Retransmission</code> ，即虚假重传<br>第259行，服务器懵逼了，发送一个 RST 来复位，标记本连接异常要把它关掉  </p>
+<p>第287行，又开始循环，客户端向服务器发起 TLS 握手<br>按照上述循环，在第312行，又开始了 <code>TCP Spurious Retransmission</code>   </p>
+<p>依此反复，直到彻底断开  </p>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h2><p>和同事试了一下午，终于解决了= =<br>一开始我们把 ssl 配置部分全部粘贴了一遍，发现可以运行  </p>
+<p>之后被好奇心的驱使，一行一行地试，终于发现  </p>
+<p>在 nginx 的配置文件的 ssl 配置处，  增加一行  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssl_session_cache shared:SSL:10m;</div></pre></td></tr></table></figure>
+<p>就解决问题了  </p>
+<p>什么？<br>你问我这句话有什么用？<br>我 TM 也不知道啊，Google 了一下 <code>ssl_session_cache ios</code>  </p>
+<p>相关的问题很少，有那么一两个老外兄弟也碰到了这个诡异的情况<br>也是通过一条条用手试，试出来的  </p>
+<p>such as:  </p>
+<ul>
+<li><a href="https://community.letsencrypt.org/t/apple-safari-browsers-fail-to-connect/3731" target="_blank" rel="external">Apple Safari browsers fail to connect</a></li>
+</ul>
+<p>在我看来， iOS 的脑回路就是有坑，<br>ssl_session_cache 的本意是设置一个 cache<br>通过重用 Session 来提高 https 性能  </p>
+<p>为什么这句话能解决这个问题呢？<br>iOS 重发第二个 <code>Application Data</code> 因为服务器之前已经有缓存了所以不会接收<br>因此服务器不会认为连接异常，避免了 RST 复位  </p>
+<h2 id="TLS-握手过程："><a href="#TLS-握手过程：" class="headerlink" title="TLS 握手过程："></a>TLS 握手过程：</h2><table>
+<thead>
+<tr>
+<th>Client</th>
+<th>Server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Client Hello</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Server Hello</td>
+</tr>
+<tr>
+<td></td>
+<td>Certificate</td>
+</tr>
+<tr>
+<td></td>
+<td>(Server Key Exchange)</td>
+</tr>
+<tr>
+<td></td>
+<td>(certificate_request)</td>
+</tr>
+<tr>
+<td></td>
+<td>Server Hello Done</td>
+</tr>
+<tr>
+<td>(Certificate)</td>
+<td></td>
+</tr>
+<tr>
+<td>Client Key Exchange</td>
+<td></td>
+</tr>
+<tr>
+<td>(certifiate_verify)</td>
+<td></td>
+</tr>
+<tr>
+<td>Change Cypher Spec</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Change Cyper Spec</td>
+</tr>
+</tbody>
+</table>
+<p>在 <code>Client Hello</code> 中，客户端会通知服务器自己支持的加密类型  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Cipher Suites (19 suites)</div><div class="line">    Cipher Suite: TLS_EMPTY_RENEGOTIATION_INFO_SCSV (0x00ff)</div><div class="line">    Cipher Suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)</div><div class="line">    Cipher Suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)</div><div class="line">    Cipher Suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)</div><div class="line">    Cipher Suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)</div><div class="line">    Cipher Suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)</div><div class="line">    Cipher Suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)</div><div class="line">    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)</div><div class="line">    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)</div><div class="line">    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)</div><div class="line">    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)</div><div class="line">    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)</div><div class="line">    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)</div><div class="line">    Cipher Suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)</div><div class="line">    Cipher Suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)</div><div class="line">    Cipher Suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)</div><div class="line">    Cipher Suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)</div><div class="line">    Cipher Suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)</div><div class="line">    Cipher Suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)</div></pre></td></tr></table></figure>
+<p>在 <code>Server Hello</code> 中，服务器会选取一个告知 Client  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cipher Suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)</div></pre></td></tr></table></figure>
+<h2 id="iOS-的-ATS："><a href="#iOS-的-ATS：" class="headerlink" title="iOS 的 ATS："></a>iOS 的 ATS：</h2><p>ATS: App Transport Security  </p>
+<p>必须是苹果信任的CA证书机构颁发的证书<br>iOS 后台传输协议必须满足: TLS1.2<br>签字算法只能是下面的一种:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384</div><div class="line">TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</div><div class="line">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384</div><div class="line">TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA</div><div class="line">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</div><div class="line">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA</div><div class="line">TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384</div><div class="line">TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</div><div class="line">TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384</div><div class="line">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</div><div class="line">TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA</div></pre></td></tr></table></figure></p>
+<p>这意味着 Apache ，Nginx 要求关联的 openssl 版本在 1.0.1+ ，这样网站才支持 TLS1.2<br>同时您需要对证书相关参数做一定调整：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Apache:  </div><div class="line"></div><div class="line">  SSLProtocol all -SSLv2 -SSLv3</div><div class="line">  SSLCipherSuite ECDH:AESGCM:HIGH:!RC4:!DH:!MD5:!aNULL:!eNULL;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Nginx:  </div><div class="line"></div><div class="line">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</div><div class="line">  ssl_ciphers ECDH:AESGCM:HIGH:!RC4:!DH:!MD5:!aNULL:!eNULL;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://ios.jobbole.com/91645/" target="_blank" rel="external">iOS 升级 HTTPS 通过 ATS 你所要知道的</a></li>
+<li><a href="http://insights.thoughtworkers.org/cipher-behind-https/" target="_blank" rel="external">HTTPS 背后的加密算法</a></li>
+<li><a href="http://www.cnblogs.com/kabi/p/6198064.html" target="_blank" rel="external">服务器配置 ssl 证书支持苹果 ATS 方法</a></li>
+<li><a href="https://trac.nginx.org/nginx/ticket/235" target="_blank" rel="external">NGinx and htpasswd</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/05/Nginx+https+iOS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-scp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -443,8 +606,17 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">st2 run examples.echo_action message=<span class="string">'rua~'</span></div><div class="line">.</div><div class="line">id: 5986dbbfe1382307a831a6d3</div><div class="line">status: failed</div><div class="line">parameters: </div><div class="line">  message: rua~</div><div class="line">result: </div><div class="line">  exit_code: 0</div><div class="line">  result: rua~</div><div class="line">  stderr: <span class="string">''</span></div><div class="line">  stdout: <span class="string">'rua~'</span></div><div class="line"></div><div class="line">st2 run examples.echo_action message=<span class="string">'working'</span></div><div class="line">..</div><div class="line">id: 5986dbcbe1382307a831a6d6</div><div class="line">status: succeeded</div><div class="line">parameters: </div><div class="line">  message: working</div><div class="line">result: </div><div class="line">  exit_code: 0</div><div class="line">  result: working</div><div class="line">  stderr: <span class="string">''</span></div><div class="line">  stdout: <span class="string">'working'</span></div></pre></td></tr></table></figure>
 <h3 id="2-2-Sensors-和-Trigger"><a href="#2-2-Sensors-和-Trigger" class="headerlink" title="2.2 Sensors 和 Trigger"></a>2.2 Sensors 和 Trigger</h3><p><code>传感器(Sensor)</code> 的作用是把 <code>外部系统</code> 和 <code>事件</code> 与 <code>StackStorm</code> 结合起来<br>传感器是使用 <code>Python</code> 写的，利用 <code>周期轮询检查外部系统</code> 或是 <code>被动地等待事件的发生</code><br>之后传感器连接 <code>触发器(Tirgger)</code> 到 <code>StackStorm</code> ，来匹配 <code>Rule</code> ，执行 <code>action</code>  </p>
 <p><code>触发器(Trigger)</code> 的作用是识别传入给 StackStorm 的事件<br>一个触发器为 类型 (string) 和可选参数 (object) 的 tuple<br><code>Rule</code> 和 <code>Trigger</code> 共同工作<br>传感器通常注册触发器，但是也有例外<br>比如常用的 <code>webhooks</code> 触发器触发注册 StackStorm ，但是它不需要一个传感器  </p>
+<h4 id="stackstorm-的感知"><a href="#stackstorm-的感知" class="headerlink" title="stackstorm 的感知"></a>stackstorm 的感知</h4><p>stackstorm 的感知方式有三种： <code>Sensor</code> / <code>Webhook</code> / <code>Chatbot</code>  </p>
+<ol>
+<li>stackstorm 感知到事件后，会产生 <code>trigger-instance</code> 发送到 rabbitmq  </li>
+<li>监听消息队列的 st2rulesengine 会把 events 与事先配置的 <code>rules</code> 匹配  </li>
+<li>根据匹配结果选择 Action-runner 执行 <code>rules</code> 中配置的 <code>action</code> 或者 <code>workflow</code>  </li>
+<li>执行完成后， st2resultstracker 检查执行的结果，将结果记入数据库(mongodb)并以 events 的形式发送到 rabbitmq ，如果有 rules 匹配到该 events 则继续触发更多的 Action/workflow 执行  </li>
+</ol>
+<p>Sensor 是由一个 python 脚本和其配置构成的，它运行在 st2sensorcontainer 进程之中  </p>
 <p><em>trigger &amp; rule 没有太弄懂，待续</em></p>
 <h2 id="3-ChatOps"><a href="#3-ChatOps" class="headerlink" title="3. ChatOps"></a>3. ChatOps</h2><p>一句话来说就是通过聊天软件如 slack 来控制 Ops  </p>
+<p>stackstorm 中自带 hubot 模块，可以快速配置，也有断线重连功能    </p>
 <blockquote>
 <p>关键文件 /opt/stackstorm/chatops/st2chatops.env  </p>
 </blockquote>
@@ -452,7 +624,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> HUBOT_ADAPTER=slack</div><div class="line"><span class="built_in">export</span> HUBOT_SLACK_TOKEN=xoxb-*******</div></pre></td></tr></table></figure>
 <p>创建自定义的 pack  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /opt/stackstorm/packs/</div><div class="line">mkdir -p my-chatops/&#123;actions,rules,sensors,aliases&#125;</div></pre></td></tr></table></figure>
-<p>示例：<br>在 <code>aliases</code> 文件夹中创建一个 action<br><code>aliases</code> 会通过 ssh 使用 <code>core.remote</code> 的 action 来执行命令  </p>
+<h3 id="通过-ChatOps-执行-bash-脚本："><a href="#通过-ChatOps-执行-bash-脚本：" class="headerlink" title="通过 ChatOps 执行 bash 脚本："></a>通过 ChatOps 执行 bash 脚本：</h3><p>在 <code>aliases</code> 文件夹中创建一个 action<br><code>aliases</code> 会通过 ssh 使用 <code>core.remote</code> 的 action 来执行命令  </p>
 <p>创建一个 remote.yaml  </p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># packs/my-chatops/aliases/remote.yaml</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"remote_shell_cmd"</span></div><div class="line"><span class="attr">action_ref:</span> <span class="string">"core.remote"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Execute a command on a remote host via SSH."</span></div><div class="line"><span class="attr">formats:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"run <span class="template-variable">&#123;&#123;cmd&#125;&#125;</span> on <span class="template-variable">&#123;&#123;hosts&#125;&#125;</span>"</span></div></pre></td></tr></table></figure>
 <p>令该 action 生效：  </p>
@@ -460,11 +632,22 @@
 <p>之后可以通过在机器人客户端执行 <code>!run &lt;cmd&gt; on &lt;host&gt;</code> 来在客户端查看命令执行的结果<br>也可以执行 <code>&lt;hubot name&gt;, &lt;cmd&gt; on &lt;host&gt;</code> 来在客户端查看命令执行的结果  </p>
 <p>多命令组合写法：  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!run <span class="built_in">cd</span> /root; tree -L 2 -d on <span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'******'</span></div></pre></td></tr></table></figure>
+<h3 id="通过-ChatOps-执行-python-程序："><a href="#通过-ChatOps-执行-python-程序：" class="headerlink" title="通过 ChatOps 执行 python 程序："></a>通过 ChatOps 执行 python 程序：</h3><p>在 example 包的 aliases 下新建一个 action-alias  </p>
+<p>TmpReq.yaml:  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"TmpReq"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Temporary Request. !TmpReq -1|-2 &#123;PASSWORD&#125;."</span></div><div class="line"><span class="attr">formats:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"TmpReq <span class="template-variable">&#123;&#123;a=parameter&#125;&#125;</span> <span class="template-variable">&#123;&#123;passwd=passwd&#125;&#125;</span>"</span></div><div class="line"><span class="attr">result:</span></div><div class="line"><span class="attr">  format:</span> <span class="string">"<span class="template-variable">&#123;&#123;execution.result.result&#125;&#125;</span>"</span></div><div class="line"><span class="attr">ack:</span></div><div class="line"><span class="attr">  append_url:</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
+<p>在 example 包的 action 下新建一个 action  </p>
+<p>TmpReq.yaml:  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="attr">name:</span> <span class="string">"TmpReq"</span></div><div class="line"><span class="attr">pack:</span> <span class="string">"example"</span></div><div class="line"><span class="attr">runner_type:</span> <span class="string">'python-script'</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Temporary Request."</span></div><div class="line"><span class="attr">enabled:</span> <span class="literal">true</span></div><div class="line"><span class="attr">entry_point:</span> <span class="string">'libs/TmpReq.py'</span></div><div class="line"><span class="attr">parameters:</span></div><div class="line"><span class="attr">    a:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">'[-1] | [-2]'</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="attr">    paasswd:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"Your password."</span></div><div class="line"></div><div class="line"><span class="attr">    user:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">string</span></div><div class="line"><span class="attr">        description:</span> <span class="string">who</span> <span class="string">speaks</span></div><div class="line"><span class="attr">        default:</span> <span class="string">"<span class="template-variable">&#123;&#123;action_context.api_user&#125;&#125;</span>"</span></div></pre></td></tr></table></figure>
+<p>把 <code>TmpReq.py</code> 放到 <code>/opt/stackstorm/packs/example/actions/libs</code> 即可  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># !/usr/bin/env python</span></div><div class="line"><span class="comment"># coding=utf-8</span></div><div class="line"></div><div class="line"><span class="string">'''</span></div><div class="line">    Author: Juntaran</div><div class="line">    Email:  Jacinthmail@gmail.com</div><div class="line">    Date:   2017/8/30 18:06</div><div class="line">'''</div><div class="line"></div><div class="line"><span class="keyword">import</span> requests, sys</div><div class="line"><span class="keyword">from</span> St2BaseAction <span class="keyword">import</span> St2BaseAction</div><div class="line"></div><div class="line">url = <span class="string">"http://www.test.com/test.html"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRequest</span><span class="params">(user, passwd)</span>:</span></div><div class="line"></div><div class="line">    querystring = &#123;<span class="string">"user"</span>:user,<span class="string">"password"</span>:passwd&#125;</div><div class="line">    headers = &#123;</div><div class="line">        <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</div><div class="line">    &#125;</div><div class="line">    response = requests.request(<span class="string">"GET"</span>, url, headers=headers, params=querystring)</div><div class="line">    <span class="keyword">return</span>(response.text)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">postRequest</span><span class="params">(user, passwd)</span>:</span></div><div class="line"></div><div class="line">    querystring = &#123;<span class="string">"user"</span>:user,<span class="string">"password"</span>:passwd&#125;</div><div class="line">    headers = &#123;</div><div class="line">        <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</div><div class="line">    &#125;</div><div class="line">    response = requests.request(<span class="string">"POST"</span>, url, headers=headers, params=querystring)</div><div class="line">    <span class="keyword">return</span>(response.text)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TmpReq</span><span class="params">(St2BaseAction)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, config)</span>:</span></div><div class="line">        super(TmpReq, self).__init__(config)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, a=<span class="string">""</span>, passwd=<span class="string">""</span>, user=<span class="string">""</span>)</span>:</span></div><div class="line">        <span class="keyword">if</span> a != <span class="string">'-1'</span> <span class="keyword">and</span> a != <span class="string">'-2'</span>:</div><div class="line">            <span class="keyword">return</span> <span class="string">"Input Error"</span></div><div class="line">        <span class="keyword">if</span> a == <span class="string">'-1'</span>:</div><div class="line">            <span class="keyword">if</span> passwd == <span class="string">""</span>:</div><div class="line">                <span class="keyword">return</span> <span class="string">"Input Error"</span></div><div class="line">            <span class="keyword">return</span> getRequest(user, passwd)</div><div class="line">        <span class="keyword">if</span> a == <span class="string">'-2'</span>:</div><div class="line">            <span class="keyword">if</span> passwd == <span class="string">""</span>:</div><div class="line">                <span class="keyword">return</span> <span class="string">"Input Error"</span></div><div class="line">            <span class="keyword">return</span> postRequest(user, passwd)</div></pre></td></tr></table></figure>
+<p>最后重启服务：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">st2ctl reload --register-all</div><div class="line">service st2chatops restart</div></pre></td></tr></table></figure>
 <p><strong>这里的坑：</strong></p>
 <blockquote>
 <ol>
 <li>一些网络命令的问题，比如 ping，在客户端中输入 <code>!run ping baidu.com -c 3</code> 会报错，在网页控制台查看 history 会发现原因是默认把 <code>baidu.com</code> 转换成了 <code>http://baidu.com</code>，在网页控制台使用填参数的方法可以顺利执行，此问题经多次测试无解，此处在客户端只能 <code>ping ip</code>  </li>
 <li>一些命令不识别的问题，例如 <code>fdisk</code>、<code>ss</code>、<code>mpstat</code>、<code>ifconfig</code> 等会返回 <code>bash: fdisk: command not found</code> 的错误，而 <code>free</code>、<code>tree</code>、<code>netstat</code> 等就可以执行，这里的处理就需要写脚本文件了  </li>
+<li>stackstorm 在安装时会默认使用 <code>python 2.7</code> ，如果按以上方法执行 python 程序，程序需要支持 python 2.7  </li>
 </ol>
 </blockquote>
 <h2 id="4-StackStorm-在小米的应用"><a href="#4-StackStorm-在小米的应用" class="headerlink" title="4. StackStorm 在小米的应用"></a>4. StackStorm 在小米的应用</h2><p>小米具有批量部署系统的方案，通过批量部署系统，安装 client  </p>
@@ -1384,88 +1567,9 @@
 
 
   
-    <article id="post-作死感言" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/02/作死感言/">作死感言</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/02/作死感言/" class="archive-article-date">
-  	<time datetime="2017-07-02T07:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.7.2</em></p>
-<p>6月27日做了手术到今天已经快一周了，还好，没那么疼~<br>早该渡的劫，如今反而有些晚~  </p>
-<p>6月27日下午近4点手术，近5点结束，走回家<br>手术期间，打麻药4针超级疼，一声没吭好吧，不丢人<br>晚上麻药退了之后有些疼，但是跟当年口腔手术之后疼的我在床上打滚差得远，  </p>
-<p>6月28日卧床一天思考人生  </p>
-<p>6月29日去医院换了个药，摘纱布的时候疼的我想自杀  </p>
-<p>6月30日上午去医院给手术医生看了一眼。。<br>然后开始作死。。去了两次学校，下午又找王哥哥去玩游戏玩到半夜12点多。。。  </p>
-<p>7月1日早上开始泡。。一开始很顺利，到最后一块血把皮肤和纱布粘起来了。。<br>慢慢用刀磨纱布，感觉磨的不是纱布是老子的心。。<br>第一次泡之后，疼的我躺了3个小时，起床又疼了1个小时。。<br>还好老子天赋异禀，有自我催眠能力，越疼睡得越快，最难忍的三个小时直接睡过去了。。<br>晚上再泡，已经不疼了~  </p>
-<p>7月2日早上泡，没什么感觉  </p>
-<p>不过这次也学了很多知识好吧~<br>外科手术后坚持吃头孢，一天两次最好饭后<br>碘伏处理外伤，可以直接涂抹，粘膜等敏感部位可以兑水1:4<br>碘酊又称碘酒，以酒精为溶媒，具有一定刺激作用<br>因此碘伏能够处理皮肤损伤~<br>双氧水处理伤口突出一个酸爽，对破伤风有很好的效果，缺点就是疼疼疼。。。  </p>
-<p>还好这次没被尝试高锰酸钾。。。我这辈子也不想碰到这货。。。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/02/作死感言/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

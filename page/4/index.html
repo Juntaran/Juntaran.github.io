@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://juntaran.github.io">
-  <title>StackStorm | Juntaran</title>
+  <title>Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 设置防火墙规则">
-<meta name="keywords" content="运维,Linux">
-<meta property="og:type" content="article">
-<meta property="og:title" content="StackStorm">
-<meta property="og:url" content="https://juntaran.github.io/2017/08/05/StackStorm/index.html">
+  <meta name="description" content="我想养只猪">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Juntaran">
+<meta property="og:url" content="https://juntaran.github.io/page/4/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 设置防火墙规则">
-<meta property="og:updated_time" content="2017-09-05T18:23:06.463Z">
+<meta property="og:description" content="我想养只猪">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="StackStorm">
-<meta name="twitter:description" content="2017.8.5 1. StackStorm 初步安装与测试1.1 CentOS 7 安装 StackStorm12sudo yum install curl nsscurl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=&apos;yourpassword&apos; 设置防火墙规则">
+<meta name="twitter:title" content="Juntaran">
+<meta name="twitter:description" content="我想养只猪">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -158,284 +156,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-StackStorm" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-CDN与SDN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      StackStorm
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/26/CDN与SDN/">CDN与SDN</a>
     </h1>
   
 
         
-        <a href="/2017/08/05/StackStorm/" class="archive-article-date">
-  	<time datetime="2017-08-05T11:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-05</time>
+        <a href="/2016/09/26/CDN与SDN/" class="archive-article-date">
+  	<time datetime="2016-09-25T16:28:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>2017.8.5</em></p>
-<h2 id="1-StackStorm-初步安装与测试"><a href="#1-StackStorm-初步安装与测试" class="headerlink" title="1. StackStorm 初步安装与测试"></a>1. StackStorm 初步安装与测试</h2><h3 id="1-1-CentOS-7-安装-StackStorm"><a href="#1-1-CentOS-7-安装-StackStorm" class="headerlink" title="1.1 CentOS 7 安装 StackStorm"></a>1.1 CentOS 7 安装 StackStorm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo yum install curl nss</div><div class="line">curl -sSL https://stackstorm.com/packages/install.sh | bash -s -- --user=st2admin --password=<span class="string">'yourpassword'</span></div></pre></td></tr></table></figure>
-<p>设置防火墙规则  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --zone=public --add-service=http --add-service=https</div><div class="line">firewall-cmd --zone=public --permanent --add-service=http --add-service=https</div></pre></td></tr></table></figure>
-<p>此时登录 <code>https://yourhost</code> ，输入设定的用户名和密码即可登录  </p>
-<h3 id="1-2-生成-token"><a href="#1-2-生成-token" class="headerlink" title="1.2 生成 token"></a>1.2 生成 token</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> ST2_AUTH_TOKEN=`st2 auth -t -p <span class="string">'yourpassword'</span> st2admin`</div><div class="line"><span class="built_in">echo</span> <span class="variable">$ST2_AUTH_TOKEN</span></div></pre></td></tr></table></figure>
-<p>记下这个 token  </p>
-<h3 id="1-3-使用-st2-执行命令"><a href="#1-3-使用-st2-执行命令" class="headerlink" title="1.3 使用 st2 执行命令"></a>1.3 使用 st2 执行命令</h3><h4 id="1-3-1-st2-使用-ssh-远程登录执行命令"><a href="#1-3-1-st2-使用-ssh-远程登录执行命令" class="headerlink" title="1.3.1 st2 使用 ssh 远程登录执行命令"></a>1.3.1 st2 使用 ssh 远程登录执行命令</h4><p>本部分已本地搭建的 stackstorm 环境连接租用的美国服务器 138.128.206.71 为例   </p>
-<p>st2 使用 ssh 远程连接到另一个 <code>ip/hostname</code> 可以指定<code>端口、用户名、密码</code>  默认会进入 <code>/tmp</code> 目录  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run core.remote hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> -- ls -l</div></pre></td></tr></table></figure>
-<p>如果想进入另一个目录执行命令  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run core.remote hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> -- <span class="built_in">cd</span> /root;ls -ltr</div></pre></td></tr></table></figure>
-<p>上一种方法在 web 界面只会看到执行了 <code>cd /root</code> 可以采用以下命令解决该问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run core.remote hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> cmd=<span class="string">"cd /root; ls -ltr"</span></div></pre></td></tr></table></figure>
-<h4 id="1-3-2-st2-本地执行命令"><a href="#1-3-2-st2-本地执行命令" class="headerlink" title="1.3.2 st2 本地执行命令"></a>1.3.2 st2 本地执行命令</h4><p>本地执行命令和远程执行命令类似，有两种方法  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">st2 run core.local cmd=<span class="string">"ls -al"</span></div><div class="line">st2 run core.local -- ls -al</div></pre></td></tr></table></figure>
-<p>列出执行的任务  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 execution list</div></pre></td></tr></table></figure>
-<p>根据任务 ID 获取结果  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 execution get &lt;execution_id&gt;</div></pre></td></tr></table></figure>
-<p>获取最近的5个任务  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 execution list -n 5</div></pre></td></tr></table></figure>
-<h3 id="1-4-检查-st2-的-trigger"><a href="#1-4-检查-st2-的-trigger" class="headerlink" title="1.4 检查 st2 的 trigger"></a>1.4 检查 st2 的 trigger</h3><p>列出所有可用的触发器  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 trigger list</div></pre></td></tr></table></figure>
-<p>检查间隔时间定时器触发细节</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 trigger get core.st2.IntervalTimer</div></pre></td></tr></table></figure>
-<p>检查 web 端的触发器细节</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 trigger get core.st2.webhook</div></pre></td></tr></table></figure>
-<h3 id="1-5-st2-的-rule-处理"><a href="#1-5-st2-的-rule-处理" class="headerlink" title="1.5 st2 的 rule 处理"></a>1.5 st2 的 rule 处理</h3><p>创建一个 rule  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule create /usr/share/doc/st2/examples/rules/sample_rule_with_webhook.yaml</div></pre></td></tr></table></figure>
-<p>列出所有 rule  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule list</div></pre></td></tr></table></figure>
-<p>列出 example 包的所有 rule  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule list --pack=examples</div></pre></td></tr></table></figure>
-<p>获取 examples.sample_rule_with_webhook 的 rule  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 rule get examples.sample_rule_with_webhook</div></pre></td></tr></table></figure>
-<h3 id="1-6-官网示例"><a href="#1-6-官网示例" class="headerlink" title="1.6 官网示例"></a>1.6 官网示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Post to the webhook</span></div><div class="line">curl -k https://localhost/api/v1/webhooks/sample -d <span class="string">'&#123;"foo": "bar", "name": "st2"&#125;'</span> -H <span class="string">'Content-Type: application/json'</span> -H <span class="string">'X-Auth-Token: yourToken'</span></div><div class="line"></div><div class="line"><span class="comment"># Check if the action got executed (this shows last action)</span></div><div class="line">st2 execution list -n 1</div><div class="line"></div><div class="line"><span class="comment"># Check that the rule worked. By default, st2 runs as the stanley user.</span></div><div class="line">sudo tail /home/stanley/st2.webhook_sample.out</div><div class="line"></div><div class="line"><span class="comment"># And for fun, same post with st2</span></div><div class="line">st2 run core.http method=POST body=<span class="string">'&#123;"you": "too", "name": "st2"&#125;'</span> url=https://localhost/api/v1/webhooks/sample headers=<span class="string">'x-auth-token=yourToken,content-type=application/json'</span> verify_ssl_cert=False</div><div class="line"></div><div class="line"><span class="comment"># And for even more fun, using basic authentication over https</span></div><div class="line">st2 run core.http url=https://httpbin.org/basic-auth/st2/<span class="built_in">pwd</span> username=st2 password=<span class="built_in">pwd</span></div><div class="line"></div><div class="line"><span class="comment"># Check that the rule worked. By default, st2 runs as the stanley user.</span></div><div class="line">sudo tail /home/stanley/st2.webhook_sample.out</div></pre></td></tr></table></figure>
-<p>复制 doc 的例子去运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 复制 demo 到 packs</span></div><div class="line">sudo cp -r /usr/share/doc/st2/examples/ /opt/stackstorm/packs/</div><div class="line"></div><div class="line"><span class="comment"># 执行 setup</span></div><div class="line">st2 run packs.setup_virtualenv packs=examples</div><div class="line"></div><div class="line"><span class="comment"># 重新加载 stackstorm</span></div><div class="line">st2ctl reload --register-all</div></pre></td></tr></table></figure>
-<h2 id="2-Action-Trigger-Rule"><a href="#2-Action-Trigger-Rule" class="headerlink" title="2. Action-Trigger-Rule"></a>2. Action-Trigger-Rule</h2><h3 id="2-1-Action"><a href="#2-1-Action" class="headerlink" title="2.1 Action"></a>2.1 Action</h3><h4 id="2-1-1-action-基础"><a href="#2-1-1-action-基础" class="headerlink" title="2.1.1 action 基础"></a>2.1.1 action 基础</h4><p>action 可以理解为代码，可以使用任何语言编写  </p>
-<p>可以使用以下命令来查看、运行 action  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">st2 action --h  <span class="comment"># help 信息</span></div><div class="line">st2 action list    <span class="comment"># 列出所有 action</span></div><div class="line">st2 action list -p linux    <span class="comment"># 列出 linux 包的 action</span></div><div class="line">st2 action get &lt;action pack_name&gt;   <span class="comment"># 根据 action 的 pack 名来获取对应信息</span></div><div class="line">st2 run &lt;action&gt; --h    <span class="comment"># 列出该 action 的 help 信息</span></div><div class="line">st2 run &lt;action with parameters&gt;   <span class="comment"># 执行该 action</span></div><div class="line">st2 action execute &lt;action with parameters&gt; <span class="comment"># 执行该 action</span></div><div class="line">st2 run linux.check_loadavg hosts=<span class="string">'192.168.102.129'</span> <span class="comment"># 一个小例子</span></div></pre></td></tr></table></figure>
-<p><strong>这里有个坑，也就是 run 与 execute 的区别：</strong>  </p>
-<p>以 <code>core.http url=&quot;http://httpbin.org/get&quot;</code> 这个 action 为例  </p>
-<p>使用 <code>run</code> 会直接获取结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">st2 run core.http url=<span class="string">"http://httpbin.org/get"</span></div><div class="line"></div><div class="line"><span class="comment"># result:</span></div><div class="line">id: 5986b5efe1382307a831a6b5</div><div class="line">status: succeeded</div><div class="line">parameters: </div><div class="line">  url: http://httpbin.org/get</div><div class="line">result: </div><div class="line">  body:</div><div class="line">    args: &#123;&#125;</div><div class="line">    headers:</div><div class="line">      Accept: <span class="string">'*/*'</span></div><div class="line">      Accept-Encoding: gzip, deflate</div><div class="line">      Connection: close</div><div class="line">      Host: httpbin.org</div><div class="line">      User-Agent: st2/v2.3.2</div><div class="line">      X-Stanley-Action: http</div><div class="line">    origin: 111.204.125.163</div><div class="line">    url: http://httpbin.org/get</div><div class="line">  headers:</div><div class="line">    Access-Control-Allow-Credentials: <span class="string">'true'</span></div><div class="line">    Access-Control-Allow-Origin: <span class="string">'*'</span></div><div class="line">    Connection: keep-alive</div><div class="line">    Content-Length: <span class="string">'289'</span></div><div class="line">    Content-Type: application/json</div><div class="line">    Date: Sun, 06 Aug 2017 06:23:43 GMT</div><div class="line">    Server: meinheld/0.6.1</div><div class="line">    Via: 1.1 vegur</div><div class="line">    X-Powered-By: Flask</div><div class="line">    X-Processed-Time: <span class="string">'0.000948905944824'</span></div><div class="line">  parsed: <span class="literal">true</span></div><div class="line">  status_code: 200</div></pre></td></tr></table></figure></p>
-<p>而使用 <code>action execute</code> 则会在后台执行，返回一个 id，如果想看结果还要再执行 <code>st2 execute get &lt;id&gt;</code>  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 执行第一步命令</span></div><div class="line">st2 action execute core.http url=<span class="string">"http://httpbin.org/get"</span></div><div class="line"></div><div class="line"><span class="comment"># 第一步的 result:</span></div><div class="line">To get the results, execute:</div><div class="line"> st2 execution get 5986b52de1382307a831a6b2</div><div class="line"></div><div class="line"><span class="comment"># 执行第二步命令</span></div><div class="line">st2 execution get 5986b52de1382307a831a6b2</div><div class="line"></div><div class="line"><span class="comment"># 第二步的 result:</span></div><div class="line">id: 5986b52de1382307a831a6b2</div><div class="line">status: succeeded (3s elapsed)</div><div class="line">parameters: </div><div class="line">  url: http://httpbin.org/get</div><div class="line">result: </div><div class="line">  body:</div><div class="line">    args: &#123;&#125;</div><div class="line">    headers:</div><div class="line">      Accept: <span class="string">'*/*'</span></div><div class="line">      Accept-Encoding: gzip, deflate</div><div class="line">      Connection: close</div><div class="line">      Host: httpbin.org</div><div class="line">      User-Agent: st2/v2.3.2</div><div class="line">      X-Stanley-Action: http</div><div class="line">    origin: 111.204.125.163</div><div class="line">    url: http://httpbin.org/get</div><div class="line">  headers:</div><div class="line">    Access-Control-Allow-Credentials: <span class="string">'true'</span></div><div class="line">    Access-Control-Allow-Origin: <span class="string">'*'</span></div><div class="line">    Connection: keep-alive</div><div class="line">    Content-Length: <span class="string">'289'</span></div><div class="line">    Content-Type: application/json</div><div class="line">    Date: Sun, 06 Aug 2017 06:20:32 GMT</div><div class="line">    Server: meinheld/0.6.1</div><div class="line">    Via: 1.1 vegur</div><div class="line">    X-Powered-By: Flask</div><div class="line">    X-Processed-Time: <span class="string">'0.000990152359009'</span></div><div class="line">  parsed: <span class="literal">true</span></div><div class="line">  status_code: 200</div></pre></td></tr></table></figure>
-<h4 id="2-1-2-action-的构成"><a href="#2-1-2-action-的构成" class="headerlink" title="2.1.2 action 的构成"></a>2.1.2 action 的构成</h4><p>一个 action 由两点构成：</p>
-<blockquote>
-<ol>
-<li>一个实现 action 逻辑的脚本  </li>
-<li>一个描述 action 的 yaml 文件  </li>
+        <p><em>2016.9.26</em></p>
+<h1 id="CDN与SDN"><a href="#CDN与SDN" class="headerlink" title="CDN与SDN"></a>CDN与SDN</h1><p>这两个完全不是一个东西<br>只是名字相近而已 </p>
+<h2 id="CDN：Content-Delivery-Network-内容分发网络"><a href="#CDN：Content-Delivery-Network-内容分发网络" class="headerlink" title="CDN：Content Delivery Network 内容分发网络"></a>CDN：Content Delivery Network 内容分发网络</h2><h3 id="CDN的基本思路："><a href="#CDN的基本思路：" class="headerlink" title="CDN的基本思路："></a>CDN的基本思路：</h3><p>尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，<br>使内容传输的更快、更稳定。<br>它是通过网络各处放置节点服务器所构成的现有互联网基础之上的一层智能虚拟网<br>CDN实时根据网络流量以及各节点的连接、负载状况以及到用户的距离和响应时间等综合信息<br>重新导向用户的请求到最近的服务节点上  </p>
+<h3 id="CDN解决的问题："><a href="#CDN解决的问题：" class="headerlink" title="CDN解决的问题："></a>CDN解决的问题：</h3><ol>
+<li>解决高流量、大并发  </li>
+<li>解决南北互联问题  </li>
+<li>访问加速（CDN有缓存技术）  </li>
+<li>降低运营成本（源站放在BGP机房，缓存服务器放在费用较低的地方）  </li>
+<li>提高网站的可用性  </li>
+<li>防DDoS（因为攻击被分配到了不同的物理服务器）  </li>
 </ol>
-</blockquote>
-<p>脚本在退出时，状态为0表示成功，非0则表示失败，日志信息应该输出到标准错误  </p>
-<p>yaml 元数据文件结构：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>action 的名称</td>
-</tr>
-<tr>
-<td>runner_type</td>
-<td>该 action 的执行类型，例如 local-shell-cmd 、python-script 等，详见下表</td>
-</tr>
-<tr>
-<td>enabled</td>
-<td>能否被调用，一般填 true 就好</td>
-</tr>
-<tr>
-<td>entry_point</td>
-<td>该 action 对应的启动脚本路径下的名字，路径默认为 <code>/opt/stackstorm/packs/${pack_name}/actions/</code></td>
-</tr>
-<tr>
-<td>parameters</td>
-<td>参数</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>runner_type</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>local-shell-cmd</td>
-<td>本地执行 shell 命令</td>
-</tr>
-<tr>
-<td>local-shell-script</td>
-<td>本地执行 shell 脚本</td>
-</tr>
-<tr>
-<td>remote-shell-cmd</td>
-<td>远程执行 shell 命令</td>
-</tr>
-<tr>
-<td>remote-shell-script</td>
-<td>远程执行 shell 脚本</td>
-</tr>
-<tr>
-<td>python-script</td>
-<td>python 脚本，action 由一个 python 类的 run() 方法执行</td>
-</tr>
-<tr>
-<td>http-request</td>
-<td>HTTP 客户端执行 HTTP 请求或运行 HTTP action</td>
-</tr>
-<tr>
-<td>action-chain</td>
-<td>执行简单的线性工作流(work flow)</td>
-</tr>
-<tr>
-<td>mistral-v2</td>
-<td>执行复杂的工作流(work flow)，建立于 Mistral OpenStack 之上</td>
-</tr>
-<tr>
-<td>cloudslang</td>
-<td>执行复杂的工作流(work flow)，建立于 CloudSlang 之上</td>
-</tr>
-</tbody>
-</table>
-<p>官网 action yaml 例子：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"send_sms"</span></div><div class="line"><span class="attr">runner_type:</span> <span class="string">"python-script"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"This sends an SMS using twilio."</span></div><div class="line"><span class="attr">enabled:</span> <span class="literal">true</span></div><div class="line"><span class="attr">entry_point:</span> <span class="string">"send_sms.py"</span></div><div class="line"><span class="attr">parameters:</span></div><div class="line"><span class="attr">    from_number:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"Your twilio 'from' number in E.164 format. Example +14151234567."</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        position:</span> <span class="number">0</span></div><div class="line"><span class="attr">    to_number:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"Recipient number in E.164 format. Example +14151234567."</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        position:</span> <span class="number">1</span></div><div class="line"><span class="attr">        secret:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    body:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"Body of the message."</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        position:</span> <span class="number">2</span></div><div class="line"><span class="attr">        default:</span> <span class="string">"Hello &#123;% if system.user %&#125; <span class="template-variable">&#123;&#123; system.user &#125;&#125;</span> &#123;% else %&#125; dude &#123;% endif %&#125;!"</span></div></pre></td></tr></table></figure>
-<p>yaml 文件解释：</p>
-<p>该 action 使用 python 脚本执行，该 python 脚本为存放于同步录下的 <code>send_sms.py</code> 文件<br>执行需要三个参数：<code>from_number</code>，<code>to_number</code>，<code>body</code><br>可以看到 body 参数具有默认值，to_number 的 <code>secret</code> 字段为 <code>true</code><br>如果一个属性被标记为 <code>secret</code> ，那么在 StackStorm 的日志中会隐藏它  </p>
-<h4 id="2-1-3-action-的注册"><a href="#2-1-3-action-的注册" class="headerlink" title="2.1.3 action 的注册"></a>2.1.3 action 的注册</h4><p>一个 action 的注册有两个步骤：</p>
-<blockquote>
-<ol>
-<li>把它的文件放到目录里，/opt/stactstorm/packs   </li>
-<li>告诉系统哪个 action 可以使用  </li>
-</ol>
-</blockquote>
-<p>一次性 action 可以放到 default 包里，/opt/stackstorm/packs/default/actions  </p>
-<p>注册个人的 action 可以调用 <code>st2 action create mu_action_metadata.yaml</code> 命令<br>如果需要重新加载所有 action，执行 <code>st2ctl reload --register-actions</code><br>全局重载可以执行 <code>st2ctl reload --register-all</code>  </p>
-<h4 id="2-1-4-实现一个-remote-shell-script-action"><a href="#2-1-4-实现一个-remote-shell-script-action" class="headerlink" title="2.1.4 实现一个 remote-shell-script action"></a>2.1.4 实现一个 remote-shell-script action</h4><p>进入 example 包创建一个 action  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /opt/stackstorm/packs/examples/actions</div></pre></td></tr></table></figure>
-<p>bash 脚本文件 remove_test.sh：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env bash</span></div><div class="line"></div><div class="line">ARGS=<span class="variable">$1</span></div><div class="line">FILE=<span class="variable">$2</span></div><div class="line">rm -<span class="variable">$&#123;ARGS&#125;</span> <span class="variable">$&#123;FILE&#125;</span></div></pre></td></tr></table></figure>
-<p>对应的 yaml 文件 remove_test.yaml：  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"remove_test"</span></div><div class="line"><span class="attr">runner_type:</span> <span class="string">"remote-shell-script"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"remove a test file"</span></div><div class="line"><span class="attr">enabled:</span> <span class="literal">true</span></div><div class="line"><span class="attr">entry_point:</span> <span class="string">"remove_test.sh"</span></div><div class="line"><span class="attr">parameters:</span></div><div class="line"><span class="attr">    args:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"args of rm"</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        position:</span> <span class="number">0</span></div><div class="line"><span class="attr">    file:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"File to remove"</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        position:</span> <span class="number">1</span></div></pre></td></tr></table></figure>
-<p>注册 remove_test 的 action  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">st2 action create remove_test.yaml</div><div class="line">st2ctl reload --register-actions</div></pre></td></tr></table></figure>
-<p>在 VPN 服务器 138.128.206.71 的 <code>/root</code> 目录下创建一个测试文件 <code>test.c</code>  </p>
-<p>执行该 action：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">st2 run examples.remove_test hosts=<span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'*****'</span> args=<span class="string">'rf'</span> file=<span class="string">'/root/test.c'</span></div></pre></td></tr></table></figure>
-<p>这里就相当于 ssh 连接到 138.128.206.71 的 27226 端口，使用 root 账户登录，执行了 <code>rm -rf /root/test.c</code> 命令  </p>
-<h4 id="2-1-5-实现一个-python-script-action"><a href="#2-1-5-实现一个-python-script-action" class="headerlink" title="2.1.5 实现一个 python-script action"></a>2.1.5 实现一个 python-script action</h4><p>python 脚本文件 my_echo_action.py：  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> st2actions.runners.pythonrunner <span class="keyword">import</span> Action</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyEchoAction</span><span class="params">(Action)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, message)</span>:</span></div><div class="line">        print(message)</div><div class="line">        <span class="keyword">if</span> message == <span class="string">'working'</span>:</div><div class="line">            <span class="keyword">return</span> (<span class="keyword">True</span>, message)</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">False</span>, message)</div></pre></td></tr></table></figure>
-<p>对应的 yaml 文件 my_echo_action.yaml：  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"echo_action"</span></div><div class="line"><span class="attr">runner_type:</span> <span class="string">"python-script"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Print message to standard output."</span></div><div class="line"><span class="attr">enabled:</span> <span class="literal">true</span></div><div class="line"><span class="attr">entry_point:</span> <span class="string">"my_echo_action.py"</span></div><div class="line"><span class="attr">parameters:</span></div><div class="line"><span class="attr">    message:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"Message to print."</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"><span class="attr">        position:</span> <span class="number">0</span></div></pre></td></tr></table></figure>
-<p>注册 my_echo_action 的 action  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">st2 action create my_echo_action.yaml</div><div class="line">st2ctl reload --register-actions</div></pre></td></tr></table></figure>
-<p>测试结果：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">st2 run examples.echo_action message=<span class="string">'rua~'</span></div><div class="line">.</div><div class="line">id: 5986dbbfe1382307a831a6d3</div><div class="line">status: failed</div><div class="line">parameters: </div><div class="line">  message: rua~</div><div class="line">result: </div><div class="line">  exit_code: 0</div><div class="line">  result: rua~</div><div class="line">  stderr: <span class="string">''</span></div><div class="line">  stdout: <span class="string">'rua~'</span></div><div class="line"></div><div class="line">st2 run examples.echo_action message=<span class="string">'working'</span></div><div class="line">..</div><div class="line">id: 5986dbcbe1382307a831a6d6</div><div class="line">status: succeeded</div><div class="line">parameters: </div><div class="line">  message: working</div><div class="line">result: </div><div class="line">  exit_code: 0</div><div class="line">  result: working</div><div class="line">  stderr: <span class="string">''</span></div><div class="line">  stdout: <span class="string">'working'</span></div></pre></td></tr></table></figure>
-<h3 id="2-2-Sensors-和-Trigger"><a href="#2-2-Sensors-和-Trigger" class="headerlink" title="2.2 Sensors 和 Trigger"></a>2.2 Sensors 和 Trigger</h3><p><code>传感器(Sensor)</code> 的作用是把 <code>外部系统</code> 和 <code>事件</code> 与 <code>StackStorm</code> 结合起来<br>传感器是使用 <code>Python</code> 写的，利用 <code>周期轮询检查外部系统</code> 或是 <code>被动地等待事件的发生</code><br>之后传感器连接 <code>触发器(Tirgger)</code> 到 <code>StackStorm</code> ，来匹配 <code>Rule</code> ，执行 <code>action</code>  </p>
-<p><code>触发器(Trigger)</code> 的作用是识别传入给 StackStorm 的事件<br>一个触发器为 类型 (string) 和可选参数 (object) 的 tuple<br><code>Rule</code> 和 <code>Trigger</code> 共同工作<br>传感器通常注册触发器，但是也有例外<br>比如常用的 <code>webhooks</code> 触发器触发注册 StackStorm ，但是它不需要一个传感器  </p>
-<h4 id="stackstorm-的感知"><a href="#stackstorm-的感知" class="headerlink" title="stackstorm 的感知"></a>stackstorm 的感知</h4><p>stackstorm 的感知方式有三种： <code>Sensor</code> / <code>Webhook</code> / <code>Chatbot</code>  </p>
-<ol>
-<li>stackstorm 感知到事件后，会产生 <code>trigger-instance</code> 发送到 rabbitmq  </li>
-<li>监听消息队列的 st2rulesengine 会把 events 与事先配置的 <code>rules</code> 匹配  </li>
-<li>根据匹配结果选择 Action-runner 执行 <code>rules</code> 中配置的 <code>action</code> 或者 <code>workflow</code>  </li>
-<li>执行完成后， st2resultstracker 检查执行的结果，将结果记入数据库(mongodb)并以 events 的形式发送到 rabbitmq ，如果有 rules 匹配到该 events 则继续触发更多的 Action/workflow 执行  </li>
-</ol>
-<p>Sensor 是由一个 python 脚本和其配置构成的，它运行在 st2sensorcontainer 进程之中  </p>
-<p><em>trigger &amp; rule 没有太弄懂，待续</em></p>
-<h2 id="3-ChatOps"><a href="#3-ChatOps" class="headerlink" title="3. ChatOps"></a>3. ChatOps</h2><p>一句话来说就是通过聊天软件如 slack 来控制 Ops  </p>
-<p>stackstorm 中自带 hubot 模块，可以快速配置，也有断线重连功能    </p>
-<blockquote>
-<p>关键文件 /opt/stackstorm/chatops/st2chatops.env  </p>
-</blockquote>
-<p>根据选择的客户端，修改 <code>st2chatops.env</code>  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> HUBOT_ADAPTER=slack</div><div class="line"><span class="built_in">export</span> HUBOT_SLACK_TOKEN=xoxb-*******</div></pre></td></tr></table></figure>
-<p>创建自定义的 pack  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /opt/stackstorm/packs/</div><div class="line">mkdir -p my-chatops/&#123;actions,rules,sensors,aliases&#125;</div></pre></td></tr></table></figure>
-<h3 id="通过-ChatOps-执行-bash-脚本："><a href="#通过-ChatOps-执行-bash-脚本：" class="headerlink" title="通过 ChatOps 执行 bash 脚本："></a>通过 ChatOps 执行 bash 脚本：</h3><p>在 <code>aliases</code> 文件夹中创建一个 action<br><code>aliases</code> 会通过 ssh 使用 <code>core.remote</code> 的 action 来执行命令  </p>
-<p>创建一个 remote.yaml  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># packs/my-chatops/aliases/remote.yaml</span></div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"remote_shell_cmd"</span></div><div class="line"><span class="attr">action_ref:</span> <span class="string">"core.remote"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Execute a command on a remote host via SSH."</span></div><div class="line"><span class="attr">formats:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"run <span class="template-variable">&#123;&#123;cmd&#125;&#125;</span> on <span class="template-variable">&#123;&#123;hosts&#125;&#125;</span>"</span></div></pre></td></tr></table></figure>
-<p>令该 action 生效：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo st2ctl reload --register-all</div><div class="line">sudo service st2chatops restart</div></pre></td></tr></table></figure>
-<p>之后可以通过在机器人客户端执行 <code>!run &lt;cmd&gt; on &lt;host&gt;</code> 来在客户端查看命令执行的结果<br>也可以执行 <code>&lt;hubot name&gt;, &lt;cmd&gt; on &lt;host&gt;</code> 来在客户端查看命令执行的结果  </p>
-<p>多命令组合写法：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">!run <span class="built_in">cd</span> /root; tree -L 2 -d on <span class="string">'138.128.206.71'</span> port=<span class="string">'27226'</span> username=<span class="string">'root'</span> password=<span class="string">'******'</span></div></pre></td></tr></table></figure>
-<h3 id="通过-ChatOps-执行-python-程序："><a href="#通过-ChatOps-执行-python-程序：" class="headerlink" title="通过 ChatOps 执行 python 程序："></a>通过 ChatOps 执行 python 程序：</h3><p>在 example 包的 aliases 下新建一个 action-alias  </p>
-<p>TmpReq.yaml:  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">name:</span> <span class="string">"TmpReq"</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Temporary Request. !TmpReq -1|-2 &#123;PASSWORD&#125;."</span></div><div class="line"><span class="attr">formats:</span></div><div class="line"><span class="bullet">  -</span> <span class="string">"TmpReq <span class="template-variable">&#123;&#123;a=parameter&#125;&#125;</span> <span class="template-variable">&#123;&#123;passwd=passwd&#125;&#125;</span>"</span></div><div class="line"><span class="attr">result:</span></div><div class="line"><span class="attr">  format:</span> <span class="string">"<span class="template-variable">&#123;&#123;execution.result.result&#125;&#125;</span>"</span></div><div class="line"><span class="attr">ack:</span></div><div class="line"><span class="attr">  append_url:</span> <span class="literal">false</span></div></pre></td></tr></table></figure>
-<p>在 example 包的 action 下新建一个 action  </p>
-<p>TmpReq.yaml:  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="attr">name:</span> <span class="string">"TmpReq"</span></div><div class="line"><span class="attr">pack:</span> <span class="string">"example"</span></div><div class="line"><span class="attr">runner_type:</span> <span class="string">'python-script'</span></div><div class="line"><span class="attr">description:</span> <span class="string">"Temporary Request."</span></div><div class="line"><span class="attr">enabled:</span> <span class="literal">true</span></div><div class="line"><span class="attr">entry_point:</span> <span class="string">'libs/TmpReq.py'</span></div><div class="line"><span class="attr">parameters:</span></div><div class="line"><span class="attr">    a:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">'[-1] | [-2]'</span></div><div class="line"><span class="attr">        required:</span> <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="attr">    paasswd:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">"string"</span></div><div class="line"><span class="attr">        description:</span> <span class="string">"Your password."</span></div><div class="line"></div><div class="line"><span class="attr">    user:</span></div><div class="line"><span class="attr">        type:</span> <span class="string">string</span></div><div class="line"><span class="attr">        description:</span> <span class="string">who</span> <span class="string">speaks</span></div><div class="line"><span class="attr">        default:</span> <span class="string">"<span class="template-variable">&#123;&#123;action_context.api_user&#125;&#125;</span>"</span></div></pre></td></tr></table></figure>
-<p>把 <code>TmpReq.py</code> 放到 <code>/opt/stackstorm/packs/example/actions/libs</code> 即可  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># !/usr/bin/env python</span></div><div class="line"><span class="comment"># coding=utf-8</span></div><div class="line"></div><div class="line"><span class="string">'''</span></div><div class="line">    Author: Juntaran</div><div class="line">    Email:  Jacinthmail@gmail.com</div><div class="line">    Date:   2017/8/30 18:06</div><div class="line">'''</div><div class="line"></div><div class="line"><span class="keyword">import</span> requests, sys</div><div class="line"><span class="keyword">from</span> St2BaseAction <span class="keyword">import</span> St2BaseAction</div><div class="line"></div><div class="line">url = <span class="string">"http://www.test.com/test.html"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">getRequest</span><span class="params">(user, passwd)</span>:</span></div><div class="line"></div><div class="line">    querystring = &#123;<span class="string">"user"</span>:user,<span class="string">"password"</span>:passwd&#125;</div><div class="line">    headers = &#123;</div><div class="line">        <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</div><div class="line">    &#125;</div><div class="line">    response = requests.request(<span class="string">"GET"</span>, url, headers=headers, params=querystring)</div><div class="line">    <span class="keyword">return</span>(response.text)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">postRequest</span><span class="params">(user, passwd)</span>:</span></div><div class="line"></div><div class="line">    querystring = &#123;<span class="string">"user"</span>:user,<span class="string">"password"</span>:passwd&#125;</div><div class="line">    headers = &#123;</div><div class="line">        <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</div><div class="line">    &#125;</div><div class="line">    response = requests.request(<span class="string">"POST"</span>, url, headers=headers, params=querystring)</div><div class="line">    <span class="keyword">return</span>(response.text)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TmpReq</span><span class="params">(St2BaseAction)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, config)</span>:</span></div><div class="line">        super(TmpReq, self).__init__(config)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self, a=<span class="string">""</span>, passwd=<span class="string">""</span>, user=<span class="string">""</span>)</span>:</span></div><div class="line">        <span class="keyword">if</span> a != <span class="string">'-1'</span> <span class="keyword">and</span> a != <span class="string">'-2'</span>:</div><div class="line">            <span class="keyword">return</span> <span class="string">"Input Error"</span></div><div class="line">        <span class="keyword">if</span> a == <span class="string">'-1'</span>:</div><div class="line">            <span class="keyword">if</span> passwd == <span class="string">""</span>:</div><div class="line">                <span class="keyword">return</span> <span class="string">"Input Error"</span></div><div class="line">            <span class="keyword">return</span> getRequest(user, passwd)</div><div class="line">        <span class="keyword">if</span> a == <span class="string">'-2'</span>:</div><div class="line">            <span class="keyword">if</span> passwd == <span class="string">""</span>:</div><div class="line">                <span class="keyword">return</span> <span class="string">"Input Error"</span></div><div class="line">            <span class="keyword">return</span> postRequest(user, passwd)</div></pre></td></tr></table></figure>
-<p>最后重启服务：  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">st2ctl reload --register-all</div><div class="line">service st2chatops restart</div></pre></td></tr></table></figure>
-<p><strong>这里的坑：</strong></p>
-<blockquote>
-<ol>
-<li>一些网络命令的问题，比如 ping，在客户端中输入 <code>!run ping baidu.com -c 3</code> 会报错，在网页控制台查看 history 会发现原因是默认把 <code>baidu.com</code> 转换成了 <code>http://baidu.com</code>，在网页控制台使用填参数的方法可以顺利执行，此问题经多次测试无解，此处在客户端只能 <code>ping ip</code>  </li>
-<li>一些命令不识别的问题，例如 <code>fdisk</code>、<code>ss</code>、<code>mpstat</code>、<code>ifconfig</code> 等会返回 <code>bash: fdisk: command not found</code> 的错误，而 <code>free</code>、<code>tree</code>、<code>netstat</code> 等就可以执行，这里的处理就需要写脚本文件了  </li>
-<li>stackstorm 在安装时会默认使用 <code>python 2.7</code> ，如果按以上方法执行 python 程序，程序需要支持 python 2.7  </li>
-</ol>
-</blockquote>
-<h2 id="4-StackStorm-在小米的应用"><a href="#4-StackStorm-在小米的应用" class="headerlink" title="4. StackStorm 在小米的应用"></a>4. StackStorm 在小米的应用</h2><p>小米具有批量部署系统的方案，通过批量部署系统，安装 client  </p>
-<p>stackstorm 是通过 ssh 来执行脚本和命令的，因此如果使用自带的 remote 方案，有一定局限性  </p>
-<blockquote>
-<ol>
-<li>每次执行脚本或命令输入密码  </li>
-<li>如果不想输入密码必须建立 ssh 免密登录，但是如果 ssh 更新 key，就得重新执行  </li>
-</ol>
-</blockquote>
-<p>而 client 的功能是监听一个端口，小米在 stackstorm 加入了一个子服务端<br>子服务端向该端口发送命令，从而无需密码即可执行  </p>
-<hr>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
-<li><a href="https://docs.stackstorm.com" target="_blank" rel="external">stackstorm</a></li>
+<h3 id="CDN的组成："><a href="#CDN的组成：" class="headerlink" title="CDN的组成："></a>CDN的组成：</h3><ul>
+<li>源站  </li>
+<li>缓存服务器（核心缓存服务器+边缘缓存服务器）  </li>
+<li>智能DNS（核心）：根据用户的来源，重新导向到较近/合适的缓存服务器</li>
+<li>客户端</li>
 </ul>
+<h2 id="SDN：-Software-Defined-Network-软件定义网络"><a href="#SDN：-Software-Defined-Network-软件定义网络" class="headerlink" title="SDN： Software Defined Network 软件定义网络"></a>SDN： Software Defined Network 软件定义网络</h2><h3 id="SDN的基本思路"><a href="#SDN的基本思路" class="headerlink" title="SDN的基本思路"></a>SDN的基本思路</h3><p>网络设备和数据面<code>分离</code>开来，能够灵活控制网络流量<br>把网络设备视为<code>被管理的资源</code>，抽象出一个网络操作系统<br>一方面<code>抽象</code>底层网络设备具体细节，同时为上层应用提供了统一的管理视图和编程接口<br>屏蔽底层网络设备物理细节差异，通过软件定义网络拓扑、资源分配、处理机制  </p>
+<h3 id="SDN的组成"><a href="#SDN的组成" class="headerlink" title="SDN的组成"></a>SDN的组成</h3><p>SDN架构分为三层：<code>上层应用</code>、<code>SDN控制层</code>、<code>基础设施层</code> </p>
+<ul>
+<li>应用层：不同业务和应用 应用层与控制层有API接口连接  </li>
+<li>控制层：处理数据平面资源编排、维护网络拓扑、状态信息  控制层与底层由OpenFlow连接  </li>
+<li>基础设施层：网络设备，数据处理、转发、状态收集  </li>
+</ul>
+<h3 id="SDN特点："><a href="#SDN特点：" class="headerlink" title="SDN特点："></a>SDN特点：</h3><ol>
+<li>硬件设备归一化，硬件只关注转发和存储能力，与业务解耦  </li>
+<li>网络的智能型由软件实现，网络设备的种类及功能由软件配置而定，对网络的操作控制和运行由服务器作为网络操作系统Network OS来完成  </li>
+<li>对业务响应相对更快，可以定制各种网络参数，如路由、安全、策略、QoS、流量工程等，实时配置到网络，开通具体业务的时间将缩短  </li>
+</ol>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你包养我<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/zhifubao.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -446,11 +220,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
         		</li>
       		
 		</ul>
@@ -470,94 +244,26 @@
 
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/09/26/CDN与SDN/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://juntaran.github.io/2017/08/05/StackStorm/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2017/08/08/scp/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          scp
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/07/30/七月的最后/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">七月的最后</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 
 
 
   
   
-  
-
-  
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -580,8 +286,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
