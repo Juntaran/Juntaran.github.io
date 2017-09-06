@@ -166,6 +166,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-文件dos格式转unix格式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/文件dos格式转unix格式/">文件dos格式转unix格式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/文件dos格式转unix格式/" class="archive-article-date">
+  	<time datetime="2017-09-06T08:46:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.9.6</em></p>
+<p>windows 的文件上传到 linux 服务器总会有一些神奇的问题  </p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/dos_unix.jpg" alt="dos_unix"></p>
+<p>如上图，vim 提示 <code>[noeol][dos]</code><br>如果是脚本的话，在执行的时候会提示 <code>/bin/sh^M: bad interpreter: No such file or directory</code>  </p>
+<p>这些都是 windows 和 linux 编码格式不同的锅  </p>
+<hr>
+<h2 id="在-windows-端解决方案："><a href="#在-windows-端解决方案：" class="headerlink" title="在 windows 端解决方案："></a>在 windows 端解决方案：</h2><p>打开 Notepad++ 【编码】-&gt;【以 UTF-8 无 BOM 格式编码】  </p>
+<h2 id="在-linux-端解决方案："><a href="#在-linux-端解决方案：" class="headerlink" title="在 linux 端解决方案："></a>在 linux 端解决方案：</h2><p>vim 打开文件  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">set</span> ff</div><div class="line"><span class="comment"># 或者是</span></div><div class="line">:<span class="built_in">set</span> fileformat</div></pre></td></tr></table></figure>
+<p>会显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># windows</span></div><div class="line">fileformat=dos</div><div class="line"><span class="comment"># linux</span></div><div class="line">fileformat=unix</div></pre></td></tr></table></figure></p>
+<p>强制转换为 unix 格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">set</span> ff-unix</div></pre></td></tr></table></figure></p>
+<p>脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi +<span class="string">':w ++ff=unix'</span> +<span class="string">':q'</span> test.txt</div><div class="line"></div><div class="line"><span class="comment"># ^M 为 Ctrl+V+M ，表示回车</span></div><div class="line">sed <span class="string">'s/^M//'</span> dos.txt &gt; tmp_filename</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://ju.outofmemory.cn/entry/56461" target="_blank" rel="external">关于 DOS 文件转换成 UNIX 文件格式</a></li>
+<li><a href="http://www.cnblogs.com/pipelone/archive/2009/04/17/1437879.html" target="_blank" rel="external">sh 脚本异常</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/文件dos格式转unix格式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Nginx+https+iOS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1475,84 +1565,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/07/16/2017-7-16/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-入职前最后一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/09/入职前最后一天/">入职前最后一天</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/09/入职前最后一天/" class="archive-article-date">
-  	<time datetime="2017-07-09T13:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.7.9</em></p>
-<p>明天就要入职了，是时候跟学生时代说再见了。<br>还好在离开哈尔滨之前，和<code>王哥哥</code>走遍了我想去的地方~<br>想了2年的<code>师大夜市</code>，还有临行前最后看一次<code>松花江</code>。。<br>最重要的是又追忆往昔，去工大上了两次网，哈哈哈~<br>细细算来我和王哥哥在<code>新空间网咖</code>2年花了能有近千了TAT  </p>
-<p>在<code>哈工程</code>待了整整6年，也在理论上在<code>四公寓</code>待了6年~<br>看着<code>腐败街</code>各个小吃兴起关门，哈哈哈~<br>其中最可惜的是我最喜欢吃的<code>明旺米线</code>在大四的时候关门了TAT<br>当然也有<code>大茶杯</code>在研一的时候兴起，祝他能长久开下去~<br>哦，对了，不能忘研一在学校正门新开的<code>麦当劳</code>~<br>我每周改善伙食的地方~~~  </p>
-<p>讲真以前天天吐槽实验室，老师压榨学生~<br>现在回过头来，离开了实验室，我还是想<code>吐槽</code> 233333~<br>毕竟是我读研期间常驻的地方，不黑了~  </p>
-<p>大四毕业的时候，我天天装逼，说什么<br><code>“以梦为马，诗酒趁年华，长剑勿喑哑”</code><br>还有什么<br><code>“送君千里直至峻岭变平川，惜别伤离临别饮清酒三两三”</code><br>现在想来，就是纯属无病呻吟，反正老子又不离开学校，哈哈哈~<br>而今真是有点不想上班，不想离开哈尔滨了~  </p>
-<p>我还想多写两天论文，再发个SCI~<br>我还想再和王哥哥吃遍哈尔滨，让她带我接着LOL~<br>我还想再去师大和黑大多看看妹子~<br>我还想和骚旭夏天再在中央大街逛来逛去~  </p>
-<p>唉。。。。。。  </p>
-<p>感谢实验室老师的不杀之恩，还帮我把论文投进了SCI（虽然我被搞成了第四作者）<br>感谢实验室在北京的小伙伴们，带我这个菜鸡做项目，还有王者荣耀<br>感谢王哥哥在研究生期间陪我玩了两年<br>感谢宇鹏陪我去做手术（妈的那个手术吓死劳资了!）<br>感谢王哥哥和大帅哥陪我来北京看房（在此吐槽：王哥哥太抠了！路费住宿都是我掏的！）  </p>
-<p>嗯，就这样啦，明天入职，祝顺利  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/09/入职前最后一天/">展开全文 >></a>
         </p>
       
 
