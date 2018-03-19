@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://juntaran.github.io">
   <title>scp | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2017.8.8 公司神奇的网络设置，允许 rz ，不允许 sz ，不允许 sftp有 root 权限，还能连外网，真是无力吐槽   公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。   这种情况下有两种解决方案：    使用 nc 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 nc 苦不堪言   使用 scp 传到海外 VPN 服务器">
+  <meta name="description" content="2017.8.8 公司神奇的网络设置，允许 rz ，不允许 sz ，不允许 sftp有 root 权限，还能连外网，真是无力吐槽   公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。   这种情况下有两种解决方案：    使用 nc 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 nc 苦不堪言   使用 scp 传到可用服务器，再从可用">
 <meta name="keywords" content="Network,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="scp">
 <meta property="og:url" content="https://juntaran.github.io/2017/08/08/scp/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="2017.8.8 公司神奇的网络设置，允许 rz ，不允许 sz ，不允许 sftp有 root 权限，还能连外网，真是无力吐槽   公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。   这种情况下有两种解决方案：    使用 nc 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 nc 苦不堪言   使用 scp 传到海外 VPN 服务器">
-<meta property="og:updated_time" content="2017-08-08T15:59:49.822Z">
+<meta property="og:description" content="2017.8.8 公司神奇的网络设置，允许 rz ，不允许 sz ，不允许 sftp有 root 权限，还能连外网，真是无力吐槽   公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。   这种情况下有两种解决方案：    使用 nc 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 nc 苦不堪言   使用 scp 传到可用服务器，再从可用">
+<meta property="og:updated_time" content="2018-03-19T19:50:16.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="scp">
-<meta name="twitter:description" content="2017.8.8 公司神奇的网络设置，允许 rz ，不允许 sz ，不允许 sftp有 root 权限，还能连外网，真是无力吐槽   公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。   这种情况下有两种解决方案：    使用 nc 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 nc 苦不堪言   使用 scp 传到海外 VPN 服务器">
+<meta name="twitter:description" content="2017.8.8 公司神奇的网络设置，允许 rz ，不允许 sz ，不允许 sftp有 root 权限，还能连外网，真是无力吐槽   公司分给了我一个开发服务器，只有我一个人用，却只能上传代码不能下载回来。。。   这种情况下有两种解决方案：    使用 nc 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 nc 苦不堪言   使用 scp 传到可用服务器，再从可用">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -184,12 +184,12 @@
 <p>这种情况下有两种解决方案：  </p>
 <ol>
 <li>使用 <code>nc</code> 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 <code>nc</code> 苦不堪言  </li>
-<li>使用 <code>scp</code> 传到海外 VPN 服务器，再从海外服务器 down 回来  </li>
+<li>使用 <code>scp</code> 传到可用服务器，再从可用服务器 down 回来  </li>
 </ol>
 <p>不用我说，看标题就知道选方案二了。。。  </p>
 <p>从本地复制文件/文件夹到远程服务器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 传输文件</span></div><div class="line">scp (-P remote_port) local_file (remote_username@)remote_ip:remote_folder/file </div><div class="line"></div><div class="line"><span class="comment"># 传输文件夹</span></div><div class="line">scp (-P remote_port) -r local_folder (remote_username@)remote_ip:remote_folder</div></pre></td></tr></table></figure></p>
 <p>默认 scp 使用 <code>22</code> 端口，如果远程服务器修改了 ssh 端口，则需要加 <code>-P</code> 参数<br>另外 <code>-P</code> 一定要紧跟 <code>scp</code> 后面  </p>
-<p>不要忘记把海外服务器的文件删掉哦~~  </p>
+<p>不要忘记把可用服务器的文件删掉哦~~  </p>
 <hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
 <li><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">scp命令</a></li>
@@ -360,7 +360,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Juntaran
+    		&copy; 2018 Juntaran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -491,6 +491,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OLAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">比特币</a>
               </li>
             
             <div class="clearfix"></div>

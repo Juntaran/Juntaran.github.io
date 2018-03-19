@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://juntaran.github.io">
   <title>Linux大文件生成 | Juntaran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~还能应付系统组对我们机器使用不达标（哈哈哈~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1f">
+  <meta name="description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1find -type f -size +500">
 <meta name="keywords" content="运维,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux大文件生成">
 <meta property="og:url" content="https://juntaran.github.io/2017/07/24/Linux大文件生成/index.html">
 <meta property="og:site_name" content="Juntaran">
-<meta property="og:description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~还能应付系统组对我们机器使用不达标（哈哈哈~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1f">
-<meta property="og:updated_time" content="2017-07-25T15:57:23.526Z">
+<meta property="og:description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1find -type f -size +500">
+<meta property="og:updated_time" content="2018-03-19T19:48:53.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux大文件生成">
-<meta name="twitter:description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~还能应付系统组对我们机器使用不达标（哈哈哈~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1f">
+<meta name="twitter:description" content="2017.7.24 首先问题来了，为什么要生成大文件呢   生成大文件可以做一些测试，比如系统性能啦~   好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G那么我们还需要生成 3G 的文件~   1dd if=/dev/zero of=test bs=1M count=3000 系统组的同学可以用以下方法来检测到~ 1find -type f -size +500">
   
     <link rel="alternative" href="/atom.xml" title="Juntaran" type="application/atom+xml">
   
@@ -180,7 +180,7 @@
       
         <p><em>2017.7.24</em></p>
 <p>首先问题来了，为什么要生成大文件呢  </p>
-<p>生成大文件可以做一些测试，比如系统性能啦~<br>还能应付系统组对我们机器使用不达标（哈哈哈~  </p>
+<p>生成大文件可以做一些测试，比如系统性能啦~  </p>
 <p>好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G<br>那么我们还需要生成 3G 的文件~  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=1M count=3000</div></pre></td></tr></table></figure>
 <p>系统组的同学可以用以下方法来检测到~</p>
@@ -188,7 +188,7 @@
 <p>这里文件大小的单位可以使用 <code>b</code>，<code>k</code>，<code>M</code>，<code>G</code>  </p>
 <p>于是乎我们可以反其道而行之，生成 3000 个 1M 的文件~  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 3000 | xargs -i dd <span class="keyword">if</span>=/dev/zero of=&#123;&#125;.dat bs=1024000 count=1</div></pre></td></tr></table></figure>
-<p>如果系统组的同学机智，其实他们还是可以发现的  </p>
+<p>如果机智的话，其实他们还是可以发现的  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du --max-depth=1 | sort -rn    <span class="comment"># 按从大到小的顺序对目录进行排序</span></div></pre></td></tr></table></figure>
 <hr>
 <p>网上还有一个丧心病狂的命令  </p>
@@ -379,11 +379,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/30/七月的最后/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/05/StackStorm/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          七月的最后
+          StackStorm
         
       </div>
     </a>
@@ -416,7 +416,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Juntaran
+    		&copy; 2018 Juntaran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -547,6 +547,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OLAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">比特币</a>
               </li>
             
             <div class="clearfix"></div>

@@ -158,158 +158,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-循序渐进Linux1：Linux的基本结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/05/循序渐进Linux1：Linux的基本结构/">循序渐进Linux 1：Linux的基本结构</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/05/循序渐进Linux1：Linux的基本结构/" class="archive-article-date">
-  	<time datetime="2016-11-05T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.5</em></p>
-<h2 id="一、分区命名："><a href="#一、分区命名：" class="headerlink" title="一、分区命名："></a>一、分区命名：</h2><p>Linux的硬盘命名方案是基于文件的，一般命名方式如下：</p>
-<pre><code>/dev/hda2
-/dev/sdb3
-</code></pre><blockquote>
-<p>/dev：所有设备文件存放目录<br>hd与sd：代表分区所在的设备类型。hd代表IDE硬盘，sd代表SCSI硬盘<br>a：表示分区在哪个设备上，比如/dev/hda代表第1块IDE硬盘<br>2：代表分区，Linux下前4个分区（主分区或扩展分区）用数字1-4表示，逻辑分区从5开始  </p>
-</blockquote>
-<p> /dev/hda2表示第1块<code>IDE</code>硬盘的第2个主分区或扩展分区<br> /dev/sdc6表示第3块<code>SCSI</code>硬盘的第2个逻辑分区  </p>
-<h2 id="二、Linux控制台"><a href="#二、Linux控制台" class="headerlink" title="二、Linux控制台"></a>二、Linux控制台</h2><p> 默认Linux下有6个字符控制台，独立作业，互不影响  </p>
-<p>Ctrl+Alt+F1~F6切换，Ctrl+Alt+F7从字符界面切换到X-window  </p>
-<h2 id="三、系统与硬件"><a href="#三、系统与硬件" class="headerlink" title="三、系统与硬件"></a>三、系统与硬件</h2><h3 id="1-Linux硬件资源管理"><a href="#1-Linux硬件资源管理" class="headerlink" title="1. Linux硬件资源管理"></a>1. Linux硬件资源管理</h3><h4 id="1-1-列出所有PCI设备"><a href="#1-1-列出所有PCI设备" class="headerlink" title="1.1 列出所有PCI设备"></a>1.1 列出所有PCI设备</h4><pre><code>lspci
-lspci -v // 更详细
-</code></pre><h4 id="1-2-查看CPU信息"><a href="#1-2-查看CPU信息" class="headerlink" title="1.2 查看CPU信息"></a>1.2 查看CPU信息</h4><pre><code>more /proc/cpuinfo
-</code></pre><blockquote>
-<p>processor：   逻辑处理器唯一标识符<br>physical id：  每个物理封装的唯一标识符，也就是一个物理CPU<br>siblings：　   相同物理封装中的逻辑处理器数量<br>core id：　　 每个内核唯一标识符<br>cpu cores：　相同物理封装中的内核数量  </p>
-</blockquote>
-<p>在<code>siblings</code>和<code>cpu cores</code>值之间有对应关系，<br>如果<code>siblings</code>是<code>cpu cores</code>的两倍，则说明系统支持超线程，并且已打开<br>如果<code>siblings</code>与<code>cpu cores</code>值相同，则说明系统不支持超线程，或未打开超线程<br>查看物理CPU个数、查看每个物理CPU中内核的个数、查看系统所有逻辑CPU的个数（所有物理CPU内核个数+超线程个数）</p>
-<pre><code>// 查看物理CPU个数
-cat /proc/cpuinfo | grep &quot;physical id&quot; | sort | uniq | wc -l
-
-// 查看每个物理CPU中内核个数
-cat /proc/cpuinfo | grep &quot;cpu cores&quot;
-
-//查看系统所有逻辑CPU个数
-cat /proc/cpuinfo | grep processor | wc -l
-</code></pre><h4 id="1-3-查看系统内存信息"><a href="#1-3-查看系统内存信息" class="headerlink" title="1.3 查看系统内存信息"></a>1.3 查看系统内存信息</h4><pre><code>more /proc/meminfo
-</code></pre><h4 id="1-4-查看磁盘分区信息"><a href="#1-4-查看磁盘分区信息" class="headerlink" title="1.4 查看磁盘分区信息"></a>1.4 查看磁盘分区信息</h4><pre><code>fdisk -l
-</code></pre><h3 id="2-Linux外在设备的使用"><a href="#2-Linux外在设备的使用" class="headerlink" title="2. Linux外在设备的使用"></a>2. Linux外在设备的使用</h3><p>设备文件在Linux系统下的/dev下，命名方式是主设备号+次设备号，主设备号说明设备类型，次设备号说明具体指哪个设备</p>
-<blockquote>
-<p>软盘：　　/dev/fd(1,2..)<br>U盘：　　 /dev/sd(a,b..)(1,2..)　　U盘在Linux下识别为SCSI设备<br>光驱：　　IDE光驱对应/dev/hd(a,b..)，SCSI光驱对应/dev/sr(1,2..)<br>磁带：　　/dev/st(1,2..)  </p>
-</blockquote>
-<h4 id="2-1-文件系统类型"><a href="#2-1-文件系统类型" class="headerlink" title="2.1 文件系统类型"></a>2.1 文件系统类型</h4><table>
-<thead>
-<tr>
-<th>文件系统格式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>msdos</td>
-<td>DOS文件系统类型</td>
-</tr>
-<tr>
-<td>vfat</td>
-<td>支持长文件名的DOS分区文件系统类型，也可以理解为Windows文件系统类型</td>
-</tr>
-<tr>
-<td>iso9660</td>
-<td>光盘格式文件系统类型</td>
-</tr>
-<tr>
-<td>ext2/ext3/ext4</td>
-<td>Linux常见文件系统类型</td>
-</tr>
-<tr>
-<td>xfs</td>
-<td>Linux下一种高性能日志文件系统，CentOS 7后作为默认文件系统</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2-2-挂载设备："><a href="#2-2-挂载设备：" class="headerlink" title="2.2 挂载设备："></a>2.2 挂载设备：</h4><pre><code>mount -t 文件系统类型 设备名 挂载点
-</code></pre><blockquote>
-<p>/mnt:    专门作为临时挂载点目录<br>/media: 自动挂载目录</p>
-</blockquote>
-<pre><code>mount -t msdos /dev/fd0 /mnt/floppu    // 挂载软盘
-mount -t vfat /dev/sda1 /mnt/usb       // 挂载U盘
-mount -t iso9660 /dev/hda /mnt/cdrom   // 挂载光盘
-mount /dev/cdrom /mnt/cdrom            // 挂载光盘
-</code></pre><h4 id="2-3-卸载设备："><a href="#2-3-卸载设备：" class="headerlink" title="2.3 卸载设备："></a>2.3 卸载设备：</h4><pre><code>umount 挂载目录
-umount /mnt/usb            // 卸载U盘
-umount /mnt/cdrom          // 卸载光盘
-</code></pre><h2 id="四、文件系统结构"><a href="#四、文件系统结构" class="headerlink" title="四、文件系统结构"></a>四、文件系统结构</h2><p>Linux系统以文件的形式全部存放在根目录下，同时分类分层组织成了一个树形目录结构</p>
-<blockquote>
-<p><strong>/etc</strong> ：　　存放系统管理相关配置文件以及子目录（重要的有初始化文件/etc/rc 用户信息/etc/passwd 守护进程/etc/crontab DNS配置文件/etc/resolv.conf）<br><strong>/usr</strong>：　　 主要存放应用程序和文件<br><strong>/var</strong>：　　 主要存放系统运行与软件运行的日志信息<br><strong>/dev</strong>：　　主要存放系统设备文件<br><strong>proc</strong>：　   是一个<code>虚拟</code>目录，目录中所有信息都是内存的映射，可以获得进程相关信息并且也可以在系统运行的时候修改内核参数，<code>/proc目录存在于内存而不是硬盘</code><br><strong>/boot</strong>：　　存放Linux启动文件<br><strong>/bin与/sbin</strong>：　存放可执行的二进制文件，是binary的缩写。 /bin目录存放的是常用Linux命令，/sbin目录中的s是指超级用户，只有超级用户才能执行这些，常见如磁盘检查修复fcsk，磁盘分区fdisk，创建文件系统mkfs，关机shutdown，初始化系统init<br><strong>/home</strong>：　 每个用户的工作目录<br><strong>/lib</strong>：　　   共享程序库与映像文件<br><strong>/root</strong>：　　 超级用户默认主目录<br><strong>/run</strong>：　　 外在设备自动挂载点目录，/media与/run基本类似，/mnt是手动挂载点<br><strong>/lost+found</strong>： 用于保存丢失的文件，比如不恰当关机与磁盘错误导致文件丢失，之后会放在这里，除了/根目录外，每个分区均有这个目录<br><strong>/tmp</strong>：　　临时文件目录  </p>
-</blockquote>
-<h2 id="五、系统服务管理工具systemd"><a href="#五、系统服务管理工具systemd" class="headerlink" title="五、系统服务管理工具systemd"></a>五、系统服务管理工具systemd</h2><h3 id="1-启动、停止、重启、重新加载服务"><a href="#1-启动、停止、重启、重新加载服务" class="headerlink" title="1. 启动、停止、重启、重新加载服务"></a>1. 启动、停止、重启、重新加载服务</h3><pre><code>systemctl start httpd.service            // 启动
-systemctl stop  httpd.service            // 停止
-systemctl restart httpd.service          // 重启（服务没运行则开启）
-systemctl reload httpd.service           // 重新加载配置文件
-</code></pre><h3 id="2-查看、禁止、启用服务"><a href="#2-查看、禁止、启用服务" class="headerlink" title="2. 查看、禁止、启用服务"></a>2. 查看、禁止、启用服务</h3><p>这里的启用、禁用服务是指开机启动</p>
-<pre><code>systemctl enable http.service         // 启用服务
-systemctl disable http.service        // 禁止服务
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/05/循序渐进Linux1：Linux的基本结构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-CDN与SDN" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -426,7 +274,7 @@ systemctl disable http.service        // 禁止服务
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Juntaran
+    		&copy; 2018 Juntaran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -557,6 +405,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OLAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">比特币</a>
               </li>
             
             <div class="clearfix"></div>

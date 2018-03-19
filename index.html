@@ -89,15 +89,7 @@
 		        
 					<a class="mail" target="_blank" href="mailto:jacinthmail@gmail.com" title="mail"><i class="icon-mail"></i></a>
 		        
-      </div>
-      <div class="social">
-      <!-- GoStats Simple HTML Based Code -->
-          <a target="_blank" title="Juntaran.me's hit"
-              href="http://Juntaran.me"><img alt="web site traffic statistics"
-              src="//www.gostats.org/0.png?a=100493712&ct=4&ci=82" style="border-width:0" />
-          </a>
-      <!-- End GoStats Simple HTML Based Code -->
-      </div>
+			</div>
 		</nav>
 	</header>		
 </div>
@@ -166,42 +158,146 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-文件dos格式转unix格式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-从零认识区块链" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/06/文件dos格式转unix格式/">文件dos格式转unix格式</a>
+      <a class="article-title" href="/2018/03/18/从零认识区块链/">从零认识区块链</a>
     </h1>
   
 
         
-        <a href="/2017/09/06/文件dos格式转unix格式/" class="archive-article-date">
-  	<time datetime="2017-09-06T08:46:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+        <a href="/2018/03/18/从零认识区块链/" class="archive-article-date">
+  	<time datetime="2018-03-18T09:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>2017.9.6</em></p>
-<p>windows 的文件上传到 linux 服务器总会有一些神奇的问题  </p>
-<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/dos_unix.jpg" alt="dos_unix"></p>
-<p>如上图，vim 提示 <code>[noeol][dos]</code><br>如果是脚本的话，在执行的时候会提示 <code>/bin/sh^M: bad interpreter: No such file or directory</code>  </p>
-<p>这些都是 windows 和 linux 编码格式不同的锅  </p>
+        <p><em>2018.3.18</em></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先，注意本文的标题是《从零认识区块链》，而不是《从零认识虚拟货币》<br>对于虚拟货币，我是比较排斥的，尤其是以比特币为代表，基于 POW(proof of work) 的虚拟货币<br>浪费硬件资源和电能，做无用的计算，从发白皮书到割韭菜  </p>
+<p>那么区块链和虚拟货币的区别在哪里？<br>比特币作为区块链的第一个应用，我们可以说比特币是区块链，但是区块链并不是比特币<br>本文忽略了<code>交易</code>的实现以及算法，重点在于阐释区块链的构造，以及一个应用价值较高的非数字货币的项目  </p>
+<p>本文在 NIST(National Institute of Standards and Technology) 于2018年1月的区块链技术综述上，结合作者之前了解的相关理论，以分析区块链的构造为宗旨、以作者的喜好为转移，实现了一个简易版本的区块链并在最后介绍了一个具有 <code>实际价值</code> 的落地项目  </p>
+<h2 id="1-区块链历史"><a href="#1-区块链历史" class="headerlink" title="1 区块链历史"></a>1 区块链历史</h2><p>2008年中本聪发表了论文《Bitcoin: A Peer-to-Peero Electronic Cash System》。在该文认为在交易的过程中，两者之间缺乏信任需要引入第三方中介，这样会增加交易成本还会泄露给信息给第三方。于是他提出了比特币挖矿和交易方案  </p>
+<p>2009年1月3日，中本聪创世块诞生，留下了当时泰晤士报头版标题 “The Times 03/Jan/2009 Chancellor on brink of second bailout for banks”   </p>
+<h2 id="2-区块链结构"><a href="#2-区块链结构" class="headerlink" title="2 区块链结构"></a>2 区块链结构</h2><h3 id="2-1-地址"><a href="#2-1-地址" class="headerlink" title="2.1 地址"></a>2.1 地址</h3><p>每个用户都有一个自己的 Address，一个用户的 <code>address</code> 是一个简短的、字母+数字形式的字符串，由用户的公钥以及一些其他的数据(用于校验错误)，使用 hash 推导而来，address 用来发送接收数字资产</p>
+<p>大多数的区块链系统利用 <code>to</code> 和 <code>from</code> 作为交易的两端，地址是由公钥经过 hash 后生成的  </p>
+<p>用户可以生成许多对 private/public key 用来生成地址，允许不同程度的伪匿名<br>在一个区块链中，对于用户来说，地址就是他的 <code>身份</code> ，有时候 address 会被转化成二维码从而更方便的使用  </p>
+<p>当一个区块链分配数字资产的时候，它通过把资产分配到地址来实现<br>为了花费数字资产，一个用户必须证明该 <code>address</code> 对应的 <code>私钥</code> 的所有权<br>通过使用私钥来对一个 <code>transaction</code> 进行数字签名，该 transaction 可以通过公钥来验证   </p>
+<h3 id="2-2-账本"><a href="#2-2-账本" class="headerlink" title="2.2 账本"></a>2.2 账本</h3><p>区块链在虚拟货币方向的应用主要是分布式记账，在传统的数据库中，通常由集中“可信”的第三方进行操作，换句话说，这个“第三方”就是账本的拥有者。  </p>
+<p>传统记账的缺点:  </p>
+<ul>
+<li>账本可能丢失或损坏，用户必须相信第三方备份系统的可靠性    </li>
+<li>交易可能不合法，用户必须相信第三方会合法的处理交易  </li>
+<li>交易列表可能不完整，用户必须相信第三方记录了完整的交易信息  </li>
+<li>交易内容可能被改变，用户必须相信第三方不会篡改历史记录  </li>
+</ul>
+<p>区块链的改进:  </p>
+<ul>
+<li>区块链为了解决这些问题，采用了分布式共识机制(distributed consensus mechanism)  </li>
+<li>区块链账本会被复制到系统中的每个节点  </li>
+<li>如果有一个新的交易请求提交到某个节点，会通知区块链系统中剩余的节点有一个交易的到达  </li>
+<li>当系统中有新的用户加入，他会收到一份完整的区块链账本复制  </li>
+</ul>
+<p>因此区块链系统丢失或者篡改账本与传统集中第三方处理相比，安全可靠的多  </p>
+<h2 id="3-Blockchain"><a href="#3-Blockchain" class="headerlink" title="3 Blockchain"></a>3 Blockchain</h2><p>一个区块链系统为了创造一个新的 block，会采用一些策略<br>比如谁先算出 puzzle 的节点就获得生成下一个 block 的权利<br>一旦 puzzle 被解决，该节点会创造 block 的数据并存储同步  </p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/blockchain.png" alt="blockchain"></p>
+<h3 id="3-1-block"><a href="#3-1-block" class="headerlink" title="3.1 block"></a>3.1 block</h3><p>从图中可以看到，一个 block 是由以下组成的:  </p>
+<p>区块头:  </p>
+<ul>
+<li>prevHash: 上一个区块 hash  </li>
+<li>Merkle Tree Root Hash  </li>
+<li>timestamp: 时间戳  </li>
+<li>Nonce: 解决 puzzle 的随机数  </li>
+</ul>
+<p>区块体:  </p>
+<ul>
+<li>Hash: 对当前区块头的哈希值  </li>
+<li>Transaction List: 交易集合</li>
+</ul>
+<h3 id="3-2-Merkle-Tree"><a href="#3-2-Merkle-Tree" class="headerlink" title="3.2 Merkle Tree"></a>3.2 Merkle Tree</h3><p>从图中可以看到有一个 Merkle Tree，是一种哈希二叉树<br>常见的 Merkle Tree 应用方法是令每一个叶子节点都是 hash 值<br>两个叶子节点的父节点是他们求和再次哈希<br>Merkle Tree 用于记录一个区块中所有的交易信息<br>以比特币为例，每10分钟生成一个区块，在这十分钟内所有的比特币交易会写入 <code>transaction list</code><br>区块中任何一笔交易的改变都会修改整个 Merkle Tree  </p>
+<h3 id="3-3-Nonce"><a href="#3-3-Nonce" class="headerlink" title="3.3 Nonce"></a>3.3 Nonce</h3><p>Nonce 是一个随机数，创建一个 block 的时候会对区块头和 nonce 进行哈希计算<br>如果验证通过则挖矿成功<br>而为了验证通过，只能不断尝试各种随机数，比如难度设置为5，即 <code>想要哈希值前缀为 00000</code>，会不断利用新的随机数进行尝试<br>因为区块头包含 timestamp，所以不会出现一劳永逸的答案  </p>
+<h2 id="4-共识算法"><a href="#4-共识算法" class="headerlink" title="4 共识算法"></a>4 共识算法</h2><ol>
+<li>Pow(proof of work) 工作量证明，浪费算力挖矿  </li>
+<li>Pos(proof of stake) 权益证明，每个节点所占代币的比例越多，难度越低  </li>
+<li>R-R(Round Robin) 轮询算法</li>
+</ol>
+<p>Pow 与 Pos 都是一种随机选择下一个 block 上传者的方式<br>不同的是，Pow 根据计算能力随机 （如果攻击者伪造，需要 51% 的算力）<br>Pos 根据拥有财产随机 （如果攻击者伪造，需要拥有 51% 的货币）  </p>
+<h3 id="4-1-Pow-工作量证明"><a href="#4-1-Pow-工作量证明" class="headerlink" title="4.1 Pow 工作量证明"></a>4.1 Pow 工作量证明</h3><p>比特币每2周调整一次 puzzle 难度，每十分钟生成一个新的 block，使用 SHA-256 算法，经测试，难度为 <code>00000</code> 时，需要计算 10,730,896 次，用时 54 秒；难度为 <code>000000</code> 时，计算了 934,224,175 次，用时 1h18min12s<br>根据不同的难度求解很难，但是验证很方便，只需要进行一次 hash ，查一下 hash 结果前缀0的个数就可以判断了<br>Pow 的缺点在于浪费了大量的算力、前后期贫富差异过大、浪费电力；优点在于可靠性  </p>
+<h3 id="4-2-Pos-权益证明"><a href="#4-2-Pos-权益证明" class="headerlink" title="4.2 Pos 权益证明"></a>4.2 Pos 权益证明</h3><p>Pos 选择生成 block 节点的方案很有趣，他有一个多轮投票机制，系统会选择几个“股权”用户，然后让所有“股权”用户投票<br>Pos 的缺点在于“富人”可以更加容易地获取数字资产，但是在一个系统中获得 &gt;50% 的资产成本极高  </p>
+<h3 id="4-3-R-R-轮询算法"><a href="#4-3-R-R-轮询算法" class="headerlink" title="4.3 R-R 轮询算法"></a>4.3 R-R 轮询算法</h3><p>系统轮询，每个节点都有机会创造新的 block ，当被轮询的节点不可用时，系统会进行随机选择<br>轮询的优点在于无需确定一个复杂的共识机制来决定谁产出新 block、保证不会出现某一个节点成为“大多数”、不浪费资源；缺点在于系统中的节点处于某种程度上的互信，在开放式网络中的表现不好，因为恶意节点会持续增加  </p>
+<h3 id="4-4-冲突解决"><a href="#4-4-冲突解决" class="headerlink" title="4.4 冲突解决"></a>4.4 冲突解决</h3><p>多数区块链系统采用 “长者优先” 原则<br>冲突一旦发生会很快解决，根据 “长者优先” 的策略确定一个 <code>offical</code> 链，再由他增加下一个合法的 block，非该链发生的交易会被添加进来  </p>
+<h2 id="5-一个可用的落地项目-IPFS"><a href="#5-一个可用的落地项目-IPFS" class="headerlink" title="5 一个可用的落地项目: IPFS"></a>5 一个可用的落地项目: IPFS</h2><h3 id="5-1-简介"><a href="#5-1-简介" class="headerlink" title="5.1 简介"></a>5.1 简介</h3><p>IPFS(InterPlanetary File System)，星际文件系统<br>名字很好听，是一个 <code>点对点的分布式版本文件系统</code> ，目标是为了补充(取代) HTTP<br>把所有具有 <code>相同文件</code> 系统的计算设备连接在一起<br>用 <code>基于内容</code> 的地址替代<code>基于域名</code>的地址<br>这样用户寻找的不是某个 <code>地址</code> 而是存储在某个地方的 <code>内容</code><br>无需验证发送者的身份，只验证内容的 hash 值<br>从而提升网页速度、更快、更安全  </p>
+<p>可以把 IPFS 想象成所有文件数据是在同一个 BitTorrent 群并且通过同一个 Git 仓库存取  </p>
+<h3 id="5-2-IPFS-原理"><a href="#5-2-IPFS-原理" class="headerlink" title="5.2 IPFS 原理"></a>5.2 IPFS 原理</h3><p>HTTP 可以视为一种集中化的协议，有以下几个缺点:  </p>
+<ol>
+<li>容易遭受 DDoS 攻击  </li>
+<li>过度依赖于骨干网  </li>
+<li>容易被监视审查控制  </li>
+</ol>
+<p>HTTP 首先 <code>基于域名</code> 寻找服务器 IP 地址，之后根据路径访问资源<br>IPFS 则是根据内容哈希，通过底层的 DHT(分布式哈希表) 来快速找到拥有数据的节点<br>可以把 IPFS 简单视作为 CDN  </p>
+<p>以下摘自 <a href="http://www.infoq.com/cn/articles/ipfs" target="_blank" rel="external">http://www.infoq.com/cn/articles/ipfs</a><br>前人写的已经够好了，无需我再废话  </p>
+<blockquote>
+<p>向 IPFS 分布式网络询问哈希的时候，它通过使用一个分布式哈希表<br>可以快速（在一个拥有 10,000,000 个节点的网络中只需要 20 跳）地找到拥有数据的节点<br>从而检索该数据，并使用哈希验证这是否是正确的数据  </p>
+<p>IPFS 是通用的，并且存储限制很少。它服务的文件可大可小<br>对于一些大的文件，它会自动将其切割为一些小块，使 IPFS 节点不仅仅可以像 &gt; &gt; HTTP 一样从一台服务器上下载文件，而且可以从数百台服务器上进行同步下载<br>IPFS 网络是一个细粒度的、不可靠的、分布式的、易联合的内容分发网络（Content Delivery Network , CDN）<br>对于所有数据类型都是很有用的，包括图像、视频流、分布式数据库、操作系统、blockchains 等，而对于 IPFS 来说，最重要的是静态 web 网站  </p>
+<p>IPFS 文件也可以是特殊的 IPFS 目录对象，它允许用户使用人类可读的文件名，透明地链接到其他 IPFS 哈希<br>用户可以通过默认方式加载目录中的 index.html，这也是标准的 HTTP 服务器采用的方式<br>使用目录对象，IPFS可允许用户采用完全相同的方式生成静态网站<br>将 web 网站添加到 IPFS 节点中只需要 <code>ipfs add -r yoursitedirectory</code><br>在此之后，用户可以从任何 IPFS 节点访问，而不需要链接到 HTML 上的任何哈希  </p>
+</blockquote>
+<p>简而言之就是结合 DHT 和 blockchain 组成了一个 “CDN”  </p>
+<h3 id="5-3-使用前提"><a href="#5-3-使用前提" class="headerlink" title="5.3 使用前提"></a>5.3 使用前提</h3><ul>
+<li>自备翻墙 :L  </li>
+<li>Mac | Linux (虽然 Windows 也支持，但是我并不想研究)  </li>
+<li>Go Env (最好有，如果喜欢源码编译的话)</li>
+</ul>
+<h3 id="5-4-安装-GPG"><a href="#5-4-安装-GPG" class="headerlink" title="5.4 安装 GPG"></a>5.4 安装 GPG</h3><ul>
+<li>GPG 的作用在于加密文件，如果不想对共享文件进行加密可以略过  </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">brew install gnupg</div><div class="line"></div><div class="line">gpg --gen-key</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 输入相关信息，结果如下:  </span></div><div class="line"></div><div class="line"><span class="comment"># 我们需要生成大量的随机字节。这个时候您可以多做些琐事(像是敲打键盘、移动</span></div><div class="line"><span class="comment"># 鼠标、读写硬盘之类的)，这会让随机数字发生器有更好的机会获得足够的熵数。</span></div><div class="line"><span class="comment"># 我们需要生成大量的随机字节。这个时候您可以多做些琐事(像是敲打键盘、移动</span></div><div class="line"><span class="comment"># 鼠标、读写硬盘之类的)，这会让随机数字发生器有更好的机会获得足够的熵数。</span></div><div class="line"><span class="comment"># gpg: /Users/juntaran/.gnupg/trustdb.gpg：建立了信任度数据库</span></div><div class="line"><span class="comment"># gpg: 密钥 1ED9DF99E4F3A740 被标记为绝对信任</span></div><div class="line"><span class="comment"># gpg: directory '/Users/juntaran/.gnupg/openpgp-revocs.d' created</span></div><div class="line"><span class="comment"># gpg: revocation certificate stored as '/Users/juntaran/.gnupg/openpgp-revocs.d/07B03EDCEE49F5AFF4CE0C121ED9DF99E4F3A740.rev'</span></div><div class="line"><span class="comment"># 公钥和私钥已经生成并经签名。</span></div><div class="line"></div><div class="line"><span class="comment"># pub   rsa2048 2018-03-12 [SC] [有效至：2020-03-11]</span></div><div class="line"><span class="comment">#       07B03EDCEE49F5AFF4CE0C121ED9DF99E4F3A740</span></div><div class="line"><span class="comment"># uid                      Juntaran &lt;jacinthmail@gmail.com&gt;</span></div><div class="line"><span class="comment"># sub   rsa2048 2018-03-12 [E] [有效至：2020-03-11]</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导出公钥</span></div><div class="line">gpg --<span class="built_in">export</span> --armor jacinthmail@gmail.com &gt; Juntaran.pub.asc</div><div class="line"></div><div class="line"><span class="comment"># 导出私钥</span></div><div class="line">gpg -o Juntaran.sec.key --<span class="built_in">export</span>-secret-keys Juntaran</div></pre></td></tr></table></figure>
+<p>可以使用以下命令导入你生成的 pubkey:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gpg --import pubkey.asc</div></pre></td></tr></table></figure>
+<p>列出 key:   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gpg --list-keys</div></pre></td></tr></table></figure>
+<h3 id="5-5-安装-IPFS"><a href="#5-5-安装-IPFS" class="headerlink" title="5.5 安装 IPFS"></a>5.5 安装 IPFS</h3><p>参考 <a href="https://ipfs.io/docs/install/" target="_blank" rel="external">https://ipfs.io/docs/install/</a> 安装  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 源码编译(我建议还是算了)</span></div><div class="line">go get github.com/jbenet/go-ipfs/cmd/ipfs</div><div class="line"></div><div class="line"><span class="comment"># Linux</span></div><div class="line">wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_linux-amd64.tar.gz</div><div class="line"></div><div class="line"><span class="comment"># Mac OS</span></div><div class="line">wget https://dist.ipfs.io/go-ipfs/v0.4.13/go-ipfs_v0.4.13_darwin-amd64.tar.gz</div><div class="line"></div><div class="line">tar xfz go-ipfs_v0.4.13_darwin-amd64.tar.gz</div><div class="line"><span class="built_in">cd</span> go-ipfs </div><div class="line">./install.sh</div><div class="line"></div><div class="line"><span class="comment"># Test</span></div><div class="line">ipfs <span class="built_in">help</span></div></pre></td></tr></table></figure>
+<p>初始化:  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">ipfs init</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line"></div><div class="line">initializing IPFS node at /Users/juntaran/.ipfs</div><div class="line">generating 2048-bit RSA keypair...done</div><div class="line">peer identity: QmdA8cVQeFEjTBFNvLQXzsJtYDCjD3HacaSjTCLVhN2Md1</div><div class="line">to get started, enter:</div><div class="line"></div><div class="line">	ipfs cat /ipfs/QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv/readme</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 节点数据同步</span></div><div class="line">ipfs daemon</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line"></div><div class="line"><span class="comment"># Initializing daemon...</span></div><div class="line"><span class="comment"># Swarm listening on /ip4/10.232.64.161/tcp/4001</span></div><div class="line"><span class="comment"># Swarm listening on /ip4/10.37.129.2/tcp/4001</span></div><div class="line"><span class="comment"># Swarm listening on /ip4/127.0.0.1/tcp/4001</span></div><div class="line"><span class="comment"># Swarm listening on /ip6/::1/tcp/4001</span></div><div class="line"><span class="comment"># Swarm listening on /p2p-circuit/ipfs/QmdA8cVQeFEjTBFNvLQXzsJtYDCjD3HacaSjTCLVhN2Md1</span></div><div class="line"><span class="comment"># Swarm announcing /ip4/10.232.64.161/tcp/4001</span></div><div class="line"><span class="comment"># Swarm announcing /ip4/10.37.129.2/tcp/4001</span></div><div class="line"><span class="comment"># Swarm announcing /ip4/127.0.0.1/tcp/4001</span></div><div class="line"><span class="comment"># Swarm announcing /ip6/::1/tcp/4001</span></div><div class="line"><span class="comment"># API server listening on /ip4/127.0.0.1/tcp/5001</span></div><div class="line"><span class="comment"># Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080</span></div><div class="line"><span class="comment"># Daemon is ready</span></div></pre></td></tr></table></figure>
+<p>随便找一个文件放到 <code>ipfs</code> 的目录里  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gpg --encrypt --recipient <span class="string">"Juntaran"</span> test.pdf</div><div class="line"></div><div class="line"><span class="comment"># md5检验</span></div><div class="line">md5sum test.pdf</div><div class="line"><span class="comment"># 57f4e4fd59c28ea46a759e5886ef9df3  test.pdf</span></div></pre></td></tr></table></figure>
+<p>此时该文本已经被加密<br>上传到 ipfs</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">ipfs add test.pdf.gpg</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line"><span class="comment"># added QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr test.pdf.gpg</span></div><div class="line"></div><div class="line"><span class="comment"># 如果想上传一个目录 -r</span></div><div class="line"></div><div class="line"><span class="comment"># 检查是否上传成功</span></div><div class="line">ipfs pin ls | grep QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line"><span class="comment"># QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr recursive</span></div><div class="line"></div><div class="line"><span class="comment"># 预览数据</span></div><div class="line">ipfs cat QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr</div><div class="line"></div><div class="line"><span class="comment"># 从 ipfs 下载（从当前节点下载，并非从 ipfs 网络下载）</span></div><div class="line"></div><div class="line">ipfs get QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line"><span class="comment"># Saving file(s) to QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr</span></div><div class="line"><span class="comment">#  28.07 MB / 28.07 MB [===========================================================] 100.00% 0s</span></div><div class="line"></div><div class="line"><span class="comment"># 解密</span></div><div class="line"></div><div class="line">gpg --decrypt QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr &gt; test.pdf</div><div class="line"></div><div class="line"><span class="comment"># 检查结果</span></div><div class="line">du -sh *</div><div class="line"></div><div class="line"><span class="comment"># 28M	QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr</span></div><div class="line"><span class="comment"># 30M	test.pdf</span></div></pre></td></tr></table></figure>
+<p>打开浏览器，输入 <a href="http://localhost:5001/webui" target="_blank" rel="external">http://localhost:5001/webui</a> 你会看到你存储的文件以及连接到 ipfs 服务器的信息<br>从 IPFS 网络查看数据: <code>https://ipfs.io/ipfs/{hash值}</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://ipfs.io/ipfs/QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr</div></pre></td></tr></table></figure>
+<p>等待一段时间后，你就会收到我的加密后的 pdf～  </p>
+<p>在另一台服务器下载后  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 首先要分发私钥，不建议这样做，我只是为了测试</span></div><div class="line"><span class="comment"># 正常流程应该是用A的公钥由B加密上传，A从 ipfs 网络下载后直接使用A的私钥解密</span></div><div class="line"></div><div class="line"><span class="comment"># 导入私钥</span></div><div class="line">gpg --import Juntaran.sec.key</div><div class="line"></div><div class="line"><span class="comment"># 解密</span></div><div class="line">gpg QmaAHZbevQL9wRUVAWEeUmxkkqftTrffnmRN2GszBVGKVr &gt; test.pdf</div><div class="line"></div><div class="line"><span class="comment"># 检验</span></div><div class="line">md5sum test.pdf</div><div class="line"><span class="comment"># 57f4e4fd59c28ea46a759e5886ef9df3  test.pdf</span></div><div class="line"><span class="comment"># 可以看到和最初的文档一致</span></div></pre></td></tr></table></figure>
+<p>上传了一个未 GPG 加密的 txt 文档<br>可以直接翻墙从 IPFS 访问，无需解密: <a href="https://ipfs.io/ipfs/QmSnyy9Z934Rwj11tVgyPiQq5v9TgdxPvzavgEfnQWECtm" target="_blank" rel="external">https://ipfs.io/ipfs/QmSnyy9Z934Rwj11tVgyPiQq5v9TgdxPvzavgEfnQWECtm</a>   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget https://ipfs.io/ipfs/QmSnyy9Z934Rwj11tVgyPiQq5v9TgdxPvzavgEfnQWECtm</div><div class="line">cat QmSnyy9Z934Rwj11tVgyPiQq5v9TgdxPvzavgEfnQWECtm</div><div class="line"></div><div class="line"><span class="comment"># Hello IPFS from Juntaran</span></div></pre></td></tr></table></figure>
+<h3 id="5-6-扩展"><a href="#5-6-扩展" class="headerlink" title="5.6 扩展"></a>5.6 扩展</h3><h4 id="5-6-1-Filecoin"><a href="#5-6-1-Filecoin" class="headerlink" title="5.6.1 Filecoin"></a>5.6.1 Filecoin</h4><p>为什么把 IPFS 放在这里呢，因为这是一个落地的应用，而不是无谓的浪费电力<br>有人提出了 <code>Filecoin</code> 作为 IPFS 的激励系统，也就是 IPFS 的代币<br>Filecoin 也是基于区块链的产物，在 Filecoin 中，矿工不通过大量计算来进行工作证明<br>矿工的任务是存储，工作量也就等价于复制量    </p>
+<h4 id="5-6-2-对韭当割"><a href="#5-6-2-对韭当割" class="headerlink" title="5.6.2 对韭当割"></a>5.6.2 对韭当割</h4><p>迅雷的 <code>玩客云</code> 也类似于 IPFS，搞了个 <code>链克</code> 作为数字资产<br>有一种 Filecoin 和 IPFS 关系的感觉<br>但是首先，你要花 500 块钱去京东抢一个 <code>玩客云</code> 回来<br>点开评论，总是给人一种刷评论的感觉，还有人在评论里 2-3 倍价钱倒卖<br>突然有了一种连韭菜苗都要割的感觉  </p>
+<h3 id="5-7-总结"><a href="#5-7-总结" class="headerlink" title="5.7 总结"></a>5.7 总结</h3><p>IPFS 诞生已经几年了，希望能够借着区块链这波热度起飞～<br>成为真正的 <code>InterPlanetary</code>  </p>
+<h3 id="5-8-附录"><a href="#5-8-附录" class="headerlink" title="5.8 附录"></a>5.8 附录</h3><p>gpg 的简单操作</p>
+<h4 id="5-8-1-查看密钥"><a href="#5-8-1-查看密钥" class="headerlink" title="5.8.1 查看密钥"></a>5.8.1 查看密钥</h4><p>查看公钥：gpg –list-key<br>查看私钥：gpg –list-secret-keys  </p>
+<h4 id="5-8-2-提取密钥："><a href="#5-8-2-提取密钥：" class="headerlink" title="5.8.2 提取密钥："></a>5.8.2 提取密钥：</h4><p>提取公钥：gpg -a –export newkey &gt; newkey.asc<br>提取私钥：gpg -a –export-secret-keys newkey &gt; newkey_pirv.asc  </p>
+<h4 id="5-8-3-导入密钥"><a href="#5-8-3-导入密钥" class="headerlink" title="5.8.3 导入密钥"></a>5.8.3 导入密钥</h4><p>导入公钥或私钥：gpg –import newkey  </p>
+<h4 id="5-8-4-使用公钥加密文件："><a href="#5-8-4-使用公钥加密文件：" class="headerlink" title="5.8.4 使用公钥加密文件："></a>5.8.4 使用公钥加密文件：</h4><p>gpg -ea -r newkey filename<br>即会生成 filename.asc 的加密文件  </p>
+<h4 id="5-8-5-使用私钥解密"><a href="#5-8-5-使用私钥解密" class="headerlink" title="5.8.5 使用私钥解密"></a>5.8.5 使用私钥解密</h4><p>gpg -o filename -d filename.asc<br>输入私钥密码<br>即可把 filename.asc 的加密文件解密成 filename 文件  </p>
+<h4 id="5-8-6-删除密钥"><a href="#5-8-6-删除密钥" class="headerlink" title="5.8.6 删除密钥"></a>5.8.6 删除密钥</h4><p>删除私钥<br>gpg –delete-secret-key newkey<br>删除公钥<br>gpg –delete-key newkey   </p>
+<h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6 总结"></a>6 总结</h2><p>如果能看到最后说明你已经浪费了大约 1h 的时间在这里<br>本文介绍了区块链的构成以及一些主要的组成部件，在最后宣传了一下 IPFS  </p>
+<p>一个简易的区块链实现可以参考 <a href="https://github.com/Juntaran/EZChain" target="_blank" rel="external">https://github.com/Juntaran/EZChain</a><br>闲余时间参考了几个 gayhub 的源码写的 Demo，还未完全实现<br>关于区块链的硬分叉、软分叉、智能合约等会在以后补充 <a href="http://juntaran.me/2018/03/18/从零认识区块链/" target="_blank" rel="external">http://juntaran.me/2018/03/18/从零认识区块链/</a>  </p>
 <hr>
-<h2 id="在-windows-端解决方案："><a href="#在-windows-端解决方案：" class="headerlink" title="在 windows 端解决方案："></a>在 windows 端解决方案：</h2><p>打开 Notepad++ 【编码】-&gt;【以 UTF-8 无 BOM 格式编码】  </p>
-<h2 id="在-linux-端解决方案："><a href="#在-linux-端解决方案：" class="headerlink" title="在 linux 端解决方案："></a>在 linux 端解决方案：</h2><p>vim 打开文件  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">set</span> ff</div><div class="line"><span class="comment"># 或者是</span></div><div class="line">:<span class="built_in">set</span> fileformat</div></pre></td></tr></table></figure>
-<p>会显示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># windows</span></div><div class="line">fileformat=dos</div><div class="line"><span class="comment"># linux</span></div><div class="line">fileformat=unix</div></pre></td></tr></table></figure></p>
-<p>强制转换为 unix 格式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:<span class="built_in">set</span> ff-unix</div></pre></td></tr></table></figure></p>
-<p>脚本：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vi +<span class="string">':w ++ff=unix'</span> +<span class="string">':q'</span> test.txt</div><div class="line"></div><div class="line"><span class="comment"># ^M 为 Ctrl+V+M ，表示回车</span></div><div class="line">sed <span class="string">'s/^M//'</span> dos.txt &gt; tmp_filename</div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
-<li><a href="http://ju.outofmemory.cn/entry/56461" target="_blank" rel="external">关于 DOS 文件转换成 UNIX 文件格式</a></li>
-<li><a href="http://www.cnblogs.com/pipelone/archive/2009/04/17/1437879.html" target="_blank" rel="external">sh 脚本异常</a></li>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://csrc.nist.gov/publications/detail/nistir/8202/draft" target="_blank" rel="external">NIST Blockchain Technology Overview</a></li>
+<li><a href="https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf" target="_blank" rel="external">IPFS White Paper</a></li>
+<li><a href="https://github.com/ipfs/papers/" target="_blank" rel="external">IPFS</a></li>
+<li><a href="https://hacpai.com/article/1511015097370" target="_blank" rel="external">IPFS 入门笔记</a></li>
+<li><a href="http://www.infoq.com/cn/articles/ipfs" target="_blank" rel="external">IPFS：替代HTTP的分布式网络协议</a></li>
+<li><a href="http://blog.ghostinthemachines.com/2015/03/01/how-to-use-gpg-command-line/" target="_blank" rel="external">How To Use GPG on the Command Line</a></li>
+<li><a href="http://blog.csdn.net/cca306/article/details/46501113" target="_blank" rel="external">gpg 使用说明</a></li>
+<li><a href="http://blog.itpub.net/26355921/viewspace-1248091/" target="_blank" rel="external">Linux下 GPG 的简单使用</a></li>
 </ul>
 
       
@@ -216,11 +312,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">比特币</a>
         		</li>
       		
 		</ul>
@@ -232,7 +328,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        			<a href="/categories/Blockchain/" class="article-tag-list-link color1">Blockchain</a>
         		</li>
       		
 		</ul>
@@ -241,7 +337,483 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/06/文件dos格式转unix格式/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/18/从零认识区块链/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Druid部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/25/Druid部署/">Druid 部署</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/25/Druid部署/" class="archive-article-date">
+  	<time datetime="2018-02-25T09:22:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2018.02.25</em></p>
+<h2 id="部署准备"><a href="#部署准备" class="headerlink" title="部署准备"></a>部署准备</h2><blockquote>
+<p>Java 8 or higher<br>Linux, Mac OS X, or other Unix-like OS (Windows is not supported)<br>8G of RAM<br>2 vCPUs  </p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl -O http://static.druid.io/artifacts/releases/druid-0.11.0-bin.tar.gz</div><div class="line">tar -xzf druid-0.11.0-bin.tar.gz</div><div class="line"><span class="built_in">cd</span> druid-0.11.0</div></pre></td></tr></table></figure>
+<ul>
+<li>LICENSE - the license files  </li>
+<li>bin/ - scripts useful for this quickstart  </li>
+<li>conf/* - template configurations for a clustered setup  </li>
+<li>conf-quickstart/* - configurations for this quickstart  </li>
+<li>extensions/* - all Druid extensions  </li>
+<li>hadoop-dependencies/* - Druid Hadoop dependencies  </li>
+<li>lib/* - all included software packages for core Druid  </li>
+<li>quickstart/* - files useful for this quickstart  </li>
+</ul>
+<p>开启 Zookeeper  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">curl http://www.gtlib.gatech.edu/pub/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz -o zookeeper-3.4.10.tar.gz</div><div class="line">tar -xzf zookeeper-3.4.10.tar.gz</div><div class="line"><span class="built_in">cd</span> zookeeper-3.4.10</div><div class="line">cp conf/zoo_sample.cfg conf/zoo.cfg</div><div class="line">./bin/zkServer.sh start</div></pre></td></tr></table></figure>
+<p>开启 Druid 服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> druid-0.11.0</div><div class="line">bin/init</div><div class="line"></div><div class="line">java `cat conf-quickstart/druid/historical/jvm.config | xargs` -cp <span class="string">"conf-quickstart/druid/_common:conf-quickstart/druid/historical:lib/*"</span> io.druid.cli.Main server historical</div><div class="line"></div><div class="line">java `cat conf-quickstart/druid/broker/jvm.config | xargs` -cp <span class="string">"conf-quickstart/druid/_common:conf-quickstart/druid/broker:lib/*"</span> io.druid.cli.Main server broker</div><div class="line"></div><div class="line">java `cat conf-quickstart/druid/coordinator/jvm.config | xargs` -cp <span class="string">"conf-quickstart/druid/_common:conf-quickstart/druid/coordinator:lib/*"</span> io.druid.cli.Main server coordinator</div><div class="line"></div><div class="line">java `cat conf-quickstart/druid/overlord/jvm.config | xargs` -cp <span class="string">"conf-quickstart/druid/_common:conf-quickstart/druid/overlord:lib/*"</span> io.druid.cli.Main server overlord</div><div class="line"></div><div class="line">java `cat conf-quickstart/druid/middleManager/jvm.config | xargs` -cp <span class="string">"conf-quickstart/druid/_common:conf-quickstart/druid/middleManager:lib/*"</span> io.druid.cli.Main server middleManager</div></pre></td></tr></table></figure>
+<h2 id="加载-demo-数据"><a href="#加载-demo-数据" class="headerlink" title="加载 demo 数据"></a>加载 demo 数据</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X <span class="string">'POST'</span> -H <span class="string">'Content-Type:application/json'</span> -d @quickstart/wikiticker-index.json localhost:8090/druid/indexer/v1/task</div></pre></td></tr></table></figure>
+<p>可以去 <code>http://localhost:8090/console.html</code> 查看进度  </p>
+<p>完成之后可以进行查询操作</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -L -H<span class="string">'Content-Type: application/json'</span> -XPOST --data-binary @quickstart/wikiticker-top-pages.json http://localhost:8082/druid/v2/?pretty</div></pre></td></tr></table></figure>
+<h2 id="kafka"><a href="#kafka" class="headerlink" title="kafka"></a>kafka</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.us.apache.org/dist/kafka/0.9.0.0/kafka_2.11-0.9.0.0.tgz</div><div class="line">tar -xzf kafka_2.11-0.9.0.0.tgz</div><div class="line"><span class="built_in">cd</span> kafka_2.11-0.9.0.0</div><div class="line"></div><div class="line"><span class="comment"># 启动 kafka</span></div><div class="line">./bin/kafka-server-start.sh config/server.properties</div><div class="line"></div><div class="line"><span class="comment"># 创建 topic</span></div><div class="line">./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic pageviews</div></pre></td></tr></table></figure>
+<p>待输入格式  </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"time"</span>: <span class="string">"2000-01-01T00:00:00Z"</span>, <span class="attr">"url"</span>: <span class="string">"/foo/bar"</span>, <span class="attr">"user"</span>: <span class="string">"alice"</span>, <span class="attr">"latencyMs"</span>: <span class="number">32</span>&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim conf-quickstart/tranquility/kafka.json</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"dataSources"</span> : &#123;</div><div class="line">      <span class="attr">"pageviews-kafka"</span> : &#123;</div><div class="line">        <span class="attr">"spec"</span> : &#123;</div><div class="line">          <span class="attr">"dataSchema"</span> : &#123;</div><div class="line">            <span class="attr">"dataSource"</span> : <span class="string">"pageviews-kafka"</span>,</div><div class="line">            <span class="attr">"parser"</span> : &#123;</div><div class="line">              <span class="attr">"type"</span> : <span class="string">"string"</span>,</div><div class="line">              <span class="attr">"parseSpec"</span> : &#123;</div><div class="line">                <span class="attr">"timestampSpec"</span> : &#123;</div><div class="line">                  <span class="attr">"format"</span>: <span class="string">"auto"</span>,</div><div class="line">                  <span class="attr">"column"</span>: <span class="string">"time"</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">"dimensionsSpec"</span> : &#123;</div><div class="line">                  <span class="attr">"dimensions"</span> : [<span class="string">"url"</span>, <span class="string">"user"</span>]</div><div class="line">                &#125;,</div><div class="line">                <span class="attr">"format"</span> : <span class="string">"json"</span></div><div class="line">              &#125;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">"granularitySpec"</span> : &#123;</div><div class="line">              <span class="attr">"type"</span> : <span class="string">"uniform"</span>,</div><div class="line">              <span class="attr">"segmentGranularity"</span> : <span class="string">"hour"</span>,</div><div class="line">              <span class="attr">"queryGranularity"</span> : <span class="string">"none"</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attr">"metricsSpec"</span> : [</div><div class="line">              &#123;</div><div class="line">                <span class="attr">"name"</span>: <span class="string">"views"</span>,</div><div class="line">                <span class="attr">"type"</span>: <span class="string">"count"</span></div><div class="line">              &#125;,</div><div class="line">             &#123;</div><div class="line">                <span class="attr">"name"</span>: <span class="string">"latencyMs"</span>, </div><div class="line">                <span class="attr">"type"</span>: <span class="string">"doubleSum"</span>,</div><div class="line">                <span class="attr">"fieldName"</span>: <span class="string">"latencyMs"</span></div><div class="line">              &#125;</div><div class="line">            ]</div><div class="line">          &#125;,</div><div class="line">          <span class="attr">"ioConfig"</span> : &#123;</div><div class="line">            <span class="attr">"type"</span> : <span class="string">"realtime"</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">"tuningConfig"</span> : &#123;</div><div class="line">            <span class="attr">"type"</span> : <span class="string">"realtime"</span>,</div><div class="line">            <span class="attr">"maxRowsInMemory"</span> : <span class="string">"100000"</span>,</div><div class="line">            <span class="attr">"intermediatePersistPeriod"</span> : <span class="string">"PT10M"</span>,</div><div class="line">            <span class="attr">"windowPeriod"</span> : <span class="string">"PT10M"</span></div><div class="line">          &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">"properties"</span> : &#123;</div><div class="line">          <span class="attr">"task.partitions"</span> : <span class="string">"1"</span>,</div><div class="line">          <span class="attr">"task.replicants"</span> : <span class="string">"1"</span>,</div><div class="line">          <span class="attr">"topicPattern"</span> : <span class="string">"pageviews2"</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">"properties"</span> : &#123;</div><div class="line">      <span class="attr">"zookeeper.connect"</span> : <span class="string">"localhost"</span>,</div><div class="line">      <span class="attr">"druid.discovery.curator.path"</span> : <span class="string">"/druid/discovery"</span>,</div><div class="line">      <span class="attr">"druid.selectors.indexing.serviceName"</span> : <span class="string">"druid/overlord"</span>,</div><div class="line">      <span class="attr">"commit.periodMillis"</span> : <span class="string">"15000"</span>,</div><div class="line">      <span class="attr">"consumer.numThreads"</span> : <span class="string">"2"</span>,</div><div class="line">      <span class="attr">"kafka.zookeeper.connect"</span> : <span class="string">"localhost"</span>,</div><div class="line">      <span class="attr">"kafka.group.id"</span> : <span class="string">"tranquility-kafka"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>启动 Druid kafka</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/tranquility kafka -configFile ../druid-0.11.0/conf-quickstart/tranquility/kafka.json</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/kafka-server-start.sh config/server.properties</div></pre></td></tr></table></figure>
+<p>待发送的数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"time"</span>: <span class="string">"2000-01-01T00:00:00Z"</span>, <span class="attr">"url"</span>: <span class="string">"/foo/bar"</span>, <span class="attr">"user"</span>: <span class="string">"alice"</span>, <span class="attr">"latencyMs"</span>: <span class="number">32</span>&#125;</div><div class="line">&#123;<span class="attr">"time"</span>: <span class="string">"2000-01-01T00:00:00Z"</span>, <span class="attr">"url"</span>: <span class="string">"/"</span>, <span class="attr">"user"</span>: <span class="string">"bob"</span>, <span class="attr">"latencyMs"</span>: <span class="number">11</span>&#125;</div><div class="line">&#123;<span class="attr">"time"</span>: <span class="string">"2000-01-01T00:00:00Z"</span>, <span class="attr">"url"</span>: <span class="string">"/foo/bar"</span>, <span class="attr">"user"</span>: <span class="string">"bob"</span>, <span class="attr">"latencyMs"</span>: <span class="number">45</span>&#125;</div></pre></td></tr></table></figure>
+<p>需要对数据时间进行替换</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -c <span class="string">'import datetime; print(datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"))'</span></div></pre></td></tr></table></figure>
+<p>向 kafka 发送数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic pageviews</div></pre></td></tr></table></figure>
+<p>查询数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -L -H&apos;Content-Type: application/json&apos; -XPOST --data-binary @conf-quickstart/tranquility/kafka-query.json http://localhost:8082/druid/v2/\?pretty</div></pre></td></tr></table></figure>
+<p>kafka-query.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"queryType"</span> : <span class="string">"topN"</span>,</div><div class="line">  <span class="attr">"dataSource"</span> : <span class="string">"pageviews-kafka"</span>,</div><div class="line">  <span class="attr">"intervals"</span> : [<span class="string">"2018-03-07/2018-03-09"</span>],</div><div class="line">  <span class="attr">"granularity"</span> : <span class="string">"all"</span>,</div><div class="line">  <span class="attr">"dimension"</span> : <span class="string">"url"</span>,</div><div class="line">  <span class="attr">"metric"</span> : <span class="string">"latencyMs"</span>,</div><div class="line">  <span class="attr">"threshold"</span> : <span class="number">2</span>,</div><div class="line">  <span class="attr">"aggregations"</span> : [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"name"</span>: <span class="string">"latencyMs"</span>, </div><div class="line">      <span class="attr">"type"</span>: <span class="string">"doubleSum"</span>,</div><div class="line">      <span class="attr">"fieldName"</span>: <span class="string">"latencyMs"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OLAP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OLAP/" class="article-tag-list-link color5">OLAP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/25/Druid部署/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Kylin简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/28/Kylin简介/">Kylin 简介</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/28/Kylin简介/" class="archive-article-date">
+  	<time datetime="2017-12-27T18:21:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.12.28</em></p>
+<p>Apache Kylin 是 Hadoop 大数据平台的一个开源 <code>OLAP</code> 引擎，采用多维立方体预计算计数，能够把大数据的 SQL 查询速度提高到亚秒级别  </p>
+<blockquote>
+<p>OLAP: 联机分析处理，侧重决策支持，实时性要求不高<br>OLTP: 联机事务处理，关系数据库，具有实时性  </p>
+</blockquote>
+<h2 id="为什么使用-Kylin"><a href="#为什么使用-Kylin" class="headerlink" title="为什么使用 Kylin"></a>为什么使用 Kylin</h2><h3 id="现今优化点"><a href="#现今优化点" class="headerlink" title="现今优化点:"></a>现今优化点:</h3><ol>
+<li>大规模并行处理，以 <code>Hive</code> 为代表，调动多台机器一起并行计算，用线性增加的资源来换取计算时间的下降    </li>
+<li>列式存储将记录按列存放，如此可以再访问时只读取需要的列，还可以利用存储设备擅长于连续读取的特点，大大提高读取速率  </li>
+</ol>
+<h3 id="Kylin-解决方案"><a href="#Kylin-解决方案" class="headerlink" title="Kylin 解决方案"></a>Kylin 解决方案</h3><p>Kylin 的初衷是为了解决<code>千亿、万亿</code>记录的<code>秒级查询</code>问题  </p>
+<p><code>OLAP</code> 具有以下两个特点:  </p>
+<ol>
+<li>大数据查询要的是多条记录经过聚合函数计算后的统计值，不需要原始数据  </li>
+<li>数据的聚合是按照维度的，因为业务范围和分析需求是有限的，因此有意义的维度聚合组合也是相对有限的，不会随着数据的膨胀而增长  </li>
+</ol>
+<p>因此可以采用<code>预计算</code>方案，尽量多地预先计算聚合结果，在查询的时候尽量使用预算的结果而得出查询结果，从而避免直接扫描可能无限增长的原始记录  </p>
+<h2 id="Kylin-的工作原理"><a href="#Kylin-的工作原理" class="headerlink" title="Kylin 的工作原理"></a>Kylin 的工作原理</h2><p>维度组合: </p>
+<p>一个数据集如果有 4 个维度，那么所有维度的组合有 2^4 = 16  </p>
+<blockquote>
+<p>零维度有 1 种<br>一维度有 4 种<br>二维度有 C4/2 = 6 种<br>三维度有 C4/3 = 4 种<br>四纬度有 1 种   </p>
+</blockquote>
+<p>Kylin 会对数据模型进行预计算，并利用计算的结果加速查询  </p>
+<ol>
+<li>指定数据模型，定义维度和度量  </li>
+<li>预计算 Cube，计算所有 Cuboid 并保存为物化视图  </li>
+<li>执行查询时，读取 Cuboid ，运算，产生查询结果  </li>
+</ol>
+<h3 id="Cube-和-Cuboid"><a href="#Cube-和-Cuboid" class="headerlink" title="Cube 和 Cuboid"></a>Cube 和 Cuboid</h3><p>对于一个有 N 个维度的数据集来说，可能有 2^N 种组合<br>对于每一种维度的组合，将度量做聚合运算，然后把运算的结果保存为一个物化视图，称之为 <code>Cuboid</code><br>所有维度组合的 Cuboid 作为一个整体，称为 <code>Cube</code><br>一个 Cube 就是许多按照维度聚合的物化视图的集合  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OLAP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/OLAP/" class="article-tag-list-link color5">OLAP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/28/Kylin简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Kubernetes_1.8.1_集群部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/20/Kubernetes_1.8.1_集群部署/">从零认识区块链</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/20/Kubernetes_1.8.1_集群部署/" class="archive-article-date">
+  	<time datetime="2017-10-20T03:37:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.10.20</em></p>
+<p><em>学习 Kubernetes 是源于与韩飞师兄吃饭时的闲谈</em><br><em>人生郁郁不得志，工作苦无出路，师兄建议我去学 k8s 找找乐子</em><br><em>唉</em>    </p>
+<h2 id="1-配置-VMware-Fusion-环境"><a href="#1-配置-VMware-Fusion-环境" class="headerlink" title="1. 配置 VMware Fusion 环境:"></a>1. 配置 VMware Fusion 环境:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">sudo vim /Library/Preferences/VMware\ Fusion/vmnet8/dhcpd.conf</div><div class="line"></div><div class="line"><span class="comment"># 修改为以下配置</span></div><div class="line"></div><div class="line">allow unknown-clients;</div><div class="line">default-lease-time 1800;                <span class="comment"># default is 30 minutes</span></div><div class="line">max-lease-time 7200;                    <span class="comment"># default is 2 hours</span></div><div class="line"></div><div class="line">subnet 172.16.174.0 netmask 255.255.255.0 &#123;</div><div class="line">	range 172.16.174.130 172.16.174.140;</div><div class="line">	option broadcast-address 172.16.174.255;</div><div class="line">	option domain-name-servers 172.16.174.2;</div><div class="line">	option domain-name localdomain;</div><div class="line">	default-lease-time 1800;                <span class="comment"># default is 30 minutes</span></div><div class="line">	max-lease-time 7200;                    <span class="comment"># default is 2 hours</span></div><div class="line">	option netbios-name-servers 172.16.174.2;</div><div class="line">	option routers 172.16.174.2;</div><div class="line">&#125;</div><div class="line">host vmnet8 &#123;</div><div class="line">	hardware ethernet 00:50:56:C0:00:08;</div><div class="line">	fixed-address 172.16.174.1;</div><div class="line">	option domain-name-servers 0.0.0.0;</div><div class="line">	option domain-name <span class="string">""</span>;</div><div class="line">	option routers 0.0.0.0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">host k8s_master &#123;</div><div class="line">    hardware ethernet 00:0c:29:7b:18:db;</div><div class="line">    fixed-address 172.16.174.131;</div><div class="line">&#125;</div><div class="line">host k8s_node_1 &#123;</div><div class="line">    hardware ethernet 00:0c:29:6c:59:7f;</div><div class="line">    fixed-address 172.16.174.132;</div><div class="line">&#125;</div><div class="line">host k8s_node_2 &#123;</div><div class="line">    hardware ethernet 00:0c:29:3f:bf:65;</div><div class="line">    fixed-address 172.16.174.133;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来就是安装 Kubernetes 了，建议选择第一种安装方式，第二种适用于想单机部署玩一下的人～  </p>
+<h2 id="2-kubeadm-安装-Kubernetes-1-8-1"><a href="#2-kubeadm-安装-Kubernetes-1-8-1" class="headerlink" title="2: kubeadm 安装 Kubernetes 1.8.1"></a>2: kubeadm 安装 Kubernetes 1.8.1</h2><p>十九大期间在中国上外网，我真是石乐志，最后感谢阿里的开发者平台让我安装成功  </p>
+<h3 id="2-1-准备工作"><a href="#2-1-准备工作" class="headerlink" title="2.1 准备工作"></a>2.1 准备工作</h3><p>三台主机:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/hosts</div><div class="line"></div><div class="line">172.16.174.131 node1</div><div class="line">172.16.174.132 node2</div><div class="line">172.16.174.133 node3</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">disable</span> firewalld</div><div class="line">systemctl stop firewalld</div><div class="line"></div><div class="line">modprobe bridge</div><div class="line">modprobe br_netfilter</div><div class="line"></div><div class="line">swapoff -a</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysctl.d/k8s.conf</div><div class="line"></div><div class="line">net.bridge.bridge-nf-call-ip6tables = 1</div><div class="line">net.bridge.bridge-nf-call-iptables = 1</div><div class="line">vm.swappiness=0</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sysctl -p /etc/sysctl.d/k8s.conf</div><div class="line">setenforce 0</div><div class="line">vim /etc/selinux/config</div><div class="line">SELINUX=enforcing 改为 SELINUX=disabled</div><div class="line"><span class="built_in">source</span> /etc/selinux/config</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/fstab</div><div class="line"></div><div class="line"># 注释掉下面这一行</div><div class="line">/dev/mapper/centos-swap swap                    swap    defaults        0 0</div></pre></td></tr></table></figure>
+<p>解决 curl call error:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Errno 14] curl#77 - &quot;Problem with the SSL CA cert (path? access rights?)&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install ca-certificates -y</div></pre></td></tr></table></figure>
+<p>更新 yum 源:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加 163 源</span></div><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div><div class="line"><span class="built_in">cd</span> /etc/yum.repos.d</div><div class="line">wget http://mirrors.163.com/.<span class="built_in">help</span>/CentOS7-Base-163.repo</div><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加 docker 源</span></div><div class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</div><div class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 添加 google 源</span></div><div class="line">vim /etc/yum.repos.d/kubernetes.repo</div><div class="line"></div><div class="line">[kubernetes]</div><div class="line">name=Kubernetes</div><div class="line">baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64</div><div class="line">enabled=1</div><div class="line">gpgcheck=1</div><div class="line">repo_gpgcheck=1</div><div class="line">gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg</div><div class="line">        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg</div></pre></td></tr></table></figure>
+<p>安装 docker :  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前的 Docker 版本</span></div><div class="line">yum list docker-ce.x86_64  --showduplicates |sort -r</div></pre></td></tr></table></figure>
+<p>Kubernetes 1.8 已经针对 Docker 的 <code>1.11.2</code>, <code>1.12.6</code>, <code>1.13.1</code> 和 <code>17.03.2</code> 等版本做了验证，在各节点安装 docker 的 <code>17.03.2</code> 版本  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">yum install -y --<span class="built_in">setopt</span>=obsoletes=0 docker-ce-17.03.2.ce-1.el7.centos docker-ce-selinux-17.03.2.ce-1.el7.centos</div><div class="line"></div><div class="line">systemctl start docker</div><div class="line">systemctl <span class="built_in">enable</span> docker</div><div class="line"></div><div class="line"><span class="comment"># Docker 从 1.13 版本开始调整了默认的防火墙规则，禁用了iptables filter 表中 FOWARD 链，这样会引起 Kubernetes 集群中跨 Node 的 Pod 无法通信</span></div><div class="line">iptables -P FORWARD ACCEPT</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim /lib/systemd/system/docker.service</div><div class="line"><span class="comment"># 增加</span></div><div class="line">ExecStartPost=/usr/sbin/iptables -P FORWARD ACCEPT</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl daemon-reload</div><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
+<h3 id="2-2-下载-Kubernetes-相关镜像"><a href="#2-2-下载-Kubernetes-相关镜像" class="headerlink" title="2.2 下载 Kubernetes 相关镜像"></a>2.2 下载 Kubernetes 相关镜像</h3><p>阿里云镜像仓库</p>
+<blockquote>
+<p>注册阿里云 registry <a href="https://dev.aliyun.com/search.html" target="_blank" rel="external">https://dev.aliyun.com/search.html</a><br>可以参考 <a href="https://yq.aliyun.com/articles/70756" target="_blank" rel="external">https://yq.aliyun.com/articles/70756</a>    </p>
+</blockquote>
+<p>注册完之后在服务器登陆  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker login registry.cn-hangzhou.aliyuncs.com</div></pre></td></tr></table></figure>
+<p>15 个需要下载的镜像  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kube-apiserver-amd64:v1.8.1</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kube-controller-manager-amd64:v1.8.1</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kube-scheduler-amd64:v1.8.1</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kube-proxy-amd64:v1.8.1</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-kube-dns-amd64:1.14.5</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/etcd-amd64:3.0.17</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64:3.0</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kubernetes-dashboard-amd64:v1.7.1</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/kubernetes-dashboard-init-amd64:v1.0.1</div><div class="line">docker pull registry.cn-shenzhen.aliyuncs.com/rancher_cn/heapster-influxdb-amd64:v1.3.3</div><div class="line">docker pull registry.cn-shenzhen.aliyuncs.com/rancher_cn/heapster-grafana-amd64:v4.4.3</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/google-containers/heapster-amd64:v1.4.0</div><div class="line">docker pull registry.cn-hangzhou.aliyuncs.com/k8s_container/flannel:v0.9.0-amd64</div></pre></td></tr></table></figure>
+<p>重命名镜像以供 kubeadm 使用  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kube-apiserver-amd64:v1.8.1 gcr.io/google-containers/kube-apiserver-amd64:v1.8.1</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kube-controller-manager-amd64:v1.8.1 gcr.io/google-containers/kube-controller-manager-amd64:v1.8.1</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kube-scheduler-amd64:v1.8.1 gcr.io/google-containers/kube-scheduler-amd64:v1.8.1</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kube-proxy-amd64:v1.8.1 gcr.io/google-containers/kube-proxy-amd64:v1.8.1</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-sidecar-amd64:1.14.5 gcr.io/google-containers/k8s-dns-sidecar-amd64:1.14.5</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-kube-dns-amd64:1.14.5 gcr.io/google-containers/k8s-dns-kube-dns-amd64:1.14.5</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5 gcr.io/google-containers/k8s-dns-dnsmasq-nanny-amd64:1.14.5</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/etcd-amd64:3.0.17 gcr.io/google-containers/etcd-amd64:3.0.17</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/pause-amd64:3.0 gcr.io/google-containers/pause-amd64:3.0</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kubernetes-dashboard-amd64:v1.7.1 gcr.io/google-containers/kubernetes-dashboard-amd64:v1.7.1</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/kubernetes-dashboard-init-amd64:v1.0.1 gcr.io/google-containers/kubernetes-dashboard-init-amd64:v1.0.1</div><div class="line">docker tag registry.cn-shenzhen.aliyuncs.com/rancher_cn/heapster-influxdb-amd64:v1.3.3 gcr.io/google-containers/heapster-influxdb-amd64:v1.3.3</div><div class="line">docker tag registry.cn-shenzhen.aliyuncs.com/rancher_cn/heapster-grafana-amd64:v4.4.3 gcr.io/google-containers/heapster-grafana-amd64:v4.4.3</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/google-containers/heapster-amd64:v1.4.0 gcr.io/google-containers/heapster-amd64:v1.4.0</div><div class="line">docker tag registry.cn-hangzhou.aliyuncs.com/k8s_container/flannel:v0.9.0-amd64 quay.io/coreos/flannel:v0.9.0-amd64</div></pre></td></tr></table></figure>
+<h3 id="2-3-安装并运行-Kubernetes-相关服务"><a href="#2-3-安装并运行-Kubernetes-相关服务" class="headerlink" title="2.3 安装并运行 Kubernetes 相关服务"></a>2.3 安装并运行 Kubernetes 相关服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum makecache fast</div><div class="line">yum install -y kubelet kubeadm kubectl</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker info | grep Cgroup</div><div class="line"><span class="comment"># 显示 Cgroup Driver: systemd</span></div></pre></td></tr></table></figure>
+<p>如果显示 cgroup  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vim /etc/docker/daemon.json</div><div class="line"></div><div class="line">&#123;</div><div class="line">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>根据 docker info 的结果修改 kubeadm 的参数  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">vim /etc/systemd/system/kubelet.service.d/10-kubeadm.conf</div><div class="line"></div><div class="line">Environment=<span class="string">"KUBELET_CGROUP_ARGS=--cgroup-driver=systemd"</span></div><div class="line"></div><div class="line"><span class="comment"># 创建 /etc/docker/daemon.json</span></div><div class="line">vim /etc/docker/daemon.json</div><div class="line"></div><div class="line">&#123;</div><div class="line">  <span class="string">"exec-opts"</span>: [<span class="string">"native.cgroupdriver=systemd"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">systemctl restart docker</div><div class="line">systemctl status docker</div><div class="line">systemctl <span class="built_in">enable</span> kubelet.service</div></pre></td></tr></table></figure>
+<h3 id="2-4-Master-节点初始化"><a href="#2-4-Master-节点初始化" class="headerlink" title="2.4 Master 节点初始化"></a>2.4 Master 节点初始化</h3><p>选择 <code>flannel</code> 作为 <code>Pod</code> 网络插件<br>令 <code>node1</code> 为 Master Node，在 <code>node1</code> 执行以下命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubeadm init \</div><div class="line">  --kubernetes-version=v1.8.1 \</div><div class="line">  --pod-network-cidr=10.244.0.0/16 \</div><div class="line">  --apiserver-advertise-address=172.16.174.131</div></pre></td></tr></table></figure>
+<h3 id="2-5-结果输出"><a href="#2-5-结果输出" class="headerlink" title="2.5 结果输出"></a>2.5 结果输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">kubeadm init --kubernetes-version=v1.8.1 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=172.16.174.131</div><div class="line"></div><div class="line">[kubeadm] WARNING: kubeadm is in beta, please do not use it for production clusters.</div><div class="line">[init] Using Kubernetes version: v1.8.1</div><div class="line">[init] Using Authorization modes: [Node RBAC]</div><div class="line">[preflight] Running pre-flight checks</div><div class="line">[preflight] Starting the kubelet service</div><div class="line">[kubeadm] WARNING: starting in 1.8, tokens expire after 24 hours by default (if you require a non-expiring token use --token-ttl 0)</div><div class="line">[certificates] Generated ca certificate and key.</div><div class="line">[certificates] Generated apiserver certificate and key.</div><div class="line">[certificates] apiserver serving cert is signed for DNS names [node1 kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 172.16.174.131]</div><div class="line">[certificates] Generated apiserver-kubelet-client certificate and key.</div><div class="line">[certificates] Generated sa key and public key.</div><div class="line">[certificates] Generated front-proxy-ca certificate and key.</div><div class="line">[certificates] Generated front-proxy-client certificate and key.</div><div class="line">[certificates] Valid certificates and keys now exist in &quot;/etc/kubernetes/pki&quot;</div><div class="line">[kubeconfig] Wrote KubeConfig file to disk: &quot;admin.conf&quot;</div><div class="line">[kubeconfig] Wrote KubeConfig file to disk: &quot;kubelet.conf&quot;</div><div class="line">[kubeconfig] Wrote KubeConfig file to disk: &quot;controller-manager.conf&quot;</div><div class="line">[kubeconfig] Wrote KubeConfig file to disk: &quot;scheduler.conf&quot;</div><div class="line">[controlplane] Wrote Static Pod manifest for component kube-apiserver to &quot;/etc/kubernetes/manifests/kube-apiserver.yaml&quot;</div><div class="line">[controlplane] Wrote Static Pod manifest for component kube-controller-manager to &quot;/etc/kubernetes/manifests/kube-controller-manager.yaml&quot;</div><div class="line">[controlplane] Wrote Static Pod manifest for component kube-scheduler to &quot;/etc/kubernetes/manifests/kube-scheduler.yaml&quot;</div><div class="line">[etcd] Wrote Static Pod manifest for a local etcd instance to &quot;/etc/kubernetes/manifests/etcd.yaml&quot;</div><div class="line">[init] Waiting for the kubelet to boot up the control plane as Static Pods from directory &quot;/etc/kubernetes/manifests&quot;</div><div class="line">[init] This often takes around a minute; or longer if the control plane images have to be pulled.</div><div class="line">[apiclient] All control plane components are healthy after 41.504266 seconds</div><div class="line">[uploadconfig] Storing the configuration used in ConfigMap &quot;kubeadm-config&quot; in the &quot;kube-system&quot; Namespace</div><div class="line">[markmaster] Will mark node node1 as master by adding a label and a taint</div><div class="line">[markmaster] Master node1 tainted and labelled with key/value: node-role.kubernetes.io/master=&quot;&quot;</div><div class="line">[bootstraptoken] Using token: 3d97ad.4d01f99d0b28d473</div><div class="line">[bootstraptoken] Configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials</div><div class="line">[bootstraptoken] Configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token</div><div class="line">[bootstraptoken] Configured RBAC rules to allow certificate rotation for all node client certificates in the cluster</div><div class="line">[bootstraptoken] Creating the &quot;cluster-info&quot; ConfigMap in the &quot;kube-public&quot; namespace</div><div class="line">[addons] Applied essential addon: kube-dns</div><div class="line">[addons] Applied essential addon: kube-proxy</div><div class="line"></div><div class="line">Your Kubernetes master has initialized successfully!</div><div class="line"></div><div class="line">To start using your cluster, you need to run (as a regular user):</div><div class="line"></div><div class="line">  mkdir -p $HOME/.kube</div><div class="line">  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</div><div class="line">  sudo chown $(id -u):$(id -g) $HOME/.kube/config</div><div class="line"></div><div class="line">You should now deploy a pod network to the cluster.</div><div class="line">Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:</div><div class="line">  http://kubernetes.io/docs/admin/addons/</div><div class="line"></div><div class="line">You can now join any number of machines by running the following on each node</div><div class="line">as root:</div><div class="line"></div><div class="line">  kubeadm join --token b693a6.f6303c0effabf4f1 172.16.174.131:6443 --discovery-token-ca-cert-hash sha256:9e760c90dd6d43246d92212fced6987b28c1cf9e9e26a22b525cdbaa4ffe1dad</div></pre></td></tr></table></figure>
+<p>最后执行  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mkdir -p <span class="variable">$HOME</span>/.kube</div><div class="line">sudo cp -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</div><div class="line">sudo chown $(id -u):$(id -g) <span class="variable">$HOME</span>/.kube/config</div><div class="line"></div><div class="line"><span class="comment"># 将节点加入集群</span></div><div class="line">kubeadm join --token b693a6.f6303c0effabf4f1 172.16.174.131:6443 --discovery-token-ca-cert-hash sha256:9e760c90dd6d43246d92212fced6987b28c1cf9e9e26a22b525cdbaa4ffe1dad</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，这时候如果运行 <code>kubectl get nodes</code>，会提示 node2 和 node3 处于 <code>NotReady</code> 状态，这是正常的  </p>
+</blockquote>
+<p>查看一下集群状态   </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">kubectl get cs</div><div class="line"></div><div class="line">NAME                 STATUS    MESSAGE              ERROR</div><div class="line">scheduler            Healthy   ok</div><div class="line">controller-manager   Healthy   ok</div><div class="line">etcd-0               Healthy   &#123;<span class="string">"health"</span>: <span class="string">"true"</span>&#125;</div></pre></td></tr></table></figure>
+<p>如果因为网络等问题安装失败  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看问题</span></div><div class="line">journalctl -xeu kubelet </div><div class="line"></div><div class="line"><span class="comment"># master 机器清理环境:</span></div><div class="line">kubeadm reset   </div><div class="line"></div><div class="line"><span class="comment"># node 机器执行:      </span></div><div class="line">kubeadm reset    </div><div class="line">ifconfig cni0 down</div><div class="line">ip link delete cni0</div><div class="line">ifconfig flannel.1 down</div><div class="line">ip link delete flannel.1</div><div class="line">rm -rf /var/lib/cni/</div></pre></td></tr></table></figure>
+<p>init 如果报错  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[preflight] Some fatal errors occurred:</div><div class="line">	/proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1</div><div class="line">[preflight] If you know what you are doing, you can skip pre-flight checks with `--skip-preflight-checks</div></pre></td></tr></table></figure>
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/bridge/bridge-nf-call-iptables</div><div class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/net/bridge/bridge-nf-call-ip6tables</div></pre></td></tr></table></figure>
+<h3 id="2-6-安装-Pod-Network-gt-Flannel"><a href="#2-6-安装-Pod-Network-gt-Flannel" class="headerlink" title="2.6 安装 Pod Network -&gt; Flannel"></a>2.6 安装 Pod Network -&gt; Flannel</h3><p>因为 kubeadm 1.8 会自动安装证书、etcd，所以跨过了很多坑～ 直接可以安装 Flannel  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/k8s/</div><div class="line"><span class="built_in">cd</span> ~/k8s/</div><div class="line">wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</div><div class="line">kubectl apply -f  kube-flannel.yml</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">clusterrole <span class="string">"flannel"</span> created</div><div class="line">clusterrolebinding <span class="string">"flannel"</span> created</div><div class="line">serviceaccount <span class="string">"flannel"</span> created</div><div class="line">configmap <span class="string">"kube-flannel-cfg"</span> created</div><div class="line">daemonset <span class="string">"kube-flannel-ds"</span> created</div></pre></td></tr></table></figure>
+<p>如果 node 有多个网卡的话，参考 <a href="https://github.com/kubernetes/kubernetes/issues/39701" target="_blank" rel="external">flannel issues 39701</a><br>目前需要在 kube-flannel.yml 中使用 <code>--iface</code> 参数指定集群主机内网网卡的名称，否则可能会出现 dns 无法解析<br>需要将 kube-flannel.yml 下载到本地，flanneld 启动参数加上 <code>--iface=&lt;iface-name&gt;</code>  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="string">......</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">extensions/v1beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">DaemonSet</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kube-flannel-ds</span></div><div class="line"><span class="string">......</span></div><div class="line"><span class="attr">containers:</span></div><div class="line"><span class="attr">      - name:</span> <span class="string">kube-flannel</span></div><div class="line"><span class="attr">        image:</span> <span class="string">quay.io/coreos/flannel:v0.9.0-amd64</span></div><div class="line"><span class="attr">        command:</span> <span class="string">[</span> <span class="string">"/opt/bin/flanneld"</span><span class="string">,</span> <span class="string">"--ip-masq"</span><span class="string">,</span> <span class="string">"--kube-subnet-mgr"</span><span class="string">,</span> <span class="string">"--iface=eth1"</span> <span class="string">]</span></div><div class="line"><span class="string">......</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 确保所有的 Pod 都处于 Running 状态</span></div><div class="line">kubectl get pod --all-namespaces -o wide</div></pre></td></tr></table></figure>
+<h3 id="2-7-master-node-参与工作负载"><a href="#2-7-master-node-参与工作负载" class="headerlink" title="2.7 master node 参与工作负载"></a>2.7 master node 参与工作负载</h3><p>kubeadm 初始化的集群，出于安全考虑 Pod 不会被调度到 Master Node 上，也就是说 Master Node 不参与工作负载<br>如果不考虑安全问题，可以利用以下命令让 Master 参与工作负载  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubectl taint nodes node1 node-role.kubernetes.io/master-</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">node <span class="string">"node1"</span> untainted</div></pre></td></tr></table></figure>
+<h3 id="2-8-测试-DNS"><a href="#2-8-测试-DNS" class="headerlink" title="2.8 测试 DNS"></a>2.8 测试 DNS</h3><ol>
+<li>curl</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubectl run curl --image=radial/busyboxplus:curl -i --tty</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">If you dont see a <span class="built_in">command</span> prompt, try pressing enter.</div></pre></td></tr></table></figure>
+<p>进入后 command prompt 后，执行 <code>nslookup kubernetes.default</code> 确认解析正常  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">nslookup kubernetes.default</div><div class="line">Server:    10.96.0.10</div><div class="line">Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local</div><div class="line"></div><div class="line">Name:      kubernetes.default</div><div class="line">Address 1: 10.96.0.1 kubernetes.default.svc.cluster.local</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这一步我卡住了，没测试继续往下走了，一切正常  </p>
+</blockquote>
+<ol>
+<li>自建服务</li>
+</ol>
+<p>mysql.yaml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Service</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">mysql</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  ports:</span></div><div class="line"><span class="attr">    - port:</span> <span class="number">3306</span></div><div class="line"><span class="attr">  selector:</span></div><div class="line"><span class="attr">    app:</span> <span class="string">mysql</span></div></pre></td></tr></table></figure>
+<p>busybox.yaml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">Pod</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">busybox</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">default</span></div><div class="line"><span class="attr">spec:</span></div><div class="line"><span class="attr">  containers:</span></div><div class="line"><span class="attr">  - image:</span> <span class="string">hub.c.163.com/library/busybox</span></div><div class="line"><span class="attr">    command:</span></div><div class="line"><span class="bullet">      -</span> <span class="string">sleep</span></div><div class="line"><span class="bullet">      -</span> <span class="string">"3600"</span></div><div class="line"><span class="attr">    imagePullPolicy:</span> <span class="string">IfNotPresent</span></div><div class="line"><span class="attr">    name:</span> <span class="string">busybox</span></div><div class="line"><span class="attr">  restartPolicy:</span> <span class="string">Always</span></div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">kubectl apply -f mysql.yaml</div><div class="line">kubectl apply -f busybox.yaml</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment">#############################################</span></span></div><div class="line"></div><div class="line">kubectl get services</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> 结果</span></div><div class="line">[root@node1 k8s]# kubectl get services</div><div class="line">NAME         TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)    AGE</div><div class="line">kubernetes   ClusterIP   10.96.0.1     &lt;none&gt;        443/TCP    5d</div><div class="line">mysql        ClusterIP   10.97.38.14   &lt;none&gt;        3306/TCP   19s</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment">#############################################</span></span></div><div class="line"></div><div class="line">kubectl exec busybox -c busybox -- nslookup mysql</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> 结果</span></div><div class="line">[root@node1 k8s]# kubectl exec busybox -c busybox -- nslookup mysql</div><div class="line">Server:    10.96.0.10</div><div class="line">Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local</div><div class="line"></div><div class="line">Name:      mysql</div><div class="line">Address 1: 10.97.38.14 mysql.default.svc.cluster.local</div><div class="line">[root@node1 k8s]# kubectl exec busybox -c busybox -- nslookup mysql</div><div class="line">Server:    10.96.0.10</div><div class="line">Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment">#############################################</span></span></div><div class="line"></div><div class="line">kubectl describe svc mysql</div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"> 结果</span></div><div class="line">[root@node1 k8s]# kubectl describe svc mysql</div><div class="line">Name:              mysql</div><div class="line">Namespace:         default</div><div class="line">Labels:            &lt;none&gt;</div><div class="line">Annotations:       kubectl.kubernetes.io/last-applied-configuration=&#123;"apiVersion":"v1","kind":"Service","metadata":&#123;"annotations":&#123;&#125;,"name":"mysql" "namespace":"default"&#125;,"spec":&#123;"ports":[&#123;"port":3306&#125;],"selector":&#123;"app..."&#125;</div><div class="line">Selector:          app=mysql</div><div class="line">Type:              ClusterIP</div><div class="line">IP:                10.97.38.14</div><div class="line">Port:              &lt;unset&gt;  3306/TCP</div><div class="line">TargetPort:        3306/TCP</div><div class="line">Endpoints:         &lt;none&gt;</div><div class="line">Session Affinity:  None</div><div class="line">Events:            &lt;none&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-9-向-Kubernetes-集群添加-Node"><a href="#2-9-向-Kubernetes-集群添加-Node" class="headerlink" title="2.9 向 Kubernetes 集群添加 Node"></a>2.9 向 Kubernetes 集群添加 Node</h3><p>如果在 2.5 已经添加了 node ，显示 <code>NotReady</code> ，现在可以查看一下节点状态了  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">kubectl get nodes</div><div class="line">NAME      STATUS    ROLES     AGE       VERSION</div><div class="line">node1     Ready     master    1h        v1.8.1</div><div class="line">node2     Ready     &lt;none&gt;    1h        v1.8.1</div><div class="line">node3     Ready     &lt;none&gt;    1h        v1.8.1</div></pre></td></tr></table></figure>
+<p>如果在 2.5 没有添加 node ，或者是有新的 node 想加入集群，可以参看 2.5 命令  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mkdir -p <span class="variable">$HOME</span>/.kubesudo </div><div class="line">cp -i /etc/kubernetes/admin.conf <span class="variable">$HOME</span>/.kube/config</div><div class="line">sudo chown $(id -u):$(id -g) <span class="variable">$HOME</span>/.kube/config</div><div class="line"></div><div class="line"><span class="comment"># 将节点加入集群</span></div><div class="line">kubeadm join --token b693a6.f6303c0effabf4f1 172.16.174.131:6443 --discovery-token-ca-cert-hash sha256:9e760c90dd6d43246d92212fced6987b28c1cf9e9e26a22b525cdbaa4ffe1dad</div></pre></td></tr></table></figure>
+<h3 id="2-10-从-Kubernetes-集群移除-Node"><a href="#2-10-从-Kubernetes-集群移除-Node" class="headerlink" title="2.10 从 Kubernetes 集群移除 Node"></a>2.10 从 Kubernetes 集群移除 Node</h3><p>在 master 节点上执行:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kubectl drain node2 --delete-local-data --force --ignore-daemonsets</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">kubectl delete node node2</div></pre></td></tr></table></figure>
+<p>在 node2 节点执行:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">kubeadm reset</div><div class="line">ifconfig cni0 down</div><div class="line">ip link delete cni0</div><div class="line">ifconfig flannel.1 down</div><div class="line">ip link delete flannel.1</div><div class="line">rm -rf /var/lib/cni/</div></pre></td></tr></table></figure>
+<h3 id="2-11-Dashboard-插件安装部署"><a href="#2-11-Dashboard-插件安装部署" class="headerlink" title="2.11 Dashboard 插件安装部署"></a>2.11 Dashboard 插件安装部署</h3><p><code>1.7.x</code> 版本的 dashboard 对安全做了增强，默认需要以 <code>https</code> 的方式访问，增加了登录的页面<br>同时增加了一个 <code>gcr.io/google_containers/kubernetes-dashboard-init-amd64</code> 的 init 容器  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/k8s/</div><div class="line">wget https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</div><div class="line">kubectl create -f kubernetes-dashboard.yaml</div></pre></td></tr></table></figure>
+<p><code>kubernetes-dashboard.yaml</code> 文件中的 <code>ServiceAccount kubernetes-dashboard</code> 只有相对较小的权限<br>因此创建一个 <code>kubernetes-dashboard-admin</code> 的 <code>ServiceAccount</code> 并授予集群 <code>admin</code> 的权限  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim kubernetes-dashboard-admin.rbac.yaml</div></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">ServiceAccount</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  labels:</span></div><div class="line"><span class="attr">    k8s-app:</span> <span class="string">kubernetes-dashboard</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes-dashboard-admin</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">kube-system</span></div><div class="line">  </div><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">apiVersion:</span> <span class="string">rbac.authorization.k8s.io/v1beta1</span></div><div class="line"><span class="attr">kind:</span> <span class="string">ClusterRoleBinding</span></div><div class="line"><span class="attr">metadata:</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes-dashboard-admin</span></div><div class="line"><span class="attr">  labels:</span></div><div class="line"><span class="attr">    k8s-app:</span> <span class="string">kubernetes-dashboard</span></div><div class="line"><span class="attr">roleRef:</span></div><div class="line"><span class="attr">  apiGroup:</span> <span class="string">rbac.authorization.k8s.io</span></div><div class="line"><span class="attr">  kind:</span> <span class="string">ClusterRole</span></div><div class="line"><span class="attr">  name:</span> <span class="string">cluster-admin</span></div><div class="line"><span class="attr">subjects:</span></div><div class="line"><span class="attr">- kind:</span> <span class="string">ServiceAccount</span></div><div class="line"><span class="attr">  name:</span> <span class="string">kubernetes-dashboard-admin</span></div><div class="line"><span class="attr">  namespace:</span> <span class="string">kube-system</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">kubectl create -f kubernetes-dashboard-admin.rbac.yaml</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">serviceaccount <span class="string">"kubernetes-dashboard-admin"</span> created</div><div class="line">clusterrolebinding <span class="string">"kubernetes-dashboard-admin"</span> created</div></pre></td></tr></table></figure>
+<p>查看 <code>kubernete-dashboard-admin</code> 的 token  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">kubectl -n kube-system get secret | grep kubernetes-dashboard-admin</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">kubernetes-dashboard-admin-token-dd4nr   kubernetes.io/service-account-token   3         1h</div><div class="line"></div><div class="line">kubectl describe -n kube-system secret/kubernetes-dashboard-admin-token-dd4nr</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line"></div><div class="line">Name:         kubernetes-dashboard-admin-token-dd4nr</div><div class="line">Namespace:    kube-system</div><div class="line">Labels:       &lt;none&gt;</div><div class="line">Annotations:  kubernetes.io/service-account.name=kubernetes-dashboard-admin</div><div class="line">              kubernetes.io/service-account.uid=dcc54d70-bec6-11e7-95d4-000c297b18db</div><div class="line"></div><div class="line">Type:  kubernetes.io/service-account-token</div><div class="line"></div><div class="line">Data</div><div class="line">====</div><div class="line">ca.crt:     1025 bytes</div><div class="line">namespace:  11 bytes</div><div class="line">token:      eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC1hZG1pbi10b2tlbi1kZDRuciIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImRjYzU0ZDcwLWJlYzYtMTFlNy05NWQ0LTAwMGMyOTdiMThkYiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlLXN5c3RlbTprdWJlcm5ldGVzLWRhc2hib2FyZC1hZG1pbiJ9.B3Moo1rVO1yhvH6my_2fw2pn7oA2Y8lksRV02xqLtN1a3ENc9KUA2LxeGbGEgfV_r1hL35ZCOo2PyMIFqJPhc64DO4o_p_1psCfglyIws5-XwIlytVR9CdZ6aeCz2SrzsJH_S1ibEzUu-DIgxCX-6TrWFbKPxyPqfTjwM381akz8jkLxe8HTC-HboTUyCi19CRtCCVlByOuNS_jqA2BJrWsKNoIzI3sqEXZNUEARG2b_pAEpD7OvsGHb_PPBjadyzmFiXsNGabnx_OUoorlFJq1VuF9_Cy1BMDlcWm3AkID4bDjEel2T5XfA-Da4ZcHpy5l9sZYuYdtEZakWCy-1xQ</div><div class="line"></div><div class="line">kubectl proxy  </div><div class="line"><span class="comment"># 如果想通过其它主机访问就需要指定监听的地址：</span></div><div class="line">kubectl proxy --address=0.0.0.0 --accept-hosts=<span class="string">'^*$'</span></div></pre></td></tr></table></figure>
+<p>现在可以在 <code>Master</code> 机器上登陆 <code>http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/</code>  </p>
+<p>选择 <code>token</code> 登陆，把刚才那一长串 token 粘进去即可  </p>
+<h3 id="2-12-heapster-插件安装部署"><a href="#2-12-heapster-插件安装部署" class="headerlink" title="2.12 heapster 插件安装部署"></a>2.12 heapster 插件安装部署</h3><p>Heapster 为集群添加使用统计和监控功能，为 Dashboard 添加仪表盘<br>使用 InfluxDB 做为 Heapster 的后端存储  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/k8s/heapster</div><div class="line"><span class="built_in">cd</span> ~/k8s/heapster/</div><div class="line">wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/grafana.yaml</div><div class="line">wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml</div><div class="line">wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml</div><div class="line">wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml</div><div class="line"></div><div class="line">kubectl create -f ./</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果长时间安装不成功，查看一下下载的 yaml 文件<br>看其中以 <code>gcr.io</code> 开头的镜像文件在 <code>docker images</code> 中能否找到，注意对应版本号  </p>
+</blockquote>
+<p>最后检查一下  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">kubectl get pod --all-namespaces -o wide</div><div class="line"></div><div class="line"><span class="comment"># 结果</span></div><div class="line">NAMESPACE     NAME                                   READY     STATUS    RESTARTS   AGE       IP               NODE</div><div class="line">default       curl-6896d87888-jb898                  1/1       Running   0          1h        10.244.2.5       node3</div><div class="line">kube-system   etcd-node1                             1/1       Running   0          1h        172.16.174.131   node1</div><div class="line">kube-system   heapster-5d67855584-n2bj7              1/1       Running   0          1h        10.244.1.4       node2</div><div class="line">kube-system   kube-apiserver-node1                   1/1       Running   0          1h        172.16.174.131   node1</div><div class="line">kube-system   kube-controller-manager-node1          1/1       Running   0          1h        172.16.174.131   node1</div><div class="line">kube-system   kube-dns-545bc4bfd4-6lczh              3/3       Running   0          1h        10.244.2.2       node3</div><div class="line">kube-system   kube-flannel-ds-cwcn8                  1/1       Running   0          1h        172.16.174.133   node3</div><div class="line">kube-system   kube-flannel-ds-qh5sv                  1/1       Running   0          1h        172.16.174.131   node1</div><div class="line">kube-system   kube-flannel-ds-vzbtk                  1/1       Running   0          1h        172.16.174.132   node2</div><div class="line">kube-system   kube-proxy-nlwsf                       1/1       Running   0          1h        172.16.174.131   node1</div><div class="line">kube-system   kube-proxy-tmgsk                       1/1       Running   0          1h        172.16.174.133   node3</div><div class="line">kube-system   kube-proxy-z9xg2                       1/1       Running   0          1h        172.16.174.132   node2</div><div class="line">kube-system   kube-scheduler-node1                   1/1       Running   0          1h        172.16.174.131   node1</div><div class="line">kube-system   kubernetes-dashboard-747c4f7cf-nfx6s   1/1       Running   0          1h        10.244.2.3       node3</div><div class="line">kube-system   monitoring-grafana-5bccc9f786-vfww9    1/1       Running   0          1h        10.244.1.5       node2</div><div class="line">kube-system   monitoring-influxdb-85cb4985d4-gz8gj   1/1       Running   0          1h        10.244.2.4       node3</div></pre></td></tr></table></figure>
+<h2 id="3-yum-安装-kubernetes-1-7"><a href="#3-yum-安装-kubernetes-1-7" class="headerlink" title="3. yum 安装 kubernetes 1.7"></a>3. yum 安装 kubernetes 1.7</h2><h3 id="3-1-一些准备工作"><a href="#3-1-一些准备工作" class="headerlink" title="3.1 一些准备工作"></a>3.1 一些准备工作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">systemctl disable firewalld</div><div class="line">systemctl stop firewalld</div><div class="line">setenforce 0</div><div class="line"></div><div class="line">vim /etc/selinux/config</div><div class="line">SELINUX=enforcing 改为 SELINUX=disabled</div><div class="line">source /etc/selinux/config</div><div class="line"></div><div class="line">hostnamectl --static set-hostname  kubernetes-master</div><div class="line">hostnamectl --static set-hostname  kubernetes-node1</div><div class="line">hostnamectl --static set-hostname  kubernetes-node2</div></pre></td></tr></table></figure>
+<p>修改 hosts 文件  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">172.16.174.143 kubernetes-master</div><div class="line">172.16.174.145 kubernetes-node1</div><div class="line">172.16.174.142 kubernetes-node2</div><div class="line">172.16.174.143 etcd</div><div class="line">172.16.174.143 registry</div></pre></td></tr></table></figure>
+<h3 id="3-2-163-替换自带-yum-源"><a href="#3-2-163-替换自带-yum-源" class="headerlink" title="3.2 163 替换自带 yum 源:"></a>3.2 163 替换自带 yum 源:</h3><p>master 和 node 机器都要替换  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</div><div class="line"><span class="built_in">cd</span> /etc/yum.repos.d</div><div class="line">wget http://mirrors.163.com/.<span class="built_in">help</span>/CentOS7-Base-163.repo</div><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure>
+<h3 id="3-3-添加-virt7-container-common-源"><a href="#3-3-添加-virt7-container-common-源" class="headerlink" title="3.3 添加 virt7-container-common 源:"></a>3.3 添加 virt7-container-common 源:</h3><p>找一个靠谱的源站： <a href="http://cbs.centos.org/" target="_blank" rel="external">http://cbs.centos.org/</a><br>搜索相应的包，本文直接搜索 <code>kubernetes</code> 即可，可以看到 1.7.6 版本的 kubernetes 对应的 tags <code>virt7-container-common-candidate</code><br>在 <a href="http://cbs.centos.org/repos/" target="_blank" rel="external">http://cbs.centos.org/repos/</a> 找到即可，本文 yum 源 IP 为 <a href="http://cbs.centos.org/repos/virt7-container-common-candidate/x86_64/os/" target="_blank" rel="external">http://cbs.centos.org/repos/virt7-container-common-candidate/x86_64/os/</a>  </p>
+<p>master 和 node 机器都要添加  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/yum.repos.d/k8s.repo</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[k8s]</div><div class="line">name=virt7-testing</div><div class="line">baseurl=http://cbs.centos.org/repos/virt7-container-common-candidate/x86_64/os/</div><div class="line">gpgcheck=0</div></pre></td></tr></table></figure>
+<h3 id="3-4-配置-etcd-与-docker"><a href="#3-4-配置-etcd-与-docker" class="headerlink" title="3.4 配置 etcd 与 docker"></a>3.4 配置 etcd 与 docker</h3><p><code>配置 docker</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/docker</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">OPTIONS=&apos;--selinux-enabled --log-driver=journald&apos;</div><div class="line">if [ -z &quot;$&#123;DOCKER_CERT_PATH&#125;&quot; ]; then</div><div class="line">    DOCKER_CERT_PATH=/etc/docker</div><div class="line">fi</div><div class="line">OPTIONS=&apos;--insecure-registry registry:5000&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl enable docker</div><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
+<p><code>配置 etcd</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install etcd -y</div></pre></td></tr></table></figure>
+<p>etcd 在 <code>master</code> 上的配置  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/etcd/etcd.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ETCD_NAME=master</div><div class="line">ETCD_DATA_DIR=&quot;/var/lib/etcd/default.etcd&quot;</div><div class="line">ETCD_LISTEN_CLIENT_URLS=&quot;http://0.0.0.0:2379,http://0.0.0.0:4001&quot;</div><div class="line">ETCD_ADVERTISE_CLIENT_URLS=&quot;http://etcd:2379,http://etcd:4001&quot;</div></pre></td></tr></table></figure>
+<p>验证 etcd  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">systemctl start etcd</div><div class="line">etcdctl set testdir/testkey0 0</div><div class="line">etcdctl get testdir/testkey0</div><div class="line">etcdctl -C http://etcd:4001 cluster-health</div><div class="line">etcdctl -C http://etcd:2379 cluster-health</div></pre></td></tr></table></figure>
+<p><code>安装 kubernetes</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install --enablerepo=k8s kubernetes</div></pre></td></tr></table></figure>
+<h3 id="3-5-配置-master"><a href="#3-5-配置-master" class="headerlink" title="3.5 配置 master"></a>3.5 配置 master</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/kubernetes/apiserver</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">###</div><div class="line"># kubernetes system config</div><div class="line">#</div><div class="line"># The following values are used to configure the kube-apiserver</div><div class="line">#</div><div class="line"></div><div class="line"># The address on the local server to listen to.</div><div class="line">KUBE_API_ADDRESS=&quot;--insecure-bind-address=0.0.0.0&quot;</div><div class="line"></div><div class="line"># The port on the local server to listen on.</div><div class="line">KUBE_API_PORT=&quot;--port=8080&quot;</div><div class="line"></div><div class="line"># Port minions listen on</div><div class="line"># KUBELET_PORT=&quot;--kubelet-port=10250&quot;</div><div class="line"></div><div class="line"># Comma separated list of nodes in the etcd cluster</div><div class="line">KUBE_ETCD_SERVERS=&quot;--etcd-servers=http://etcd:2379&quot;</div><div class="line"></div><div class="line"># Address range to use for services</div><div class="line">KUBE_SERVICE_ADDRESSES=&quot;--service-cluster-ip-range=10.254.0.0/16&quot;</div><div class="line"></div><div class="line"># default admission control policies</div><div class="line">KUBE_ADMISSION_CONTROL=&quot;--admission-control=NamespaceLifecycle,LimitRanger,SecurityContextDeny,ResourceQuota,NamespaceExists&quot;</div><div class="line"></div><div class="line"># Add your own!</div><div class="line">KUBE_API_ARGS=&quot;&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/kubernetes/config</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">###</div><div class="line"># kubernetes system config</div><div class="line">#</div><div class="line"># The following values are used to configure various aspects of all</div><div class="line"># kubernetes services, including</div><div class="line">#</div><div class="line">#   kube-apiserver.service</div><div class="line">#   kube-controller-manager.service</div><div class="line">#   kube-scheduler.service</div><div class="line">#   kubelet.service</div><div class="line">#   kube-proxy.service</div><div class="line"># logging to stderr means we get it in the systemd journal</div><div class="line">KUBE_LOGTOSTDERR=&quot;--logtostderr=true&quot;</div><div class="line"></div><div class="line"># journal message level, 0 is debug</div><div class="line">KUBE_LOG_LEVEL=&quot;--v=0&quot;</div><div class="line"></div><div class="line"># Should this cluster be allowed to run privileged docker containers</div><div class="line">KUBE_ALLOW_PRIV=&quot;--allow-privileged=false&quot;</div><div class="line"></div><div class="line"># How the controller-manager, scheduler, and proxy find the apiserver</div><div class="line">KUBE_MASTER=&quot;--master=http://kubernetes-master:8080&quot;</div></pre></td></tr></table></figure>
+<p>启动 kubernetes  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> kube-apiserver.service</div><div class="line">systemctl start kube-apiserver.service</div><div class="line">systemctl <span class="built_in">enable</span> kube-controller-manager.service</div><div class="line">systemctl start kube-controller-manager.service</div><div class="line">systemctl <span class="built_in">enable</span> kube-scheduler.service</div><div class="line">systemctl start kube-scheduler.service</div></pre></td></tr></table></figure>
+<h3 id="3-6-配置-node"><a href="#3-6-配置-node" class="headerlink" title="3.6 配置 node"></a>3.6 配置 node</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/kubernetes/config</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">###</div><div class="line"># kubernetes system config</div><div class="line">#</div><div class="line"># The following values are used to configure various aspects of all</div><div class="line"># kubernetes services, including</div><div class="line">#</div><div class="line">#   kube-apiserver.service</div><div class="line">#   kube-controller-manager.service</div><div class="line">#   kube-scheduler.service</div><div class="line">#   kubelet.service</div><div class="line">#   kube-proxy.service</div><div class="line"># logging to stderr means we get it in the systemd journal</div><div class="line">KUBE_LOGTOSTDERR=&quot;--logtostderr=true&quot;</div><div class="line"></div><div class="line"># journal message level, 0 is debug</div><div class="line">KUBE_LOG_LEVEL=&quot;--v=0&quot;</div><div class="line"></div><div class="line"># Should this cluster be allowed to run privileged docker containers</div><div class="line">KUBE_ALLOW_PRIV=&quot;--allow-privileged=false&quot;</div><div class="line"></div><div class="line"># How the controller-manager, scheduler, and proxy find the apiserver</div><div class="line">KUBE_MASTER=&quot;--master=http://kubernetes-master:8080&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/kubernetes/kubelet</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">###</div><div class="line"># kubernetes kubelet (minion) config</div><div class="line"></div><div class="line"># The address for the info server to serve on (set to 0.0.0.0 or &quot;&quot; for all interfaces)</div><div class="line">KUBELET_ADDRESS=&quot;--address=0.0.0.0&quot;</div><div class="line"></div><div class="line"># The port for the info server to serve on</div><div class="line"># KUBELET_PORT=&quot;--port=10250&quot;</div><div class="line"></div><div class="line"># You may leave this blank to use the actual hostname</div><div class="line">KUBELET_HOSTNAME=&quot;--hostname-override=kubernetes-node1&quot;</div><div class="line"></div><div class="line"># location of the api-server</div><div class="line">KUBELET_API_SERVER=&quot;--api-servers=http://kubernetes-master:8080&quot;</div><div class="line"></div><div class="line"># Add your own!</div><div class="line">KUBELET_ARGS=&quot;--cgroup-driver=systemd&quot;</div></pre></td></tr></table></figure>
+<p>启动 kubernetes  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> kubelet.service</div><div class="line">systemctl start kubelet.service</div><div class="line">systemctl <span class="built_in">enable</span> kube-proxy.service</div><div class="line">systemctl start kube-proxy.service</div></pre></td></tr></table></figure>
+<h3 id="3-7-校验"><a href="#3-7-校验" class="headerlink" title="3.7 校验"></a>3.7 校验</h3><p>master 执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">kubectl version</div><div class="line">kubectl get nodes</div><div class="line">kubectl -s http://kubernetes-master:8080 get node</div></pre></td></tr></table></figure></p>
+<p>你会发现一个讨厌的东西  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2017-10-26 20:32:21.787720 I | proto: duplicate proto type registered: google.protobuf.Any</div><div class="line">2017-10-26 20:32:21.787779 I | proto: duplicate proto type registered: google.protobuf.Duration</div><div class="line">2017-10-26 20:32:21.787792 I | proto: duplicate proto type registered: google.protobuf.Timestamp</div></pre></td></tr></table></figure>
+<p>这 TM 真的是 kubernetes 1.7 的 bug ！  </p>
+<p><a href="https://github.com/kubernetes/kubectl/issues/30" target="_blank" rel="external">https://github.com/kubernetes/kubectl/issues/30</a><br><a href="https://github.com/kubernetes/kubernetes/pull/52132" target="_blank" rel="external">https://github.com/kubernetes/kubernetes/pull/52132</a><br><a href="https://github.com/kubernetes/kubernetes/issues/48924" target="_blank" rel="external">https://github.com/kubernetes/kubernetes/issues/48924</a></p>
+<p>第三个 issus 下有人回复说升级 k8s 到 1.8.1 就好了<br>算了。。不折腾了。。。心累  </p>
+<h3 id="3-8-安装-Flannel"><a href="#3-8-安装-Flannel" class="headerlink" title="3.8 安装 Flannel"></a>3.8 安装 Flannel</h3><p>在 master 和 node 均需安装，配置相同  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install flannel -y</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/flanneld</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># Flanneld configuration options</div><div class="line"></div><div class="line"># etcd url location.  Point this to the server where etcd runs</div><div class="line">FLANNEL_ETCD_ENDPOINTS=&quot;http://etcd:2379&quot;</div><div class="line"></div><div class="line"># etcd config key.  This is the configuration key that flannel queries</div><div class="line"># For address range assignment</div><div class="line">FLANNEL_ETCD_PREFIX=&quot;/atomic.io/network&quot;</div><div class="line"></div><div class="line"># Any additional options that you want to pass</div><div class="line">#FLANNEL_OPTIONS=&quot;&quot;</div></pre></td></tr></table></figure>
+<p>在 master 上执行，注意网段  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">etcdctl mk /atomic.io/network/config <span class="string">'&#123; "Network": "172.16.174.0/8" &#125;'</span> &#123; <span class="string">"Network"</span>: <span class="string">"172.16.174.0/8"</span> &#125;</div></pre></td></tr></table></figure>
+<p>重启服务  </p>
+<p>master:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> flanneld.service </div><div class="line">systemctl start flanneld.service </div><div class="line">service docker restart</div><div class="line">systemctl restart kube-apiserver.service</div><div class="line">systemctl restart kube-controller-manager.service</div><div class="line">systemctl restart kube-scheduler.service</div></pre></td></tr></table></figure>
+<p>node:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">systemctl <span class="built_in">enable</span> flanneld.service </div><div class="line">systemctl start flanneld.service </div><div class="line">service docker restart</div><div class="line">systemctl restart kubelet.service</div><div class="line">systemctl restart kube-proxy.service</div></pre></td></tr></table></figure>
+<h3 id="3-9-安装-heapster"><a href="#3-9-安装-heapster" class="headerlink" title="3.9 安装 heapster"></a>3.9 安装 heapster</h3><p><code>部署 influxdb</code>:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /root/</div><div class="line">git <span class="built_in">clone</span> https://github.com/kubernetes/heapster.git</div></pre></td></tr></table></figure>
+<p>修改 <code>/root/heapster/deply/kube-config/influxdb/</code> 内所有的 <code>gcr.io</code> -&gt; <code>registry.cn-hangzhou.aliyuncs.com</code>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd heapster/</div><div class="line">kubectl create -f deploy/kube-config/influxdb/</div><div class="line">kubectl create -f deploy/kube-config/rbac/heapster-rbac.yaml</div><div class="line"></div><div class="line">kubectl get pods --namespace=kube-system</div><div class="line">kubectl get services --namespace=kube-system monitoring-grafana monitoring-influxdb</div></pre></td></tr></table></figure>
+<h3 id="3-10-安装-dashboard"><a href="#3-10-安装-dashboard" class="headerlink" title="3.10 安装 dashboard"></a>3.10 安装 dashboard</h3><p><a href="https://github.com/kubernetes/dashboard#kubernetes-dashboard" target="_blank" rel="external">https://github.com/kubernetes/dashboard#kubernetes-dashboard</a>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml</div></pre></td></tr></table></figure>
+<p>把这个 yaml 文件里所有的 <code>gcr.io</code> 都修改为 <code>registry.cn-hangzhou.aliyuncs.com</code>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">kubectl create -f kubernetes-dashboard.yaml</div><div class="line">kubectl proxy</div></pre></td></tr></table></figure>
+<p>访问 <a href="http://127.0.0.1:8001/" target="_blank" rel="external">http://127.0.0.1:8001/</a>  </p>
+<h2 id="4-问题记录："><a href="#4-问题记录：" class="headerlink" title="4 问题记录："></a>4 问题记录：</h2><ol>
+<li><p>别忘了 –namespace <code>--all-namespaces -o wide</code> 也很有用    </p>
+</li>
+<li><p>pods 无法删除时  </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kubectl delete pods &lt;unknown pods name&gt; --grace-period=0 --force</div></pre></td></tr></table></figure>
+<ol>
+<li><p>别忘了 <code>kubectl proxy</code>  </p>
+</li>
+<li><p>如果把镜像修改了 tag ，初始化的时候利用 <code>kubectl describe</code> 查看，发现仍然不断访问 <code>gcr.io</code>，修改 yaml 文件，添加 <code>imagePullPolicy: Never</code>  </p>
+</li>
+</ol>
+<hr>
+<h2 id="附注"><a href="#附注" class="headerlink" title="附注:"></a>附注:</h2><p>手动安装 influxdb:  </p>
+<p>新建 yum 源:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[influxdb]</div><div class="line">name = InfluxDB Repository - RHEL \<span class="variable">$releasever</span></div><div class="line">baseurl = https://repos.influxdata.com/rhel/\<span class="variable">$releasever</span>/\<span class="variable">$basearch</span>/stable</div><div class="line">enabled = 1</div><div class="line">gpgcheck = 1</div><div class="line">gpgkey = https://repos.influxdata.com/influxdb.key</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">yum install influxdb -y</div><div class="line">systemctl enable influxdb</div><div class="line">systemctl start influxdb</div><div class="line">systemctl status influxdb</div><div class="line">rpm -qc influxdb</div></pre></td></tr></table></figure>
+<p>一些简单测试:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">[root@localhost yum.repos.d]# influx</div><div class="line">Connected to http://localhost:8086 version 1.3.5</div><div class="line">InfluxDB shell version: 1.3.5</div><div class="line">&gt; SHOW DATABASES</div><div class="line">name: databases</div><div class="line">name</div><div class="line">----</div><div class="line">_internal</div><div class="line">&gt; CREATE DATABASE testdb</div><div class="line">&gt; SHOW DATABASES</div><div class="line">name: databases</div><div class="line">name</div><div class="line">----</div><div class="line">_internal</div><div class="line">testdb</div><div class="line">&gt; use testdb</div><div class="line">Using database testdb</div><div class="line">&gt; CREATE USER &quot;root&quot; WITH PASSWORD &apos;root&apos; WITH ALL PRIVILEGES</div><div class="line">&gt; show users</div><div class="line">user admin</div><div class="line">---- -----</div><div class="line">root true</div><div class="line">&gt; INSERT cpu,host=test,region=us_west value=0.64</div><div class="line">&gt; SELECT * FROM /.*/ LIMIT 1</div><div class="line">name: cpu</div><div class="line">time                host region  value</div><div class="line">----                ---- ------  -----</div><div class="line">1509025298119019129 test us_west 0.64</div><div class="line">&gt; quit()</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Refernece"><a href="#Refernece" class="headerlink" title="Refernece:"></a>Refernece:</h2><ul>
+<li><a href="http://www.cnblogs.com/zhenyuyaodidiao/p/6500830.html" target="_blank" rel="external">yum 安装 Kubernetes 1.5</a></li>
+<li><a href="https://www.kubernetes.org.cn/doc-16" target="_blank" rel="external">CentOS 部署 Kubernetes 集群</a></li>
+<li><a href="http://dockone.io/article/618" target="_blank" rel="external">Flannel 解析</a></li>
+<li><a href="http://www.wisely.top/category/cloud-computing/kubernetes/" target="_blank" rel="external">Kubespray 安装 Kubernetes</a></li>
+<li><a href="http://hardocs.com/d/kubernetes/" target="_blank" rel="external">Kubernetes 中文文档</a></li>
+<li><a href="https://www.kubernetes.org.cn/doc" target="_blank" rel="external">Kubernetes 中文文档_写的一般</a></li>
+<li><a href="http://blog.frognew.com/2017/09/kubeadm-install-kubernetes-1.8.html#9heapster插件部署" target="_blank" rel="external">使用 kubeadm 安装 Kubernetes 1.8</a></li>
+<li><a href="http://blog.frognew.com/" target="_blank" rel="external">青蛙小白博客_ Kubernetes 相关写的非常详细</a></li>
+<li><a href="http://time-track.cn/tag/Kubernetes/" target="_blank" rel="external">时间轨迹博客_ Kubernetes 入门写的很好</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Docker/" class="article-tag-list-link color2">Docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/20/Kubernetes_1.8.1_集群部署/">展开全文 >></a>
         </p>
       
 
@@ -446,12 +1018,12 @@
 <p>这种情况下有两种解决方案：  </p>
 <ol>
 <li>使用 <code>nc</code> 监听端口传文件，恕我直言这样很蠢，而且传目录很费劲，在加上 windows 的 <code>nc</code> 苦不堪言  </li>
-<li>使用 <code>scp</code> 传到海外 VPN 服务器，再从海外服务器 down 回来  </li>
+<li>使用 <code>scp</code> 传到可用服务器，再从可用服务器 down 回来  </li>
 </ol>
 <p>不用我说，看标题就知道选方案二了。。。  </p>
 <p>从本地复制文件/文件夹到远程服务器：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 传输文件</span></div><div class="line">scp (-P remote_port) local_file (remote_username@)remote_ip:remote_folder/file </div><div class="line"></div><div class="line"><span class="comment"># 传输文件夹</span></div><div class="line">scp (-P remote_port) -r local_folder (remote_username@)remote_ip:remote_folder</div></pre></td></tr></table></figure></p>
 <p>默认 scp 使用 <code>22</code> 端口，如果远程服务器修改了 ssh 端口，则需要加 <code>-P</code> 参数<br>另外 <code>-P</code> 一定要紧跟 <code>scp</code> 后面  </p>
-<p>不要忘记把海外服务器的文件删掉哦~~  </p>
+<p>不要忘记把可用服务器的文件删掉哦~~  </p>
 <hr>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
 <li><a href="http://www.cnblogs.com/hitwtx/archive/2011/11/16/2251254.html" target="_blank" rel="external">scp命令</a></li>
@@ -806,95 +1378,6 @@
 
 
   
-    <article id="post-七月的最后" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/30/七月的最后/">七月的最后</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/30/七月的最后/" class="archive-article-date">
-  	<time datetime="2017-07-30T12:30:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.7.30</em></p>
-<p>2017年7月的末尾，总结以下，顺便展望一下2017年第三季度~  </p>
-<p>在这个月24岁了，还好，生日是和喜欢的人一起过的~<br>话说小时候的愿望就是活到24岁，然后 say goodbye~<br>因为我从小就怕变老<br>上班以后真的发现自己变老了，上学时候的大好青春没好好珍惜，好后悔~<br>晓宇说人老了身上会有难闻的气味，洗澡也洗不掉，她说这句话的时候真是扎我心了。  </p>
-<p>但是我一直相信任何事情只要开始做，什么时候都不晚，起码在以后不会后悔~<br>不可能的事情，不做永远是不可能的<br>所以从上周开始强迫自己天天运动，跑圈、骑自行车，还好北京的夏天比哈尔滨长，我有很多的室外锻炼时间~<br>我想要多保持一阵子青春，变成更好的人  </p>
-<p>再看下工作，工作啊~惨~<br>算是荒度了近两周，主要没什么活干~<br>但是接下来终于有任务了~  </p>
-<p>17年第三季度OKR丧心病狂，老大对我的期望是负责 <code>金服防火墙</code> 和 <code>slack &amp; stackstorm</code> 结合<br>噫，不想辜负老大的期望，我也答应过要 <code>好好工作，好好赚钱，不想乱七八糟的事</code> ~  </p>
-<p>总计一下9月末之前要做的事：</p>
-<p><strong>1. 基础运维工作，包括 LVS、Nginx 配置部署</strong><br><strong>2. 金服区业务</strong><br>  2.1 金服服务部署上线<br>  2.2 跨墙服务之间调用关系、集群关系<br>  2.3 金服的ACL配置方案<br><strong>3. 故障自动处理平台</strong><br>  3.1 slack，聊天机器人<br>  3.2 stackstorm，DevOps自动化工具<br><strong>4. 自己要做的事</strong><br>  4.1 锻炼身体，跑步骑车<br>  4.2 IPTree、结合 firewall 、二叉树替换为 Radix Tree<br>  4.3 Redis  </p>
-<p>金服的业务和基础运维工作有继锋大神带着，应该没问题<br>故障自动处理平台简直是个万丈深渊啊！丫的之前开发的人移民跑路了，啥也没留下。。。<br>运维部连个使用熟悉的人都没有。。。老大你这是在考验我啊。。。  </p>
-<p>emmmmmm~ 下周要好好加班了，再也不能7点多跑路了！<br>看 stackstorm 源码！接着写脚本解析防火墙配置文件!~<br>回家接着完善自己的 IPTree ~  </p>
-<p>stackstorm 参考：</p>
-<ul>
-<li><a href="https://docs.stackstorm.com/" target="_blank" rel="external">stackstorm官方文档</a></li>
-<li><a href="https://github.com/StackStorm/st2docs" target="_blank" rel="external">stackstorm github文档</a></li>
-<li><a href="https://github.com/StackStorm" target="_blank" rel="external">stackstorm github主页</a></li>
-<li><a href="https://github.com/StackStorm/st2contrib/tree/master/packs/slack" target="_blank" rel="external">stackstorm &amp; slack旧版</a></li>
-<li><a href="https://github.com/StackStorm-Exchange/stackstorm-slack" target="_blank" rel="external">stackstorm &amp; slack新版</a></li>
-<li><a href="https://github.com/StackStorm/st2contrib" target="_blank" rel="external">stackstorm 旧版集成包</a></li>
-<li><a href="https://github.com/StackStorm-Exchange" target="_blank" rel="external">stackstorm 新版集成包</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/30/七月的最后/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-Linux大文件生成" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -917,7 +1400,7 @@
       
         <p><em>2017.7.24</em></p>
 <p>首先问题来了，为什么要生成大文件呢  </p>
-<p>生成大文件可以做一些测试，比如系统性能啦~<br>还能应付系统组对我们机器使用不达标（哈哈哈~  </p>
+<p>生成大文件可以做一些测试，比如系统性能啦~  </p>
 <p>好了，加入当前磁盘大小为 20G ，系统组要求磁盘利用率达到 30% ，已用 3G<br>那么我们还需要生成 3G 的文件~  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="built_in">test</span> bs=1M count=3000</div></pre></td></tr></table></figure>
 <p>系统组的同学可以用以下方法来检测到~</p>
@@ -925,7 +1408,7 @@
 <p>这里文件大小的单位可以使用 <code>b</code>，<code>k</code>，<code>M</code>，<code>G</code>  </p>
 <p>于是乎我们可以反其道而行之，生成 3000 个 1M 的文件~  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seq 3000 | xargs -i dd <span class="keyword">if</span>=/dev/zero of=&#123;&#125;.dat bs=1024000 count=1</div></pre></td></tr></table></figure>
-<p>如果系统组的同学机智，其实他们还是可以发现的  </p>
+<p>如果机智的话，其实他们还是可以发现的  </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du --max-depth=1 | sort -rn    <span class="comment"># 按从大到小的顺序对目录进行排序</span></div></pre></td></tr></table></figure>
 <hr>
 <p>网上还有一个丧心病狂的命令  </p>
@@ -1321,264 +1804,6 @@
 
 
   
-    <article id="post-Nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/18/Nginx/">Nginx</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/18/Nginx/" class="archive-article-date">
-  	<time datetime="2017-07-18T09:32:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.7.18</em></p>
-<h2 id="Nginx-编译"><a href="#Nginx-编译" class="headerlink" title="Nginx 编译"></a>Nginx 编译</h2><p>nginx 大部分常用模块，编译时 <code>./configure --help</code> 以 <code>--without</code> 开头的都默认安装  </p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>作用</th>
-<th>默认</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>–prefix=PATH</td>
-<td>指定nginx的安装目录</td>
-<td>/usr/local/nginx</td>
-</tr>
-<tr>
-<td>–conf-path=PATH</td>
-<td>设置nginx.conf配置文件的路径。nginx允许使用不同的配置文件启动，通过命令行中的-c选项</td>
-<td>prefix/conf/nginx.conf</td>
-</tr>
-<tr>
-<td>–user=name</td>
-<td>设置nginx工作进程的用户。安装完成后，可以随时在nginx.conf配置文件更改user指令</td>
-<td>nobody</td>
-</tr>
-<tr>
-<td>–with-pcre</td>
-<td>设置PCRE库的源码路径</td>
-<td></td>
-</tr>
-<tr>
-<td>–with-zlib=PATH</td>
-<td>指定 zlib（版本1.1.3 - 1.2.5）的源码解压目录</td>
-<td></td>
-</tr>
-<tr>
-<td>–with-http_ssl_module</td>
-<td>使用https协议模块</td>
-<td>默认不构建</td>
-</tr>
-<tr>
-<td>–with-http_stub_status_module</td>
-<td>用来监控 Nginx 的当前状态</td>
-<td></td>
-</tr>
-<tr>
-<td>–with-http_realip_module</td>
-<td>通过这个模块允许我们改变客户端请求头中客户端IP地址值(例如X-Real-IP 或 X-Forwarded-For)，意义在于能够使得后台服务器记录原始客户端的IP地址</td>
-<td></td>
-</tr>
-<tr>
-<td>–add-module=PATH</td>
-<td>添加第三方外部模块，如nginx-sticky-module-ng或缓存模块。每次添加新的模块都要重新编译</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Nginx-命令行控制"><a href="#Nginx-命令行控制" class="headerlink" title="Nginx 命令行控制"></a>Nginx 命令行控制</h2><ul>
-<li>检查配置文件是否正确  </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx -t</div></pre></td></tr></table></figure>
-<ul>
-<li>启动 Nginx</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx</div></pre></td></tr></table></figure>
-<ul>
-<li>停止 Nginx</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx -s stop</div></pre></td></tr></table></figure>
-<ul>
-<li>优雅地停止</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx -s quit</div></pre></td></tr></table></figure>
-<ul>
-<li>重载配置文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx -s reload</div></pre></td></tr></table></figure>
-<ul>
-<li>查看 Nginx 版本</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx -v</div></pre></td></tr></table></figure>
-<ul>
-<li>查看 Nginx 编译选项</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./sbin/nginx -V</div></pre></td></tr></table></figure>
-<h2 id="Nginx-配置文件-nginx-conf"><a href="#Nginx-配置文件-nginx-conf" class="headerlink" title="Nginx 配置文件 nginx.conf"></a>Nginx 配置文件 nginx.conf</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#定义Nginx运行的用户和用户组</span></div><div class="line">user www www;</div><div class="line"></div><div class="line"><span class="comment">#nginx进程数，建议设置为等于CPU总核心数。</span></div><div class="line">worker_processes 8;</div><div class="line"> </div><div class="line"><span class="comment">#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]</span></div><div class="line">error_log /usr/<span class="built_in">local</span>/nginx/logs/error.log info;</div><div class="line"></div><div class="line"><span class="comment">#进程pid文件</span></div><div class="line">pid /usr/<span class="built_in">local</span>/nginx/logs/nginx.pid;</div><div class="line"></div><div class="line"><span class="comment">#指定进程可以打开的最大描述符：数目</span></div><div class="line"><span class="comment">#工作模式与连接数上限</span></div><div class="line"><span class="comment">#这个指令是指当一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit -n 的值保持一致。</span></div><div class="line"><span class="comment">#现在在linux 2.6内核下开启文件打开数为65535，worker_rlimit_nofile就相应应该填写65535。</span></div><div class="line"><span class="comment">#这是因为nginx调度时分配请求到进程并不是那么的均衡，所以假如填写10240，总并发量达到3-4万时就有进程可能超过10240了，这时会返回502错误。</span></div><div class="line">worker_rlimit_nofile 65535;</div><div class="line"></div><div class="line"></div><div class="line">events</div><div class="line">&#123;</div><div class="line">    <span class="comment">#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型</span></div><div class="line">    <span class="comment">#是Linux 2.6以上版本内核中的高性能网络I/O模型，linux建议epoll，如果跑在FreeBSD上面，就用kqueue模型。</span></div><div class="line">    <span class="comment">#补充说明：</span></div><div class="line">    <span class="comment">#与apache相类，nginx针对不同的操作系统，有不同的事件模型</span></div><div class="line">    <span class="comment">#A）标准事件模型</span></div><div class="line">    <span class="comment">#Select、poll属于标准事件模型，如果当前系统不存在更有效的方法，nginx会选择select或poll</span></div><div class="line">    <span class="comment">#B）高效事件模型</span></div><div class="line">    <span class="comment">#Kqueue：使用于FreeBSD 4.1+, OpenBSD 2.9+, NetBSD 2.0 和 MacOS X.使用双处理器的MacOS X系统使用kqueue可能会造成内核崩溃。</span></div><div class="line">    <span class="comment">#Epoll：使用于Linux内核2.6版本及以后的系统。</span></div><div class="line">    <span class="comment">#/dev/poll：使用于Solaris 7 11/99+，HP/UX 11.22+ (eventport)，IRIX 6.5.15+ 和 Tru64 UNIX 5.1A+。</span></div><div class="line">    <span class="comment">#Eventport：使用于Solaris 10。 为了防止出现内核崩溃的问题， 有必要安装安全补丁。</span></div><div class="line">    use epoll;</div><div class="line"></div><div class="line">    <span class="comment">#单个进程最大连接数（最大连接数=连接数*进程数）</span></div><div class="line">    <span class="comment">#根据硬件调整，和前面工作进程配合起来用，尽量大，但是别把cpu跑到100%就行。每个进程允许的最多连接数，理论上每台nginx服务器的最大连接数为。</span></div><div class="line">    worker_connections 65535;</div><div class="line"></div><div class="line">    <span class="comment">#keepalive超时时间。</span></div><div class="line">    keepalive_timeout 60;</div><div class="line"></div><div class="line">    <span class="comment">#客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求头的大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。</span></div><div class="line">    <span class="comment">#分页大小可以用命令getconf PAGESIZE 取得。</span></div><div class="line">    <span class="comment">#[root@web001 ~]# getconf PAGESIZE</span></div><div class="line">    <span class="comment">#4096</span></div><div class="line">    <span class="comment">#但也有client_header_buffer_size超过4k的情况，但是client_header_buffer_size该值必须设置为“系统分页大小”的整倍数。</span></div><div class="line">    client_header_buffer_size 4k;</div><div class="line"></div><div class="line">    <span class="comment">#这个将为打开文件指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件数一致，inactive是指经过多长时间文件没被请求后删除缓存。</span></div><div class="line">    open_file_cache max=65535 inactive=60s;</div><div class="line"></div><div class="line">    <span class="comment">#这个是指多长时间检查一次缓存的有效信息。</span></div><div class="line">    <span class="comment">#语法:open_file_cache_valid time 默认值:open_file_cache_valid 60 使用字段:http, server, location 这个指令指定了何时需要检查open_file_cache中缓存项目的有效信息.</span></div><div class="line">    open_file_cache_valid 80s;</div><div class="line"></div><div class="line">    <span class="comment">#open_file_cache指令中的inactive参数时间内文件的最少使用次数，如果超过这个数字，文件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive时间内一次没被使用，它将被移除。</span></div><div class="line">    <span class="comment">#语法:open_file_cache_min_uses number 默认值:open_file_cache_min_uses 1 使用字段:http, server, location  这个指令指定了在open_file_cache指令无效的参数中一定的时间范围内可以使用的最小文件数,如果使用更大的值,文件描述符在cache中总是打开状态.</span></div><div class="line">    open_file_cache_min_uses 1;</div><div class="line">    </div><div class="line">    <span class="comment">#语法:open_file_cache_errors on | off 默认值:open_file_cache_errors off 使用字段:http, server, location 这个指令指定是否在搜索一个文件是记录cache错误.</span></div><div class="line">    open_file_cache_errors on;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"> </div><div class="line"> </div><div class="line"><span class="comment">#设定http服务器，利用它的反向代理功能提供负载均衡支持</span></div><div class="line">http</div><div class="line">&#123;</div><div class="line">    <span class="comment">#文件扩展名与文件类型映射表</span></div><div class="line">    include mime.types;</div><div class="line"></div><div class="line">    <span class="comment">#默认文件类型</span></div><div class="line">    default_type application/octet-stream;</div><div class="line"></div><div class="line">    <span class="comment">#默认编码</span></div><div class="line">    <span class="comment">#charset utf-8;</span></div><div class="line"></div><div class="line">    <span class="comment">#服务器名字的hash表大小</span></div><div class="line">    <span class="comment">#保存服务器名字的hash表是由指令server_names_hash_max_size 和server_names_hash_bucket_size所控制的。参数hash bucket size总是等于hash表的大小，并且是一路处理器缓存大小的倍数。在减少了在内存中的存取次数后，使在处理器中加速查找hash表键值成为可能。如果hash bucket size等于一路处理器缓存的大小，那么在查找键的时候，最坏的情况下在内存中查找的次数为2。第一次是确定存储单元的地址，第二次是在存储单元中查找键 值。因此，如果Nginx给出需要增大hash max size 或 hash bucket size的提示，那么首要的是增大前一个参数的大小.</span></div><div class="line">    server_names_hash_bucket_size 128;</div><div class="line"></div><div class="line">    <span class="comment">#客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求的头部大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。分页大小可以用命令getconf PAGESIZE取得。</span></div><div class="line">    client_header_buffer_size 32k;</div><div class="line"></div><div class="line">    <span class="comment">#客户请求头缓冲大小。nginx默认会用client_header_buffer_size这个buffer来读取header值，如果header过大，它会使用large_client_header_buffers来读取。</span></div><div class="line">    large_client_header_buffers 4 64k;</div><div class="line"></div><div class="line">    <span class="comment">#设定通过nginx上传文件的大小</span></div><div class="line">    client_max_body_size 8m;</div><div class="line"></div><div class="line">    <span class="comment">#开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。</span></div><div class="line">    <span class="comment">#sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime。</span></div><div class="line">    sendfile on;</div><div class="line"></div><div class="line">    <span class="comment">#开启目录列表访问，合适下载服务器，默认关闭。</span></div><div class="line">    autoindex on;</div><div class="line"></div><div class="line">    <span class="comment">#此选项允许或禁止使用socke的TCP_CORK的选项，此选项仅在使用sendfile的时候使用</span></div><div class="line">    tcp_nopush on;</div><div class="line">     </div><div class="line">    tcp_nodelay on;</div><div class="line"></div><div class="line">    <span class="comment">#长连接超时时间，单位是秒</span></div><div class="line">    keepalive_timeout 120;</div><div class="line"></div><div class="line">    <span class="comment">#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。</span></div><div class="line">    fastcgi_connect_timeout 300;</div><div class="line">    fastcgi_send_timeout 300;</div><div class="line">    fastcgi_read_timeout 300;</div><div class="line">    fastcgi_buffer_size 64k;</div><div class="line">    fastcgi_buffers 4 64k;</div><div class="line">    fastcgi_busy_buffers_size 128k;</div><div class="line">    fastcgi_temp_file_write_size 128k;</div><div class="line"></div><div class="line">    <span class="comment">#gzip模块设置</span></div><div class="line">    gzip on; <span class="comment">#开启gzip压缩输出</span></div><div class="line">    gzip_min_length 1k;    <span class="comment">#最小压缩文件大小</span></div><div class="line">    gzip_buffers 4 16k;    <span class="comment">#压缩缓冲区</span></div><div class="line">    gzip_http_version 1.0;    <span class="comment">#压缩版本（默认1.1，前端如果是squid2.5请使用1.0）</span></div><div class="line">    gzip_comp_level 2;    <span class="comment">#压缩等级</span></div><div class="line">    gzip_types text/plain application/x-javascript text/css application/xml;    <span class="comment">#压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。</span></div><div class="line">    gzip_vary on;</div><div class="line"></div><div class="line">    <span class="comment">#开启限制IP连接数的时候需要使用</span></div><div class="line">    <span class="comment">#limit_zone crawler $binary_remote_addr 10m;</span></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">#负载均衡配置</span></div><div class="line">    upstream piao.jd.com &#123;</div><div class="line">     </div><div class="line">        <span class="comment">#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。</span></div><div class="line">        server 192.168.80.121:80 weight=3;</div><div class="line">        server 192.168.80.122:80 weight=2;</div><div class="line">        server 192.168.80.123:80 weight=3;</div><div class="line"></div><div class="line">        <span class="comment">#nginx的upstream目前支持4种方式的分配</span></div><div class="line">        <span class="comment">#1、轮询（默认）</span></div><div class="line">        <span class="comment">#每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</span></div><div class="line">        <span class="comment">#2、weight</span></div><div class="line">        <span class="comment">#指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</span></div><div class="line">        <span class="comment">#例如：</span></div><div class="line">        <span class="comment">#upstream bakend &#123;</span></div><div class="line">        <span class="comment">#    server 192.168.0.14 weight=10;</span></div><div class="line">        <span class="comment">#    server 192.168.0.15 weight=10;</span></div><div class="line">        <span class="comment">#&#125;</span></div><div class="line">        <span class="comment">#2、ip_hash</span></div><div class="line">        <span class="comment">#每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</span></div><div class="line">        <span class="comment">#例如：</span></div><div class="line">        <span class="comment">#upstream bakend &#123;</span></div><div class="line">        <span class="comment">#    ip_hash;</span></div><div class="line">        <span class="comment">#    server 192.168.0.14:88;</span></div><div class="line">        <span class="comment">#    server 192.168.0.15:80;</span></div><div class="line">        <span class="comment">#&#125;</span></div><div class="line">        <span class="comment">#3、fair（第三方）</span></div><div class="line">        <span class="comment">#按后端服务器的响应时间来分配请求，响应时间短的优先分配。</span></div><div class="line">        <span class="comment">#upstream backend &#123;</span></div><div class="line">        <span class="comment">#    server server1;</span></div><div class="line">        <span class="comment">#    server server2;</span></div><div class="line">        <span class="comment">#    fair;</span></div><div class="line">        <span class="comment">#&#125;</span></div><div class="line">        <span class="comment">#4、url_hash（第三方）</span></div><div class="line">        <span class="comment">#按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</span></div><div class="line">        <span class="comment">#例：在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</span></div><div class="line">        <span class="comment">#upstream backend &#123;</span></div><div class="line">        <span class="comment">#    server squid1:3128;</span></div><div class="line">        <span class="comment">#    server squid2:3128;</span></div><div class="line">        <span class="comment">#    hash $request_uri;</span></div><div class="line">        <span class="comment">#    hash_method crc32;</span></div><div class="line">        <span class="comment">#&#125;</span></div><div class="line"></div><div class="line">        <span class="comment">#tips:</span></div><div class="line">        <span class="comment">#upstream bakend&#123;#定义负载均衡设备的Ip及设备状态&#125;&#123;</span></div><div class="line">        <span class="comment">#    ip_hash;</span></div><div class="line">        <span class="comment">#    server 127.0.0.1:9090 down;</span></div><div class="line">        <span class="comment">#    server 127.0.0.1:8080 weight=2;</span></div><div class="line">        <span class="comment">#    server 127.0.0.1:6060;</span></div><div class="line">        <span class="comment">#    server 127.0.0.1:7070 backup;</span></div><div class="line">        <span class="comment">#&#125;</span></div><div class="line">        <span class="comment">#在需要使用负载均衡的server中增加 proxy_pass http://bakend/;</span></div><div class="line"></div><div class="line">        <span class="comment">#每个设备的状态设置为:</span></div><div class="line">        <span class="comment">#1.down表示单前的server暂时不参与负载</span></div><div class="line">        <span class="comment">#2.weight为weight越大，负载的权重就越大。</span></div><div class="line">        <span class="comment">#3.max_fails：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream模块定义的错误</span></div><div class="line">        <span class="comment">#4.fail_timeout:max_fails次失败后，暂停的时间。</span></div><div class="line">        <span class="comment">#5.backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。</span></div><div class="line"></div><div class="line">        <span class="comment">#nginx支持同时设置多组的负载均衡，用来给不用的server来使用。</span></div><div class="line">        <span class="comment">#client_body_in_file_only设置为On 可以讲client post过来的数据记录到文件中用来做debug</span></div><div class="line">        <span class="comment">#client_body_temp_path设置记录文件的目录 可以设置最多3层目录</span></div><div class="line">        <span class="comment">#location对URL进行匹配.可以进行重定向或者进行新的代理 负载均衡</span></div><div class="line">    &#125;</div><div class="line">     </div><div class="line">     </div><div class="line">     </div><div class="line">    <span class="comment">#虚拟主机的配置</span></div><div class="line">    server</div><div class="line">    &#123;</div><div class="line">        <span class="comment">#监听端口</span></div><div class="line">        listen 80;</div><div class="line"></div><div class="line">        <span class="comment">#域名可以有多个，用空格隔开</span></div><div class="line">        server_name www.jd.com jd.com;</div><div class="line">        index index.html index.htm index.php;</div><div class="line">        root /data/www/jd;</div><div class="line"></div><div class="line">        <span class="comment">#对******进行负载均衡</span></div><div class="line">        location ~ .*.(php|php5)?$</div><div class="line">        &#123;</div><div class="line">            fastcgi_pass 127.0.0.1:9000;</div><div class="line">            fastcgi_index index.php;</div><div class="line">            include fastcgi.conf;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        <span class="comment">#图片缓存时间设置</span></div><div class="line">        location ~ .*.(gif|jpg|jpeg|png|bmp|swf)$</div><div class="line">        &#123;</div><div class="line">            expires 10d;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        <span class="comment">#JS和CSS缓存时间设置</span></div><div class="line">        location ~ .*.(js|css)?$</div><div class="line">        &#123;</div><div class="line">            expires 1h;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        <span class="comment">#日志格式设定</span></div><div class="line">        <span class="comment">#$remote_addr与$http_x_forwarded_for用以记录客户端的ip地址；</span></div><div class="line">        <span class="comment">#$remote_user：用来记录客户端用户名称；</span></div><div class="line">        <span class="comment">#$time_local： 用来记录访问时间与时区；</span></div><div class="line">        <span class="comment">#$request： 用来记录请求的url与http协议；</span></div><div class="line">        <span class="comment">#$status： 用来记录请求状态；成功是200，</span></div><div class="line">        <span class="comment">#$body_bytes_sent ：记录发送给客户端文件主体内容大小；</span></div><div class="line">        <span class="comment">#$http_referer：用来记录从那个页面链接访问过来的；</span></div><div class="line">        <span class="comment">#$http_user_agent：记录客户浏览器的相关信息；</span></div><div class="line">        <span class="comment">#通常web服务器放在反向代理的后面，这样就不能获取到客户的IP地址了，通过$remote_add拿到的IP地址是反向代理服务器的iP地址。反向代理服务器在转发请求的http头信息中，可以增加x_forwarded_for信息，用以记录原有客户端的IP地址和原来客户端的请求的服务器地址。</span></div><div class="line">        log_format access <span class="string">'$remote_addr - $remote_user [$time_local] "$request" '</span></div><div class="line">        <span class="string">'$status $body_bytes_sent "$http_referer" '</span></div><div class="line">        <span class="string">'"$http_user_agent" $http_x_forwarded_for'</span>;</div><div class="line">         </div><div class="line">        <span class="comment">#定义本虚拟主机的访问日志</span></div><div class="line">        access_log  /usr/<span class="built_in">local</span>/nginx/logs/host.access.log  main;</div><div class="line">        access_log  /usr/<span class="built_in">local</span>/nginx/logs/host.access.404.log  log404;</div><div class="line">         </div><div class="line">        <span class="comment">#对 "/" 启用反向代理</span></div><div class="line">        location / &#123;</div><div class="line">            proxy_pass http://127.0.0.1:88;</div><div class="line">            proxy_redirect off;</div><div class="line">            proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">             </div><div class="line">            <span class="comment">#后端的Web服务器可以通过X-Forwarded-For获取用户真实IP</span></div><div class="line">            proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">             </div><div class="line">            <span class="comment">#以下是一些反向代理的配置，可选。</span></div><div class="line">            proxy_set_header Host <span class="variable">$host</span>;</div><div class="line"></div><div class="line">            <span class="comment">#允许客户端请求的最大单文件字节数</span></div><div class="line">            client_max_body_size 10m;</div><div class="line"></div><div class="line">            <span class="comment">#缓冲区代理缓冲用户端请求的最大字节数，</span></div><div class="line">            <span class="comment">#如果把它设置为比较大的数值，例如256k，那么，无论使用firefox还是IE浏览器，来提交任意小于256k的图片，都很正常。如果注释该指令，使用默认的client_body_buffer_size设置，也就是操作系统页面大小的两倍，8k或者16k，问题就出现了。</span></div><div class="line">            <span class="comment">#无论使用firefox4.0还是IE8.0，提交一个比较大，200k左右的图片，都返回500 Internal Server Error错误</span></div><div class="line">            client_body_buffer_size 128k;</div><div class="line"></div><div class="line">            <span class="comment">#表示使nginx阻止HTTP应答代码为400或者更高的应答。</span></div><div class="line">            proxy_intercept_errors on;</div><div class="line"></div><div class="line">            <span class="comment">#后端服务器连接的超时时间_发起握手等候响应超时时间</span></div><div class="line">            <span class="comment">#nginx跟后端服务器连接超时时间(代理连接超时)</span></div><div class="line">            proxy_connect_timeout 90;</div><div class="line"></div><div class="line">            <span class="comment">#后端服务器数据回传时间(代理发送超时)</span></div><div class="line">            <span class="comment">#后端服务器数据回传时间_就是在规定时间之内后端服务器必须传完所有的数据</span></div><div class="line">            proxy_send_timeout 90;</div><div class="line"></div><div class="line">            <span class="comment">#连接成功后，后端服务器响应时间(代理接收超时)</span></div><div class="line">            <span class="comment">#连接成功后_等候后端服务器响应时间_其实已经进入后端的排队之中等候处理（也可以说是后端服务器处理请求的时间）</span></div><div class="line">            proxy_read_timeout 90;</div><div class="line"></div><div class="line">            <span class="comment">#设置代理服务器（nginx）保存用户头信息的缓冲区大小</span></div><div class="line">            <span class="comment">#设置从被代理服务器读取的第一部分应答的缓冲区大小，通常情况下这部分应答中包含一个小的应答头，默认情况下这个值的大小为指令proxy_buffers中指定的一个缓冲区的大小，不过可以将其设置为更小</span></div><div class="line">            proxy_buffer_size 4k;</div><div class="line"></div><div class="line">            <span class="comment">#proxy_buffers缓冲区，网页平均在32k以下的设置</span></div><div class="line">            <span class="comment">#设置用于读取应答（来自被代理服务器）的缓冲区数目和大小，默认情况也为分页大小，根据操作系统的不同可能是4k或者8k</span></div><div class="line">            proxy_buffers 4 32k;</div><div class="line"></div><div class="line">            <span class="comment">#高负荷下缓冲大小（proxy_buffers*2）</span></div><div class="line">            proxy_busy_buffers_size 64k;</div><div class="line"></div><div class="line">            <span class="comment">#设置在写入proxy_temp_path时数据的大小，预防一个工作进程在传递文件时阻塞太长</span></div><div class="line">            <span class="comment">#设定缓存文件夹大小，大于这个值，将从upstream服务器传</span></div><div class="line">            proxy_temp_file_write_size 64k;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">         </div><div class="line">        <span class="comment">#设定查看Nginx状态的地址</span></div><div class="line">        location /NginxStatus &#123;</div><div class="line">            stub_status on;</div><div class="line">            access_log on;</div><div class="line">            auth_basic <span class="string">"NginxStatus"</span>;</div><div class="line">            auth_basic_user_file confpasswd;</div><div class="line">            <span class="comment">#htpasswd文件的内容可以用apache提供的htpasswd工具来产生。</span></div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        <span class="comment">#本地动静分离反向代理配置</span></div><div class="line">        <span class="comment">#所有jsp的页面均交由tomcat或resin处理</span></div><div class="line">        location ~ .(jsp|jspx|<span class="keyword">do</span>)?$ &#123;</div><div class="line">            proxy_set_header Host <span class="variable">$host</span>;</div><div class="line">            proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</div><div class="line">            proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</div><div class="line">            proxy_pass http://127.0.0.1:8080;</div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        <span class="comment">#所有静态文件由nginx直接读取不经过tomcat或resin</span></div><div class="line">        location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|</div><div class="line">        pdf|xls|mp3|wma)$</div><div class="line">        &#123;</div><div class="line">            expires 15d; </div><div class="line">        &#125;</div><div class="line">         </div><div class="line">        location ~ .*.(js|css)?$</div><div class="line">        &#123;</div><div class="line">            expires 1h;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h2><ol>
-<li>可以分别有多个allow,deny，允许或禁止某个ip或ip段访问，依次满足任何一个规则就停止往下匹配</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">location /nginx-status &#123;</div><div class="line">  stub_status on;</div><div class="line">  access_log off;</div><div class="line"><span class="comment">#  auth_basic   "NginxStatus";</span></div><div class="line"><span class="comment">#  auth_basic_user_file   /usr/local/nginx-1.6/htpasswd;</span></div><div class="line"></div><div class="line">  allow 192.168.10.100;</div><div class="line">  allow 172.29.73.0/24;</div><div class="line">  deny all;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>用 <code>httpd-devel</code> 工具的 <code>htpasswd</code> 来为访问的路径设置登录密码</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># htpasswd -c htpasswd admin</span></div><div class="line">New passwd:</div><div class="line">Re-type new password:</div><div class="line">Adding password <span class="keyword">for</span> user admin</div><div class="line"></div><div class="line"><span class="comment"># htpasswd htpasswd admin    //修改admin密码</span></div><div class="line"><span class="comment"># htpasswd htpasswd sean    //多添加一个认证用户</span></div></pre></td></tr></table></figure>
-<hr>
-<p>Reference:</p>
-<ul>
-<li><a href="http://product.china-pub.com/4918661" target="_blank" rel="external">深入理解Nginx</a></li>
-<li><a href="http://www.cnblogs.com/hunttown/p/5759959.html" target="_blank" rel="external">猎手家园</a></li>
-<li><a href="https://segmentfault.com/a/1190000002797601" target="_blank" rel="external">seanlook</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/18/Nginx/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-2017-7-16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/16/2017-7-16/">2017-7-16</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/16/2017-7-16/" class="archive-article-date">
-  	<time datetime="2017-07-15T16:21:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>噫。。王哥哥太晚了明天还要早起出门。。懒得用手机打字了。。写在这里你看下就好= =  </p>
-<hr>
-<p>昨天烦的不是找你玩你不带我。。然后开小号去玩= =  </p>
-<p>烦的是我知道我自己这样不对，明明知道游戏这种东西不应该强制别人陪我，但是还是很不爽。。<br>烦的是最近总对你发脾气哎。。我以前不是这样的！（我这么温柔好脾气对吧  </p>
-<p>我就是觉得自己变了。。所以才扎心。。  </p>
-<p>昨天晚上洗衣服的时候我就在想，哪里变了<br>后来发现是你的分量变重了，(不是体重!  </p>
-<p>讲真我好蠢，以前总拉着你出去玩一直把你当好基友<br>不知不觉两年多了。。现在才发现TAT。。  </p>
-<p>妈蛋上次去中央大街我就应该花10块钱买那个破花。。<br>当时我心里还想着这阿姨是不是有病。。<br>另外我总说这个妹子身材好，那个妹子腿好长，最后说你最好看！<br>这是真心的！我王哥哥最好看，不限于每个月前十天！  </p>
-<blockquote>
-<p>总结一下就是我突然发现喜欢你了。。<br>写到这我都能猜到你的表情<br>一脸嫌弃，然后说“噫~你可千万别喜欢我”  </p>
-</blockquote>
-<p>那么问题来了，王哥哥你不喜欢我我还是喜欢你啊~<br>我们还是好基友对吧~  </p>
-<p>晚安</p>
-<hr>
-<p>对了！这是我私人博客相当于日记，不许给别人看！<br>流水账写的好蠢。。。过两天一定删了= =  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/16/2017-7-16/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1593,7 +1818,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Juntaran
+    		&copy; 2018 Juntaran
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1724,6 +1949,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网络爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OLAP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">区块链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">比特币</a>
               </li>
             
             <div class="clearfix"></div>
