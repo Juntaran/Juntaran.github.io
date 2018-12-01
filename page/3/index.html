@@ -158,784 +158,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/20/ping/">ping</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/20/ping/" class="archive-article-date">
-  	<time datetime="2017-06-20T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.6.20</em></p>
-<pre><code>ping  [-aAbBdDfhLnOqrRUvV46] [-c count] [-F flowlabel] [-i interval] [-I interface] [-l preload] [-m mark] [-M pmtudisc_option] [-N nodeinfo_option] [-w deadline] [-W timeout] [-p pattern] [-Q tos] [-s packetsize] [-S sndbuf] [-t ttl] [-T timestamp option] [hop ...] destination
-</code></pre><p>重点参数列表：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-4</td>
-<td>使用IPv4</td>
-</tr>
-<tr>
-<td>-6</td>
-<td>使用IPv6</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>ping一个广播地址</td>
-</tr>
-<tr>
-<td>-c count</td>
-<td>指定 ping 的次数为<code>count</code></td>
-</tr>
-<tr>
-<td>-D</td>
-<td>打印时间戳</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>flood ping，必须有 root 权限</td>
-</tr>
-<tr>
-<td>-i interval</td>
-<td>每隔<code>interval</code>秒 ping 一次</td>
-</tr>
-<tr>
-<td>-I interface</td>
-<td>使用指定的<code>interface</code>网卡 ping</td>
-</tr>
-<tr>
-<td>-l preload</td>
-<td>在发送前<code>preload</code>个数据包的时候不等待 reply，preload &gt; 3 需要 root权限</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>使用数字输出，不尝试转换为 host</td>
-</tr>
-<tr>
-<td>-p pattern</td>
-<td>指定用16个“填充”字节<code>pattern</code>填充发送的包，<code>-p ff</code> 则为全部用1填充</td>
-</tr>
-<tr>
-<td>-q</td>
-<td>不显示任何传送封包的信息，只显示最后的结果</td>
-</tr>
-<tr>
-<td>-s packetsize</td>
-<td>指定 ping 的数据包大小，默认64字节</td>
-</tr>
-<tr>
-<td>-t ttl</td>
-<td>指定 ping 的 TTL 为<code>ttl</code>，路由器转发数据包时，TTL 值会减一，为0则该数据包生命终止</td>
-</tr>
-<tr>
-<td>-w deadline</td>
-<td>设定终止时间为<code>deadline</code>，应与<code>-c count</code>配合使用</td>
-</tr>
-<tr>
-<td>-W timeout</td>
-<td>设定等待回应的时间为<code>timeout</code></td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/20/ping/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-tcpdump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/18/tcpdump/">tcpdump</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/18/tcpdump/" class="archive-article-date">
-  	<time datetime="2017-06-18T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.6.18</em></p>
-<h2 id="1-tcpdump-选项与参数"><a href="#1-tcpdump-选项与参数" class="headerlink" title="1. tcpdump 选项与参数"></a>1. tcpdump 选项与参数</h2><pre><code>tcpdump [选项] [-c 数量]  [-F 表达式文件名] [-i 网卡名] [-r 读入文件名] [-s 抓包大小] [-T 解释类型] [-w 写入文件名 [-C 文件大小 [-W 文件数量]] [-U]] [表达式]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>参数</th>
-<th>说明</th>
-<th>重要</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>-A</strong></td>
-<td></td>
-<td>以 <code>ASCII 码</code>方式显示每一个数据包（不会显示数据包中链路层头部信息），在抓取包含网页数据的数据包时, 可方便查看数据</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-c</strong></td>
-<td>count</td>
-<td>在接受到<code>count</code>个数据包后退出</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-C</strong></td>
-<td>file-size</td>
-<td>该选项使得 tcpdump 在把原始数据包直接保存到文件中之前, 检查此文件大小是否超过<code>file-size</code>。如果超过了，将关闭当前文件，开启一个文件继续用于原始数据包的记录。file-size 的单位是百万字节（这里指1,000,000个字节，并非1024 ＊ 1024个字节）</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-d</td>
-<td></td>
-<td>以容易阅读的形式打印，打印后退出</td>
-<td></td>
-</tr>
-<tr>
-<td>-dd</td>
-<td></td>
-<td>以C语言的形式打印出包匹配码，打印后退出</td>
-<td></td>
-</tr>
-<tr>
-<td>-ddd</td>
-<td></td>
-<td>以十进制数的形式打印出包匹配码，打印后退出</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-D</strong></td>
-<td></td>
-<td>打印出系统中所有可以用 tcpdump 截包的网络接口，网络接口名字和数字编号可以用在 tcpdump 的<code>-i flag</code></td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-e</strong></td>
-<td></td>
-<td>在输出行打印出<code>数据链路层</code>的头部信息</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-E</td>
-<td>spi@ipaddr algo:secret,…</td>
-<td>解密IPsec ESP包</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-f</strong></td>
-<td></td>
-<td>显示外部的 IPv4 地址时，采用数字方式而不是名字</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>file</td>
-<td>使用<code>file</code>文件作为过滤条件表达式的输入，此时命令行上的输入将被忽略</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-i</strong></td>
-<td>interface</td>
-<td>指定<code>interface</code>为 tcpdump 需要监听的网络接口</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-l</td>
-<td></td>
-<td>对标准输出进行行缓冲，遇到一个换行符就马上把这行的内容打印出来</td>
-<td></td>
-</tr>
-<tr>
-<td>-L</td>
-<td></td>
-<td>列出指定网络接口所支持的数据链路层的类型后退出</td>
-<td></td>
-</tr>
-<tr>
-<td>-m</td>
-<td>module</td>
-<td>通过<code>module</code>指定的 file 装载 SMI、MIB 模块，用于 SNMP 协议数据包抓取</td>
-<td></td>
-</tr>
-<tr>
-<td>-M</td>
-<td>secret</td>
-<td>如果 TCP 数据包(TCP segments)有TCP-MD5选项，为其摘要的验证指定一个公共的密钥<code>secret</code>，RFC 2385</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-n</strong></td>
-<td></td>
-<td>不把网络地址转换成名字</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-nn</strong></td>
-<td></td>
-<td>不进行端口名称的转换</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-N</td>
-<td></td>
-<td>不打印出 host 的域名部分，<code>nic</code>而不是 <code>nic.ddn.mil</code></td>
-<td></td>
-</tr>
-<tr>
-<td>-O</td>
-<td></td>
-<td>不启用进行包匹配时所用的优化代码</td>
-<td></td>
-</tr>
-<tr>
-<td>-p</td>
-<td></td>
-<td>一般情况下，把网络接口设置为<code>非混杂</code>模式.</td>
-<td></td>
-</tr>
-<tr>
-<td>-q</td>
-<td></td>
-<td>静默输出，信息很少</td>
-<td></td>
-</tr>
-<tr>
-<td>-R</td>
-<td></td>
-<td>对 ESP/AH 数据包的解析按照 RFC1825 而不是 RFC1829</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-r</strong></td>
-<td>file</td>
-<td>从文件<code>file</code>中读取包数据，如果<code>file</code>字段为<code>-</code>符号, 则 tcpdump 会从标准输入中读取包数据</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-S</td>
-<td></td>
-<td>打印 TCP 数据包的顺序号时，使用绝对的顺序号，而不是相对的顺序号</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-s</strong></td>
-<td>snaplen</td>
-<td>设置 tcpdump 的数据包抓取长度为<code>snaplen</code>，默认为68字节，加上<code>-s 0</code>后可以抓到完整的数据包</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-T</td>
-<td>type</td>
-<td>强制 tcpdump 按<code>type</code>指定的协议所描述的包结构来分析收到的数据包（包括aodv、cnfp、rtcp、tftp）</td>
-<td></td>
-</tr>
-<tr>
-<td>-t</td>
-<td></td>
-<td>不打印时间戳</td>
-<td></td>
-</tr>
-<tr>
-<td>-tt</td>
-<td></td>
-<td>不对每行输出的时间进行格式处理</td>
-<td></td>
-</tr>
-<tr>
-<td>-ttt</td>
-<td></td>
-<td>tcpdump 输出时，每两行打印之间会延迟一个段时间（以毫秒为单位）</td>
-<td></td>
-</tr>
-<tr>
-<td>-tttt</td>
-<td></td>
-<td>在每行打印的时间戳之前添加日期的打印</td>
-<td></td>
-</tr>
-<tr>
-<td>-u</td>
-<td></td>
-<td>打印出未加密的 NFS</td>
-<td></td>
-</tr>
-<tr>
-<td>-U</td>
-<td></td>
-<td>使得当 tcpdump 在使用<code>-w</code>选项时，其文件写入与包的保存同步</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-v</strong></td>
-<td></td>
-<td>当分析和打印的时候，产生详细的输出。 比如，包的生存时间，标识，总长度以及 IP 包的一些选项。这也会打开一些附加的包完整性检测，比如对IP或ICMP包头部的校验和</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-vv</td>
-<td></td>
-<td>产生比<code>-v</code>更详细的输出。比如，NFS 回应包中的附加域将会被打印，SMB 数据包也会被完全解码</td>
-<td></td>
-</tr>
-<tr>
-<td>-vvv</td>
-<td></td>
-<td>产生比<code>-vv</code>更详细的输出。比如，telent 时所使用的 SB，SE 选项将会被打印</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-w</strong></td>
-<td>file</td>
-<td>把包数据直接写入<code>file</code>文件而不进行分析和打印输出，可以配合<code>-r</code></td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-W</strong></td>
-<td>filecount</td>
-<td>与<code>-C</code>选项配合使用，这将限制可打开的文件数目，并且当文件数据超过<code>filecount</code>的限制时，依次<code>循环替代之前的文件</code></td>
-<td>√</td>
-</tr>
-<tr>
-<td>-x</td>
-<td></td>
-<td>当分析和打印时，tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据（但不包括连接层的头部）</td>
-<td></td>
-</tr>
-<tr>
-<td>-xx</td>
-<td></td>
-<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据，其中包括数据链路层的头部</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>-X</strong></td>
-<td></td>
-<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据（但不包括连接层的头部）</td>
-<td>√</td>
-</tr>
-<tr>
-<td><strong>-XX</strong></td>
-<td></td>
-<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据，其中包括数据链路层的头部</td>
-<td>√</td>
-</tr>
-<tr>
-<td>-y</td>
-<td>datalinktype</td>
-<td>设置 tcpdump 只捕获数据<code>链路层协议</code>类型是<code>datalinktype</code>的数据包</td>
-<td></td>
-</tr>
-<tr>
-<td>-Z</td>
-<td>user</td>
-<td>使 tcpdump 放弃自己的超级权限，并把当前tcpdump的用户ID设置为<code>user</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-tcpdump-表达式"><a href="#2-tcpdump-表达式" class="headerlink" title="2. tcpdump 表达式"></a>2. tcpdump 表达式</h2><h3 id="2-1-类型"><a href="#2-1-类型" class="headerlink" title="2.1 类型"></a>2.1 类型</h3><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>主机</td>
-</tr>
-<tr>
-<td>net</td>
-<td>网络</td>
-</tr>
-<tr>
-<td>port</td>
-<td>端口号</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-2-传输方向"><a href="#2-2-传输方向" class="headerlink" title="2.2 传输方向"></a>2.2 传输方向</h3><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>src</td>
-<td>源</td>
-</tr>
-<tr>
-<td>dst</td>
-<td>目的</td>
-</tr>
-<tr>
-<td>默认</td>
-<td>双向</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-3-协议"><a href="#2-3-协议" class="headerlink" title="2.3 协议"></a>2.3 协议</h3><table>
-<thead>
-<tr>
-<th>协议</th>
-<th>层</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ether</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>fddi</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>tr</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>wlan</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>ppp</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>slip</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>link</td>
-<td>链路层</td>
-</tr>
-<tr>
-<td>ip</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>ip6</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>arp</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>rarp</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>icmp</td>
-<td>网络层</td>
-</tr>
-<tr>
-<td>tcp</td>
-<td>传输层</td>
-</tr>
-<tr>
-<td>udp</td>
-<td>传输层</td>
-</tr>
-</tbody>
-</table>
-<p>常用 <code>tcp</code>、<code>udp</code>、<code>ip</code>、<code>ip6</code>、<code>arp</code>、<code>icmp</code></p>
-<h3 id="2-4-运算符"><a href="#2-4-运算符" class="headerlink" title="2.4 运算符"></a>2.4 运算符</h3><h4 id="2-4-1-逻辑运算符"><a href="#2-4-1-逻辑运算符" class="headerlink" title="2.4.1 逻辑运算符"></a>2.4.1 逻辑运算符</h4><table>
-<thead>
-<tr>
-<th>逻辑</th>
-<th>符号</th>
-<th>优先级</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>否</td>
-<td><code>!</code> 或 <code>not</code></td>
-<td>1</td>
-</tr>
-<tr>
-<td>与</td>
-<td><code>&amp;&amp;</code> 或 <code>and</code></td>
-<td>2</td>
-</tr>
-<tr>
-<td>或</td>
-<td><code>//</code> 或 <code>or</code></td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<p>结合顺序<code>自左向右</code></p>
-<h4 id="2-4-2-比较运算符"><a href="#2-4-2-比较运算符" class="headerlink" title="2.4.2 比较运算符"></a>2.4.2 比较运算符</h4><p>共有6个： <code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>=</code>、<code>!=</code></p>
-<h3 id="2-5-关键字"><a href="#2-5-关键字" class="headerlink" title="2.5 关键字"></a>2.5 关键字</h3><p>gateway、broadcast、less、greater</p>
-<h2 id="3-使用技巧"><a href="#3-使用技巧" class="headerlink" title="3. 使用技巧"></a>3. 使用技巧</h2><ol>
-<li>截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</div></pre></td></tr></table></figure>
-<ol>
-<li>截获主机192.168.126.131发送的所有数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump -i ens33 src host 192.168.126.131</div></pre></td></tr></table></figure>
-<ol>
-<li>截获 TCP 会话的开始和结束的数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有通过网关snup的ftp数据包，并且数据包的源或目的不是本地网络上的主机 （localnet，实际使用时要真正替换成本地网络的名字）</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and (port ftp or ftp-data)'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有源或目的端口是80，网络层协议为IPv4，并且含有数据，而不是SYN、FIN以及ACK-only等不含数据的数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印长度超过576字节，并且网关地址是 snup 的IP数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and ip[2:2] &gt; 576'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有IP层广播或多播的数据包，但不是物理以太网层的广播或多播数据报</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'ether[0] &amp; 1 = 0 and ip[16] &gt;= 224'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印所有非 ping 程序产生的数据包即打印除’echo request’或者’echo reply’类型以外的ICMP数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'</span></div></pre></td></tr></table></figure>
-<ol>
-<li>打印使用 ftp 端口和 ftp 数据端口的数据包</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'port ftp or ftp-data'</span></div></pre></td></tr></table></figure>
-<ol>
-<li><p>截取HTTP数据包</p>
-<p>0x4745-&gt;”GE”<br>0x4854-&gt;”HT”  </p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
-<li><a href="http://www.360doc.com/content/17/0618/16/14454117_664203330.shtml" target="_blank" rel="external">tcpdump抓包命令详解</a></li>
-<li><a href="http://blog.csdn.net/kofandlizi/article/details/8106841" target="_blank" rel="external">kofandlizi: tcpdump抓取HTTP包</a></li>
-<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump命令详解</a></li>
-<li><a href="http://www.broadview.com.cn/book/122" target="_blank" rel="external">Linux大棚</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/18/tcpdump/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-SSH免密登陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/18/SSH免密登陆/">SSH免密登陆</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/18/SSH免密登陆/" class="archive-article-date">
-  	<time datetime="2017-06-18T07:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.6.18</em></p>
-<p>从 A 机器的 a 账号 建立到 B 机器的 b 账号的 ssh 免密登陆<br>以 ubuntu 虚拟机<code>juntaran</code>账号连接自己的 VPN 服务器<code>root</code>账号为例</p>
-<pre><code>ssh root@138.128.206.71 -p 27226
-</code></pre><p>此时需要输入密码</p>
-<p>免密制作流程：</p>
-<p>1.为<code>juntaran</code>账号建立自己的公钥私钥，会在<code>/home/a/.ssh</code>中多出<code>id_rsa</code>和<code>id_rsa.pub</code>，分别是<code>私钥</code>和<code>公钥</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
-<p>  全部回车跳过</p>
-<p>2.建立信任关系，默认端口号为22，如果需要修改端口则需要加上<code>-p</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id root@138.128.206.71 -p 27226</div></pre></td></tr></table></figure>
-<p>  旧版本可能不支持<code>-p</code>选项，可以采取以下措施</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id &quot;-p 27226 root@138.128.206.71&quot;</div></pre></td></tr></table></figure>
-<p>  之后流程就很简单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div></pre></td></tr></table></figure>
-<p>  再输入密码即可</p>
-<p>3.直接免密登陆</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@138.128.206.71 -p 27226</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/18/SSH免密登陆/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-nmap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -2198,6 +1420,597 @@ flush privileges;
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/05/17/Go数据结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-爬虫学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
+  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.5.10</em></p>
+<h2 id="评估网页数量"><a href="#评估网页数量" class="headerlink" title="评估网页数量"></a>评估网页数量</h2><p>可以利用百度或者Google</p>
+<pre><code>site:www.cnblogs.com
+</code></pre><blockquote>
+<p>Google可以搜索子目录</p>
+</blockquote>
+<h2 id="不重复爬取"><a href="#不重复爬取" class="headerlink" title="不重复爬取"></a>不重复爬取</h2><p>原理就是标记URL，之后爬取新的页面对比URL</p>
+<blockquote>
+<ol>
+<li>MD5处理URL后存储</li>
+<li>利用Bit-Map方法建立BitSet，对URL进行哈希映射</li>
+<li>布隆过滤器，pybloomfilter</li>
+</ol>
+</blockquote>
+<h2 id="网站地图"><a href="#网站地图" class="headerlink" title="网站地图"></a>网站地图</h2><p>爬虫爬取网站之前首先访问网站根目录下的Robots.txt<br>根据<code>Robots.txt</code>判断可以爬取哪些内容<br>利用<code>sitemap.xml</code>分析网站规模  </p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>import re
+findall(pattern, string, flags=0)
+</code></pre><h2 id="使用Chrome"><a href="#使用Chrome" class="headerlink" title="使用Chrome"></a>使用Chrome</h2><p>在Chrome中<code>检查</code>网页，<br>可以在<code>Console</code>里执行命令查看节点<br>例如：</p>
+<pre><code>document.childNodes
+document.getRootNode()
+document.getRootNode().childNodes
+document.getRootNode().childNodes[1]
+document.getRootNode().childNodes[1].childNodes[1]
+document.getElementsByClassName(&apos;J-p-990687&apos;)[0]    # 京东价格元素
+document.getElementsByClassName(&apos;price J-p-3418627&apos;)[0].innerHTML    # 获取价格 
+</code></pre><p>来一直遍历HTML文档结构</p>
+<h2 id="网页的关键内容"><a href="#网页的关键内容" class="headerlink" title="网页的关键内容"></a>网页的关键内容</h2><ul>
+<li>Title 网页的标题</li>
+<li>Content Title 正文标题</li>
+<li>Content 正文部分</li>
+<li>Anchor 内部锚点（百度百科跳段）</li>
+<li>Link 外部链接</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/10/爬虫学习笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Go的并发机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
+  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>不要用共享内存的方式来通信，要以通信作为手段来共享内存</strong><br>推荐使用通道(channel)在多个goroutine之间传递数据，并且还能够保证整个过程的并发安全</p>
+<h2 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h2><h3 id="go语句与goroutine"><a href="#go语句与goroutine" class="headerlink" title="go语句与goroutine"></a>go语句与goroutine</h3><p>一条go语句意味着一个函数或方法的<code>并发</code>执行</p>
+<p>如果要向go语句中传值，应该为go函数添加一个参数声明</p>
+<pre><code>names := []string{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;}
+for _, name := range names {
+    go func(who string) {
+        fmt.Printf(&quot;%s\n&quot;, who)
+    } (name)
+}
+</code></pre><p>不加参数是不正确的</p>
+<pre><code>names := []string{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;}
+for _, name := range names {
+    go func() {
+        fmt.Printf(&quot;%s\n&quot;, who)
+    } ()
+}
+</code></pre><p>go语句是在for循环执行完毕之后才执行的</p>
+<h2 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h2><p>channel提供了一种机制，<br>既可以同步两个并发执行的函数，也可以让这两个函数通过相互传递特定类型的值来通信  </p>
+<h3 id="channel的基本概念"><a href="#channel的基本概念" class="headerlink" title="channel的基本概念"></a>channel的基本概念</h3><p>channel既指<code>通道类型</code>，也指可以传递某种类型的值的<code>通道</code>  </p>
+<h4 id="类型表示法"><a href="#类型表示法" class="headerlink" title="类型表示法"></a>类型表示法</h4><p>与切片类型和字典类型相同，通道类型也属于引用类型</p>
+<pre><code>chan T
+</code></pre><p><code>chan</code>代表了通道类型的关键字，<code>T</code>代表了通道类型的元素类型</p>
+<pre><code>type IntChan chan int
+</code></pre><p>别名类型<code>IntChan</code>代表了元素类型为<code>int</code>的<code>通道类型</code></p>
+<pre><code>var intChan chan int
+</code></pre><p>初始化后，<code>intChan变量</code>可以用来传递<code>int</code>类型的元素值了  </p>
+<p>上面这种声明方式意味着该通道类型是<code>双向</code>的，<br>既可以向这个通道发送元素值，也可以从它接收元素值  </p>
+<p><code>单向通道</code>需要<code>接收操作符&lt;-</code>  </p>
+<pre><code>chan&lt;- T
+</code></pre><p>这是<code>只能用于发送值</code>的通道类型的泛化表示，<code>&lt;-</code>表示元素值的流向  </p>
+<pre><code>&lt;-chan T
+</code></pre><p>这是<code>只能用于接收值</code>的通道类型</p>
+<h4 id="值表示法"><a href="#值表示法" class="headerlink" title="值表示法"></a>值表示法</h4><p>一个通道类型的变量在被初始化之前，其值一定是<code>nil</code></p>
+<h4 id="操作特性"><a href="#操作特性" class="headerlink" title="操作特性"></a>操作特性</h4><p>在同一时刻，仅有一个goroutine能向一个通道发送一个元素值，<br>同时也仅有一个goroutine能从它那里接收值<br>通道相当于一个<code>FIFO</code>的消息队列<br>每个元素值都是严格按照发送到此的先后顺序排列的<br>通道中的元素值具有<code>原子性</code>，不可分割，每一个元素值只能被某一个goroutine接收，<br>已接收的元素值会立刻从通道中删除  </p>
+<h4 id="初始化通道"><a href="#初始化通道" class="headerlink" title="初始化通道"></a>初始化通道</h4><p>引用类型的值都需要使用内建函数<code>make</code>来初始化  </p>
+<pre><code>make(chan int, 10)
+</code></pre><p>这是一个最大缓冲为10的、传递元素类型为int的双向通道<br>同样，也可以设置无缓冲通道，那么发送给它的元素值应该被立即取走，<br>否则发送方的goroutine会阻塞，直到有接收方来接收</p>
+<h4 id="接收元素值"><a href="#接收元素值" class="headerlink" title="接收元素值"></a>接收元素值</h4><p>接收操作符&lt;-不但可以作为通道类型声明的一部分，也可以用于通道操作</p>
+<pre><code>strChan := make(chan string, 3)
+</code></pre><p>此时，strChan是一个双向传递string类型的通道，容量为3  </p>
+<pre><code>elem := &lt;-strChan
+</code></pre><p>把strChan的一个元素赋给变量elem</p>
+<pre><code>elem, ok := &lt;-strChan
+</code></pre><p>这种也可以，ok为布尔类型，判断接收操作是否因通道关闭而失败  </p>
+<p><strong>试图从一个未初始化的通道接收元素，会造成当前goroutine永久阻塞</strong></p>
+<h4 id="Happens-before-缓冲通道的规则"><a href="#Happens-before-缓冲通道的规则" class="headerlink" title="Happens before 缓冲通道的规则"></a>Happens before 缓冲通道的规则</h4><ul>
+<li>如果通道缓冲已满，发送goroutine会阻塞</li>
+<li>如果通道缓冲为空，接收goroutine会阻塞</li>
+<li>对于同一个元素值来说，把它发送给某个通道的操作，一定会在从该通道接收它的操作完成之前完成</li>
+</ul>
+<h4 id="发送元素值"><a href="#发送元素值" class="headerlink" title="发送元素值"></a>发送元素值</h4><pre><code>strChan &lt;- &quot;a&quot;
+</code></pre><h4 id="通道的安全性"><a href="#通道的安全性" class="headerlink" title="通道的安全性"></a>通道的安全性</h4><p>向一个已经关闭的通道发送数据会panic<br>一个关闭的通道仍然可以使用接收表达式取出数据</p>
+<ul>
+<li>在发送端关闭通道</li>
+<li>一个通道只能关闭一次</li>
+</ul>
+<p><code>len</code>和<code>cap</code>可以用于channel，通道的容量不可改变</p>
+<h3 id="单向通道"><a href="#单向通道" class="headerlink" title="单向通道"></a>单向通道</h3><p>一个<code>只进不出</code>的通道和一个<code>只出不进</code>的通道是没有任何意义的<br>因此，单向通道不应该出现在变量的声明中  </p>
+<p>单向通道是由双向通道转化而来</p>
+<pre><code>func Notify(c chan&lt;- os.Signal, sig ...os.Signal)
+</code></pre><p>该函数的第一个参数类型为发送通道类型，<br>在调用这个函数的时候，应该传入一个<code>双向通道</code>，Go会根据参数的声明自动转换为单向通道<br>单向通道由双向通道转化而来，但是单项通道不能够转换回双向通道  </p>
+<h3 id="select语句"><a href="#select语句" class="headerlink" title="select语句"></a>select语句</h3><p>select语句是一种仅能用于通道发送和接收操作的专用语句，表现形式与switch语句类似，但是分支选择方法不同</p>
+<p>在执行select语句时，系统自上而下判断每个case的发送或接收操作是否可以立即进行<br>这里的<code>立即进行</code>是指当前goroutine不会因此操作而被阻塞<br>当一个case被选中，会执行该case语句<br>如果同时有多个case满足条件，系统会通过一个伪随机算法选中一个case<br>default可以放在任何位置，不会影响分支选择</p>
+<h3 id="非缓冲channel"><a href="#非缓冲channel" class="headerlink" title="非缓冲channel"></a>非缓冲channel</h3><h4 id="Happens-before"><a href="#Happens-before" class="headerlink" title="Happens before"></a>Happens before</h4><p>与缓冲通道相比，非缓冲通道的happen before原则有两个特别之处</p>
+<ul>
+<li>向此类通道发送元素会被阻塞，直到有至少一个针对该通道的接收操作进行。接收操作会先得到元素值副本，然后唤醒发送方所在goroutine后返回。这种情况下，接收操作在发送操作完成之前完成</li>
+<li>从此类通道接收元素会被阻塞，直到有至少一个针对该通道的发送操作进行。发送操作会直接把元素值复制给接收方，然后唤醒接收方所在goroutine后返回。这种情况下，发送操作在接收操作完成之前完成</li>
+</ul>
+<h4 id="同步的特性"><a href="#同步的特性" class="headerlink" title="同步的特性"></a>同步的特性</h4><p>非缓冲channel的收发元素值速度与慢的一方持平</p>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1950" target="_blank" rel="external">Go并发编程实战</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/10/Go的并发机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Go并发编程基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
+  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.5.1</em></p>
+<h2 id="并发编程基础"><a href="#并发编程基础" class="headerlink" title="并发编程基础"></a>并发编程基础</h2><h3 id="串行程序与并行程序"><a href="#串行程序与并行程序" class="headerlink" title="串行程序与并行程序"></a>串行程序与并行程序</h3><p>串行程序是指只能被<code>顺序执行</code>的指令列表<br>并行程序是指可以被<code>并发执行</code>的两个及以上的串行程序的综合体<br><strong>并发程序与并行程序</strong></p>
+<blockquote>
+<p>并发程序是指可以被同时发起执行的程序，并发程序代表了所有可以实现并发行为的程序  </p>
+<h2 id="并行程序是指可以在并行的硬件上执行的并发程序"><a href="#并行程序是指可以在并行的硬件上执行的并发程序" class="headerlink" title="并行程序是指可以在并行的硬件上执行的并发程序"></a>并行程序是指可以在并行的硬件上执行的并发程序</h2></blockquote>
+<h3 id="并发程序内部的交互"><a href="#并发程序内部的交互" class="headerlink" title="并发程序内部的交互"></a>并发程序内部的交互</h3><p>并发程序内部可以分为多个部分，每个部分都可以看作是一个串行程序<br>多个串行程序可能会对共享的资源进行访问，也可能它们之间需要传递一些数据<br>在这种情况下，我们需要协调它们的执行，这就涉及到了<code>同步</code><br>同步的作用是避免在并发访问共享资源时可能发生的冲突，以确保有条不紊地传递数据  </p>
+<blockquote>
+<p>在同一时刻，某个资源应该只被一个程序占用<br>传递数据是并发程序内部的另一种交互方式，也成为并发程序内部的<code>通信</code><br>实际上，内部通信的方式不仅仅有<code>同步</code>，也有<code>异步</code>方式对通信进行处理<br>异步能够让数据不加延迟地发送给数据接收方，即使数据接收方没有做好准备，也不会造成发送方的等待<br>数据会被临时存放在通信缓存中，通信缓存是一种数据结构，是一种可以同时被多个程序使用的特殊共享资源  </p>
+</blockquote>
+<h2 id="多进程编程"><a href="#多进程编程" class="headerlink" title="多进程编程"></a>多进程编程</h2><p>进程间通信的方式被称为IPC(Inter-Process Communication)<br>在Linux中，IPC可以分为三类：</p>
+<ol>
+<li>基于通信的IPC方法<br>1.1 数据传送：<code>管道pipe</code>传送字节流，<code>消息队列message queue</code>传送结构化的消息对象<br>1.2 共享内存：<code>共享内存shared memory</code>最快  </li>
+<li>基于信号的IPC方法<br><code>信号signal</code>，唯一的一种异步IPC方法</li>
+<li>基于同步的IPC方法<br><code>信号量semaphore</code></li>
+</ol>
+<p><strong>Go支持管道、信号、socket</strong></p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程process维护了应用程序运行时的内存地址空间、文件和设备的句柄以及线程<br>进程也是操作系统进行资源分配的一个基本单位</p>
+<pre><code>pid := os.Getpid()            // 获取进程ID
+ppid := os.Getppid()         // 获取父进程ID
+</code></pre><p>多个进程同时对一个资源进行访问，很可能相互干扰，这种干扰称为<code>竞态条件race condition</code><br>Go的并发变成模型更加成熟先进，目标在于大幅减少程序产生竞态条件的可能<br>执行过程中不能中断的操作称为<code>原子操作atomic operation</code>，所有的系统调用都属于原子操作<br>只能被串行化访问或执行的某个资源或某段代码称为<code>临界区critical section</code><br>保证只有一个进程或线程在临界区之内的做法称为<code>互斥mutex</code><br>实现互斥的方法必须确保排他原则，<code>sync包</code>包含了对互斥的支持  </p>
+<hr>
+<p><em>2017.5.4</em></p>
+<h4 id="socket通信"><a href="#socket通信" class="headerlink" title="socket通信"></a>socket通信</h4><p>socket既可以提供网络中不同计算机多个应用程序之间的通信支持，也可以成为单计算机上多个应用程序之间的通信手段，但是使用socket接口的绝大多数情况都是为了在网络中通信<br>socket通信是基于TCP/IP协议栈的  </p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socket.jpg" alt="socket"></p>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socketConn.jpg" alt="socket通信"></p>
+<p>每个socket都存在与一个通信域中，通信域决定了该socket的地址格式和通信范围</p>
+<table>
+<thead>
+<tr>
+<th>通信域</th>
+<th>含义</th>
+<th>地址格式</th>
+<th>通信范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AF_INET</td>
+<td>IPv4域</td>
+<td>IPv4地址(4字节)，端口号(2字节)</td>
+<td>基于IPv4协议的任意两台计算机上的两个应用程序</td>
+</tr>
+<tr>
+<td>AF_INET6</td>
+<td>IPv6域</td>
+<td>IPv6地址(16字节)，端口号(2字节)</td>
+<td>基于IPv6协议的任意两台计算机上的两个应用程序</td>
+</tr>
+<tr>
+<td>AF_UNIX</td>
+<td>Unix域</td>
+<td>路径名称</td>
+<td>同一台计算机上的两个应用程序</td>
+</tr>
+</tbody>
+</table>
+<p>AF是address family的缩写，意为地址域</p>
+<p>socket有5种类型</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>SOCK_DGRAM</th>
+<th>SOCK_RAW</th>
+<th>SOCK_SEQPACKET</th>
+<th>SOCK_STREAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据形式</td>
+<td>数据报</td>
+<td>数据报</td>
+<td>字节流</td>
+<td>字节流</td>
+</tr>
+<tr>
+<td>数据边界</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>逻辑连接</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>数据有序性</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>传输可靠性</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>以<code>数据报</code>为数据形式意味着<code>接收方</code>的socket接口程序可以意识到数据的边界并会切分，<br>这样省去了接收方的应用程序寻找数据边界和切分数据的工作量</p>
+<p>以<code>字节流</code>为数据形式的传输实际上传输的是一个字节接着一个字节的串，类似于一个很长的字节数组<br>一般情况下字节流不能体现那些字节属于哪个数据包，因此socket接口程序无法分离独立的数据包<br>这一工作只能交给应用程序去完成<br>但是<code>SOCK_SEQPACKET</code>类型的socket接口程序例外，<br>发送方的socket接口程序会记录数据边界，边界信息也会随着字节流发送给接收方<br>接收方的socket接口程序会根据边界切分字节流，还原成字节流片段并根据顺序传递给应用程序</p>
+</blockquote>
+<p>在Go提供了socket的API，需要使用标准库中的net包</p>
+<p>在服务端首先会用到这个函数</p>
+<pre><code>func Listen(net, laddr string) (Listener, error)
+</code></pre><p>函数net.Listen用于获取监听器，它接受两个string类型的参数<br>第一个是参数的含义是以何种监听协议给定的地址，该参数必须为<code>面向流</code>的协议</p>
+<table>
+<thead>
+<tr>
+<th>字面量</th>
+<th>socket协议</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tcp</td>
+<td>TCP</td>
+<td>无</td>
+</tr>
+<tr>
+<td>tcp4</td>
+<td>TCP</td>
+<td>网际互联协议只支持IPv4</td>
+</tr>
+<tr>
+<td>tcp6</td>
+<td>TCP</td>
+<td>网际互联协议只支持IPv6</td>
+</tr>
+<tr>
+<td>udp</td>
+<td>UDP</td>
+<td>无</td>
+</tr>
+<tr>
+<td>udp4</td>
+<td>UDP</td>
+<td>网际互联协议只支持IPv4</td>
+</tr>
+<tr>
+<td>udp6</td>
+<td>UDP</td>
+<td>网际互联协议只支持IPv6</td>
+</tr>
+<tr>
+<td>unix</td>
+<td>有效</td>
+<td>可看作通信域为AF_UNIX切类型为SOCK_STREAM时内核采用的默认协议</td>
+</tr>
+<tr>
+<td>unixgram</td>
+<td>有效</td>
+<td>可看作通信域为AF_UNIX切类型为SOCK_DGRAM时内核采用的默认协议</td>
+</tr>
+<tr>
+<td>unixpacket</td>
+<td>有效</td>
+<td>可看作通信域为AF_UNIX切类型为SOCK_SEQPACKET时内核采用的默认协议</td>
+</tr>
+</tbody>
+</table>
+<p>如上表所示，第一个参数必须是<code>tcp</code>、<code>tcp4</code>、<code>tcp6</code>、<code>unix</code>和<code>unixpacket</code>中的一个</p>
+<p>第二个ladder表示当前程序在网络中的标识<br><code>laddr</code>是Local Address的缩写，格式为<code>host:port</code><br><code>host</code>处内容必须是当前计算机对应的IP地址或主机名<br><code>port</code>则代表当前程序欲监听的端口号  </p>
+<pre><code>listener, err := net.Listen(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;)
+</code></pre><p>监听函数Listen调用之后，当err为nil时，即可等待客户端的连接请求</p>
+<pre><code>conn, err := listener.Accept()
+</code></pre><p>调用监听器的Accept方法时，会进入阻塞状态，直到有客户端程序发起TCP连接</p>
+<p>客户端使用net包的Dial函数用于向制定的网络地址发送连接建立请求</p>
+<pre><code>func Dial(network, address string) (Conn, error)
+</code></pre><p>Dial函数同样接收两个参数<br>第一个参数<code>network</code>与net.Listen函数的第一个参数<code>net</code>类似，但是有更多的选项<br>除了net.Listen的第一个可选参数外，还可以使用<code>udp</code>、<code>udp4</code>、<code>udp6</code>、<code>ip</code>、<code>ip4</code>和<code>ip6</code><br>这是因为在发送数据前不一定要先建立连接，UDP协议和IP协议都是<code>面向无连接</code>的协议  </p>
+<p>第二个参数<code>address</code>和net.Listen函数的第二个参数<code>laddr</code>完全一致<br>它指定的是服务端的地址</p>
+<pre><code>conn, err := net.Dial(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;)
+</code></pre><p>如果需要手动设置超时时间，可以使用DialTimeout函数（Dial函数默认timeout=75秒）</p>
+<pre><code>func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
+</code></pre><p>DialTimeout函数的最后一个参数的单位是纳秒， 如果想设置2秒</p>
+<pre><code>conn, err := net.DialTimeout(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;, 2*time.Second)
+</code></pre><p>服务端创建监听器并开始等待连接请求之后，一旦收到客户端的连接请求，服务端就和和客户端进行<code>三次握手</code><br>当成功建立连接后，无论服务端程序还是客户端程序都会获得一个<code>net.Conn</code>类型的值<br>之后，两端便可以用该值交换数据了<br>Go的socket编程API程序在底层获取的是一个<code>非阻塞式</code>的socket实例，<br>这意味着在该实例之上的数据读取操作也都是非阻塞式的<br>应用程序试图通过系统调用<code>read</code>从socket接收缓冲区中读取数据的时候，即使接收缓冲区没有任何数据，<br>操作系统也不会使系统调用<code>read</code>进入<code>阻塞状态</code>，而是直接返回一个错误码为<code>EAGAIN</code>的错误<br>应用程序不应该视此为一个真正的错误，应该<code>忽略</code>它，并稍等片刻再次读取  </p>
+<p>同样，当socket发送缓冲区已满时，如果应用程序仍向发送缓冲区写入一段数据时，<br>系统调用<code>write</code>也<code>不会阻塞</code>，而是直接返回一个错误码为<code>EAGAIN</code>的错误<br>应用程序应该<code>忽略</code>该错误，并稍等片刻再次尝试写入数据<br>如果发送缓冲区有少许剩余空间但不足以放入这段数据<br>系统调用<code>wirte</code>会尽可能写入一部分数据，然后返回已经写入的字节的数据量<br>这一特性成为<code>部分写(partial wirte)</code>，应用程序应该每次调用<code>write</code>之后都去检查该结果值  </p>
+<p>除了<code>read</code>和<code>write</code>外，系统调用<code>accept</code>也会显现出一致的<code>非阻塞</code>风格<br>它不会阻塞以等待新的连接到来，而会直接返回错误码为<code>EAGAIN</code>的错误<br>但是Go的socket编程API在一定程度上帮助我们屏蔽了相关系统调用的EAGAIN错误，<br>这使得有些socket编程API调用起来<code>像是阻塞式</code>的<br>另外，Go的socket编程API同样<code>屏蔽</code>了非阻塞式socket接口的部分<code>写特性</code><br>相关API会直接把所有数据全部写入到socket发送缓冲区之后才返回，除非在写入的过程中发生了某种错误<br>但是，它却<code>保留</code>了非阻塞式socket接口的部分<code>读特性</code><br>这样做是合理的，因为在TCP协议之上传输的数据是字节流形式的，<br>数据接收方无法感知数据的边界（消息边界），因此API无法判断函数调用返回的时机<br>把<code>数据切分</code>和<code>分批返回</code>的任务交给调用方程序即可，因此<code>部分读</code>需要我们在程序中做一些额外的处理  </p>
+<ul>
+<li><strong>Read方法</strong></li>
+</ul>
+<p>Read方法用于从socket的接收缓冲区中读取数据</p>
+<pre><code>Read(b []byte) (n int, err error)
+</code></pre><p>该方法接收一个<code>[]byte</code>类型的参数，相当于一个用来存放从连接上接收到的数据的容器<br>Read方法会把它当作空的容器并试图填满，相应位置上的原元素会被替换<br>为了避免混乱，尽量让这个容器在填充之前保持绝对干净<br>也就是说，传递个Read方法的参数值应该是一个<code>不包含任何非零值元素的切片值</code>  </p>
+<pre><code>b := make([]byte, 10)
+n, err := conn.Read(b)
+content := string(b[:n])
+</code></pre><p>通过依据结果n对参数b做切片操作可以抽取出接收到的数据<br>如果socket编程API在从socket的接收缓冲区中读取数据时发现TCP连接已经被另一端关闭了<br>就会立刻返回一个error类型值，即<code>io.EOF</code><br>意味着此TCP连接之上在没有可以读取的数据</p>
+<pre><code>var dataBuffer bytes.Buffer
+b := make([]byte, 10)
+for {
+    n, err := conn.Read(b)
+    if err != nil {
+        if err == io.EOF {
+            fmt.Println(&quot;The connection is closed.&quot;)
+            conn.Close()
+        } else {
+            fmt.Printf(&quot;Read Error: %s\n&quot;, err)
+        }
+        break
+    }
+    dataBuffer.Write(b[:n])
+}
+</code></pre><p>上述的例子是一种最简单的情况，我们一般不会<code>在连接关闭之前无休止地</code>从连接上读取数据<br>作为一个处在TCP/IP协议栈应用层的程序，负责切分数据并生成有实际意义的消息<br>即使在最简单的情况下，应用层程序也知道怎样在接收到的字节流上进行切分<br>此外，还有一个更简便的方法：<br>利用标准库代码包<code>bufio</code>中的API实现一些较为复杂的数据切分操作<br>bufio是Buffered I/O的缩写，它提供了与带缓存的I/O操作有关的支持<br>比如通过包装不带缓存的I/O类型值的方式增强它们的功能<br><code>bufio.NewReader</code>接收一个<code>io.Reader</code>类型的参数值<br>net.Conn类型实现了io.Reader接口中唯一的方法Read，所以它是该接口的一个实现类型<br>因此，可以使用bufio.NewReader函数包装变量conn  </p>
+<pre><code>reader := bufio.NewReader(conn)
+</code></pre><p>ReadBytes方法接收一个byte类型的参数值，该参数值是通信两端协商一致的消息边界  </p>
+<pre><code>line, err := reader.ReadBytes(&apos;\n&apos;)
+</code></pre><p>另外还有<code>bufio.NewScanner函数</code>、<code>bufio.Scanner类型及其方法</code>等</p>
+<ul>
+<li><strong>Write方法</strong>  </li>
+</ul>
+<p>Write方法用于向socket的发送缓冲区写入数据  </p>
+<pre><code>Write(b []byte) (n int, err error)
+</code></pre><p>net.Conn类型是一个io.Writer接口的实现类型，所以net.Conn类型的值可以作为bufio.NewWriter函数的参数值  </p>
+<pre><code>writer := bufio.NewWriter(conn)
+</code></pre><p>与reader类似，writer的值可以看作是针对变量conn代表的TCP连接的缓冲写入器<br>可以通过调用其上的以<code>Writer为名称前缀</code>的方法来分批次地向其中的缓冲区写入数据<br>也可以通过调用它</p>
+<ul>
+<li><p><strong>Close方法</strong><br>Close放方法会关闭连接，调用Close方法时，Read方法或Write方法正在被调用且还未执行结束，<br>它们会立即执行结束并返回非nil的error值，即使它们处于阻塞状态  </p>
+</li>
+<li><p><strong>LocalAddr和RemoteAddr方法</strong><br>顾名思义是获取当前通信的某一端在网络中的地址，返回一个net.Addr类型的结果<br>方法集合中有两个方法：<code>Network</code>和<code>String</code><br>Network返回当前连接所使用的协议的名称<code>conn.LocalAddr().Network()</code>，得到<code>tcp</code><br>String方法根据通信域返回相应格式的地址<code>conn.RemoteAddr().String()</code>  </p>
+</li>
+<li><p><strong>SetDeadline SetReadDeadline SetWriteDeadline方法</strong><br>它们只接收一个time.Time类型值作为参数，返回一个error类型值作为结果<br>SetDeadline方法会设定在当前连接上的<code>I/O操作的超时时间</code><br>SetReadDeadline和SetWriteDeadline方法分别针对读和写的超时控制  </p>
+</li>
+</ul>
+<hr>
+<p><em>2017.5.9</em></p>
+<h2 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h2><p>多线程编程是一种比多进程编程更加灵活、高效的并发编程方式  </p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程可以视为·进程中的控制流，一个进程至少包含一个线程<br>一个进程的第一个线程会随着这个进程的启动而创建，也就是主线程<br>和进程一样，每个线程都有属于自己的ID——TID<br>与进程不同，线程ID在系统范围内可以不唯一，只在其所属进程的范围里唯一<br>但是Linux系统的线程实现确保了每个线程ID系统范围内的唯一性，线程不复存在后其线程ID会被复用  </p>
+<h4 id="线程的控制"><a href="#线程的控制" class="headerlink" title="线程的控制"></a>线程的控制</h4><ul>
+<li>创建线程： pthread_create</li>
+<li>终止线程： pthread_cancle，取消给定的线程ID的线程。默认情况下目标线程只有在执行到某个取消点才会响应该请求</li>
+<li>连接已终止的线程： pthread_join，该函数一直等待由线程ID指定的线程终止，如果目标线程已经处于终止状态，函数立即返回。当目标线程交出控制权后，调用线程会接过流程控制权并继续执行pthread_join函数调用之后的代码，相当于<code>“连接”</code>。事实上，如果一个线程可以被连接，那么在它终止之前必须被连接，否则就会变成一个<code>僵尸线程</code>，僵尸线程会导致系统资源浪费也会无意义减少所在进程可创建线程的数量。</li>
+<li>分离线程：pthread_detach，将一个线程分离意味着它不再是一个可连接的线程，分离操作的另一个作用是让操作系统内核在目标线程终止时自动进行清理和销毁工作。分离操作是<code>不可逆</code>的，无法使一个<code>不可连接</code>的线程变回到<code>可连接</code>的状态。对于一个已经处于分离状态的线程，执行终止操作仍然有效。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/Linux内核线程状态转换.jpg" alt="Linux内核线程状态转换"></p>
+<h4 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a>线程的同步</h4><ol>
+<li><p>互斥量：在同一时刻只允许一个线程处于临界区之内的约束称为<code>互斥mutex</code>，<br>每个线程在进入临界区之前，都必须先锁定某个对象，<br>成功锁定对象的线程才会允许进入临界区，否则会阻塞，<br>这个对象成为互斥对象或互斥量。<br>互斥量有两种可能的状态：<code>已锁定状态</code>和<code>未锁定状态</code>。互斥量不允许<code>二次加锁</code></p>
+</li>
+<li><p>条件变量：与互斥量不同，条件变量的作用并不是保证同一时刻仅有一个线程访问某一个共享数据，<br>而是在对应的共享数据的状态发生变化时，通知其他因此被阻塞的线程<br>条件变量的操作有三种：<br>2.1 等待通知(wait)：阻塞当前线程，直到收到该条件变量发来的通知<br>2.2 单发通知(signal)：让条件变量向<code>至少一个</code>正在等待它通知的线程发送通知，以表示某个共享数据的状态已经变化，这里的signal与进程间通信的信号signal不同<br>2.3 广播通知(broadcast)：让条件变量给正在等待它通知的<code>所有线程</code>发送通知，以表示某个共享数据的状态已经改变</p>
+</li>
+</ol>
+<h4 id="线程安全性"><a href="#线程安全性" class="headerlink" title="线程安全性"></a>线程安全性</h4><p>如果有一个代码块，可以被多个线程并发执行，且总能产生预期的结果，那么该代码块就是<code>线程安全</code>的<br>让函数具有线程安全性的最有效方式就是使其<code>可重入(reentrant)</code><br>如果某个进程中的所有线程都可以并发地对一个函数进行调用，并且无论它们调用该函数的实际执行情况怎样，<br>该函数都可以产生预期的结果，那么这个函数是<code>可重入</code>的<br>如果多个线程并发地调用该函数，与它们以任意顺序依次调用它所产生的效果总是<code>相同</code>的，<br>那么该函数就是一个<code>可重入</code>函数</p>
+<hr>
+<h2 id="并发编程的建议"><a href="#并发编程的建议" class="headerlink" title="并发编程的建议"></a>并发编程的建议</h2><ul>
+<li>控制临界区的纯度：临界区应仅包含操作共享数据的代码  </li>
+<li>控制临界区的粒度：如果没有长耗时的无关代码，就把它们合并在一起；反之，放弃合并  </li>
+<li>减少临界区中代码的执行耗时：注意死锁</li>
+<li>避免长时间持有互斥量：减少临界区中代码执行耗时、使用条件变量</li>
+<li>优先使用原子操作而不是互斥量：如果数据结构<code>非常简单</code>（比如数值类型），建议使用原子操作；对于结构稍微复杂一些的共享数据，原子操作则无能为力</li>
+</ul>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="http://www.ituring.com.cn/book/1950" target="_blank" rel="external">Go并发编程实战</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/01/Go并发编程基础/">展开全文 >></a>
         </p>
       
 
