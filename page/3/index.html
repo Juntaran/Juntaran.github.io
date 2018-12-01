@@ -158,6 +158,1961 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ping" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/20/ping/">ping</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/20/ping/" class="archive-article-date">
+  	<time datetime="2017-06-20T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.20</em></p>
+<pre><code>ping  [-aAbBdDfhLnOqrRUvV46] [-c count] [-F flowlabel] [-i interval] [-I interface] [-l preload] [-m mark] [-M pmtudisc_option] [-N nodeinfo_option] [-w deadline] [-W timeout] [-p pattern] [-Q tos] [-s packetsize] [-S sndbuf] [-t ttl] [-T timestamp option] [hop ...] destination
+</code></pre><p>重点参数列表：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-4</td>
+<td>使用IPv4</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>使用IPv6</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>ping一个广播地址</td>
+</tr>
+<tr>
+<td>-c count</td>
+<td>指定 ping 的次数为<code>count</code></td>
+</tr>
+<tr>
+<td>-D</td>
+<td>打印时间戳</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>flood ping，必须有 root 权限</td>
+</tr>
+<tr>
+<td>-i interval</td>
+<td>每隔<code>interval</code>秒 ping 一次</td>
+</tr>
+<tr>
+<td>-I interface</td>
+<td>使用指定的<code>interface</code>网卡 ping</td>
+</tr>
+<tr>
+<td>-l preload</td>
+<td>在发送前<code>preload</code>个数据包的时候不等待 reply，preload &gt; 3 需要 root权限</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>使用数字输出，不尝试转换为 host</td>
+</tr>
+<tr>
+<td>-p pattern</td>
+<td>指定用16个“填充”字节<code>pattern</code>填充发送的包，<code>-p ff</code> 则为全部用1填充</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>不显示任何传送封包的信息，只显示最后的结果</td>
+</tr>
+<tr>
+<td>-s packetsize</td>
+<td>指定 ping 的数据包大小，默认64字节</td>
+</tr>
+<tr>
+<td>-t ttl</td>
+<td>指定 ping 的 TTL 为<code>ttl</code>，路由器转发数据包时，TTL 值会减一，为0则该数据包生命终止</td>
+</tr>
+<tr>
+<td>-w deadline</td>
+<td>设定终止时间为<code>deadline</code>，应与<code>-c count</code>配合使用</td>
+</tr>
+<tr>
+<td>-W timeout</td>
+<td>设定等待回应的时间为<code>timeout</code></td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/20/ping/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-tcpdump" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/tcpdump/">tcpdump</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/18/tcpdump/" class="archive-article-date">
+  	<time datetime="2017-06-18T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.18</em></p>
+<h2 id="1-tcpdump-选项与参数"><a href="#1-tcpdump-选项与参数" class="headerlink" title="1. tcpdump 选项与参数"></a>1. tcpdump 选项与参数</h2><pre><code>tcpdump [选项] [-c 数量]  [-F 表达式文件名] [-i 网卡名] [-r 读入文件名] [-s 抓包大小] [-T 解释类型] [-w 写入文件名 [-C 文件大小 [-W 文件数量]] [-U]] [表达式]
+</code></pre><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>参数</th>
+<th>说明</th>
+<th>重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>-A</strong></td>
+<td></td>
+<td>以 <code>ASCII 码</code>方式显示每一个数据包（不会显示数据包中链路层头部信息），在抓取包含网页数据的数据包时, 可方便查看数据</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-c</strong></td>
+<td>count</td>
+<td>在接受到<code>count</code>个数据包后退出</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-C</strong></td>
+<td>file-size</td>
+<td>该选项使得 tcpdump 在把原始数据包直接保存到文件中之前, 检查此文件大小是否超过<code>file-size</code>。如果超过了，将关闭当前文件，开启一个文件继续用于原始数据包的记录。file-size 的单位是百万字节（这里指1,000,000个字节，并非1024 ＊ 1024个字节）</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-d</td>
+<td></td>
+<td>以容易阅读的形式打印，打印后退出</td>
+<td></td>
+</tr>
+<tr>
+<td>-dd</td>
+<td></td>
+<td>以C语言的形式打印出包匹配码，打印后退出</td>
+<td></td>
+</tr>
+<tr>
+<td>-ddd</td>
+<td></td>
+<td>以十进制数的形式打印出包匹配码，打印后退出</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-D</strong></td>
+<td></td>
+<td>打印出系统中所有可以用 tcpdump 截包的网络接口，网络接口名字和数字编号可以用在 tcpdump 的<code>-i flag</code></td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-e</strong></td>
+<td></td>
+<td>在输出行打印出<code>数据链路层</code>的头部信息</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>spi@ipaddr algo:secret,…</td>
+<td>解密IPsec ESP包</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-f</strong></td>
+<td></td>
+<td>显示外部的 IPv4 地址时，采用数字方式而不是名字</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>file</td>
+<td>使用<code>file</code>文件作为过滤条件表达式的输入，此时命令行上的输入将被忽略</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-i</strong></td>
+<td>interface</td>
+<td>指定<code>interface</code>为 tcpdump 需要监听的网络接口</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-l</td>
+<td></td>
+<td>对标准输出进行行缓冲，遇到一个换行符就马上把这行的内容打印出来</td>
+<td></td>
+</tr>
+<tr>
+<td>-L</td>
+<td></td>
+<td>列出指定网络接口所支持的数据链路层的类型后退出</td>
+<td></td>
+</tr>
+<tr>
+<td>-m</td>
+<td>module</td>
+<td>通过<code>module</code>指定的 file 装载 SMI、MIB 模块，用于 SNMP 协议数据包抓取</td>
+<td></td>
+</tr>
+<tr>
+<td>-M</td>
+<td>secret</td>
+<td>如果 TCP 数据包(TCP segments)有TCP-MD5选项，为其摘要的验证指定一个公共的密钥<code>secret</code>，RFC 2385</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-n</strong></td>
+<td></td>
+<td>不把网络地址转换成名字</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-nn</strong></td>
+<td></td>
+<td>不进行端口名称的转换</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-N</td>
+<td></td>
+<td>不打印出 host 的域名部分，<code>nic</code>而不是 <code>nic.ddn.mil</code></td>
+<td></td>
+</tr>
+<tr>
+<td>-O</td>
+<td></td>
+<td>不启用进行包匹配时所用的优化代码</td>
+<td></td>
+</tr>
+<tr>
+<td>-p</td>
+<td></td>
+<td>一般情况下，把网络接口设置为<code>非混杂</code>模式.</td>
+<td></td>
+</tr>
+<tr>
+<td>-q</td>
+<td></td>
+<td>静默输出，信息很少</td>
+<td></td>
+</tr>
+<tr>
+<td>-R</td>
+<td></td>
+<td>对 ESP/AH 数据包的解析按照 RFC1825 而不是 RFC1829</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-r</strong></td>
+<td>file</td>
+<td>从文件<code>file</code>中读取包数据，如果<code>file</code>字段为<code>-</code>符号, 则 tcpdump 会从标准输入中读取包数据</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-S</td>
+<td></td>
+<td>打印 TCP 数据包的顺序号时，使用绝对的顺序号，而不是相对的顺序号</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-s</strong></td>
+<td>snaplen</td>
+<td>设置 tcpdump 的数据包抓取长度为<code>snaplen</code>，默认为68字节，加上<code>-s 0</code>后可以抓到完整的数据包</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>type</td>
+<td>强制 tcpdump 按<code>type</code>指定的协议所描述的包结构来分析收到的数据包（包括aodv、cnfp、rtcp、tftp）</td>
+<td></td>
+</tr>
+<tr>
+<td>-t</td>
+<td></td>
+<td>不打印时间戳</td>
+<td></td>
+</tr>
+<tr>
+<td>-tt</td>
+<td></td>
+<td>不对每行输出的时间进行格式处理</td>
+<td></td>
+</tr>
+<tr>
+<td>-ttt</td>
+<td></td>
+<td>tcpdump 输出时，每两行打印之间会延迟一个段时间（以毫秒为单位）</td>
+<td></td>
+</tr>
+<tr>
+<td>-tttt</td>
+<td></td>
+<td>在每行打印的时间戳之前添加日期的打印</td>
+<td></td>
+</tr>
+<tr>
+<td>-u</td>
+<td></td>
+<td>打印出未加密的 NFS</td>
+<td></td>
+</tr>
+<tr>
+<td>-U</td>
+<td></td>
+<td>使得当 tcpdump 在使用<code>-w</code>选项时，其文件写入与包的保存同步</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-v</strong></td>
+<td></td>
+<td>当分析和打印的时候，产生详细的输出。 比如，包的生存时间，标识，总长度以及 IP 包的一些选项。这也会打开一些附加的包完整性检测，比如对IP或ICMP包头部的校验和</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-vv</td>
+<td></td>
+<td>产生比<code>-v</code>更详细的输出。比如，NFS 回应包中的附加域将会被打印，SMB 数据包也会被完全解码</td>
+<td></td>
+</tr>
+<tr>
+<td>-vvv</td>
+<td></td>
+<td>产生比<code>-vv</code>更详细的输出。比如，telent 时所使用的 SB，SE 选项将会被打印</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-w</strong></td>
+<td>file</td>
+<td>把包数据直接写入<code>file</code>文件而不进行分析和打印输出，可以配合<code>-r</code></td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-W</strong></td>
+<td>filecount</td>
+<td>与<code>-C</code>选项配合使用，这将限制可打开的文件数目，并且当文件数据超过<code>filecount</code>的限制时，依次<code>循环替代之前的文件</code></td>
+<td>√</td>
+</tr>
+<tr>
+<td>-x</td>
+<td></td>
+<td>当分析和打印时，tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据（但不包括连接层的头部）</td>
+<td></td>
+</tr>
+<tr>
+<td>-xx</td>
+<td></td>
+<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>打印出每个包的数据，其中包括数据链路层的头部</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>-X</strong></td>
+<td></td>
+<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据（但不包括连接层的头部）</td>
+<td>√</td>
+</tr>
+<tr>
+<td><strong>-XX</strong></td>
+<td></td>
+<td>tcpdump 会打印每个包的头部数据，同时会以<code>16进制</code>和<code>ASCII码</code>形式打印出每个包的数据，其中包括数据链路层的头部</td>
+<td>√</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>datalinktype</td>
+<td>设置 tcpdump 只捕获数据<code>链路层协议</code>类型是<code>datalinktype</code>的数据包</td>
+<td></td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>user</td>
+<td>使 tcpdump 放弃自己的超级权限，并把当前tcpdump的用户ID设置为<code>user</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-tcpdump-表达式"><a href="#2-tcpdump-表达式" class="headerlink" title="2. tcpdump 表达式"></a>2. tcpdump 表达式</h2><h3 id="2-1-类型"><a href="#2-1-类型" class="headerlink" title="2.1 类型"></a>2.1 类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>主机</td>
+</tr>
+<tr>
+<td>net</td>
+<td>网络</td>
+</tr>
+<tr>
+<td>port</td>
+<td>端口号</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-2-传输方向"><a href="#2-2-传输方向" class="headerlink" title="2.2 传输方向"></a>2.2 传输方向</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td>源</td>
+</tr>
+<tr>
+<td>dst</td>
+<td>目的</td>
+</tr>
+<tr>
+<td>默认</td>
+<td>双向</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-3-协议"><a href="#2-3-协议" class="headerlink" title="2.3 协议"></a>2.3 协议</h3><table>
+<thead>
+<tr>
+<th>协议</th>
+<th>层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ether</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>fddi</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>tr</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>wlan</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>ppp</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>slip</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>link</td>
+<td>链路层</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>ip6</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>arp</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>rarp</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>icmp</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>tcp</td>
+<td>传输层</td>
+</tr>
+<tr>
+<td>udp</td>
+<td>传输层</td>
+</tr>
+</tbody>
+</table>
+<p>常用 <code>tcp</code>、<code>udp</code>、<code>ip</code>、<code>ip6</code>、<code>arp</code>、<code>icmp</code></p>
+<h3 id="2-4-运算符"><a href="#2-4-运算符" class="headerlink" title="2.4 运算符"></a>2.4 运算符</h3><h4 id="2-4-1-逻辑运算符"><a href="#2-4-1-逻辑运算符" class="headerlink" title="2.4.1 逻辑运算符"></a>2.4.1 逻辑运算符</h4><table>
+<thead>
+<tr>
+<th>逻辑</th>
+<th>符号</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>否</td>
+<td><code>!</code> 或 <code>not</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>与</td>
+<td><code>&amp;&amp;</code> 或 <code>and</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td>或</td>
+<td><code>//</code> 或 <code>or</code></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>结合顺序<code>自左向右</code></p>
+<h4 id="2-4-2-比较运算符"><a href="#2-4-2-比较运算符" class="headerlink" title="2.4.2 比较运算符"></a>2.4.2 比较运算符</h4><p>共有6个： <code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>=</code>、<code>!=</code></p>
+<h3 id="2-5-关键字"><a href="#2-5-关键字" class="headerlink" title="2.5 关键字"></a>2.5 关键字</h3><p>gateway、broadcast、less、greater</p>
+<h2 id="3-使用技巧"><a href="#3-使用技巧" class="headerlink" title="3. 使用技巧"></a>3. 使用技巧</h2><ol>
+<li>截获主机210.27.48.1 和主机210.27.48.2 或210.27.48.3的通信</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump host 210.27.48.1 and \ (210.27.48.2 or 210.27.48.3 \)</div></pre></td></tr></table></figure>
+<ol>
+<li>截获主机192.168.126.131发送的所有数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump -i ens33 src host 192.168.126.131</div></pre></td></tr></table></figure>
+<ol>
+<li>截获 TCP 会话的开始和结束的数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp[tcpflags] &amp; (tcp-syn|tcp-fin) != 0 and not src and dst net localnet'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有通过网关snup的ftp数据包，并且数据包的源或目的不是本地网络上的主机 （localnet，实际使用时要真正替换成本地网络的名字）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and (port ftp or ftp-data)'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有源或目的端口是80，网络层协议为IPv4，并且含有数据，而不是SYN、FIN以及ACK-only等不含数据的数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印长度超过576字节，并且网关地址是 snup 的IP数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'gateway snup and ip[2:2] &gt; 576'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有IP层广播或多播的数据包，但不是物理以太网层的广播或多播数据报</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'ether[0] &amp; 1 = 0 and ip[16] &gt;= 224'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印所有非 ping 程序产生的数据包即打印除’echo request’或者’echo reply’类型以外的ICMP数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'icmp[icmptype] != icmp-echo and icmp[icmptype] != icmp-echoreply'</span></div></pre></td></tr></table></figure>
+<ol>
+<li>打印使用 ftp 端口和 ftp 数据端口的数据包</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump <span class="string">'port ftp or ftp-data'</span></div></pre></td></tr></table></figure>
+<ol>
+<li><p>截取HTTP数据包</p>
+<p>0x4745-&gt;”GE”<br>0x4854-&gt;”HT”  </p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tcpdump  -XvvennSs 0 -i eth0 tcp[20:2]=0x4745 or tcp[20:2]=0x4854</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://www.360doc.com/content/17/0618/16/14454117_664203330.shtml" target="_blank" rel="external">tcpdump抓包命令详解</a></li>
+<li><a href="http://blog.csdn.net/kofandlizi/article/details/8106841" target="_blank" rel="external">kofandlizi: tcpdump抓取HTTP包</a></li>
+<li><a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/14/2322659.html" target="_blank" rel="external">Linux tcpdump命令详解</a></li>
+<li><a href="http://www.broadview.com.cn/book/122" target="_blank" rel="external">Linux大棚</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/18/tcpdump/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-SSH免密登陆" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/18/SSH免密登陆/">SSH免密登陆</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/18/SSH免密登陆/" class="archive-article-date">
+  	<time datetime="2017-06-18T07:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.18</em></p>
+<p>从 A 机器的 a 账号 建立到 B 机器的 b 账号的 ssh 免密登陆<br>以 ubuntu 虚拟机<code>juntaran</code>账号连接自己的 VPN 服务器<code>root</code>账号为例</p>
+<pre><code>ssh root@138.128.206.71 -p 27226
+</code></pre><p>此时需要输入密码</p>
+<p>免密制作流程：</p>
+<p>1.为<code>juntaran</code>账号建立自己的公钥私钥，会在<code>/home/a/.ssh</code>中多出<code>id_rsa</code>和<code>id_rsa.pub</code>，分别是<code>私钥</code>和<code>公钥</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
+<p>  全部回车跳过</p>
+<p>2.建立信任关系，默认端口号为22，如果需要修改端口则需要加上<code>-p</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id root@138.128.206.71 -p 27226</div></pre></td></tr></table></figure>
+<p>  旧版本可能不支持<code>-p</code>选项，可以采取以下措施</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id &quot;-p 27226 root@138.128.206.71&quot;</div></pre></td></tr></table></figure>
+<p>  之后流程就很简单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div></pre></td></tr></table></figure>
+<p>  再输入密码即可</p>
+<p>3.直接免密登陆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@138.128.206.71 -p 27226</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/18/SSH免密登陆/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-nmap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/nmap/">nmap</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/nmap/" class="archive-article-date">
+  	<time datetime="2017-06-16T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<p>一个较为常用的命令</p>
+<pre><code>nmap -v -p 1-65535 -sV -O -sS -T4 192.168.1.1
+</code></pre><p>同样也可以使用<code>python-nmap</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/nmap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iptables" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/iptables/">iptables</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/iptables/" class="archive-article-date">
+  	<time datetime="2017-06-16T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<h2 id="1-四表五链"><a href="#1-四表五链" class="headerlink" title="1.四表五链"></a>1.四表五链</h2><p>iptables有<code>四表五链</code>一说，即  </p>
+<h3 id="1-1-四表："><a href="#1-1-四表：" class="headerlink" title="1.1 四表："></a>1.1 四表：</h3><blockquote>
+<p><strong>filter</strong>： 默认表，包含防火墙过滤的规则，内置规则链为INPUT、OUTPUT、FORWARD，内核模块对应 iptables_filter<br><strong>nat</strong>： 用于 nat 功能（端口映射、地址映射等），包含源和目的地址及端口转发的规则，内置规则链为 PREROUTING、OUTPUT 和 POSTROUTING，内核模块对应 iptables_nat<br><strong>mangle</strong>：用于对特定的数据包修改，设置特殊的数据包路由标志的规则，这些标志随后被 Filter 表中的规则检查，内置规则链为 PREROUTING、INPUT、FORWARD、POSTROUTING 和 OUTPUT，内核模块对应  iptable_mangle<br><strong>raw</strong>： 优先级最高，设置 Raw 时一般是为了不再让 iptables 做数据包的链接跟踪处理，提高性能，内置规则链为 OUTPUT 和  PREROUTING，内核模块对应 iptable_raw  </p>
+</blockquote>
+<h3 id="1-2-五链："><a href="#1-2-五链：" class="headerlink" title="1.2 五链："></a>1.2 五链：</h3><blockquote>
+<p><strong>INPUT</strong>： 当一个数据包由内核的路由计算确定为本地的 Linux 系统后，它会通过 INPUT 链的检查——进来的数据包应用此规则链中的策略<br><strong>OUTPUT</strong>： 保留给系统自身生成数据包——外出的数据包应用此规则链中的策略<br><strong>FORWARD</strong>： 经过 Linux 系统路由的数据包——转发数据包时应用此规则链中的策略<br><strong>PREROUTING</strong>： 用于修改目标地址（DNAT），数据包在进入系统之前——对数据包作路由选择前应用此链中的规则（所有的数据包进来的时侯都先由这个链处理）<br><strong>POSTROUTING</strong>： 用于修改源地址（SNAT），发送到网卡接口之前——对数据包作路由选择后应用此链中的规则（所有的数据包出来的时侯都先由这个链处理）  </p>
+</blockquote>
+<h3 id="1-3-规则表之间的优先级顺序"><a href="#1-3-规则表之间的优先级顺序" class="headerlink" title="1.3 规则表之间的优先级顺序"></a>1.3 规则表之间的优先级顺序</h3><p>raw &gt; mangle &gt; nat &gt; filter</p>
+<h2 id="2-数据包的流向"><a href="#2-数据包的流向" class="headerlink" title="2. 数据包的流向"></a>2. 数据包的流向</h2><h3 id="2-1-常见的两种流向"><a href="#2-1-常见的两种流向" class="headerlink" title="2.1 常见的两种流向"></a>2.1 常见的两种流向</h3><pre><code>PREROUTING -&gt; FORWARD -&gt; POSTROUTING
+
+PREROUTING -&gt; INPUT -&gt; 本机 OUTPUT -&gt; POSTROUTING
+</code></pre><p>这两种流向分别对应了<code>iptables</code>的两种工作模式：<code>NAT 路由器</code>和<code>主机防火墙</code></p>
+<h3 id="2-2-流向三种情况"><a href="#2-2-流向三种情况" class="headerlink" title="2.2 流向三种情况"></a>2.2 流向三种情况</h3><h4 id="第一种情况：入站数据流向"><a href="#第一种情况：入站数据流向" class="headerlink" title="第一种情况：入站数据流向"></a>第一种情况：入站数据流向</h4><p>从外界到达防火墙的数据包，先被<code>PREROUTING规则链</code>处理（是否修改数据包地址等），之后会进行路由选择（判断该数据包应该发往何处），如果数据包的目标主机是防火墙本机（比如说 Internet 用户访问防火墙主机中的 web 服务器的数据包），那么内核将其传给<code>INPUT链</code>进行处理（决定是否允许通过等），通过以后再交给系统上层的应用程序（比如 Apache 服务器）进行响应。</p>
+<h4 id="第二种情况：转发数据流向"><a href="#第二种情况：转发数据流向" class="headerlink" title="第二种情况：转发数据流向"></a>第二种情况：转发数据流向</h4><p>来自外界的数据包到达防火墙后，首先被<code>PREROUTING规则链</code>处理，之后会进行路由选择，如果数据包的目标地址是其它外部地址（比如局域网用户通过网关访问 QQ 站点的数据包），则内核将其传递给<code>FORWARD链</code>进行处理（是否转发或拦截），然后再交给<code>POSTROUTING规则链</code>（是否修改数据包的地址等）进行处理。</p>
+<h4 id="第三种情况：出站数据流向"><a href="#第三种情况：出站数据流向" class="headerlink" title="第三种情况：出站数据流向"></a>第三种情况：出站数据流向</h4><p> 防火墙本机向外部地址发送的数据包（比如在防火墙主机中测试公网 DNS 服务器时），首先被<code>OUTPUT规则链</code>处理，之后进行路由选择，然后传递给<code>POSTROUTING规则链</code>（是否修改数据包的地址等）进行处理。</p>
+<h2 id="3-iptables-规则设置"><a href="#3-iptables-规则设置" class="headerlink" title="3. iptables 规则设置"></a>3. iptables 规则设置</h2><p> 整体语法：</p>
+<pre><code>iptables [-t 表名] &lt;-A | I | D | R &gt; 链名 [规则编号] [-i | o 网卡名称] [-p 协议类型] [-s 源IP地址 | 源子网] [--sport 源端口号] [-d 目的IP地址 | 目标子网] [--dport 目的端口号] &lt;-j 动作&gt;
+</code></pre><h3 id="3-1-定义默认策略"><a href="#3-1-定义默认策略" class="headerlink" title="3.1 定义默认策略"></a>3.1 定义默认策略</h3><pre><code>iptables [-t 表名] &lt;-P&gt; &lt;链名&gt; &lt;动作&gt;
+</code></pre><h3 id="3-2-查看-iptables-规则"><a href="#3-2-查看-iptables-规则" class="headerlink" title="3.2 查看 iptables 规则"></a>3.2 查看 iptables 规则</h3><pre><code>iptables [-t 表名] -(nv)L [链名] (--line-number)
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-L</td>
+<td>查看当前表的所有规则，默认查看的是filter表，如果要查看NAT表，可以加上-t NAT参数</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>不对ip地址进行反查，加上这个参数显示速度会快很多</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>输出详细信息，包含通过该规则的数据包数量，总字节数及相应的网络接口</td>
+</tr>
+<tr>
+<td>–line-number</td>
+<td>显示规则的序列号，这个参数在删除或修改规则时会用到</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-3-增、删、改、替换-iptables-规则"><a href="#3-3-增、删、改、替换-iptables-规则" class="headerlink" title="3.3 增、删、改、替换 iptables 规则"></a>3.3 增、删、改、替换 iptables 规则</h3><pre><code>iptables [-t 表名] &lt;-A | I | D | R &gt; 链名 [规则编号] [-i | o 网卡名称] [-p 协议类型] [-s 源IP地址 | 源子网] [--sport 源端口号] [-d 目的IP地址 | 目标子网] [--dport 目的端口号] &lt;-j 动作&gt;
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-t</td>
+<td>指定表，默认 filter</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>ADD 增加一条规则，增加到最后一行，该参数<strong>不能指定</strong>规则编号</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>INSERT 插入一条规则，如果没有指定规则编号，则插入成为第一条</td>
+</tr>
+<tr>
+<td>–D</td>
+<td>DELETE 删除一条规则，可以直接指定规则号，也可以输入完整规则</td>
+</tr>
+<tr>
+<td>–R</td>
+<td>REPLACE 替换一条规则，<strong>必须指定</strong>被替换的规则号</td>
+</tr>
+<tr>
+<td>–i</td>
+<td>指定数据包从哪个网卡流入</td>
+</tr>
+<tr>
+<td>–o</td>
+<td>指定数据包从哪个网卡流出</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACCEPT</td>
+<td>接收数据包</td>
+</tr>
+<tr>
+<td>DROP</td>
+<td>丢弃数据包</td>
+</tr>
+<tr>
+<td>REDIRECT</td>
+<td>重定向数据包到本机或另外某台机器的某个端口，通常用来实现透明代理或对外开放内网的服务</td>
+</tr>
+<tr>
+<td>REJECT</td>
+<td>拦截该数据包，并发送封包通知对方</td>
+</tr>
+<tr>
+<td>SNAT</td>
+<td>改变数据包的源地址，在 NAT 表的 POSTROUTING 链上进行该动作</td>
+</tr>
+<tr>
+<td>DNAT</td>
+<td>改变数据包的目的地址，在 NAT 表的 PREROUTING 链上进行该动作</td>
+</tr>
+<tr>
+<td>MASQUERADE</td>
+<td>IP 伪装，即 NAT 技术，MASQUERADE 只能用于 ADSL 等拨号上网的 IP 伪装，也就是主机 IP 必须为 ISP 动态分配，静态分配需要使用 SNAT</td>
+</tr>
+<tr>
+<td>LOG</td>
+<td>日志功能，将符合规则的数据包相关信息记录在日志里</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-4-清除规则和计数器"><a href="#3-4-清除规则和计数器" class="headerlink" title="3.4 清除规则和计数器"></a>3.4 清除规则和计数器</h3><pre><code>iptables [-t 表名] &lt;-F | X | Z&gt;
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-t</td>
+<td>指定表，默认 filter</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>删除指定表里所有规则</td>
+</tr>
+<tr>
+<td>-X</td>
+<td>删除用户自定义的空链</td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>将指定表的数据包计数器和流量计数器清零</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-iptables-的状态"><a href="#4-iptables-的状态" class="headerlink" title="4. iptables 的状态"></a>4. iptables 的状态</h2><h3 id="4-1-iptables-数据包的四种状态"><a href="#4-1-iptables-数据包的四种状态" class="headerlink" title="4.1 iptables 数据包的四种状态"></a>4.1 iptables 数据包的四种状态</h3><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NEW</td>
+<td>主机向远程主机发送一个连接请求，该数据包状态为 NEW</td>
+</tr>
+<tr>
+<td>ESTABLISHED</td>
+<td>三次握手后，主机和远程主机通信数据的状态为 ESTABLISH</td>
+</tr>
+<tr>
+<td>RELATED</td>
+<td>如果出现了 RELATED 状态，那么一定已经有一个 ESTABLISH 与其相关，例如 FTP 服务：21端口传输命令，20端口传输数据，21端口状态为 ESTABLISH，20端口则为 RELATED</td>
+</tr>
+<tr>
+<td>INVALID</td>
+<td>无效的数据包，不能识别属于哪个连接或没有任何状态，通常这种数据包会被丢弃</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-2-针对状态的命令"><a href="#4-2-针对状态的命令" class="headerlink" title="4.2 针对状态的命令"></a>4.2 针对状态的命令</h3><pre><code>iptables -m state --state [NEW | ESTABLISHED | RELATED | INVALID]
+</code></pre><p>可以将 -m 之后的内容与 <code>3.3</code> 的规则结合</p>
+<h2 id="5-iptables-的记录"><a href="#5-iptables-的记录" class="headerlink" title="5. iptables 的记录"></a>5. iptables 的记录</h2><h3 id="5-1-Conntrack-记录"><a href="#5-1-Conntrack-记录" class="headerlink" title="5.1 Conntrack 记录"></a>5.1 Conntrack 记录</h3><p>不建议在生产服务器开启<code>conntrack</code>功能，及消耗内存<br>可以通过<code>/proc/sys/net/ipv4/ip_conntrack_max</code>里进行查看和设置<br>查看<code>conntrack</code>记录</p>
+<pre><code>cat /proc/net/ip_conntrack
+</code></pre><h3 id="5-2-iptables-默认规则"><a href="#5-2-iptables-默认规则" class="headerlink" title="5.2 iptables 默认规则"></a>5.2 iptables 默认规则</h3><pre><code>cat /etc/sysconfig/iptables
+</code></pre><h2 id="6-iptables-规则的保存与恢复"><a href="#6-iptables-规则的保存与恢复" class="headerlink" title="6. iptables 规则的保存与恢复"></a>6. iptables 规则的保存与恢复</h2><pre><code>// 将规则保存在 /etc/sysconfig/iptables 文件里
+service iptables save
+
+// 重启iptables服务
+service iptables restart
+</code></pre><p>iptables 防火墙的配置文件存放于<code>/etc/sysconfig/iptables</code></p>
+<h2 id="7-其他"><a href="#7-其他" class="headerlink" title="7. 其他"></a>7. 其他</h2><h3 id="7-1-SYN-Flood"><a href="#7-1-SYN-Flood" class="headerlink" title="7.1 SYN Flood"></a>7.1 SYN Flood</h3><p>快速检测和防御<code>SYN Flood</code>攻击</p>
+<pre><code>echo &quot;1&quot; &gt; /proc/sys/net/ipv4/tcp_syncookies
+</code></pre><h3 id="7-2-iptables-IP-转发"><a href="#7-2-iptables-IP-转发" class="headerlink" title="7.2 iptables IP 转发"></a>7.2 iptables IP 转发</h3><p>iptables 作为 NAT 路由器时，存在多网卡现象，需要开启<code>IP 转发功能</code>，用于多个网卡之间数据流通</p>
+<pre><code>echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre><h3 id="7-3-iptables-扩展模块"><a href="#7-3-iptables-扩展模块" class="headerlink" title="7.3 iptables 扩展模块"></a>7.3 iptables 扩展模块</h3><p>-m multiport：表示启用多端口扩展，之后我们就可以启用比如 –dports 21,23,80</p>
+<pre><code>iptables -A INPUT -p tcp -m multiport --dports 22,80 -j ACCEPT
+</code></pre><h3 id="7-4-常用脚本"><a href="#7-4-常用脚本" class="headerlink" title="7.4 常用脚本"></a>7.4 常用脚本</h3><p><a href="https://github.com/Juntaran/Note/tree/master/Script/Shell/iptables" target="_blank" rel="external">iptables常用脚本</a></p>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
+<li><a href="http://www.linuxeye.com/security/1035.html" target="_blank" rel="external">Linuxeye: iptables里的四表五链</a></li>
+<li><a href="http://www.linuxidc.com/Linux/2013-08/88536.htm" target="_blank" rel="external">Linux公社: SNAT、DNAT——iptables防火墙基础策略汇总</a></li>
+<li><a href="http://blog.csdn.net/ashlingr/article/details/8947444" target="_blank" rel="external">AshlingR: 通过iptables实现数据包转发</a></li>
+<li><a href="http://www.hzbook.com/Books/8030.html" target="_blank" rel="external">构建高可用Linux服务器</a></li>
+<li><a href="http://blog.chinaunix.net/uid-26495963-id-3279216.html" target="_blank" rel="external">iptables详解</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络安全</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/iptables/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Vim配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/16/Vim配置/">Vim配置</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/Vim配置/" class="archive-article-date">
+  	<time datetime="2017-06-15T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.16</em></p>
+<h2 id="1-导入"><a href="#1-导入" class="headerlink" title="1. 导入"></a>1. 导入</h2><pre><code>wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
+</code></pre><h2 id="2-覆盖-vimrc"><a href="#2-覆盖-vimrc" class="headerlink" title="2. 覆盖 ~/.vimrc"></a>2. 覆盖 ~/.vimrc</h2><pre><code>wget -O vim.tar.gz https://raw.githubusercontent.com/Juntaran/Note/master/Linux/vim.tar.gz
+tar -zxvf vim.tar.gz
+mv ~/.vimrc ~/.vimrc_bak
+mv vimrc ~/.vimrc
+rm -rf vimrc vim.tar.gz
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vim</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/16/Vim配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/07/Linux常用命令/">Linux常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/07/Linux常用命令/" class="archive-article-date">
+  	<time datetime="2017-06-06T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="系统版本信息"><a href="#系统版本信息" class="headerlink" title="系统版本信息"></a>系统版本信息</h2><p>命令： uname -a<br>作用： 查看系统内核版本号及系统名称，<br><code>Linux ubuntu 4.10.0-22-generic #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux</code>   </p>
+<p>命令： uname -s<br>作用： 显示内核名称，<code>Linux</code>  </p>
+<p>命令： uname -n<br>作用： 显示主机名称，<code>ubuntu</code>  </p>
+<p>命令： uname -r<br>作用： 显示内核发行版号，<code>4.10.0-22-generic</code>  </p>
+<p>命令： uname -v<br>作用： 显示操作系统具体版本，<code>#24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： uname -m<br>作用： 显示机器硬件名称，<code>x86_64</code>  </p>
+<p>命令： uname -p<br>作用： 显示处理器类型，<code>x86_64</code>  </p>
+<p>命令： uname -i<br>作用： 显示硬件平台名称，<code>x86_64</code>  </p>
+<p>命令： uname -o<br>作用： 操作系统名称，<code>GNU/Linux</code>  </p>
+<p>命令： cat /proc/version<br>作用： 查看目录”/proc”下version的信息，也可以得到当前系统的内核版本号及系统名称，<br><code>Linux version 4.10.0-22-generic (buildd@lcy01-08) (gcc version 6.3.0 20170406 (Ubuntu 6.3.0-12ubuntu2) ) #24-Ubuntu SMP Mon May 22 17:43:20 UTC 2017</code>  </p>
+<p>命令： lsb_release -c<br>作用： 查看系统代号，比如ubuntu 12.04为precise， 14.04为trusty，15.04为vivid，15.10为wily，17.04为zesty。<code>Codename:    zesty</code>  </p>
+<p>命令： lsb_release -a<br>作用： 显示系统信息以及代号<br><code>No LSB modules are available.</code><br><code>Distributor ID:    Ubuntu</code><br><code>Description:    Ubuntu 17.04</code><br><code>Release:    17.04</code><br><code>Codename:    zesty</code>  </p>
+<p>命令： lisb_release -d<br>作用： 显示系统号，<code>Description:    Ubuntu 17.04</code>  </p>
+<p>命令： cat /etc/issue<br>作用： 显示系统号，<code>Ubuntu 17.04 \n \l</code>  </p>
+<p>命令： hostname<br>作用： 输出计算机名  </p>
+<hr>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>命令： shutdown -h now<br>作用： 立即关机  </p>
+<p>命令： shutdown -r now<br>作用： 立即重启  </p>
+<p>命令： shutdown -h 23:30<br>作用： 在23:30分准时关机  </p>
+<p>命令： shutdown -h +15<br>作用： 15分钟后关机  </p>
+<p>命令： shutdown -k now “Server would shutdown in 15minutes!”<br>作用： 给出关机警告，不关机  </p>
+<p>命令： halt -p<br>作用： 关机并关闭电源  </p>
+<p>命令： halt -d<br>作用： 关机，不会在日志里留下记录  </p>
+<p>命令： halt -w<br>作用： 不会关机，会把关机事件写入<code>/var/log/wtmp</code>  </p>
+<p>命令： reboot<br>作用： 重启系统  </p>
+<p>命令： poweroff<br>作用： 关机并且切断电源  </p>
+<p>命令： init 6<br>作用： 重启  </p>
+<p>命令： init 0<br>作用： 关机  </p>
+<hr>
+<h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2><p>命令： dmidecode<br>作用： 列出所有硬件信息  </p>
+<p>命令： dmidecode -t<br>作用： 列出硬件类型  </p>
+<p>命令： dmidecode -t 硬件类型<br>作用： 根据硬件类型展示相应的硬件信息  </p>
+<hr>
+<h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><p>命令： whoami<br>作用： 显示当前操作用户的用户名<br><code>juntaran</code>  </p>
+<p>命令： who am i<br>作用： 显示登入系统用户的用户名，以及登录时间（只要有2个参数即可，无所谓是不是 am 和 i）<br><code>juntaran pts/0        2017-06-20 14:47 (192.168.126.1)</code>  </p>
+<p>命令： who (-H)<br>作用： 显示所有登入系统的用户的用户名，以及登录时间。-H 会加上列名  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>LINE</th>
+<th>TIME</th>
+<th>COMMENT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>2017-06-20 14:47</td>
+<td>(192.168.126.1)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>2017-06-16 20:12</td>
+<td>(:0)</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>2017-06-20 14:52</td>
+<td>(192.168.126.1)</td>
+</tr>
+</tbody>
+</table>
+<p>命令： who -b<br>作用： 显示系统上一次启动时间<br><code>system boot  2017-06-16 20:10</code>  </p>
+<p>命令： w<br>作用： <code>who</code>显示的是<code>show who is logged on</code>，<code>w</code>显示的是<code>show who is logged on and what they are doing</code>  </p>
+<table>
+<thead>
+<tr>
+<th>USER</th>
+<th>TTY</th>
+<th>FROM</th>
+<th>LOGIN@</th>
+<th>IDLE</th>
+<th>JCPU</th>
+<th>PCPU</th>
+<th>WHAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>juntaran</td>
+<td>pts/0</td>
+<td>192.168.126.1</td>
+<td>14:47</td>
+<td>0.00s</td>
+<td>0.17s</td>
+<td>0.00s</td>
+<td>w</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>tty/7</td>
+<td>:0</td>
+<td>Fri20</td>
+<td>3days</td>
+<td>57.27s</td>
+<td>0.04s</td>
+<td>/bin/sh /usr/lib/gnome-session/run-systemd-session</td>
+</tr>
+<tr>
+<td>juntaran</td>
+<td>pts/1</td>
+<td>192.168.126.1</td>
+<td>14:52</td>
+<td>44:28</td>
+<td>0.03s</td>
+<td>0.03s</td>
+<td>top</td>
+</tr>
+</tbody>
+</table>
+<p>在运行<code>w</code>命令时，<code>pts/0</code>终端的<code>WHAT</code>显示了正在执行<code>w</code>，而另一个终端正在执行的<code>top</code>命令也被记录了<br>另外，<code>JCPU</code>指的是与该tty终端连接的所由进程占用的时间，不包括过去的后台作业时间<br><code>PCPU</code>指的是当前进程（即w项中显示的）所占用的时间  </p>
+<hr>
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><p>命令： route -n<br>作用： 显示路由表  </p>
+<p>命令： route add default gw 192.168.1.2<br>作用： 增加一条默认路由  </p>
+<p>命令： route del gw 192.168.1.2<br>作用： 删除一条默认路由  </p>
+<hr>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>命令： ln -s a.txt b.txt<br>作用： 建立软链接（符号链接），同步更新，类似快捷方式  </p>
+<p>命令： ln a.txt b.txt<br>作用： 建立硬链接，不占用空间，不能给目录建立。可以认为一个文件拥有两个文件名  </p>
+<hr>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><pre><code>find path -option [ -print ] [ -exec/-ok command ] {} \
+</code></pre><p>path: find 命令所查找的目录路径。<code>.</code>来表示当前目录，用<code>/</code>来表示系统根目录<br><code>-print</code>： find 命令将匹配的文件输出到标准输出<br><code>-exec</code>： find 命令对匹配的文件执行该参数所给出的shell命令。将查到的文件执行command操作，<code>{}</code>和<code>\;</code>之间有空格<br><code>-ok</code>： 和<code>-exec</code>的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-name filename</td>
+<td>查找名为<code>filename</code>的文件</td>
+</tr>
+<tr>
+<td>-perm</td>
+<td>按执行权限来查找</td>
+</tr>
+<tr>
+<td>-user username</td>
+<td>按文件属主来查找</td>
+</tr>
+<tr>
+<td>-group groupname</td>
+<td>按组来查找</td>
+</tr>
+<tr>
+<td>-mtime -n/+n</td>
+<td>按文件更改时间来查找文件，<code>-n</code>指n天以内，<code>+n</code>指n天以前</td>
+</tr>
+<tr>
+<td>-atime -n/+n</td>
+<td>按文件访问时间来查，<code>-n</code>指n天以内，<code>+n</code>指n天以前</td>
+</tr>
+<tr>
+<td>-ctime -n/+n</td>
+<td>按文件创建时间来查找文件，<code>-n</code>指n天以内，<code>+n</code>指n天以前</td>
+</tr>
+<tr>
+<td>-amin</td>
+<td>对应以上，天改为分钟</td>
+</tr>
+<tr>
+<td>-type b/d/c/p/l/f</td>
+<td>查是块设备、目录、字符设备、管道、符号链接、普通文件</td>
+</tr>
+<tr>
+<td>-size n[c]</td>
+<td>查长度为n块[或n字节]的文件</td>
+</tr>
+<tr>
+<td>-depth</td>
+<td>设定搜索深度</td>
+</tr>
+</tbody>
+</table>
+<p>命令： find . -name   “[A-Z]*“   -print<br>作用： 当前目录下查找以大写字母开头的文件   </p>
+<p>命令： find . -perm -007 -exec ls -l {} \;<br>作用： 查所有用户都可读写执行的文件，并执行<code>ls -l</code>命令  </p>
+<p>命令： grep -rl ‘juntaran’<br>作用： 递归搜索包含<code>juntaran</code>的文件<br><code>-r</code>表示递归，<code>-l</code>表示只输出文件名  </p>
+<p>命令： grep -o ‘juntaran’ hexo/npm-debug.log  | wc -l<br>作用： 搜索<code>hexo/npm-debug.log</code>文件内<code>juntaran</code>出现的次数  </p>
+<p>命令： grep -o ‘test|juntaran’ hexo/npm-debug.log  | wc -l<br>作用： 搜索<code>hexo/npm-debug.log</code>文件内<code>juntaran</code>和<code>test</code>出现的总次数  </p>
+<p>命令： find . -name “*.c” | xargs grep -i ‘juntaran’<br>作用： 搜索当前目录下所有的包含<code>juntaran</code>的<code>.c</code>文件  </p>
+<hr>
+<h2 id="文件分割合并"><a href="#文件分割合并" class="headerlink" title="文件分割合并"></a>文件分割合并</h2><p>命令： splite -l 1000 a.txt<br>作用： 把 a.txt 按照每1000行进行拆分，拆分后为 xaa xab…  </p>
+<p>命令： splite -b/-C 100m a.txt<br>作用： 把 a.txt 按照每100m进行切分，默认单位为字节，支持 k 和 m，-C 与 -b 类似，但是会尽量维持每行的完整性  </p>
+<p>命令： splite -l 1000 a.txt -d -a 3 split_file<br>作用： 把 a.txt 按照每1000行进行拆分，拆分后文件为 split_file000 split_file002 …，<code>-d</code> 代表拆分后的文件使用数字后缀而不使用字母后缀，<code>-a 3</code>代表数字后缀的长度为3位，<code>split_file</code>只是自定义的拆分后文件名前缀  </p>
+<p>命令： cat file1 file2 &gt; file.txt<br>作用： 合并 file1 file2 为 file.txt 文件  </p>
+<hr>
+<h2 id="系统性能"><a href="#系统性能" class="headerlink" title="系统性能"></a>系统性能</h2><h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><p>如果有大量的<code>读操作</code>时，选择<code>RAID5</code><br>如果有大量的<code>写操作</code>时，选择<code>RAID0</code><br>如果对<code>数据安全</code>要求很高，同时也对<code>读写</code>有要求，可以考虑<code>RAID10</code>  </p>
+<p>RAID0: 无备份，硬盘性能和吞吐量高，串联硬盘<br>RAID1: 有备份，硬盘空间可用率为50%，同时写入数据到两块盘<br>RAID5: 不备份原数据，通过奇偶校验来恢复损坏的数据，改善了性能和成本<br>RAID10: RAID1 + RAID0，对两个<code>RAID1</code>硬盘实施<code>RAID0</code>技术，<code>读写速度</code>和<code>数据安全</code>都超过RAID5  </p>
+<p>命令： du -sh [目录/文件]<br>作用： 显示指定的目录/文件大小，不填写则为当前目录  </p>
+<p>命令： ls | xargs du -sh<br>作用： 显示当前目录下所有文件大小  </p>
+<p>命令： fdisk -l<br>作用： 查看磁盘分区信息  </p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><h4 id="top"><a href="#top" class="headerlink" title="top"></a>top</h4><p>命令： top<br>技巧： <code>f</code>进入选择显示列和列的排序，也可以指定根据哪列进行排序展示 <code>R</code>根据当前排序逆序  <code>shift &lt;&gt;</code> 调整排序列  <code>P</code> 根据 CPU 进行排序  <code>M</code> 根据内存进行排序  <code>W</code>记录当前配置  <code>1</code>可以切换不同的核心   </p>
+<h4 id="mpstat"><a href="#mpstat" class="headerlink" title="mpstat"></a>mpstat</h4><p>命令： mpstat  -P ALL 1<br>作用： 每隔<code>1秒</code>展示每一个 CPU 的运行状态，把<code>ALL</code>改成<code>0</code>就是显示第一个 CPU 的运行状态，<code>1</code>如果不写则只显示一次  </p>
+<p>命令： mpstat -I ALL/CPU/SUM 1<br>作用： 每隔<code>1秒</code>展示 整体/每一个CPU/ALL+CPU 的中断信息  </p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>命令： free -m<br>作用： 以<code>mb</code>为单位显示内存信息  </p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>命令： ps -ef 与 ps aux<br>作用： 显示进程信息  </p>
+<p>命令： ps -ef | grep mysql<br>作用： 显示 mysql 进程的信息，pid 为 10673  </p>
+<p>命令： ps -L 10673<br>作用： 显示 mysql 的线程信息  </p>
+<p>命令： ps axjf 与 ps -ejH<br>作用： 树形结构显示进程信息，展示子进程和父进程关系  </p>
+<p>命令： pidof 进程名<br>作用： 找到对应进程的进程号  </p>
+<p>命令： pidof -x test.sh<br>作用： 找到对应脚本的进程号  </p>
+<hr>
+<h2 id="网络性能"><a href="#网络性能" class="headerlink" title="网络性能"></a>网络性能</h2><h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示所有选项，默认不显示LISTEN相关</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>显示tcp相关选项</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>显示udp相关选项</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>拒绝显示别名，能显示数字的全部转化成数字</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>仅列出有处于 Listen 的服务状态</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示建立相关链接的程序名</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>显示路由信息，路由表</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示网络接口的详细信息</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>显示扩展信息，例如uid等</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>按各个协议进行统计</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>每隔一个固定时间，执行该netstat命令。</td>
+</tr>
+</tbody>
+</table>
+<p><code>LISTEN</code>和<code>LISTENING</code>的状态只有用<code>-a</code>或者<code>-l</code>才能看到</p>
+<hr>
+<h3 id="性能分析常用工具"><a href="#性能分析常用工具" class="headerlink" title="性能分析常用工具"></a>性能分析常用工具</h3><h4 id="vmstat"><a href="#vmstat" class="headerlink" title="vmstat"></a>vmstat</h4><p>命令： vmstat 1 4<br>作用： 每隔1秒显示一次系统状态信息（进程个数与睡眠进程个数+内存+swap+块设备io+系统中断与上下文切换次数+CPU时间占比），共4次，其中第一次为开机以来的平均值  </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>显示开机以来的 fork 数</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示内存 slabinfo</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>显示内存指标以及系统事件信息</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示磁盘统计信息</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>vmstat -p /dev/sda1 显示某一分区的 I/O 信息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h4><p>命令： iostat<br>作用： 显示系统信息 + CPU信息 + 磁盘信息  </p>
+<p>命令： iostat -d -k -x -y 1 3<br>作用： 每隔<code>1秒</code>显示磁盘信息以<code>KB</code>为单位，显示3次，去除第一次不准确信息。其中<code>-d</code>代表显示磁盘信息，<code>-k</code>代表以<code>KB</code>为单位，<code>-x</code>代表更详细输出，<code>-y</code>代表去除第一次不准确的信息  </p>
+<p>命令： iostat -c -x -y 1 3<br>作用：  每隔<code>1秒</code>显示 CPU 信息，显示3次，去除第一次不准确信息。其中<code>-c</code>代表显示 CPU 信息  </p>
+<h4 id="lsof-与-fuser"><a href="#lsof-与-fuser" class="headerlink" title="lsof 与 fuser"></a>lsof 与 fuser</h4><p>需要 root 权限  </p>
+<p>命令： lsof 文件名<br>作用： 根据文件名查找占用该文件的进程  </p>
+<p>命令： fuser -v 文件名<br>作用： 根据文件名查找占用该文件的进程  </p>
+<p>命令： lsof -p PID<br>作用： 根据进程号查找该进程打开的所有文件  </p>
+<p>命令： ls -u username<br>作用： 根据用户名查找该用户打开的所有文件  </p>
+<p>命令： ls -i:端口号<br>作用： 根据端口号查找占用该端口的进程  </p>
+<p>命令： fuser -vn tcp 22<br>作用： 根据端口号查找占用该端口的进程  </p>
+<hr>
+<h2 id="作业控制"><a href="#作业控制" class="headerlink" title="作业控制"></a>作业控制</h2><p>在命令后添加<code>&amp;</code>则会让作业在后台运行</p>
+<pre><code>sleep 2000 &amp;  
+</code></pre><p><code>Ctrl + Z</code>会让一个前台作业切换到后台，但是它会暂停</p>
+<p>命令： jobs<br>作用： 列出后台所有的作业，包括作业号、进程ID、占用的 CPU、当前状态和命令  </p>
+<p>命令： bg %作业号<br>作用： 让一个后台暂停的命令运行  </p>
+<p>命令： fg %作业号<br>作用： 把一个后台作业推到前台  </p>
+<p>命令： kill %作业号<br>作用： 杀掉指定的作业  </p>
+<p>添加<code>&amp;</code>虽然会让命令在后台运行，但是当终端断开或是用户注销等情况发生时，命令会自动终止，这时应该使用<code>nohup</code>  </p>
+<p>命令： nohup 要执行的命令 &gt; test.txt &amp;<br>作业： 后台执行命令，jobs 查询不到，会输出信息到<code>test.txt</code>，如果不设置输出会自动输出到<code>nohup.out</code>。该命令即使断开终端也会继续执行，可以通过<code>kill进程</code>的方式关闭该命令  </p>
+<p>命令： sudo -b ./test.sh<br>作用： 后台运行脚本，jobs 命令查询不到，终端断开也可以继续执行  </p>
+<hr>
+<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><p>crontab</p>
+<pre><code>crontab [ -u user ] file
+crontab [ -u user ] [ -i ] { -e | -l | -r }
+也可以直接编辑 /etc/crontab
+</code></pre><p>命令： crontab -u juntaran -l<br>作用： 查看用户 juntaran 的定时任务  </p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>允许的值</th>
+<th>允许的特殊字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>秒</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>分</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>小时</td>
+<td>0-23</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>日</td>
+<td>1-31</td>
+<td>, - * ? / L W C</td>
+</tr>
+<tr>
+<td>月</td>
+<td>1-12 or JAN-DEC</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>周几</td>
+<td>1-7 or SUN-SAT</td>
+<td>, - * ? / L C #</td>
+</tr>
+<tr>
+<td>年(可选字段)</td>
+<td>empty</td>
+<td>1970-2099 , - * /</td>
+</tr>
+</tbody>
+</table>
+<p>字符含义：</p>
+<blockquote>
+<p>* ：代表所有可能的值。因此，<code>*</code>在Month中表示每个月，在 Day-of-Month 中表示每天，在 Hours 表示每小时  </p>
+<p>- ：表示指定范围  </p>
+<p>, ：表示列出枚举值。例如：在 Minutes 子表达式中，<code>5,20</code>表示在5分钟和20分钟触发  </p>
+<p>/ ：被用于指定增量。例如：在 Minutes 子表达式中，<code>0/15</code>表示从0分钟开始，每15分钟执行一次。<code>3/20</code>表示从第三分钟开始，每20分钟执行一次。和<code>3,23,43</code> 表示第3，23，43分钟触发的含义一样  </p>
+<p>? ：用在 Day-of-Month 和 Day-of-Week 中，指<code>没有具体的值</code>。当两个子表达式其中一个被指定了值以后，为了避免冲突，需要将另外一个的值设为<code>?</code>。例如：想在每月20日触发调度，不管20号是星期几，只能用如下写法：<code>0 0 0 20 * ?</code>，其中最后以为只能用<code>?</code>，而不能用<code>*</code> </p>
+<p>L ：用在 day-of-month 和 day-of-week 字串中。它是单词<code>last</code>的缩写。它在两个子表达式中的含义是不同的。<br>在 day-of-month 中，<code>L</code>表示一个月的最后一天，一月31号，3月30号。<br>在 day-of-week 中，<code>L</code>表示一个星期的最后一天，也就是“7”或者“SAT”<br>如果<code>L</code>前有具体内容，它就有其他的含义了。例如：<code>6L</code>表示这个月的<code>倒数第六天</code>。<code>FRIL</code>表示这个月的<code>最后一个星期五</code>。<br>注意：在使用<code>L</code>参数时，不要指定列表或者范围，这样会出现问题  </p>
+<p>W ：<code>Weekday</code>的缩写。只能用在 day-of-month 字段。用来描叙<code>最接近指定天的工作日（周一到周五）</code>。例如：在 day-of-month 字段用<code>15W</code>指“最接近这个月第15天的工作日”，即如果这个月第15天是周六，那么触发器将会在这个月第14天即周五触发；如果这个月第15天是周日，那么触发器将会在这个月第16天即周一触发；如果这个月第15天是周二，那么就在触发器这天触发。注意一点：这个用法只会在当前月计算值，不会越过当前月。<code>W</code>字符仅能在 day-of-month指明一天，不能是一个范围或列表。也可以用<code>LW</code>来指定<code>这个月的最后一个工作日</code>，即最后一个星期五只能用在 day-of-week 字段。用来指定这个月的第几个周几。例：在 day-of-week 字段用<code>6#3</code> or <code>FRI#3</code>指这个月<code>第3个周五（6指周五，3指第3个）</code>。如果指定的日期不存在，触发器就不会触发  </p>
+</blockquote>
+<p>表达式例子：  </p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*/1 * * * * ?</td>
+<td>每秒触发一次</td>
+</tr>
+<tr>
+<td>*/5 * * * * ?</td>
+<td>每隔5秒执行一次</td>
+</tr>
+<tr>
+<td>0 */1 * * * ?</td>
+<td>每隔1分钟执行一次</td>
+</tr>
+<tr>
+<td>0 0/3 * * * ?</td>
+<td>每三分钟触发一次</td>
+</tr>
+<tr>
+<td>0 0 * * * ?</td>
+<td>每1小时触发一次</td>
+</tr>
+<tr>
+<td>0 0 10 * * ?</td>
+<td>每天10点触发一次</td>
+</tr>
+<tr>
+<td>0 0 5-15 * * ?</td>
+<td>每天5-15点整点触发</td>
+</tr>
+<tr>
+<td>0 * 14 * * ?</td>
+<td>在每天下午2点到下午2:59期间的每1分钟触发</td>
+</tr>
+<tr>
+<td>0 0-5 14 * * ?</td>
+<td>在每天下午2点到下午2:05期间的每1分钟触发</td>
+</tr>
+<tr>
+<td>0 0/5 14 * * ?</td>
+<td>在每天下午2点到下午2:55期间的每5分钟触发</td>
+</tr>
+<tr>
+<td>0 0/30 9-17 * * ?</td>
+<td>朝九晚五工作时间内每半小时</td>
+</tr>
+<tr>
+<td>0 0 10,14,16 * * ?</td>
+<td>每天上午10点，下午2点，4点触发</td>
+</tr>
+<tr>
+<td>0 30 9 1 * ?</td>
+<td>每月1号上午9点半</td>
+</tr>
+<tr>
+<td>0 15 10 15 * ?</td>
+<td>每月15日上午10:15触发</td>
+</tr>
+<tr>
+<td>0 0 12 ? * WED</td>
+<td>每个星期三中午12点</td>
+</tr>
+<tr>
+<td>0 0 17 ? * TUES,THUR,SAT</td>
+<td>每周二、四、六下午五点</td>
+</tr>
+<tr>
+<td>0 10,44 14 ? 3 WED</td>
+<td>每年三月的星期三的下午2:10和2:44触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * MON-FRI</td>
+<td>周一至周五的上午10:15触发</td>
+</tr>
+<tr>
+<td>0 0 23 L * ?</td>
+<td>每月最后一天23点执行一次</td>
+</tr>
+<tr>
+<td>0 15 10 L * ?</td>
+<td>每月最后一日的上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * 6L</td>
+<td>每月的最后一个星期五上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 * * ? 2005</td>
+<td>2005年的每天上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * 6L 2002-2005</td>
+<td>2002年至2005年的每月的最后一个星期五上午10:15触发</td>
+</tr>
+<tr>
+<td>0 15 10 ? * 6#3</td>
+<td>每月的第三个星期五上午10:15触发</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://cron.qqe2.com/" target="_blank" rel="external">cron表达式生成与解析器</a></p>
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/07/Linux常用命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Python修复setup" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/04/Python修复setup/">Python修复setup</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/04/Python修复setup/" class="archive-article-date">
+  	<time datetime="2017-06-03T20:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.4</em></p>
+<h1 id="Python修复setup"><a href="#Python修复setup" class="headerlink" title="Python修复setup"></a>Python修复setup</h1><pre><code>sudo apt-get install openssl python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/04/Python修复setup/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-MySQL安装问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/01/MySQL安装问题/">MySQL安装问题</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/01/MySQL安装问题/" class="archive-article-date">
+  	<time datetime="2017-06-01T07:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>2017.6.1</em></p>
+<h2 id="Ubuntu下MySQL重新安装"><a href="#Ubuntu下MySQL重新安装" class="headerlink" title="Ubuntu下MySQL重新安装"></a>Ubuntu下MySQL重新安装</h2><pre><code>sudo rm /var/lib/mysql/ -R
+sudo rm /etc/mysql/ -R
+sudo apt-get autoremove mysql* --purge
+sudo apt-get remove apparmor
+sudo apt-get install mysql-server mysql-common 
+</code></pre><h2 id="CentOS下MySQL重新安装"><a href="#CentOS下MySQL重新安装" class="headerlink" title="CentOS下MySQL重新安装"></a>CentOS下MySQL重新安装</h2><pre><code>rpm -e mysql
+rpm -e --nodeps mysql
+yum install -y mysql-server mysql mysql-devel
+</code></pre><h2 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h2><pre><code>sudo service mysql start            // Ubuntu
+service mysqld start                // CentOS
+</code></pre><h2 id="CentOS开机启动"><a href="#CentOS开机启动" class="headerlink" title="CentOS开机启动"></a>CentOS开机启动</h2><pre><code>chkconfig --list | grep mysqld 
+chkconfig mysqld on
+</code></pre><h2 id="登陆MySQL"><a href="#登陆MySQL" class="headerlink" title="登陆MySQL"></a>登陆MySQL</h2><pre><code>mysqladmin -u root password &apos;root&apos;
+mysql -u root -p
+</code></pre><h2 id="测试MySQL"><a href="#测试MySQL" class="headerlink" title="测试MySQL"></a>测试MySQL</h2><pre><code>mysql&gt;
+create database test;
+show databases;
+status;                            // 查看MySQL版本
+select version();                    // 查看MySQL版本
+show global variables like &apos;port&apos;;            // 查看MySQL端口号
+</code></pre><h2 id="远程登陆MySQL"><a href="#远程登陆MySQL" class="headerlink" title="远程登陆MySQL"></a>远程登陆MySQL</h2><pre><code>sudo vim/etc/mysql/my.cnf
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre><p>找到 <code>bind-address = 127.0.0.1</code> 这一行，注释掉，或改为<code>0.0.0.0</code></p>
+<pre><code>mysql&gt;
+grant all privileges on *.*  to  &apos;root&apos;@&apos;%&apos;  identified by &apos;YourPassword&apos;  with grant option;
+flush privileges;
+</code></pre><p>退出MySQL命令</p>
+<pre><code>sudo service mysql(d) restart
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/01/MySQL安装问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Go数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -243,2813 +2198,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/05/17/Go数据结构/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-爬虫学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/爬虫学习笔记/">爬虫学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/爬虫学习笔记/" class="archive-article-date">
-  	<time datetime="2017-05-10T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.5.10</em></p>
-<h2 id="评估网页数量"><a href="#评估网页数量" class="headerlink" title="评估网页数量"></a>评估网页数量</h2><p>可以利用百度或者Google</p>
-<pre><code>site:www.cnblogs.com
-</code></pre><blockquote>
-<p>Google可以搜索子目录</p>
-</blockquote>
-<h2 id="不重复爬取"><a href="#不重复爬取" class="headerlink" title="不重复爬取"></a>不重复爬取</h2><p>原理就是标记URL，之后爬取新的页面对比URL</p>
-<blockquote>
-<ol>
-<li>MD5处理URL后存储</li>
-<li>利用Bit-Map方法建立BitSet，对URL进行哈希映射</li>
-<li>布隆过滤器，pybloomfilter</li>
-</ol>
-</blockquote>
-<h2 id="网站地图"><a href="#网站地图" class="headerlink" title="网站地图"></a>网站地图</h2><p>爬虫爬取网站之前首先访问网站根目录下的Robots.txt<br>根据<code>Robots.txt</code>判断可以爬取哪些内容<br>利用<code>sitemap.xml</code>分析网站规模  </p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>import re
-findall(pattern, string, flags=0)
-</code></pre><h2 id="使用Chrome"><a href="#使用Chrome" class="headerlink" title="使用Chrome"></a>使用Chrome</h2><p>在Chrome中<code>检查</code>网页，<br>可以在<code>Console</code>里执行命令查看节点<br>例如：</p>
-<pre><code>document.childNodes
-document.getRootNode()
-document.getRootNode().childNodes
-document.getRootNode().childNodes[1]
-document.getRootNode().childNodes[1].childNodes[1]
-document.getElementsByClassName(&apos;J-p-990687&apos;)[0]    # 京东价格元素
-document.getElementsByClassName(&apos;price J-p-3418627&apos;)[0].innerHTML    # 获取价格 
-</code></pre><p>来一直遍历HTML文档结构</p>
-<h2 id="网页的关键内容"><a href="#网页的关键内容" class="headerlink" title="网页的关键内容"></a>网页的关键内容</h2><ul>
-<li>Title 网页的标题</li>
-<li>Content Title 正文标题</li>
-<li>Content 正文部分</li>
-<li>Anchor 内部锚点（百度百科跳段）</li>
-<li>Link 外部链接</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络爬虫/" class="article-tag-list-link color5">网络爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/10/爬虫学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Go的并发机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/Go的并发机制/">Go的并发机制</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/Go的并发机制/" class="archive-article-date">
-  	<time datetime="2017-05-09T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>不要用共享内存的方式来通信，要以通信作为手段来共享内存</strong><br>推荐使用通道(channel)在多个goroutine之间传递数据，并且还能够保证整个过程的并发安全</p>
-<h2 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h2><h3 id="go语句与goroutine"><a href="#go语句与goroutine" class="headerlink" title="go语句与goroutine"></a>go语句与goroutine</h3><p>一条go语句意味着一个函数或方法的<code>并发</code>执行</p>
-<p>如果要向go语句中传值，应该为go函数添加一个参数声明</p>
-<pre><code>names := []string{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;}
-for _, name := range names {
-    go func(who string) {
-        fmt.Printf(&quot;%s\n&quot;, who)
-    } (name)
-}
-</code></pre><p>不加参数是不正确的</p>
-<pre><code>names := []string{&quot;A&quot;, &quot;B&quot;, &quot;C&quot;}
-for _, name := range names {
-    go func() {
-        fmt.Printf(&quot;%s\n&quot;, who)
-    } ()
-}
-</code></pre><p>go语句是在for循环执行完毕之后才执行的</p>
-<h2 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h2><p>channel提供了一种机制，<br>既可以同步两个并发执行的函数，也可以让这两个函数通过相互传递特定类型的值来通信  </p>
-<h3 id="channel的基本概念"><a href="#channel的基本概念" class="headerlink" title="channel的基本概念"></a>channel的基本概念</h3><p>channel既指<code>通道类型</code>，也指可以传递某种类型的值的<code>通道</code>  </p>
-<h4 id="类型表示法"><a href="#类型表示法" class="headerlink" title="类型表示法"></a>类型表示法</h4><p>与切片类型和字典类型相同，通道类型也属于引用类型</p>
-<pre><code>chan T
-</code></pre><p><code>chan</code>代表了通道类型的关键字，<code>T</code>代表了通道类型的元素类型</p>
-<pre><code>type IntChan chan int
-</code></pre><p>别名类型<code>IntChan</code>代表了元素类型为<code>int</code>的<code>通道类型</code></p>
-<pre><code>var intChan chan int
-</code></pre><p>初始化后，<code>intChan变量</code>可以用来传递<code>int</code>类型的元素值了  </p>
-<p>上面这种声明方式意味着该通道类型是<code>双向</code>的，<br>既可以向这个通道发送元素值，也可以从它接收元素值  </p>
-<p><code>单向通道</code>需要<code>接收操作符&lt;-</code>  </p>
-<pre><code>chan&lt;- T
-</code></pre><p>这是<code>只能用于发送值</code>的通道类型的泛化表示，<code>&lt;-</code>表示元素值的流向  </p>
-<pre><code>&lt;-chan T
-</code></pre><p>这是<code>只能用于接收值</code>的通道类型</p>
-<h4 id="值表示法"><a href="#值表示法" class="headerlink" title="值表示法"></a>值表示法</h4><p>一个通道类型的变量在被初始化之前，其值一定是<code>nil</code></p>
-<h4 id="操作特性"><a href="#操作特性" class="headerlink" title="操作特性"></a>操作特性</h4><p>在同一时刻，仅有一个goroutine能向一个通道发送一个元素值，<br>同时也仅有一个goroutine能从它那里接收值<br>通道相当于一个<code>FIFO</code>的消息队列<br>每个元素值都是严格按照发送到此的先后顺序排列的<br>通道中的元素值具有<code>原子性</code>，不可分割，每一个元素值只能被某一个goroutine接收，<br>已接收的元素值会立刻从通道中删除  </p>
-<h4 id="初始化通道"><a href="#初始化通道" class="headerlink" title="初始化通道"></a>初始化通道</h4><p>引用类型的值都需要使用内建函数<code>make</code>来初始化  </p>
-<pre><code>make(chan int, 10)
-</code></pre><p>这是一个最大缓冲为10的、传递元素类型为int的双向通道<br>同样，也可以设置无缓冲通道，那么发送给它的元素值应该被立即取走，<br>否则发送方的goroutine会阻塞，直到有接收方来接收</p>
-<h4 id="接收元素值"><a href="#接收元素值" class="headerlink" title="接收元素值"></a>接收元素值</h4><p>接收操作符&lt;-不但可以作为通道类型声明的一部分，也可以用于通道操作</p>
-<pre><code>strChan := make(chan string, 3)
-</code></pre><p>此时，strChan是一个双向传递string类型的通道，容量为3  </p>
-<pre><code>elem := &lt;-strChan
-</code></pre><p>把strChan的一个元素赋给变量elem</p>
-<pre><code>elem, ok := &lt;-strChan
-</code></pre><p>这种也可以，ok为布尔类型，判断接收操作是否因通道关闭而失败  </p>
-<p><strong>试图从一个未初始化的通道接收元素，会造成当前goroutine永久阻塞</strong></p>
-<h4 id="Happens-before-缓冲通道的规则"><a href="#Happens-before-缓冲通道的规则" class="headerlink" title="Happens before 缓冲通道的规则"></a>Happens before 缓冲通道的规则</h4><ul>
-<li>如果通道缓冲已满，发送goroutine会阻塞</li>
-<li>如果通道缓冲为空，接收goroutine会阻塞</li>
-<li>对于同一个元素值来说，把它发送给某个通道的操作，一定会在从该通道接收它的操作完成之前完成</li>
-</ul>
-<h4 id="发送元素值"><a href="#发送元素值" class="headerlink" title="发送元素值"></a>发送元素值</h4><pre><code>strChan &lt;- &quot;a&quot;
-</code></pre><h4 id="通道的安全性"><a href="#通道的安全性" class="headerlink" title="通道的安全性"></a>通道的安全性</h4><p>向一个已经关闭的通道发送数据会panic<br>一个关闭的通道仍然可以使用接收表达式取出数据</p>
-<ul>
-<li>在发送端关闭通道</li>
-<li>一个通道只能关闭一次</li>
-</ul>
-<p><code>len</code>和<code>cap</code>可以用于channel，通道的容量不可改变</p>
-<h3 id="单向通道"><a href="#单向通道" class="headerlink" title="单向通道"></a>单向通道</h3><p>一个<code>只进不出</code>的通道和一个<code>只出不进</code>的通道是没有任何意义的<br>因此，单向通道不应该出现在变量的声明中  </p>
-<p>单向通道是由双向通道转化而来</p>
-<pre><code>func Notify(c chan&lt;- os.Signal, sig ...os.Signal)
-</code></pre><p>该函数的第一个参数类型为发送通道类型，<br>在调用这个函数的时候，应该传入一个<code>双向通道</code>，Go会根据参数的声明自动转换为单向通道<br>单向通道由双向通道转化而来，但是单项通道不能够转换回双向通道  </p>
-<h3 id="select语句"><a href="#select语句" class="headerlink" title="select语句"></a>select语句</h3><p>select语句是一种仅能用于通道发送和接收操作的专用语句，表现形式与switch语句类似，但是分支选择方法不同</p>
-<p>在执行select语句时，系统自上而下判断每个case的发送或接收操作是否可以立即进行<br>这里的<code>立即进行</code>是指当前goroutine不会因此操作而被阻塞<br>当一个case被选中，会执行该case语句<br>如果同时有多个case满足条件，系统会通过一个伪随机算法选中一个case<br>default可以放在任何位置，不会影响分支选择</p>
-<h3 id="非缓冲channel"><a href="#非缓冲channel" class="headerlink" title="非缓冲channel"></a>非缓冲channel</h3><h4 id="Happens-before"><a href="#Happens-before" class="headerlink" title="Happens before"></a>Happens before</h4><p>与缓冲通道相比，非缓冲通道的happen before原则有两个特别之处</p>
-<ul>
-<li>向此类通道发送元素会被阻塞，直到有至少一个针对该通道的接收操作进行。接收操作会先得到元素值副本，然后唤醒发送方所在goroutine后返回。这种情况下，接收操作在发送操作完成之前完成</li>
-<li>从此类通道接收元素会被阻塞，直到有至少一个针对该通道的发送操作进行。发送操作会直接把元素值复制给接收方，然后唤醒接收方所在goroutine后返回。这种情况下，发送操作在接收操作完成之前完成</li>
-</ul>
-<h4 id="同步的特性"><a href="#同步的特性" class="headerlink" title="同步的特性"></a>同步的特性</h4><p>非缓冲channel的收发元素值速度与慢的一方持平</p>
-<hr>
-<p>Reference:</p>
-<ul>
-<li><a href="http://www.ituring.com.cn/book/1950" target="_blank" rel="external">Go并发编程实战</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/10/Go的并发机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Go并发编程基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/01/Go并发编程基础/">Go并发编程基础</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/01/Go并发编程基础/" class="archive-article-date">
-  	<time datetime="2017-04-30T19:20:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.5.1</em></p>
-<h2 id="并发编程基础"><a href="#并发编程基础" class="headerlink" title="并发编程基础"></a>并发编程基础</h2><h3 id="串行程序与并行程序"><a href="#串行程序与并行程序" class="headerlink" title="串行程序与并行程序"></a>串行程序与并行程序</h3><p>串行程序是指只能被<code>顺序执行</code>的指令列表<br>并行程序是指可以被<code>并发执行</code>的两个及以上的串行程序的综合体<br><strong>并发程序与并行程序</strong></p>
-<blockquote>
-<p>并发程序是指可以被同时发起执行的程序，并发程序代表了所有可以实现并发行为的程序  </p>
-<h2 id="并行程序是指可以在并行的硬件上执行的并发程序"><a href="#并行程序是指可以在并行的硬件上执行的并发程序" class="headerlink" title="并行程序是指可以在并行的硬件上执行的并发程序"></a>并行程序是指可以在并行的硬件上执行的并发程序</h2></blockquote>
-<h3 id="并发程序内部的交互"><a href="#并发程序内部的交互" class="headerlink" title="并发程序内部的交互"></a>并发程序内部的交互</h3><p>并发程序内部可以分为多个部分，每个部分都可以看作是一个串行程序<br>多个串行程序可能会对共享的资源进行访问，也可能它们之间需要传递一些数据<br>在这种情况下，我们需要协调它们的执行，这就涉及到了<code>同步</code><br>同步的作用是避免在并发访问共享资源时可能发生的冲突，以确保有条不紊地传递数据  </p>
-<blockquote>
-<p>在同一时刻，某个资源应该只被一个程序占用<br>传递数据是并发程序内部的另一种交互方式，也成为并发程序内部的<code>通信</code><br>实际上，内部通信的方式不仅仅有<code>同步</code>，也有<code>异步</code>方式对通信进行处理<br>异步能够让数据不加延迟地发送给数据接收方，即使数据接收方没有做好准备，也不会造成发送方的等待<br>数据会被临时存放在通信缓存中，通信缓存是一种数据结构，是一种可以同时被多个程序使用的特殊共享资源  </p>
-</blockquote>
-<h2 id="多进程编程"><a href="#多进程编程" class="headerlink" title="多进程编程"></a>多进程编程</h2><p>进程间通信的方式被称为IPC(Inter-Process Communication)<br>在Linux中，IPC可以分为三类：</p>
-<ol>
-<li>基于通信的IPC方法<br>1.1 数据传送：<code>管道pipe</code>传送字节流，<code>消息队列message queue</code>传送结构化的消息对象<br>1.2 共享内存：<code>共享内存shared memory</code>最快  </li>
-<li>基于信号的IPC方法<br><code>信号signal</code>，唯一的一种异步IPC方法</li>
-<li>基于同步的IPC方法<br><code>信号量semaphore</code></li>
-</ol>
-<p><strong>Go支持管道、信号、socket</strong></p>
-<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><p>进程process维护了应用程序运行时的内存地址空间、文件和设备的句柄以及线程<br>进程也是操作系统进行资源分配的一个基本单位</p>
-<pre><code>pid := os.Getpid()            // 获取进程ID
-ppid := os.Getppid()         // 获取父进程ID
-</code></pre><p>多个进程同时对一个资源进行访问，很可能相互干扰，这种干扰称为<code>竞态条件race condition</code><br>Go的并发变成模型更加成熟先进，目标在于大幅减少程序产生竞态条件的可能<br>执行过程中不能中断的操作称为<code>原子操作atomic operation</code>，所有的系统调用都属于原子操作<br>只能被串行化访问或执行的某个资源或某段代码称为<code>临界区critical section</code><br>保证只有一个进程或线程在临界区之内的做法称为<code>互斥mutex</code><br>实现互斥的方法必须确保排他原则，<code>sync包</code>包含了对互斥的支持  </p>
-<hr>
-<p><em>2017.5.4</em></p>
-<h4 id="socket通信"><a href="#socket通信" class="headerlink" title="socket通信"></a>socket通信</h4><p>socket既可以提供网络中不同计算机多个应用程序之间的通信支持，也可以成为单计算机上多个应用程序之间的通信手段，但是使用socket接口的绝大多数情况都是为了在网络中通信<br>socket通信是基于TCP/IP协议栈的  </p>
-<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socket.jpg" alt="socket"></p>
-<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/socketConn.jpg" alt="socket通信"></p>
-<p>每个socket都存在与一个通信域中，通信域决定了该socket的地址格式和通信范围</p>
-<table>
-<thead>
-<tr>
-<th>通信域</th>
-<th>含义</th>
-<th>地址格式</th>
-<th>通信范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AF_INET</td>
-<td>IPv4域</td>
-<td>IPv4地址(4字节)，端口号(2字节)</td>
-<td>基于IPv4协议的任意两台计算机上的两个应用程序</td>
-</tr>
-<tr>
-<td>AF_INET6</td>
-<td>IPv6域</td>
-<td>IPv6地址(16字节)，端口号(2字节)</td>
-<td>基于IPv6协议的任意两台计算机上的两个应用程序</td>
-</tr>
-<tr>
-<td>AF_UNIX</td>
-<td>Unix域</td>
-<td>路径名称</td>
-<td>同一台计算机上的两个应用程序</td>
-</tr>
-</tbody>
-</table>
-<p>AF是address family的缩写，意为地址域</p>
-<p>socket有5种类型</p>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th>SOCK_DGRAM</th>
-<th>SOCK_RAW</th>
-<th>SOCK_SEQPACKET</th>
-<th>SOCK_STREAM</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数据形式</td>
-<td>数据报</td>
-<td>数据报</td>
-<td>字节流</td>
-<td>字节流</td>
-</tr>
-<tr>
-<td>数据边界</td>
-<td>有</td>
-<td>有</td>
-<td>有</td>
-<td>无</td>
-</tr>
-<tr>
-<td>逻辑连接</td>
-<td>无</td>
-<td>无</td>
-<td>有</td>
-<td>有</td>
-</tr>
-<tr>
-<td>数据有序性</td>
-<td>无</td>
-<td>无</td>
-<td>有</td>
-<td>有</td>
-</tr>
-<tr>
-<td>传输可靠性</td>
-<td>无</td>
-<td>无</td>
-<td>有</td>
-<td>有</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>以<code>数据报</code>为数据形式意味着<code>接收方</code>的socket接口程序可以意识到数据的边界并会切分，<br>这样省去了接收方的应用程序寻找数据边界和切分数据的工作量</p>
-<p>以<code>字节流</code>为数据形式的传输实际上传输的是一个字节接着一个字节的串，类似于一个很长的字节数组<br>一般情况下字节流不能体现那些字节属于哪个数据包，因此socket接口程序无法分离独立的数据包<br>这一工作只能交给应用程序去完成<br>但是<code>SOCK_SEQPACKET</code>类型的socket接口程序例外，<br>发送方的socket接口程序会记录数据边界，边界信息也会随着字节流发送给接收方<br>接收方的socket接口程序会根据边界切分字节流，还原成字节流片段并根据顺序传递给应用程序</p>
-</blockquote>
-<p>在Go提供了socket的API，需要使用标准库中的net包</p>
-<p>在服务端首先会用到这个函数</p>
-<pre><code>func Listen(net, laddr string) (Listener, error)
-</code></pre><p>函数net.Listen用于获取监听器，它接受两个string类型的参数<br>第一个是参数的含义是以何种监听协议给定的地址，该参数必须为<code>面向流</code>的协议</p>
-<table>
-<thead>
-<tr>
-<th>字面量</th>
-<th>socket协议</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tcp</td>
-<td>TCP</td>
-<td>无</td>
-</tr>
-<tr>
-<td>tcp4</td>
-<td>TCP</td>
-<td>网际互联协议只支持IPv4</td>
-</tr>
-<tr>
-<td>tcp6</td>
-<td>TCP</td>
-<td>网际互联协议只支持IPv6</td>
-</tr>
-<tr>
-<td>udp</td>
-<td>UDP</td>
-<td>无</td>
-</tr>
-<tr>
-<td>udp4</td>
-<td>UDP</td>
-<td>网际互联协议只支持IPv4</td>
-</tr>
-<tr>
-<td>udp6</td>
-<td>UDP</td>
-<td>网际互联协议只支持IPv6</td>
-</tr>
-<tr>
-<td>unix</td>
-<td>有效</td>
-<td>可看作通信域为AF_UNIX切类型为SOCK_STREAM时内核采用的默认协议</td>
-</tr>
-<tr>
-<td>unixgram</td>
-<td>有效</td>
-<td>可看作通信域为AF_UNIX切类型为SOCK_DGRAM时内核采用的默认协议</td>
-</tr>
-<tr>
-<td>unixpacket</td>
-<td>有效</td>
-<td>可看作通信域为AF_UNIX切类型为SOCK_SEQPACKET时内核采用的默认协议</td>
-</tr>
-</tbody>
-</table>
-<p>如上表所示，第一个参数必须是<code>tcp</code>、<code>tcp4</code>、<code>tcp6</code>、<code>unix</code>和<code>unixpacket</code>中的一个</p>
-<p>第二个ladder表示当前程序在网络中的标识<br><code>laddr</code>是Local Address的缩写，格式为<code>host:port</code><br><code>host</code>处内容必须是当前计算机对应的IP地址或主机名<br><code>port</code>则代表当前程序欲监听的端口号  </p>
-<pre><code>listener, err := net.Listen(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;)
-</code></pre><p>监听函数Listen调用之后，当err为nil时，即可等待客户端的连接请求</p>
-<pre><code>conn, err := listener.Accept()
-</code></pre><p>调用监听器的Accept方法时，会进入阻塞状态，直到有客户端程序发起TCP连接</p>
-<p>客户端使用net包的Dial函数用于向制定的网络地址发送连接建立请求</p>
-<pre><code>func Dial(network, address string) (Conn, error)
-</code></pre><p>Dial函数同样接收两个参数<br>第一个参数<code>network</code>与net.Listen函数的第一个参数<code>net</code>类似，但是有更多的选项<br>除了net.Listen的第一个可选参数外，还可以使用<code>udp</code>、<code>udp4</code>、<code>udp6</code>、<code>ip</code>、<code>ip4</code>和<code>ip6</code><br>这是因为在发送数据前不一定要先建立连接，UDP协议和IP协议都是<code>面向无连接</code>的协议  </p>
-<p>第二个参数<code>address</code>和net.Listen函数的第二个参数<code>laddr</code>完全一致<br>它指定的是服务端的地址</p>
-<pre><code>conn, err := net.Dial(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;)
-</code></pre><p>如果需要手动设置超时时间，可以使用DialTimeout函数（Dial函数默认timeout=75秒）</p>
-<pre><code>func DialTimeout(network, address string, timeout time.Duration) (Conn, error)
-</code></pre><p>DialTimeout函数的最后一个参数的单位是纳秒， 如果想设置2秒</p>
-<pre><code>conn, err := net.DialTimeout(&quot;tcp&quot;, &quot;127.0.0.1:8085&quot;, 2*time.Second)
-</code></pre><p>服务端创建监听器并开始等待连接请求之后，一旦收到客户端的连接请求，服务端就和和客户端进行<code>三次握手</code><br>当成功建立连接后，无论服务端程序还是客户端程序都会获得一个<code>net.Conn</code>类型的值<br>之后，两端便可以用该值交换数据了<br>Go的socket编程API程序在底层获取的是一个<code>非阻塞式</code>的socket实例，<br>这意味着在该实例之上的数据读取操作也都是非阻塞式的<br>应用程序试图通过系统调用<code>read</code>从socket接收缓冲区中读取数据的时候，即使接收缓冲区没有任何数据，<br>操作系统也不会使系统调用<code>read</code>进入<code>阻塞状态</code>，而是直接返回一个错误码为<code>EAGAIN</code>的错误<br>应用程序不应该视此为一个真正的错误，应该<code>忽略</code>它，并稍等片刻再次读取  </p>
-<p>同样，当socket发送缓冲区已满时，如果应用程序仍向发送缓冲区写入一段数据时，<br>系统调用<code>write</code>也<code>不会阻塞</code>，而是直接返回一个错误码为<code>EAGAIN</code>的错误<br>应用程序应该<code>忽略</code>该错误，并稍等片刻再次尝试写入数据<br>如果发送缓冲区有少许剩余空间但不足以放入这段数据<br>系统调用<code>wirte</code>会尽可能写入一部分数据，然后返回已经写入的字节的数据量<br>这一特性成为<code>部分写(partial wirte)</code>，应用程序应该每次调用<code>write</code>之后都去检查该结果值  </p>
-<p>除了<code>read</code>和<code>write</code>外，系统调用<code>accept</code>也会显现出一致的<code>非阻塞</code>风格<br>它不会阻塞以等待新的连接到来，而会直接返回错误码为<code>EAGAIN</code>的错误<br>但是Go的socket编程API在一定程度上帮助我们屏蔽了相关系统调用的EAGAIN错误，<br>这使得有些socket编程API调用起来<code>像是阻塞式</code>的<br>另外，Go的socket编程API同样<code>屏蔽</code>了非阻塞式socket接口的部分<code>写特性</code><br>相关API会直接把所有数据全部写入到socket发送缓冲区之后才返回，除非在写入的过程中发生了某种错误<br>但是，它却<code>保留</code>了非阻塞式socket接口的部分<code>读特性</code><br>这样做是合理的，因为在TCP协议之上传输的数据是字节流形式的，<br>数据接收方无法感知数据的边界（消息边界），因此API无法判断函数调用返回的时机<br>把<code>数据切分</code>和<code>分批返回</code>的任务交给调用方程序即可，因此<code>部分读</code>需要我们在程序中做一些额外的处理  </p>
-<ul>
-<li><strong>Read方法</strong></li>
-</ul>
-<p>Read方法用于从socket的接收缓冲区中读取数据</p>
-<pre><code>Read(b []byte) (n int, err error)
-</code></pre><p>该方法接收一个<code>[]byte</code>类型的参数，相当于一个用来存放从连接上接收到的数据的容器<br>Read方法会把它当作空的容器并试图填满，相应位置上的原元素会被替换<br>为了避免混乱，尽量让这个容器在填充之前保持绝对干净<br>也就是说，传递个Read方法的参数值应该是一个<code>不包含任何非零值元素的切片值</code>  </p>
-<pre><code>b := make([]byte, 10)
-n, err := conn.Read(b)
-content := string(b[:n])
-</code></pre><p>通过依据结果n对参数b做切片操作可以抽取出接收到的数据<br>如果socket编程API在从socket的接收缓冲区中读取数据时发现TCP连接已经被另一端关闭了<br>就会立刻返回一个error类型值，即<code>io.EOF</code><br>意味着此TCP连接之上在没有可以读取的数据</p>
-<pre><code>var dataBuffer bytes.Buffer
-b := make([]byte, 10)
-for {
-    n, err := conn.Read(b)
-    if err != nil {
-        if err == io.EOF {
-            fmt.Println(&quot;The connection is closed.&quot;)
-            conn.Close()
-        } else {
-            fmt.Printf(&quot;Read Error: %s\n&quot;, err)
-        }
-        break
-    }
-    dataBuffer.Write(b[:n])
-}
-</code></pre><p>上述的例子是一种最简单的情况，我们一般不会<code>在连接关闭之前无休止地</code>从连接上读取数据<br>作为一个处在TCP/IP协议栈应用层的程序，负责切分数据并生成有实际意义的消息<br>即使在最简单的情况下，应用层程序也知道怎样在接收到的字节流上进行切分<br>此外，还有一个更简便的方法：<br>利用标准库代码包<code>bufio</code>中的API实现一些较为复杂的数据切分操作<br>bufio是Buffered I/O的缩写，它提供了与带缓存的I/O操作有关的支持<br>比如通过包装不带缓存的I/O类型值的方式增强它们的功能<br><code>bufio.NewReader</code>接收一个<code>io.Reader</code>类型的参数值<br>net.Conn类型实现了io.Reader接口中唯一的方法Read，所以它是该接口的一个实现类型<br>因此，可以使用bufio.NewReader函数包装变量conn  </p>
-<pre><code>reader := bufio.NewReader(conn)
-</code></pre><p>ReadBytes方法接收一个byte类型的参数值，该参数值是通信两端协商一致的消息边界  </p>
-<pre><code>line, err := reader.ReadBytes(&apos;\n&apos;)
-</code></pre><p>另外还有<code>bufio.NewScanner函数</code>、<code>bufio.Scanner类型及其方法</code>等</p>
-<ul>
-<li><strong>Write方法</strong>  </li>
-</ul>
-<p>Write方法用于向socket的发送缓冲区写入数据  </p>
-<pre><code>Write(b []byte) (n int, err error)
-</code></pre><p>net.Conn类型是一个io.Writer接口的实现类型，所以net.Conn类型的值可以作为bufio.NewWriter函数的参数值  </p>
-<pre><code>writer := bufio.NewWriter(conn)
-</code></pre><p>与reader类似，writer的值可以看作是针对变量conn代表的TCP连接的缓冲写入器<br>可以通过调用其上的以<code>Writer为名称前缀</code>的方法来分批次地向其中的缓冲区写入数据<br>也可以通过调用它</p>
-<ul>
-<li><p><strong>Close方法</strong><br>Close放方法会关闭连接，调用Close方法时，Read方法或Write方法正在被调用且还未执行结束，<br>它们会立即执行结束并返回非nil的error值，即使它们处于阻塞状态  </p>
-</li>
-<li><p><strong>LocalAddr和RemoteAddr方法</strong><br>顾名思义是获取当前通信的某一端在网络中的地址，返回一个net.Addr类型的结果<br>方法集合中有两个方法：<code>Network</code>和<code>String</code><br>Network返回当前连接所使用的协议的名称<code>conn.LocalAddr().Network()</code>，得到<code>tcp</code><br>String方法根据通信域返回相应格式的地址<code>conn.RemoteAddr().String()</code>  </p>
-</li>
-<li><p><strong>SetDeadline SetReadDeadline SetWriteDeadline方法</strong><br>它们只接收一个time.Time类型值作为参数，返回一个error类型值作为结果<br>SetDeadline方法会设定在当前连接上的<code>I/O操作的超时时间</code><br>SetReadDeadline和SetWriteDeadline方法分别针对读和写的超时控制  </p>
-</li>
-</ul>
-<hr>
-<p><em>2017.5.9</em></p>
-<h2 id="多线程编程"><a href="#多线程编程" class="headerlink" title="多线程编程"></a>多线程编程</h2><p>多线程编程是一种比多进程编程更加灵活、高效的并发编程方式  </p>
-<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程可以视为·进程中的控制流，一个进程至少包含一个线程<br>一个进程的第一个线程会随着这个进程的启动而创建，也就是主线程<br>和进程一样，每个线程都有属于自己的ID——TID<br>与进程不同，线程ID在系统范围内可以不唯一，只在其所属进程的范围里唯一<br>但是Linux系统的线程实现确保了每个线程ID系统范围内的唯一性，线程不复存在后其线程ID会被复用  </p>
-<h4 id="线程的控制"><a href="#线程的控制" class="headerlink" title="线程的控制"></a>线程的控制</h4><ul>
-<li>创建线程： pthread_create</li>
-<li>终止线程： pthread_cancle，取消给定的线程ID的线程。默认情况下目标线程只有在执行到某个取消点才会响应该请求</li>
-<li>连接已终止的线程： pthread_join，该函数一直等待由线程ID指定的线程终止，如果目标线程已经处于终止状态，函数立即返回。当目标线程交出控制权后，调用线程会接过流程控制权并继续执行pthread_join函数调用之后的代码，相当于<code>“连接”</code>。事实上，如果一个线程可以被连接，那么在它终止之前必须被连接，否则就会变成一个<code>僵尸线程</code>，僵尸线程会导致系统资源浪费也会无意义减少所在进程可创建线程的数量。</li>
-<li>分离线程：pthread_detach，将一个线程分离意味着它不再是一个可连接的线程，分离操作的另一个作用是让操作系统内核在目标线程终止时自动进行清理和销毁工作。分离操作是<code>不可逆</code>的，无法使一个<code>不可连接</code>的线程变回到<code>可连接</code>的状态。对于一个已经处于分离状态的线程，执行终止操作仍然有效。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/Linux内核线程状态转换.jpg" alt="Linux内核线程状态转换"></p>
-<h4 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a>线程的同步</h4><ol>
-<li><p>互斥量：在同一时刻只允许一个线程处于临界区之内的约束称为<code>互斥mutex</code>，<br>每个线程在进入临界区之前，都必须先锁定某个对象，<br>成功锁定对象的线程才会允许进入临界区，否则会阻塞，<br>这个对象成为互斥对象或互斥量。<br>互斥量有两种可能的状态：<code>已锁定状态</code>和<code>未锁定状态</code>。互斥量不允许<code>二次加锁</code></p>
-</li>
-<li><p>条件变量：与互斥量不同，条件变量的作用并不是保证同一时刻仅有一个线程访问某一个共享数据，<br>而是在对应的共享数据的状态发生变化时，通知其他因此被阻塞的线程<br>条件变量的操作有三种：<br>2.1 等待通知(wait)：阻塞当前线程，直到收到该条件变量发来的通知<br>2.2 单发通知(signal)：让条件变量向<code>至少一个</code>正在等待它通知的线程发送通知，以表示某个共享数据的状态已经变化，这里的signal与进程间通信的信号signal不同<br>2.3 广播通知(broadcast)：让条件变量给正在等待它通知的<code>所有线程</code>发送通知，以表示某个共享数据的状态已经改变</p>
-</li>
-</ol>
-<h4 id="线程安全性"><a href="#线程安全性" class="headerlink" title="线程安全性"></a>线程安全性</h4><p>如果有一个代码块，可以被多个线程并发执行，且总能产生预期的结果，那么该代码块就是<code>线程安全</code>的<br>让函数具有线程安全性的最有效方式就是使其<code>可重入(reentrant)</code><br>如果某个进程中的所有线程都可以并发地对一个函数进行调用，并且无论它们调用该函数的实际执行情况怎样，<br>该函数都可以产生预期的结果，那么这个函数是<code>可重入</code>的<br>如果多个线程并发地调用该函数，与它们以任意顺序依次调用它所产生的效果总是<code>相同</code>的，<br>那么该函数就是一个<code>可重入</code>函数</p>
-<hr>
-<h2 id="并发编程的建议"><a href="#并发编程的建议" class="headerlink" title="并发编程的建议"></a>并发编程的建议</h2><ul>
-<li>控制临界区的纯度：临界区应仅包含操作共享数据的代码  </li>
-<li>控制临界区的粒度：如果没有长耗时的无关代码，就把它们合并在一起；反之，放弃合并  </li>
-<li>减少临界区中代码的执行耗时：注意死锁</li>
-<li>避免长时间持有互斥量：减少临界区中代码执行耗时、使用条件变量</li>
-<li>优先使用原子操作而不是互斥量：如果数据结构<code>非常简单</code>（比如数值类型），建议使用原子操作；对于结构稍微复杂一些的共享数据，原子操作则无能为力</li>
-</ul>
-<hr>
-<p>Reference:</p>
-<ul>
-<li><a href="http://www.ituring.com.cn/book/1950" target="_blank" rel="external">Go并发编程实战</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">并发编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Go/" class="article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/01/Go并发编程基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-凝思系统忘记密码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/31/凝思系统忘记密码/">凝思系统忘记密码</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/31/凝思系统忘记密码/" class="archive-article-date">
-  	<time datetime="2017-01-31T15:59:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2017.1.31</em></p>
-<p>切换至终端，使用安全账户登录</p>
-<blockquote>
-<p>secadmin<br>R0ck9</p>
-</blockquote>
-<p>执行以下命令</p>
-<pre><code>echo &quot;root:root&quot; | chpasswd -m
-</code></pre><p>则可暂时修改<code>root</code>用户密码为<code>root</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">运维</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Operations/" class="article-tag-list-link color1">Operations</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/31/凝思系统忘记密码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/22/Docker/">Docker</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/22/Docker/" class="archive-article-date">
-  	<time datetime="2016-11-22T09:45:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.22</em></p>
-<h1 id="Docker特点"><a href="#Docker特点" class="headerlink" title="Docker特点"></a>Docker特点</h1><p>特性：</p>
-<ol>
-<li>资源独立，隔离</li>
-</ol>
-<blockquote>
-<p>与宿主机其他应用互不影响</p>
-</blockquote>
-<ol>
-<li>环境一致性<blockquote>
-<p>无论build的Docker image创建的container在哪里都能够保证环境变量、运行环境相同</p>
-</blockquote>
-</li>
-<li>轻量化<blockquote>
-<p>与虚拟化相比快速开/关机<br>CPU/内存的低消耗<br>速度快</p>
-</blockquote>
-</li>
-<li>Build Once,Run Everywhere<blockquote>
-<p>只需要迁移符合标准规范</p>
-</blockquote>
-</li>
-</ol>
-<p>总结就是容器技术的<code>高生产力</code>符合当前高产能的需求</p>
-<hr>
-<h2 id="Docker是什么"><a href="#Docker是什么" class="headerlink" title="Docker是什么"></a>Docker是什么</h2><p>Docker是一种<code>容器</code>技术，把应用和环境打包，形成一个独立的，类似与APP形式的应用。与虚拟化技术类似，极大的方便了应用服务的部署，却又与虚拟化技术不同，它以一种更<code>轻量</code>的方式实现了应用服务的打包。使用Docker可以让每个应用彼此相互隔离，在同一台机器上同时运行多个应用。可以在更细的粒度上进行资源的管理，比虚拟化技术更节约资源。</p>
-<p><img src="https://raw.githubusercontent.com/Juntaran/Note/master/pictures/VMvsDocker.jpg" alt="VM vs Docker"></p>
-<p>上图是Docker与虚拟机的实现框架，可以很明显看出虚拟机的Guset OS层（虚拟机安装的操作系统）和Hypervisor层（硬件虚拟化平台，比如KVM）在Docker中被Docker Engine所替代。 虚拟机实现资源隔离的方法是独立OS+虚拟化CPU、内存、IO设备。 Docker实现资源隔离的方法是利用Linux内核本身支持的容器方式实现资源和环境隔离。 Docker有着更少的抽象层，不需要Hypervisor实现硬件虚拟化，运行在Docker容器上的程序直接使用的都是世纪物理机的硬件资源。因此在CPU、内存利用率上Docker效率更高。 此外，Docker利用宿主机内核无需Guest OS，当新建一个容器时无需加载操作系统内核，资源开销相比虚拟机极小，启动/关闭时间也远高于虚拟机。</p>
-<hr>
-<h2 id="Docker的基本概念"><a href="#Docker的基本概念" class="headerlink" title="Docker的基本概念"></a>Docker的基本概念</h2><ul>
-<li>镜像——Image</li>
-<li>容器——Container</li>
-<li>仓库——Repository</li>
-</ul>
-<p><strong>镜像：</strong><br>    镜像是一个只读的模版，一个镜像可以包含一个完整的Ubuntu操作系统环境，里面仅安装了Apache或用户需要的其它应用程序，镜像可以用来创建Docker容器<br><strong>容器：</strong><br>    Docker利用容器来运行应用。<br>    容器是从镜像创建的运行实例，可以被启动、开始、停止、删除，每个容器都是相互隔离的，可以把容器看作一个简易版的Linux环境</p>
-<blockquote>
-<p> 镜像是只读的，容器在启动的时候创建一层可写层作为最上层</p>
-</blockquote>
-<p><strong>仓库：</strong><br>    仓库是集中存放镜像文件的场所，仓库注册服务器（Registry）中往往存放多个仓库，每个仓库又包含了多个镜像，每个镜像有不同的标签（tag）<br>    仓库分为公开库与私有库。<br>    最大的公开仓库是Docker Hub，国内有Docker Pool等。<br>    用户也可以在本地网络创建一个私有仓库。<br>    用户创建了自己的镜像后可以使用<code>push</code>上传到仓库，在使用另外一台机器的时候可以从仓库<code>pull</code>下来。</p>
-<hr>
-<h2 id="Docker的使用"><a href="#Docker的使用" class="headerlink" title="Docker的使用"></a>Docker的使用</h2><blockquote>
-<p>Ubuntu使用提示：<br>一定要用<code>sudo</code></p>
-</blockquote>
-<p>安装Docker</p>
-<pre><code>yum install docker
-</code></pre><p>启动守护进程</p>
-<pre><code>service docker start
-</code></pre><p>在系统启动时运行</p>
-<pre><code>chkconfig docker on
-</code></pre><p>获取远程镜像</p>
-<pre><code>docker pull ubuntu
-</code></pre><p>创建一个容器</p>
-<pre><code>docker create
-</code></pre><p>运行一个新容器</p>
-<pre><code>docker run
-</code></pre><p>启动一个新容器，并把Ubuntu的shell作为入口</p>
-<pre><code>docker run -it ubuntu:latest sh -c &apos;/bin/bash&apos;
-</code></pre><p><code>-i</code>代表这是一个交互容器，把当前标准输入重定向到容器的标准输入，而不是终止程序运行<br><code>-t</code>代表为这个容器分配一个中断<br><code>Ctrl+D</code>可以退出这个容器</p>
-<pre><code>docker ps -a
-</code></pre><p><code>docker ps</code>命令可以看到当前正在运行的容器<br><code>-a</code>参数可以看到所有创建的容器</p>
-<p>退出容器后要重新启动这个容器</p>
-<pre><code>docker start
-</code></pre><p><strong>注意：<br>每次执行<code>docker run</code>命令都会创建新的容器，最好一次创建后使用<code>docker start/stop</code>来启动/停用容器</strong></p>
-<hr>
-<p><strong>参考/引用来源：</strong><br><a href="http://docs.daocloud.io/" target="_blank" rel="external">DaoCloud</a><br><a href="http://blog.csdn.net/cbl709/article/details/43955687" target="_blank" rel="external">cbl709</a><br><a href="http://wiki.jikexueyuan.com/project/docker-technology-and-combat/" target="_blank" rel="external">极客学院</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">虚拟化</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Docker/" class="article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/22/Docker/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-循序渐进Linux4：Linux服务器网络配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/">循序渐进Linux 4：Linux服务器网络配置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/" class="archive-article-date">
-  	<time datetime="2016-11-08T03:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.9</em></p>
-<h2 id="一、网卡驱动的安装"><a href="#一、网卡驱动的安装" class="headerlink" title="一、网卡驱动的安装"></a>一、网卡驱动的安装</h2><h3 id="1-网卡驱动安装的一般思路"><a href="#1-网卡驱动安装的一般思路" class="headerlink" title="1. 网卡驱动安装的一般思路"></a>1. 网卡驱动安装的一般思路</h3><ol>
-<li>首先从硬件下手，检查网卡本身故障</li>
-<li>检查网卡芯片型号，可以打开机箱查看，也可利用命令查看</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lspci</div></pre></td></tr></table></figure>
-<ol>
-<li>查看系统是否包含对应型号网卡驱动</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ll /lib/modules/3.10.0...x86_64/kernel/drivers/net/</div></pre></td></tr></table></figure>
-<ol>
-<li>查看网卡驱动是否加载</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsmod</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果后面是unused，则表示该模块当前没有使用<br>如果后面是autoclean，则该模块可以使用rmmod -a自动卸载</p>
-</blockquote>
-<ol>
-<li>modprobe、insmod/rmmod、depmod<br>modprobe其实调用了insmod/rmmod与depmod</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">modprobe [选项] 模块文件</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-r 或 –remove</td>
-<td>指定模块则卸载该模块，否则自动清除</td>
-</tr>
-<tr>
-<td>-l 或 –list</td>
-<td>显示所有可用模块</td>
-</tr>
-<tr>
-<td>-c 或 –show-conf</td>
-<td>显示所有模块设置信息</td>
-</tr>
-<tr>
-<td>-K 或 –autoclean</td>
-<td>把模块设为自动清除模式</td>
-</tr>
-<tr>
-<td>-a 或 -all</td>
-<td>加载一组匹配的模块</td>
-</tr>
-<tr>
-<td>-n 或 –show</td>
-<td>仅显示要执行的操作</td>
-</tr>
-<tr>
-<td>-v 或 –verbose</td>
-<td>执行时显示详细信息</td>
-</tr>
-<tr>
-<td>-q 或 –quiet</td>
-<td>不显示错误信息</td>
-</tr>
-</tbody>
-</table>
-<p>如果A模块依赖B模块，modprobe会同时加载A和B，而insmod只会载入指定模块</p>
-<pre><code>insmod [选项] 模块名称或模块文件
-rmmod [选项] 模块名称或模块文件
-</code></pre><p>depmod分析载入模块的相关性</p>
-<pre><code>depmod [选项] 模块名称
-</code></pre><h3 id="2-安装网卡"><a href="#2-安装网卡" class="headerlink" title="2. 安装网卡"></a>2. 安装网卡</h3><ol>
-<li><p>安装网卡</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh 网卡.rpm</div></pre></td></tr></table></figure>
-</li>
-<li><p>rpm文件默认安装到 <code>/root/rpmbuild/RPMS</code>下，把生成的模块文件复制到  <code>/lib/modules/3.10.0...x86_64/kernel/drivers/net/</code></p>
-</li>
-<li><p>加载驱动</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">insmod /lib/modules/3.10.0...x86_64/kernel/drivers/net/bnx2.ko</div><div class="line">或</div><div class="line">modprobe bnx2</div></pre></td></tr></table></figure>
-<ol>
-<li>查看是否加载</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lsmod | grep bnx2</div></pre></td></tr></table></figure>
-<ol>
-<li>激活网卡</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig eth0 up</div><div class="line">ifconfig -a</div></pre></td></tr></table></figure>
-<h2 id="二、-配置Linux网络"><a href="#二、-配置Linux网络" class="headerlink" title="二、 配置Linux网络"></a>二、 配置Linux网络</h2><h3 id="1-不同Linux发行版网络配置文件"><a href="#1-不同Linux发行版网络配置文件" class="headerlink" title="1. 不同Linux发行版网络配置文件"></a>1. 不同Linux发行版网络配置文件</h3><ul>
-<li>RHEL/CentOS:</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/etc/sysconfig/network-scripts/ifcfg-eth0  <span class="comment"># 网卡配置文件</span></div><div class="line">/etc/sysconfig/network-scripts/ifcfg-lo    <span class="comment"># 网卡回环地址</span></div><div class="line">/etc/sysconfig/network                     <span class="comment"># 主机名和网关配置文件</span></div><div class="line">/etc/resolv.conf                           <span class="comment"># DNS配置文件</span></div><div class="line">/etc/hosts                                 <span class="comment"># 设置主机和IP绑定信息</span></div></pre></td></tr></table></figure>
-<ul>
-<li>Debian/Ubuntu:</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/etc/network/interfaces                    <span class="comment"># 网卡配置文件</span></div><div class="line">/etc/hostname                              <span class="comment"># 主机名和网关配置文件</span></div><div class="line">/etc/resolv.conf                           <span class="comment"># DNS配置文件</span></div><div class="line">/etc/hosts                                 <span class="comment"># 设置主机和IP绑定信息</span></div></pre></td></tr></table></figure>
-<h3 id="2-网络配置文件"><a href="#2-网络配置文件" class="headerlink" title="2. 网络配置文件"></a>2. 网络配置文件</h3><ul>
-<li>CentOS/RHEL:<br>修改完网卡配置文件后</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service network restart</div><div class="line">ifconfig eth0 down-&gt;up</div></pre></td></tr></table></figure>
-<ul>
-<li>Ubuntu/Debian:<br>修改完网卡配置文件后</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/networking restart</div></pre></td></tr></table></figure>
-<h2 id="三、Linux网络应用"><a href="#三、Linux网络应用" class="headerlink" title="三、Linux网络应用"></a>三、Linux网络应用</h2><h3 id="1-Linux下IP别名功能，一块网卡绑定多个IP"><a href="#1-Linux下IP别名功能，一块网卡绑定多个IP" class="headerlink" title="1. Linux下IP别名功能，一块网卡绑定多个IP"></a>1. Linux下IP别名功能，一块网卡绑定多个IP</h3><ul>
-<li>CentOS/RHEL:<br>在<code>/etc/sysconfig/network-scripts</code>目录创建一个<code>ifcfg-eth0:0</code>文件并配置相应IP信息即可</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig [device] [IP] netmask [netmask ip] [up|down]</div><div class="line">ifconfig eth0:1 192.168.66.131 netmask 255.255.255.0 up</div></pre></td></tr></table></figure>
-<ul>
-<li>Ubuntu/Debian:<br>网卡配置信息存放在同一个文件 /etc/network/interfaces</li>
-</ul>
-<h3 id="2-开启Linux代理转发功能"><a href="#2-开启Linux代理转发功能" class="headerlink" title="2. 开启Linux代理转发功能"></a>2. 开启Linux代理转发功能</h3><ul>
-<li>临时开启，重启失效</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat /proc/sys/net/ipv4/ip_forward    <span class="comment"># 0是禁止转发，1是开启转发</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"1"</span> &gt;/proc/sys/net/ipv4/ip_forward</div></pre></td></tr></table></figure>
-<ul>
-<li>永久开启</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/sysctl.conf</div><div class="line">net.ipv4.ip_forward = 0    <span class="comment"># 改成1</span></div><div class="line">sudo sysctl -p</div></pre></td></tr></table></figure>
-<h3 id="3-路由的概念与配置"><a href="#3-路由的概念与配置" class="headerlink" title="3. 路由的概念与配置"></a>3. 路由的概念与配置</h3><p>Linux配置的路由都属于静态路由，即手动输入的方式加入的路由规则<br>动态路由无需输入，路由软件自控</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">route [-n|-ee]</div><div class="line">route add [-net|-host] [网络或主机] netmask [mask] [gw|dev]</div><div class="line">route del [-net|-host] [网络或主机] netmask [mask] [gw|dev]</div></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-n</td>
-<td>不使用通讯协议或主机名，直接使用IP地址</td>
-</tr>
-<tr>
-<td>-ee</td>
-<td>显示更详细的路由信息</td>
-</tr>
-<tr>
-<td>add</td>
-<td>添加路由</td>
-</tr>
-<tr>
-<td>del</td>
-<td>删除路由</td>
-</tr>
-<tr>
-<td>-net</td>
-<td>添加一个网络，后面跟网络号地址</td>
-</tr>
-<tr>
-<td>-host</td>
-<td>后面接的是连接到单独主机路由</td>
-</tr>
-<tr>
-<td>netmask</td>
-<td>后面接子网掩码</td>
-</tr>
-<tr>
-<td>gw</td>
-<td>网关IP</td>
-</tr>
-<tr>
-<td>dev</td>
-<td>指定由哪个网络设备连出去，后面接网络设备名，eth0</td>
-</tr>
-</tbody>
-</table>
-<p>使用 route 添加路由的时候，设定的路由必须与自己系统的网络接口或IP可以直接互通</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/08/循序渐进Linux4：Linux服务器网络配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-循序渐进Linux3：Linux下软件安装与管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/">循序渐进Linux 3：Linux下软件安装与管理</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/" class="archive-article-date">
-  	<time datetime="2016-11-08T02:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.8</em></p>
-<h2 id="一、源码安装"><a href="#一、源码安装" class="headerlink" title="一、源码安装"></a>一、源码安装</h2><pre><code>./configure
-make
-make install
-</code></pre><h2 id="二、RPM包"><a href="#二、RPM包" class="headerlink" title="二、RPM包"></a>二、RPM包</h2><h3 id="1-安装软件包"><a href="#1-安装软件包" class="headerlink" title="1. 安装软件包"></a>1. 安装软件包</h3><pre><code>rpm -i [辅助选项] file1.rpm file2.rpm
-</code></pre><p>主选项 -i：　　install，安装<br>辅助选项：</p>
-<table>
-<thead>
-<tr>
-<th>辅助选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-v</td>
-<td>显示附加信息</td>
-</tr>
-<tr>
-<td>-h</td>
-<td>安装时输出标记 #</td>
-</tr>
-<tr>
-<td>–test</td>
-<td>测试，不实际安装</td>
-</tr>
-<tr>
-<td>–nodeps</td>
-<td>不检查依赖关系</td>
-</tr>
-<tr>
-<td>–force</td>
-<td>忽略软件包以及软件冲突</td>
-</tr>
-<tr>
-<td>–replacepkgs</td>
-<td>强制重新安装</td>
-</tr>
-<tr>
-<td>–prefix</td>
-<td>把软件包安装到prefix选项指定的路径</td>
-</tr>
-<tr>
-<td>–percent</td>
-<td>以百分比形式输出安装进度</td>
-</tr>
-<tr>
-<td>–excludedocs</td>
-<td>不安装软件包中说明文件</td>
-</tr>
-<tr>
-<td>–includedocs</td>
-<td>安装软件包包含说明文件</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-查询软件包"><a href="#2-查询软件包" class="headerlink" title="2. 查询软件包"></a>2. 查询软件包</h3><pre><code>rpm -q [辅助选项] package1...packageN
-</code></pre><table>
-<thead>
-<tr>
-<th>辅助选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-f</td>
-<td>查询操作系统某个文件属于哪个对应的rpm包</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>查询以 .rpm 为后缀的软件包安装后对应的包名称</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>显示软件包中所有文件列表</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>显示软件包概要信息</td>
-</tr>
-<tr>
-<td>-g</td>
-<td>查询系统有哪些软件包属于指定类别</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>显示软件包的说明文件列表</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>在 -l 的基础上显示每个文件的状态</td>
-</tr>
-<tr>
-<td>-R 或 –requries</td>
-<td>显示软件包所需的功能</td>
-</tr>
-<tr>
-<td>–provides</td>
-<td>显示软件包提供的功能</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-验证软件包"><a href="#3-验证软件包" class="headerlink" title="3. 验证软件包"></a>3. 验证软件包</h3><pre><code>rpm -V [辅助选项] package1...packageN
-</code></pre><h3 id="4-更新软件包"><a href="#4-更新软件包" class="headerlink" title="4. 更新软件包"></a>4. 更新软件包</h3><pre><code>rpm -U [辅助选项] file1.rpm ... fileN.rpm
-</code></pre><h3 id="5-删除软件包"><a href="#5-删除软件包" class="headerlink" title="5. 删除软件包"></a>5. 删除软件包</h3><pre><code>rpm -e [辅助选项] package1 ... packageN
-</code></pre><table>
-<thead>
-<tr>
-<th>辅助选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>–test</td>
-<td>只执行删除测试</td>
-</tr>
-<tr>
-<td>–nodeps</td>
-<td>不检查依赖性</td>
-</tr>
-</tbody>
-</table>
-<h2 id="三、yum安装方式"><a href="#三、yum安装方式" class="headerlink" title="三、yum安装方式"></a>三、yum安装方式</h2><pre><code>rpm -qa|grep yum                 # 检查yum是否安装
-
-rpm -ivh yum-*.noarch.rpm        # 安装yum
-
-yum install xxx                  # 安装
-yum remove xxx                   # 删除
-yum check-update                 # 检查更新
-yum update                       # 更新所有rpm包
-yum update kernel kernel-source  # 更新内核
-yum upgrade                      # 升级版本
-yum info                         # 查询RPM包信息
-</code></pre><h2 id="四、二进制软件安装"><a href="#四、二进制软件安装" class="headerlink" title="四、二进制软件安装"></a>四、二进制软件安装</h2><p>这种格式的软件的安装其实就是解压</p>
-<pre><code># *.tar.gz格式
-tar -zxvf xxx.tar.gz
-
-# *.bz2格式
-tar -jxvf xxx.tar.bz2
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/08/循序渐进Linux3：Linux下软件安装与管理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-循序渐进Linux2：Linux的常用命令及使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/07/循序渐进Linux2：Linux的常用命令及使用技巧/">循序渐进Linux 2：Linux的常用命令以及使用技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/07/循序渐进Linux2：Linux的常用命令及使用技巧/" class="archive-article-date">
-  	<time datetime="2016-11-07T03:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.7</em></p>
-<h2 id="一、Shell"><a href="#一、Shell" class="headerlink" title="一、Shell"></a>一、Shell</h2><p>shell本身是一个以C语言编写的程序，是用户和操作系统内核之间通信的桥梁。shell既是一种命令解释程序，又是一种功能强大的解释型程序设计语言。shell解释用户输入的命令，提交到内核处理，最后返回结果给用户。</p>
-<h3 id="1-shell命令语法分析"><a href="#1-shell命令语法分析" class="headerlink" title="1. shell命令语法分析"></a>1. shell命令语法分析</h3><pre><code>command [option] -[arguments]
-</code></pre><h3 id="2-shell的通配符"><a href="#2-shell的通配符" class="headerlink" title="2. shell的通配符"></a>2. shell的通配符</h3><p>bash中常用的通配符有<code>* ? []</code></p>
-<blockquote>
-<p>*：匹配任意一个或多个字符<br>?：匹配任意单一字符<br>[]：匹配任何包含在方括号内的单字符</p>
-</blockquote>
-<pre><code>ls /dev/sda[12345]
-/dev/sda1 /dev/sda2 /dev/sda3 /dev/sda4 /dev/sda5
-</code></pre><h3 id="3-shell的重定向"><a href="#3-shell的重定向" class="headerlink" title="3. shell的重定向"></a>3. shell的重定向</h3><h4 id="3-1-输入重定向"><a href="#3-1-输入重定向" class="headerlink" title="3.1 输入重定向"></a>3.1 输入重定向</h4><p>输入重定向用于改变命令的输入源，可以把一个文件的内容作为命令的输入<br>输入重定向操作符有 &lt; 和 &lt;&lt;</p>
-<pre><code>// 利用wc统计输入文件的行数、单词数、字符数
-wc&lt;/etc/shadow
-
-41 41 1275
-</code></pre><p><code>&lt;&lt;</code> 是告诉shell当前命令的标准输入是来自命令行中一对分隔号之间的内容<br>把一对分隔号aa之间的内容作为wc命令的输入，分隔号可以是任意字符  </p>
-<pre><code>ALW-VM# wc&lt;&lt; aa
-heredoc&gt; 1.Test1
-heredoc&gt; 2.Test2
-heredoc&gt; 3.Test3
-heredoc&gt; aa
-
-3  3 24
-</code></pre><h4 id="3-2-输出重定向"><a href="#3-2-输出重定向" class="headerlink" title="3.2 输出重定向"></a>3.2 输出重定向</h4><p>输出重定向是指把命令的输出结果保存在一个指定文件中（常用）<br>输出重定向操作符： &gt; 和 &gt;&gt;</p>
-<pre><code>ALW-VM% ps -ef &gt;ps.txt
-ALW-VM% vim ps.txt
-</code></pre><p><code>&gt;</code> 与 <code>&gt;&gt;</code>的区别：<br>如果 <code>&gt;</code> 后面指定的文件不存在，则会自动创建；如果存在，则覆盖<br><code>&gt;&gt;</code> 操作符不会覆盖原文件，会把新的信息追加到原文件</p>
-<h4 id="3-3-错误重定向"><a href="#3-3-错误重定向" class="headerlink" title="3.3 错误重定向"></a>3.3 错误重定向</h4><p>错误重定向操作符： 2&gt; 和 2&gt;&gt;</p>
-<h2 id="4-shell的管道"><a href="#4-shell的管道" class="headerlink" title="4. shell的管道"></a>4. shell的管道</h2><p>管道可以把很多命令连接起来，可以把第一个命令的输出当作第二个命令的输入，以此类推<br>管道符：<code>|</code></p>
-<pre><code>ALW-VM% ps -ef | grep httpd        
-ALW-VM% ps -ef | grep httpd | wc -l
-</code></pre><h3 id="5-shell的引用"><a href="#5-shell的引用" class="headerlink" title="5. shell的引用"></a>5. shell的引用</h3><p>bash中有很多特殊字符，本身就具有特殊含义。如果shell的参数中使用它们就会出现问题<br>引用技术来忽略这些自负的特殊含义，通知shell把这些特殊字符当作普通字符处理<br>转义字符 <code>\</code>    单引号<code>&#39; &#39;</code> 双引号 <code>&quot; &quot;</code></p>
-<h4 id="5-1-转义字符"><a href="#5-1-转义字符" class="headerlink" title="5.1 转义字符 \"></a>5.1 转义字符 <code>\</code></h4><p>把 \ 放到特殊字符前面，shell就<code>忽略</code>这些特殊字符的<code>特殊含义</code></p>
-<h4 id="5-2-单引号-39-39"><a href="#5-2-单引号-39-39" class="headerlink" title="5.2 单引号 &#39; &#39;"></a>5.2 单引号 <code>&#39; &#39;</code></h4><p>把字符串放到一对单引号之间，那么字符串中<code>所有</code>特殊字符的特殊含义<code>均忽略</code></p>
-<h4 id="5-3-双引号-quot-quot"><a href="#5-3-双引号-quot-quot" class="headerlink" title="5.3 双引号&quot; &quot;"></a>5.3 双引号<code>&quot; &quot;</code></h4><p>双引号与单引号基本相同，但是有些特殊字符用双引号括起来也会发挥作用<br>比如 $ \ 和 `</p>
-<pre><code>ALW-VM% echo The date is `date`
-The date is 2016年 11月 07日 星期一 20:25:46 CST
-
-ALW-VM% echo &apos;The date is `date`&apos;
-The date is `date`
-
-ALW-VM% echo &quot;The date is `date`&quot; 
-The date is 2016年 11月 07日 星期一 20:26:23 CST
-</code></pre><h2 id="二、系统管理与维护"><a href="#二、系统管理与维护" class="headerlink" title="二、系统管理与维护"></a>二、系统管理与维护</h2><h3 id="1-ls命令"><a href="#1-ls命令" class="headerlink" title="1. ls命令"></a>1. ls命令</h3><p>dir命令与ls命令相同，显示工作目录下的内容，列出所含文件与子目录</p>
-<pre><code>ls [选项] [路径或文件]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>显示所有文件与子目录，包括隐藏文件</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>只显示目录列表</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>同时列出权限、使用者、大小等</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>文件名后输出文件的大小</td>
-</tr>
-<tr>
-<td>-k</td>
-<td>k字节形式表示文件大小</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>以访问时间排序</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>以时间排序</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>显示除组外详细信息</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>按列输出，横向排序</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>反向排序</td>
-</tr>
-<tr>
-<td>-q</td>
-<td>用?代替不可输出字符</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>横向输出文件名，以 , 作为分隔符</td>
-</tr>
-<tr>
-<td>-S</td>
-<td>以文件大小排序</td>
-</tr>
-<tr>
-<td>-R</td>
-<td>列出所有子目录下文件</td>
-</tr>
-<tr>
-<td>-pF</td>
-<td>文件名后说明类型，*是可执行普通文件，/是目录，@是符号链接，</td>
-<td>是FIFO，=是套接字</td>
-</tr>
-<tr>
-<td>-C</td>
-<td>按列输出，纵向排序</td>
-</tr>
-<tr>
-<td>-Q</td>
-<td>把输出文件名用双引号括起来</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-pwd命令"><a href="#2-pwd命令" class="headerlink" title="2.pwd命令"></a>2.pwd命令</h3><p>显示当前工作目录，绝对路径</p>
-<h3 id="3-cd命令"><a href="#3-cd命令" class="headerlink" title="3. cd命令"></a>3. cd命令</h3><pre><code>cd [目录名]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cd 目录</td>
-<td>切换到该目录，区分大小写</td>
-</tr>
-<tr>
-<td>cd 或 cd ~</td>
-<td>返回当前用户默认工作目录</td>
-</tr>
-<tr>
-<td>cd ~用户名</td>
-<td>返回指定用户工作目录</td>
-</tr>
-<tr>
-<td>cd ..</td>
-<td>返回到上级目录</td>
-</tr>
-<tr>
-<td>cd /</td>
-<td>返回到根目录</td>
-</tr>
-<tr>
-<td>cd -</td>
-<td>返回到上一次的工作目录</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-date命令"><a href="#4-date命令" class="headerlink" title="4. date命令"></a>4. date命令</h3><pre><code>date [选项] 显示时间格式(+开头，后面接时间格式)
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-s / -set</td>
-<td>设置系统时间</td>
-</tr>
-<tr>
-<td>-d / -date</td>
-<td>显示描述日期</td>
-</tr>
-</tbody>
-</table>
-<h3 id="5-passwd命令"><a href="#5-passwd命令" class="headerlink" title="5. passwd命令"></a>5. passwd命令</h3><p>设置用户密码</p>
-<pre><code>passwd                // 普通用户
-passwd [用户名]        // root用户
-</code></pre><h3 id="6-su命令"><a href="#6-su命令" class="headerlink" title="6. su命令"></a>6. su命令</h3><p>改变用户身份</p>
-<pre><code>su [选项] [用户名]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>加载相应用户下环境变量</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>是目前shell成为改变身份后用户默认shell</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>改变身份运行一个指令就结束</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>改变用户身份，不改变环境变量</td>
-</tr>
-</tbody>
-</table>
-<h3 id="7-who命令"><a href="#7-who命令" class="headerlink" title="7. who命令"></a>7. who命令</h3><p>显示目前登录到系统的用户</p>
-<pre><code>who am i
-who am I
-who -m
-// 三条命令结果相同
-</code></pre><h3 id="8-w命令"><a href="#8-w命令" class="headerlink" title="8. w命令"></a>8. w命令</h3><p>显示登录到系统的用户信息</p>
-<h3 id="9-uname命令"><a href="#9-uname命令" class="headerlink" title="9. uname命令"></a>9. uname命令</h3><p>显示操作系统相关信息</p>
-<pre><code>ALW-VM% uname
-Linux
-
-ALW-VM% uname -a
-Linux ALW-VM 4.4.0-42-generic #62-Ubuntu SMP Fri Oct 7     23:11:45 UTC 2016 
-x86_64 x86_64 x86_64 GNU/Linux
-
-ALW-VM% uname -m
-x86_64
-
-ALW-VM% uname -n
-ALW-VM
-
-ALW-VM% uname -s
-Linux
-
-ALW-VM% uname -r
-4.4.0-42-generic
-</code></pre><h3 id="10-uptime命令"><a href="#10-uptime命令" class="headerlink" title="10. uptime命令"></a>10. uptime命令</h3><p>输出系统人物队列信息</p>
-<h3 id="11-last命令"><a href="#11-last命令" class="headerlink" title="11. last命令"></a>11. last命令</h3><p>读取/var/log/wtmp文件，列出记录登入系统的用户名单</p>
-<h3 id="12-dmesg命令"><a href="#12-dmesg命令" class="headerlink" title="12. dmesg命令"></a>12. dmesg命令</h3><p>显示开机信息</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>显示开机信息后，清除ring buffer信息</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>设置缓冲区大小，默认8192</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>设置记录信息的层级</td>
-</tr>
-</tbody>
-</table>
-<h3 id="13-free命令"><a href="#13-free命令" class="headerlink" title="13. free命令"></a>13. free命令</h3><pre><code>free [选项] [-s (间隔秒数)]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b</td>
-<td>以字节为单位显示内存使用情况</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>以MB为单位显示内存使用情况</td>
-</tr>
-<tr>
-<td>-k</td>
-<td>以KB为单位显示内存使用情况</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>显示内存总和列</td>
-</tr>
-<tr>
-<td>-s (间隔秒数)</td>
-<td>每隔_秒持续显示</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>不现实系统缓冲区队列</td>
-</tr>
-</tbody>
-</table>
-<h3 id="14-ps命令"><a href="#14-ps命令" class="headerlink" title="14. ps命令"></a>14. ps命令</h3><p>显示系统进程瞬间运行状态</p>
-<pre><code>ps [选项]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>以字节为单位显示内存使用情况</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>显示所有系统程序</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>显示使用者名称与起始时间</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>详细显示程序的路径群</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>只显示进程的名字不显示完整路径</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>除内核进程以外所有进程信息写到标准输出</td>
-</tr>
-</tbody>
-</table>
-<h2 id="三、文件管理与编辑"><a href="#三、文件管理与编辑" class="headerlink" title="三、文件管理与编辑"></a>三、文件管理与编辑</h2><h3 id="1-mkdir命令"><a href="#1-mkdir命令" class="headerlink" title="1. mkdir命令"></a>1. mkdir命令</h3><p>创建目录</p>
-<pre><code>mkdir [选项] 目录名
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-m</td>
-<td>对新建目录设置存取权限</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>递归创建不存在目录，一次创建多个</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-more-cat-less-命令"><a href="#2-more-cat-less-命令" class="headerlink" title="2. more cat less 命令"></a>2. more cat less 命令</h3><p>查看文件内容<br>cat可以把内容输出到标准输出，也可用于连接合并文件</p>
-<pre><code>cat 文件1 文件2 &gt;文件3
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-A</td>
-<td>制表符显示为^I，同时行尾显示一个$</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>非空号按顺序编号，从1开始</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-diff命令"><a href="#3-diff命令" class="headerlink" title="3. diff命令"></a>3. diff命令</h3><p>逐行比较文件差异，如果比较的是目录，则比较相同文件名的文件，但不会比较子目录</p>
-<pre><code>diff [选项] 文件1 文件2
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>显示全部内容，并标出不同</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>忽略行尾空格，字符串中一个或多个空格视为相同</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>当比较目录时会比较子目录文件</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>当两个文件相同，显示文件相同信息</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-grep命令"><a href="#4-grep命令" class="headerlink" title="4. grep命令"></a>4. grep命令</h3><p>文本过滤工具，根据指定字符串对文件每一行进行搜索，找到了，则输出</p>
-<pre><code>grep [选项] 需要查找的字符串文件名
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-A NUM</td>
-<td>除了列出符合条件的行外，同时列出每个符合条件行的后NUM行</td>
-</tr>
-<tr>
-<td>-b NUM</td>
-<td>与-A相反，列出之前NUM行</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>只显示行数，不列出具体信息</td>
-</tr>
-<tr>
-<td>-f file</td>
-<td>事先将要搜索样式写入一个文件，每行一个样式，根据文件搜索</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>忽略大小写</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>显示行号</td>
-</tr>
-</tbody>
-</table>
-<h3 id="5-rm命令"><a href="#5-rm命令" class="headerlink" title="5. rm命令"></a>5. rm命令</h3><p>删除文件/目录</p>
-<pre><code>rm [选项] 文件/目录
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-r</td>
-<td>递归删除，如果没有-r rm命令不能删除目录</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>忽略不存在的问题</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>交互式删除，删除前确认</td>
-</tr>
-</tbody>
-</table>
-<h3 id="6-touch命令"><a href="#6-touch命令" class="headerlink" title="6. touch命令"></a>6. touch命令</h3><p>改变指定文件访问时间和修改时间，如果不存在则创建此文件，如果没有指定时间使用当前时间</p>
-<pre><code>touch [选项] 设定的时间文件
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>改变文件访问时间为系统当前时间，无须设置时间选项</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>改变文件修改时间为系统当前时间，无须设置时间选项</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>如果文件不存在，不创建也不提示</td>
-</tr>
-<tr>
-<td>-d或-t</td>
-<td>使用指定日期或时间</td>
-</tr>
-<tr>
-<td>-r&lt;参考文件或目录&gt;</td>
-<td>把指定文件或目录的日期、时间设成与参考文件或目录相同</td>
-</tr>
-</tbody>
-</table>
-<h3 id="7-ln命令"><a href="#7-ln命令" class="headerlink" title="7. ln命令"></a>7. ln命令</h3><p>在文件或目录之间创建连接</p>
-<blockquote>
-<p>硬连接：通过文件inode号进行连接，多个文件指向同一个inode号，只有所有连接都删除后文件才会真的被删除<br>软连接：符号连接，类似于快捷方式</p>
-</blockquote>
-<pre><code>ln [选项] 源文件 目标连接名  // 默认硬连接
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-f</td>
-<td>在目标位置存在与连接名相同文件，这个文件将删除</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>软连接</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>建立目录的硬连接</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>对将在连接时会覆盖或删除的文件进行备份</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-file命令"><a href="#8-file命令" class="headerlink" title="8. file命令"></a>8. file命令</h3><p>显示文件类型，长度为0的文件识别为空文件，符号连接文件默认显示引用的真实文件路径</p>
-<pre><code>file [选项] 文件名
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b</td>
-<td>显示文件类型结果，不显示对应文件名称</td>
-</tr>
-<tr>
-<td>-L</td>
-<td>直接显示符号链接指向文件类型</td>
-</tr>
-<tr>
-<td>-z</td>
-<td>显示压缩文件信息</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>如果文件不是常规信息，则不进一步对文件类型进行分类</td>
-</tr>
-</tbody>
-</table>
-<h3 id="9-cp命令"><a href="#9-cp命令" class="headerlink" title="9. cp命令"></a>9. cp命令</h3><p>复制</p>
-<pre><code>cp [选项] 源文件或目录 目标文件或目录
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>复制目录时保罗所有信息，包含文件链接、文件属性、递归复制目录</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>给出源文件是个目录，则递归复制所有子目录与文件，目标文件必须为目录名</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>复制时保留链接</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>保留文件修改时间和存取权限</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>如果已有相同目标文件，提示用户是否覆盖</td>
-</tr>
-</tbody>
-</table>
-<h3 id="10-find命令"><a href="#10-find命令" class="headerlink" title="10. find命令"></a>10. find命令</h3><p>指定路径查找指定文件</p>
-<pre><code>find　路径名[-options] [-print -exec -ok 命令 {} \;]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-name ‘字符串’</td>
-<td>查找文件名匹配的文件</td>
-</tr>
-<tr>
-<td>-lname ‘字符串’</td>
-<td>查找文件名匹配的符号链接文件</td>
-</tr>
-<tr>
-<td>-gid n</td>
-<td>查找属于ID号为n的用户组的文件</td>
-</tr>
-<tr>
-<td>-uid n</td>
-<td>查找属于ID号为n的用户文件</td>
-</tr>
-<tr>
-<td>-empty</td>
-<td>查找大小为0的文件或目录</td>
-</tr>
-<tr>
-<td>-path ‘字符串’</td>
-<td>查找路径名匹配的文件</td>
-</tr>
-<tr>
-<td>-group ‘字符串’</td>
-<td>查找匹配用户组的文件</td>
-</tr>
-<tr>
-<td>-depth</td>
-<td>搜索目录深度</td>
-</tr>
-<tr>
-<td>-prune 目录</td>
-<td>指出搜索时忽略的目录</td>
-</tr>
-<tr>
-<td>-size n</td>
-<td>查找文件长度为n的文件，带有c时表示文件长度以字节计</td>
-</tr>
-<tr>
-<td>-user ‘字符串’</td>
-<td>查找匹配用户的字符串</td>
-</tr>
-<tr>
-<td>-mtime +n/-n</td>
-<td>按时间搜索，+n是n天之前，-n是今天到n天之前的</td>
-</tr>
-<tr>
-<td>-type 文件类型</td>
-<td>按文件类型搜索 b：块设备文件、 c：字符设备文件、f：普通文件、 l：符号文件、 d：目录、 p：管道、s：socket文件</td>
-</tr>
-<tr>
-<td>-print</td>
-<td>将搜索结果输出到标准输出</td>
-</tr>
-<tr>
-<td>-exec</td>
-<td>对符合条件文件执行所给Linux命令</td>
-</tr>
-<tr>
-<td>-ok</td>
-<td>对符合条件文件执行所给Linux命令，会询问用户是否执行</td>
-</tr>
-</tbody>
-</table>
-<h3 id="11-split命令"><a href="#11-split命令" class="headerlink" title="11. split命令"></a>11. split命令</h3><p>分割文件</p>
-<pre><code>split [选项] [输入文件] [输出文件]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-b size</td>
-<td>指定分割出来文件大小，size可加入单位，b代表512字节，k代表1KB，m代表1MB</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>指定分割每个文件长度，默认1000行</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>生成文件序列以数字形式命名</td>
-</tr>
-<tr>
-<td>-a</td>
-<td>指定生成文件序列长度，默认长度为2</td>
-</tr>
-</tbody>
-</table>
-<h3 id="12-mv命令"><a href="#12-mv命令" class="headerlink" title="12. mv命令"></a>12. mv命令</h3><p>对文件或目录执行改名或剪切操作</p>
-<pre><code>mv [选项] 源文件或目录 目标文件或目录
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i</td>
-<td>对已存在文件或目录，会询问是否覆盖</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>默认覆盖，无交互</td>
-</tr>
-</tbody>
-</table>
-<h2 id="四、压缩与解压"><a href="#四、压缩与解压" class="headerlink" title="四、压缩与解压"></a>四、压缩与解压</h2><h3 id="1-zip-unzip命令"><a href="#1-zip-unzip命令" class="headerlink" title="1. zip/unzip命令"></a>1. zip/unzip命令</h3><p>生成后缀名为 .zip 的压缩包</p>
-<pre><code>zip [选项] 压缩文件名 需要压缩的文档列表
-unzip [选项] 压缩文件吗
-</code></pre><p>zip命令选项：</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-r</td>
-<td>递归压缩，包括目录、子目录、文件</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>从压缩文件内删除指定文件</td>
-</tr>
-<tr>
-<td>-i “文件列表”</td>
-<td>只压缩文件列表内文件</td>
-</tr>
-<tr>
-<td>-x “文件列表”</td>
-<td>压缩时排除文件列表中指定的文件</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>更新文件到压缩文件中</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>压缩后删除原始文件</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>尝试修复受损的压缩文件</td>
-</tr>
-<tr>
-<td>-T</td>
-<td>检查压缩文件内每个文件是否正确</td>
-</tr>
-<tr>
-<td>- 压缩级别</td>
-<td>1-9数字 9最高</td>
-</tr>
-</tbody>
-</table>
-<p>unzip命令选项：</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-x “文件列表”</td>
-<td>解压文件，但不包括文件列表中指定的文件</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>测试是否损坏，不解压</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>查看压缩文件详细信息，不解压</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>解压时不覆盖已经存在文件</td>
-</tr>
-<tr>
-<td>-o</td>
-<td>解压时覆盖已存在文件，无用户交互</td>
-</tr>
-<tr>
-<td>-d 目录名</td>
-<td>把解压文件解压到指定目录</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-gzip-gunzip命令"><a href="#2-gzip-gunzip命令" class="headerlink" title="2. gzip/gunzip命令"></a>2. gzip/gunzip命令</h3><p>压缩文件预设扩展名为 .gz gunzip是gzip的硬链接，无论压缩还是解压都可以通过gzip实现<br>gzip只能压缩文件，不能压缩目录，即使指定目录也只能压缩目录内所有文件</p>
-<pre><code>gzip [选项] 压缩/解压文档名
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d</td>
-<td>解压</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归压缩目录下子目录所有文件</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>检查压缩文档完整性</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>对每个压缩和解压的文档，显示相应文件名和压缩比</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>显示压缩文件的压缩信息</td>
-</tr>
-<tr>
-<td>-num</td>
-<td>指定压缩比例 -1/-fast为最低压缩比，-9/-best是最高压缩比，默认为6</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-bzip2-bunzip2命令"><a href="#3-bzip2-bunzip2命令" class="headerlink" title="3. bzip2/bunzip2命令"></a>3. bzip2/bunzip2命令</h3><p>类似于gzip/gunzip，只能对文件进行压缩，默认后缀 .bz2<br>bunzip2是bzip2的符号链接，压缩解压都可以通过bzip2实现</p>
-<pre><code>bzip [选项] 压缩/解压的文件
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-d</td>
-<td>执行解压，此时选项后跟着解压缩文件</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>压缩或解压时显示详细信息</td>
-</tr>
-<tr>
-<td>-k</td>
-<td>压缩或解压后默认删除原始文件，此选项保留原始文件</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>bzip2压缩或解压后若输出文件与现文件同名，预设不会覆盖现有文件，该选项直接覆盖</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>测试压缩文件完整性</td>
-</tr>
-<tr>
-<td>-压缩级别</td>
-<td>1-9数字，数字越大，压缩率越高</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-tar命令"><a href="#4-tar命令" class="headerlink" title="4. tar命令"></a>4. tar命令</h3><p>tar是归档工具，归档为一个文件，但是不会压缩</p>
-<pre><code>tar [主选项+辅助选项] 文件或目录
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c</td>
-<td>新建文件</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>要归档文件追加到档案文件末尾</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>列出档案文件中已经归档的文件列表</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>从打包的档案文件中还原文件</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>更新档案文件，新建文件替换档案中的原始文件</td>
-</tr>
-</tbody>
-</table>
-<p>辅助选项：</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-z</td>
-<td>调用gzip 在文件打包的过程中压缩/解压文件</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>还原文件时，文件修改时间设为当前时间</td>
-</tr>
-<tr>
-<td>-j</td>
-<td>调用bzip2 在文件打包过程中压缩/解压文件</td>
-</tr>
-<tr>
-<td>-Z</td>
-<td>调用compress命令过滤档案</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>后面紧跟档案文件存储设备，-f 必须是tar最后一个选项</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>创建归档文件过程中，显示各个归档文件名称</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>文件归档规程中，文件属性不变</td>
-</tr>
-<tr>
-<td>-N “yyyy/mm/dd”</td>
-<td>指定日期后的文件才会被打包</td>
-</tr>
-<tr>
-<td>–exclude file</td>
-<td>打包过程中，忽略file文件</td>
-</tr>
-</tbody>
-</table>
-<pre><code>tar -zcvf [目录]/压缩包文件名.tar.gz 源文件     // 调用gzip压缩
-tar -zxvf [压缩包文件名.tar.gz] -C  [路径]/    // 解压到指定路径
-
-tar -jcvf [目录]/压缩包文件名.tar.bz2 源文件    // 调用bzip2压缩
-tar -jxvf [压缩包文件名.tar.bz2] -C [路径]/    // 解压到制定路径
-</code></pre><h3 id="5-dd命令"><a href="#5-dd命令" class="headerlink" title="5. dd命令"></a>5. dd命令</h3><p>转换或复制文件，同时对设备进行 备份</p>
-<pre><code>dd if=&quot;input_file&quot; of=&quot;output_file&quot; bs=&quot;block_size&quot; count=&quot;number&quot;
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>if</td>
-<td>输入文件，可以是设备，比如磁盘某分区或整个磁盘</td>
-</tr>
-<tr>
-<td>of</td>
-<td>输出文件，可以使输出设备，比如磁盘、磁带等</td>
-</tr>
-<tr>
-<td>bs</td>
-<td>指定一个block大小，默认512字节</td>
-</tr>
-<tr>
-<td>count</td>
-<td>bs的数量</td>
-</tr>
-</tbody>
-</table>
-<pre><code>dd if=/dev/sda2 of=/opt/sda2.back    // 备份/dev/sda2分区
-</code></pre><h3 id="6-cpio命令"><a href="#6-cpio命令" class="headerlink" title="6. cpio命令"></a>6. cpio命令</h3><p>以重定向方式打包、备份、还原、回复文件的工具，可以解压以 .cpio 或 .tar 结尾的文件</p>
-<pre><code>cpio [选项] &gt; 文件名或设备名
-cpio [选项] &lt; 文件名或设备名
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-o</td>
-<td>文件复制、打包成文件或把文件输出到设备</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>文件解压或把设备上的备份还原到系统</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>查看cpio打包的文件内容与输出到设备上的文件内容</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>显示打包过程中的文件名</td>
-</tr>
-<tr>
-<td>-d</td>
-<td>在cpio还原文件过程中，自动建立相应目录</td>
-</tr>
-<tr>
-<td>-c</td>
-<td>一种较新的存储方式</td>
-</tr>
-<tr>
-<td>-B</td>
-<td>默认块增大到5120字节，默认块为512字节，可以加快存取速度</td>
-</tr>
-</tbody>
-</table>
-<h2 id="五、磁盘管理与维护"><a href="#五、磁盘管理与维护" class="headerlink" title="五、磁盘管理与维护"></a>五、磁盘管理与维护</h2><h3 id="1-df命令"><a href="#1-df命令" class="headerlink" title="1. df命令"></a>1. df命令</h3><p>检查Linux系统的磁盘空间占用情况</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-h</td>
-<td>以容易理解格式输出文件系统分区占用情况</td>
-</tr>
-<tr>
-<td>-k</td>
-<td>以KB为单位输出文件系统分区占用情况</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>以MB为单位输出文件系统分区占用情况</td>
-</tr>
-<tr>
-<td>-a</td>
-<td>列出所有文件系统分区，包含0大小文件系统分区</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>列出文件系统分区的inode信息</td>
-</tr>
-<tr>
-<td>-T</td>
-<td>显示磁盘分区的文件系统类型</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-du命令"><a href="#2-du命令" class="headerlink" title="2. du命令"></a>2. du命令</h3><p>显示文件或目录所占用磁盘空间情况</p>
-<pre><code>du [选项] 文件或目录
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-s</td>
-<td>显示文件或整个目录的大小，单位为KB</td>
-</tr>
-<tr>
-<td>-b</td>
-<td>以字节尾单位显示文件大小或显示目录下所有文件大小</td>
-</tr>
-<tr>
-<td>-sh</td>
-<td>人性化格式显示文件或目录大小</td>
-</tr>
-<tr>
-<td>-sm</td>
-<td>以MB为单位显示文件或目录大小</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-fsck命令"><a href="#3-fsck命令" class="headerlink" title="3. fsck命令"></a>3. fsck命令</h3><p>检查文件系统并尝试修复错误</p>
-<pre><code>fsck [选项] [-t &lt;文件系统类型&gt;] [设备名]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>自动修复文件系统，无提示</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>交互式修复模式</td>
-</tr>
-<tr>
-<td>-A</td>
-<td>依照 /etc/fstab 配置文件内容，检查文件内所列全部文件系统</td>
-</tr>
-<tr>
-<td>-T</td>
-<td>执行fsck命令时不显示标题信息</td>
-</tr>
-<tr>
-<td>-V</td>
-<td>显示执行过程</td>
-</tr>
-<tr>
-<td>-N</td>
-<td>不执行指令，仅列出实际执行进行的动作</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-sync命令"><a href="#4-sync命令" class="headerlink" title="4. sync命令"></a>4. sync命令</h3><p>强制把内存中的数据写回硬盘，防止数据丢失</p>
-<pre><code>sync
-</code></pre><h3 id="5-eject命令"><a href="#5-eject命令" class="headerlink" title="5. eject命令"></a>5. eject命令</h3><p>退出抽取式设备，如果已经挂载，则先卸载再退出</p>
-<pre><code>eject [选项] 设备名
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-c &lt;光驱编号&gt;</td>
-<td>若有多个光驱需要指定光驱号</td>
-</tr>
-<tr>
-<td>-d 或 –default</td>
-<td>显示默认设备，误操作</td>
-</tr>
-<tr>
-<td>-f 或 –floppy</td>
-<td>退出抽取式软盘</td>
-</tr>
-<tr>
-<td>-q 或 –tape</td>
-<td>退出磁带</td>
-</tr>
-<tr>
-<td>-r 或 –cdrom</td>
-<td>退出光盘</td>
-</tr>
-<tr>
-<td>-t 或 –trayclose</td>
-<td>关闭光盘托盘</td>
-</tr>
-<tr>
-<td>-n 或 –noop</td>
-<td>显示指定设备名对应的设备文件路径，默认显示光盘的设备文件路径</td>
-</tr>
-</tbody>
-</table>
-<h3 id="6-mount-unmout命令"><a href="#6-mount-unmout命令" class="headerlink" title="6. mount/unmout命令"></a>6. mount/unmout命令</h3><p>挂载/卸载指定文件系统</p>
-<pre><code>mount [选项] [-L&lt;标签&gt;] [-o&lt;选项&gt;] [-t&lt;文件系统类型&gt;] [设备名] [挂载点]
-// 标签是磁盘分区标识的别名，随便起  -o选项是指加载文件系统时的选项  文件系统类型是指设备的文件系统类型
-
-umount [挂载点]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>加载文件 /etc/fstab 指定所有设备</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>不将加载信息记录在 /etc/mtab 文件中</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>只读方式打开设备</td>
-</tr>
-<tr>
-<td>-w</td>
-<td>可读写模式加载设备，输入mount默认设置</td>
-</tr>
-<tr>
-<td>-f 或-v</td>
-<td>不加载设备，仅查看mount挂载状态</td>
-</tr>
-</tbody>
-</table>
-<h2 id="六、网络设置与维护"><a href="#六、网络设置与维护" class="headerlink" title="六、网络设置与维护"></a>六、网络设置与维护</h2><h3 id="1-ifconfig命令"><a href="#1-ifconfig命令" class="headerlink" title="1. ifconfig命令"></a>1. ifconfig命令</h3><p>配置网络或显示当前网络接口状态</p>
-<pre><code>ifconfig [选项] [interface] [inet|up|down|netmask|adr|broadcast]
-// interface：网络接口名 eth0，添加后仅显示指定网卡信息
-// up：激活一个网络接口
-// down：关闭一个网络接口
-// netmask：为一个指定的网络接口指定子网掩码
-// addr：网络接口指定的IP地址
-// broadcast： 为指定的接口设置广播地址
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>显示所有网络接口信息，包括活动与非活动</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>仅显示每个活动接口摘要信息</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>如果某个网络接口出现错误，返回错误信息</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-scp命令"><a href="#2-scp命令" class="headerlink" title="2. scp命令"></a>2. scp命令</h3><p>secure copy，用于把目录或文件从一个Linux复制到另一个Linux，传输数据采用SSH协议</p>
-<pre><code>// 远程复制到本地
-scp 远程用户名@ip地址:文件绝对路径 本地Linux系统路径
-
-// 本地复制到远程
-scp 本地Linux系统路径 远程用户名@ip地址:远程文件绝对路径名
-</code></pre><h3 id="3-netstat命令"><a href="#3-netstat命令" class="headerlink" title="3. netstat命令"></a>3. netstat命令</h3><p>显示本机网络连接、运行端口和路由表信息</p>
-<pre><code>netstat [选项]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>显示本机所有连接和监听接口</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>以网络IP地址形式显示当前建立的有效连接和端口</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>显示路由表信息</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>显示按协议的统计信息</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>显示当前有效连接</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>显示所有TCP连接</td>
-</tr>
-<tr>
-<td>-u</td>
-<td>显示所有UDP连接</td>
-</tr>
-<tr>
-<td>-c 秒数</td>
-<td>每隔几秒刷新一次</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>显示自动配置接口状态</td>
-</tr>
-<tr>
-<td>-l</td>
-<td>仅显示连接状态为LISTEN的服务的网络状态</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>显示连接对应的PID与程序名</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-traceroute命令"><a href="#4-traceroute命令" class="headerlink" title="4. traceroute命令"></a>4. traceroute命令</h3><p>显示网络数据包传输到指定主机的路径信息，追踪数据传输路由状况，预设数据包大小为38字节</p>
-<pre><code>traceroute [选项] [远程主机名或IP地址] [数据包大小]
-</code></pre><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-i 网络接口</td>
-<td>使用指定的网络接口发送数据包</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>直接使用IP地址而不是用主机名</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>详细显示命令的执行过程</td>
-</tr>
-<tr>
-<td>-w 超时描述</td>
-<td>设置等待远程主机回应的时间</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>开启或关闭对数据包的正确检验</td>
-</tr>
-<tr>
-<td>-s 源IP</td>
-<td>设置本地主机发送数据包的IP地址</td>
-</tr>
-<tr>
-<td>-g 网关地址</td>
-<td>设置来源的路由王冠，最多8个</td>
-</tr>
-</tbody>
-</table>
-<h3 id="5-telnet命令"><a href="#5-telnet命令" class="headerlink" title="5. telnet命令"></a>5. telnet命令</h3><p>通过telnet协议与远程主机通信或获得远程主机对应端口信息</p>
-<pre><code>telnet 主机名或IP地址 端口
-</code></pre><h3 id="6-wget命令"><a href="#6-wget命令" class="headerlink" title="6. wget命令"></a>6. wget命令</h3><p>下载</p>
-<pre><code>wget [要下载软件网址]
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/07/循序渐进Linux2：Linux的常用命令及使用技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-循序渐进Linux1：Linux的基本结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/05/循序渐进Linux1：Linux的基本结构/">循序渐进Linux 1：Linux的基本结构</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/05/循序渐进Linux1：Linux的基本结构/" class="archive-article-date">
-  	<time datetime="2016-11-05T10:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>2016.11.5</em></p>
-<h2 id="一、分区命名："><a href="#一、分区命名：" class="headerlink" title="一、分区命名："></a>一、分区命名：</h2><p>Linux的硬盘命名方案是基于文件的，一般命名方式如下：</p>
-<pre><code>/dev/hda2
-/dev/sdb3
-</code></pre><blockquote>
-<p>/dev：所有设备文件存放目录<br>hd与sd：代表分区所在的设备类型。hd代表IDE硬盘，sd代表SCSI硬盘<br>a：表示分区在哪个设备上，比如/dev/hda代表第1块IDE硬盘<br>2：代表分区，Linux下前4个分区（主分区或扩展分区）用数字1-4表示，逻辑分区从5开始  </p>
-</blockquote>
-<p> /dev/hda2表示第1块<code>IDE</code>硬盘的第2个主分区或扩展分区<br> /dev/sdc6表示第3块<code>SCSI</code>硬盘的第2个逻辑分区  </p>
-<h2 id="二、Linux控制台"><a href="#二、Linux控制台" class="headerlink" title="二、Linux控制台"></a>二、Linux控制台</h2><p> 默认Linux下有6个字符控制台，独立作业，互不影响  </p>
-<p>Ctrl+Alt+F1~F6切换，Ctrl+Alt+F7从字符界面切换到X-window  </p>
-<h2 id="三、系统与硬件"><a href="#三、系统与硬件" class="headerlink" title="三、系统与硬件"></a>三、系统与硬件</h2><h3 id="1-Linux硬件资源管理"><a href="#1-Linux硬件资源管理" class="headerlink" title="1. Linux硬件资源管理"></a>1. Linux硬件资源管理</h3><h4 id="1-1-列出所有PCI设备"><a href="#1-1-列出所有PCI设备" class="headerlink" title="1.1 列出所有PCI设备"></a>1.1 列出所有PCI设备</h4><pre><code>lspci
-lspci -v // 更详细
-</code></pre><h4 id="1-2-查看CPU信息"><a href="#1-2-查看CPU信息" class="headerlink" title="1.2 查看CPU信息"></a>1.2 查看CPU信息</h4><pre><code>more /proc/cpuinfo
-</code></pre><blockquote>
-<p>processor：   逻辑处理器唯一标识符<br>physical id：  每个物理封装的唯一标识符，也就是一个物理CPU<br>siblings：　   相同物理封装中的逻辑处理器数量<br>core id：　　 每个内核唯一标识符<br>cpu cores：　相同物理封装中的内核数量  </p>
-</blockquote>
-<p>在<code>siblings</code>和<code>cpu cores</code>值之间有对应关系，<br>如果<code>siblings</code>是<code>cpu cores</code>的两倍，则说明系统支持超线程，并且已打开<br>如果<code>siblings</code>与<code>cpu cores</code>值相同，则说明系统不支持超线程，或未打开超线程<br>查看物理CPU个数、查看每个物理CPU中内核的个数、查看系统所有逻辑CPU的个数（所有物理CPU内核个数+超线程个数）</p>
-<pre><code>// 查看物理CPU个数
-cat /proc/cpuinfo | grep &quot;physical id&quot; | sort | uniq | wc -l
-
-// 查看每个物理CPU中内核个数
-cat /proc/cpuinfo | grep &quot;cpu cores&quot;
-
-//查看系统所有逻辑CPU个数
-cat /proc/cpuinfo | grep processor | wc -l
-</code></pre><h4 id="1-3-查看系统内存信息"><a href="#1-3-查看系统内存信息" class="headerlink" title="1.3 查看系统内存信息"></a>1.3 查看系统内存信息</h4><pre><code>more /proc/meminfo
-</code></pre><h4 id="1-4-查看磁盘分区信息"><a href="#1-4-查看磁盘分区信息" class="headerlink" title="1.4 查看磁盘分区信息"></a>1.4 查看磁盘分区信息</h4><pre><code>fdisk -l
-</code></pre><h3 id="2-Linux外在设备的使用"><a href="#2-Linux外在设备的使用" class="headerlink" title="2. Linux外在设备的使用"></a>2. Linux外在设备的使用</h3><p>设备文件在Linux系统下的/dev下，命名方式是主设备号+次设备号，主设备号说明设备类型，次设备号说明具体指哪个设备</p>
-<blockquote>
-<p>软盘：　　/dev/fd(1,2..)<br>U盘：　　 /dev/sd(a,b..)(1,2..)　　U盘在Linux下识别为SCSI设备<br>光驱：　　IDE光驱对应/dev/hd(a,b..)，SCSI光驱对应/dev/sr(1,2..)<br>磁带：　　/dev/st(1,2..)  </p>
-</blockquote>
-<h4 id="2-1-文件系统类型"><a href="#2-1-文件系统类型" class="headerlink" title="2.1 文件系统类型"></a>2.1 文件系统类型</h4><table>
-<thead>
-<tr>
-<th>文件系统格式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>msdos</td>
-<td>DOS文件系统类型</td>
-</tr>
-<tr>
-<td>vfat</td>
-<td>支持长文件名的DOS分区文件系统类型，也可以理解为Windows文件系统类型</td>
-</tr>
-<tr>
-<td>iso9660</td>
-<td>光盘格式文件系统类型</td>
-</tr>
-<tr>
-<td>ext2/ext3/ext4</td>
-<td>Linux常见文件系统类型</td>
-</tr>
-<tr>
-<td>xfs</td>
-<td>Linux下一种高性能日志文件系统，CentOS 7后作为默认文件系统</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2-2-挂载设备："><a href="#2-2-挂载设备：" class="headerlink" title="2.2 挂载设备："></a>2.2 挂载设备：</h4><pre><code>mount -t 文件系统类型 设备名 挂载点
-</code></pre><blockquote>
-<p>/mnt:    专门作为临时挂载点目录<br>/media: 自动挂载目录</p>
-</blockquote>
-<pre><code>mount -t msdos /dev/fd0 /mnt/floppu    // 挂载软盘
-mount -t vfat /dev/sda1 /mnt/usb       // 挂载U盘
-mount -t iso9660 /dev/hda /mnt/cdrom   // 挂载光盘
-mount /dev/cdrom /mnt/cdrom            // 挂载光盘
-</code></pre><h4 id="2-3-卸载设备："><a href="#2-3-卸载设备：" class="headerlink" title="2.3 卸载设备："></a>2.3 卸载设备：</h4><pre><code>umount 挂载目录
-umount /mnt/usb            // 卸载U盘
-umount /mnt/cdrom          // 卸载光盘
-</code></pre><h2 id="四、文件系统结构"><a href="#四、文件系统结构" class="headerlink" title="四、文件系统结构"></a>四、文件系统结构</h2><p>Linux系统以文件的形式全部存放在根目录下，同时分类分层组织成了一个树形目录结构</p>
-<blockquote>
-<p><strong>/etc</strong> ：　　存放系统管理相关配置文件以及子目录（重要的有初始化文件/etc/rc 用户信息/etc/passwd 守护进程/etc/crontab DNS配置文件/etc/resolv.conf）<br><strong>/usr</strong>：　　 主要存放应用程序和文件<br><strong>/var</strong>：　　 主要存放系统运行与软件运行的日志信息<br><strong>/dev</strong>：　　主要存放系统设备文件<br><strong>proc</strong>：　   是一个<code>虚拟</code>目录，目录中所有信息都是内存的映射，可以获得进程相关信息并且也可以在系统运行的时候修改内核参数，<code>/proc目录存在于内存而不是硬盘</code><br><strong>/boot</strong>：　　存放Linux启动文件<br><strong>/bin与/sbin</strong>：　存放可执行的二进制文件，是binary的缩写。 /bin目录存放的是常用Linux命令，/sbin目录中的s是指超级用户，只有超级用户才能执行这些，常见如磁盘检查修复fcsk，磁盘分区fdisk，创建文件系统mkfs，关机shutdown，初始化系统init<br><strong>/home</strong>：　 每个用户的工作目录<br><strong>/lib</strong>：　　   共享程序库与映像文件<br><strong>/root</strong>：　　 超级用户默认主目录<br><strong>/run</strong>：　　 外在设备自动挂载点目录，/media与/run基本类似，/mnt是手动挂载点<br><strong>/lost+found</strong>： 用于保存丢失的文件，比如不恰当关机与磁盘错误导致文件丢失，之后会放在这里，除了/根目录外，每个分区均有这个目录<br><strong>/tmp</strong>：　　临时文件目录  </p>
-</blockquote>
-<h2 id="五、系统服务管理工具systemd"><a href="#五、系统服务管理工具systemd" class="headerlink" title="五、系统服务管理工具systemd"></a>五、系统服务管理工具systemd</h2><h3 id="1-启动、停止、重启、重新加载服务"><a href="#1-启动、停止、重启、重新加载服务" class="headerlink" title="1. 启动、停止、重启、重新加载服务"></a>1. 启动、停止、重启、重新加载服务</h3><pre><code>systemctl start httpd.service            // 启动
-systemctl stop  httpd.service            // 停止
-systemctl restart httpd.service          // 重启（服务没运行则开启）
-systemctl reload httpd.service           // 重新加载配置文件
-</code></pre><h3 id="2-查看、禁止、启用服务"><a href="#2-查看、禁止、启用服务" class="headerlink" title="2. 查看、禁止、启用服务"></a>2. 查看、禁止、启用服务</h3><p>这里的启用、禁用服务是指开机启动</p>
-<pre><code>systemctl enable http.service         // 启用服务
-systemctl disable http.service        // 禁止服务
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/05/循序渐进Linux1：Linux的基本结构/">展开全文 >></a>
         </p>
       
 
@@ -3225,6 +2373,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">比特币</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Falcon</a>
               </li>
             
             <div class="clearfix"></div>
